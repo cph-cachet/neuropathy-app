@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:neuro_planner/ui/widgets/toggle_button.dart';
 import 'package:neuro_planner/ui/widgets/vibration_button.dart';
-import 'package:neuro_planner/utils/spacing.dart';
 import 'package:neuro_planner/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
-import 'package:vibration/vibration.dart';
-import 'package:async/async.dart';
-
 import '../step/steps/rp_vibration_step.dart';
-import '../utils/themes/styles.dart';
+import '../utils/spacing.dart';
 
+// TODO: Decide if vertical padding is more useful than alignment
 class RPUIVibrationStep extends StatefulWidget {
   final RPVibrationStep vibrationStep;
   RPUIVibrationStep(this.vibrationStep);
@@ -34,9 +32,7 @@ class RPUIVibrationStepState extends State<RPUIVibrationStep>
 
   @override
   void initState() {
-    // Instantiating the result object here to start the time counter (startDate)
     super.initState();
-
     result = RPStepResult(
         identifier: widget.vibrationStep.identifier,
         questionTitle: widget.vibrationStep.title,
@@ -46,63 +42,57 @@ class RPUIVibrationStepState extends State<RPUIVibrationStep>
 
   @override
   Widget build(BuildContext context) {
-    // List<Widget> answers =
-    //     (widget.vibrationStep.answerFormat as RPChoiceAnswerFormat)
-    //         .choices
-    //         .map((choice) => Text(choice.text))
-    //         .toList();
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            Expanded(
-              child: Image.asset(
-                  widget.vibrationStep.vibrationSection.imagePath,
-                  fit: BoxFit.cover),
+            Column(
+              children: [
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                      maxHeight: MediaQuery.of(context).size.height * 0.35),
+                  child: Image.asset(
+                      widget.vibrationStep.vibrationSection.imagePath,
+                      fit: BoxFit.cover),
+                ),
+                Text(widget.vibrationStep.title,
+                    style: ThemeTextStyle.headline24sp),
+              ],
             ),
-            verticalSpacing(8),
-            Text(widget.vibrationStep.title,
-                style: ThemeTextStyle.headline24sp),
-            verticalSpacing(16),
+            //verticalSpacing(8),
+            //verticalSpacing(16),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Text(
                 widget.vibrationStep.text ?? '',
                 style: ThemeTextStyle.regularIBM18sp,
                 textAlign: TextAlign.center,
               ),
             ),
-            verticalSpacing(24),
+            //verticalSpacing(24),
             const VibrationButton(),
-            verticalSpacing(24),
+            //verticalSpacing(24),
             Text(
               'Can you feel the vibration?',
               style: ThemeTextStyle.regularIBM18sp,
               textAlign: TextAlign.center,
             ), // TODO: change to processing locale
-            Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: RPUIChoiceQuestionBody(
-                    (widget.vibrationStep.answerFormat as RPChoiceAnswerFormat),
-                    (result) {
+            //verticalSpacing(24),
+            ToggleButton(
+                answerFormat:
+                    widget.vibrationStep.answerFormat as RPChoiceAnswerFormat,
+                onPressed: (result) {
                   currentQuestionBodyResult = result;
-                })
-                // TODO: toggle buttons, move to separate widget component
-                //   child: ToggleButtons(
-                //     direction: Axis.horizontal,
-                //     onPressed: (index) {},
-                //     children: answers,
-                //     isSelected: List.generate(answers.length, (index) => false),
-                //   ),
-                )
+                }),
+            verticalSpacing(8)
           ],
         ),
       ),
     );
   }
 
-  @override // TODO: implement
+  @override
   void createAndSendResult() {
     result.questionTitle = widget.vibrationStep.title;
     result.setResult(_currentQuestionBodyResult);

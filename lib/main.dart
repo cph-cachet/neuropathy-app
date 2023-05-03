@@ -122,8 +122,6 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            ToggleButton(
-                options: <String>['YES', 'NO', 'MAYBE'], onPressed: () {}),
             Text(
               'Press the button below to have phone vibrate for ${widget.vibDuration / 1000} seconds',
               style: Theme.of(context).textTheme.headline5,
