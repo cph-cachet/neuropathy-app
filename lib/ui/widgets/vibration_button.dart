@@ -52,9 +52,13 @@ class VibrationButtonState extends State<VibrationButton> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      // TODO: Change colors when vibrating
       onPressed: _isVibrating ? _vibrateStop : _vibrate,
-      style: Styles.roundedButtonStyle,
+      style: Styles.roundedButtonStyle.copyWith(
+          backgroundColor: MaterialStateProperty.all<Color>(
+        _isVibrating
+            ? Theme.of(context).colorScheme.error
+            : Theme.of(context).colorScheme.primary,
+      )),
       child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.4,
         child: Padding(
