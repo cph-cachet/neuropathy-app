@@ -1,18 +1,18 @@
-import 'RPPrickQuestionStep.dart';
+import 'RPImageQuestionStep.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:research_package/research_package.dart';
 
-class RPUIPrickQuestionStep extends StatefulWidget {
-  final RPPrickQuestionStep step;
+class RPUIImageQuestionStep extends StatefulWidget {
+  final RPImageQuestionStep step;
 
-  const RPUIPrickQuestionStep(this.step, {super.key});
+  const RPUIImageQuestionStep(this.step, {super.key});
 
   @override
-  RPUIPrickQuestionStepState createState() => RPUIPrickQuestionStepState();
+  RPUIImageQuestionStepState createState() => RPUIImageQuestionStepState();
 }
 
-class RPUIPrickQuestionStepState extends State<RPUIPrickQuestionStep>
+class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
     with CanSaveResult {
   // Dynamic because we don't know what value the RPChoice will have
   dynamic _currentQuestionBodyResult;
@@ -46,32 +46,36 @@ class RPUIPrickQuestionStepState extends State<RPUIPrickQuestionStep>
     blocQuestion.sendReadyToProceed(false);
   }
 
-  Image prickSectionImage(PrickSection prickSection) {
-    switch (prickSection) {
-      case PrickSection.Left1:
+  Image getLegImage(LegImage legImage) {
+    switch (legImage) {
+      case LegImage.Left1:
         return Image.asset('assets/LeftLeg1.png', scale: 0.9);
-      case PrickSection.Left2:
+      case LegImage.Left2:
         return Image.asset('assets/LeftLeg2.png', scale: 0.9);
-      case PrickSection.Left3:
+      case LegImage.Left3:
         return Image.asset('assets/LeftLeg3.png', scale: 0.9);
-      case PrickSection.Left4:
+      case LegImage.Left4:
         return Image.asset('assets/LeftLeg4.png', scale: 0.9);
-      case PrickSection.Left5:
+      case LegImage.Left5:
         return Image.asset('assets/LeftLeg5.png', scale: 0.9);
-      case PrickSection.Left6:
+      case LegImage.Left6:
         return Image.asset('assets/LeftLeg6.png', scale: 0.9);
-      case PrickSection.Right1:
+      case LegImage.Right1:
         return Image.asset('assets/RightLeg1.png', scale: 0.9);
-      case PrickSection.Right2:
+      case LegImage.Right2:
         return Image.asset('assets/RightLeg2.png', scale: 0.9);
-      case PrickSection.Right3:
+      case LegImage.Right3:
         return Image.asset('assets/RightLeg3.png', scale: 0.9);
-      case PrickSection.Right4:
+      case LegImage.Right4:
         return Image.asset('assets/RightLeg4.png', scale: 0.9);
-      case PrickSection.Right5:
+      case LegImage.Right5:
         return Image.asset('assets/RightLeg5.png', scale: 0.9);
-      case PrickSection.Right6:
+      case LegImage.Right6:
         return Image.asset('assets/RightLeg6.png', scale: 0.9);
+      case LegImage.LeftGreatToe:
+        return Image.asset('assets/LeftGreatToe.png', scale: 0.9);
+      case LegImage.RightGreatToe:
+        return Image.asset('assets/RightGreatToe.png', scale: 0.9);
       default:
         return Image.asset('DTUlogo.png');
     }
@@ -125,7 +129,7 @@ class RPUIPrickQuestionStepState extends State<RPUIPrickQuestionStep>
           padding: const EdgeInsets.only(bottom: 24, left: 8, right: 8),
           child: Column(
             children: [
-              prickSectionImage(widget.step.prickSection),
+              getLegImage(widget.step.legImage),
               const SizedBox.square(dimension: 16),
               Text(locale?.translate(widget.step.title) ?? widget.step.title,
                   style: Theme.of(context).textTheme.titleLarge),

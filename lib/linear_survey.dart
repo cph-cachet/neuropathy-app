@@ -1,5 +1,5 @@
 //import 'package:carp_test_1/RPQuestionStepExt.dart';
-import 'RPPrickQuestionStep.dart';
+import 'RPImageQuestionStep.dart';
 import 'package:research_package/research_package.dart';
 import 'package:research_package/model.dart';
 
@@ -18,12 +18,12 @@ List<RPChoice> siReNo = [
 ];
 RPChoiceAnswerFormat siReNoAnswerFormat = RPChoiceAnswerFormat(
     answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: siReNo);
-RPPrickQuestionStep left1 = RPPrickQuestionStep(
+RPImageQuestionStep left1 = RPImageQuestionStep(
     identifier: 'left1ID',
     title: 'Left leg',
     text:
         'Prick multiple spots in the blue area and select your prick sensitivity compared to the reference area. Only compare the sharpness of the prick sensation, not touch.',
-    prickSection: PrickSection.Left1,
+    legImage: LegImage.Left1,
     answerFormat: siReNoAnswerFormat);
 /*
 RPQuestionStep leftLeg1 = RPQuestionStep(
@@ -82,6 +82,21 @@ RPInstructionStep vibrationInstructionStep = RPInstructionStep(
       'This begins the vibration sensation test.\n\nYou will test three points on each leg.\n\nWhen pressing the phone to your leg, use the backside of the phone.',
 );
 
+// Motor
+List<RPChoice> yesNo = [
+  RPChoice(text: 'Yes', value: 0),
+  RPChoice(text: 'No', value: 1),
+];
+RPChoiceAnswerFormat yesNoFormat = RPChoiceAnswerFormat(
+    answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: yesNo);
+RPImageQuestionStep leftmotor = RPImageQuestionStep(
+    identifier: 'leftMotorID',
+    title: 'Left Great Toe',
+    legImage: LegImage.LeftGreatToe,
+    text:
+        'Apply firm pressure with your fingers to the great toe.\n\nIs it difficult to overcome the pressure?',
+    answerFormat: yesNoFormat);
+
 // Completion
 RPCompletionStep completionStep = RPCompletionStep(
     identifier: 'completionID',
@@ -100,6 +115,7 @@ RPNavigableOrderedTask linearSurveyTask = RPNavigableOrderedTask(
       painSlider,
       pain1,
       vibrationInstructionStep,
+      leftmotor,
       completionStep
     ])
   ..setNavigationRuleForTriggerStepIdentifier(noPain, skipPainStep.identifier);

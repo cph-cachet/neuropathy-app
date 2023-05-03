@@ -1,32 +1,32 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:research_package/research_package.dart';
 
-import 'RPUIPrickQuestionStep.dart';
+import 'RPUIImageQuestionStep.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake, includeIfNull: false)
-class RPPrickQuestionStep extends RPStep {
+class RPImageQuestionStep extends RPStep {
   RPAnswerFormat answerFormat;
 
-  PrickSection prickSection;
+  LegImage legImage;
 
-  RPPrickQuestionStep({
+  RPImageQuestionStep({
     required super.identifier,
     required super.title,
     super.text,
-    required this.prickSection,
+    required this.legImage,
     super.optional,
     required this.answerFormat,
   });
 
   @override
-  get stepWidget => RPUIPrickQuestionStep(this);
+  get stepWidget => RPUIImageQuestionStep(this);
 
   @override // TODO: implement fromJsonFunction
   Function get fromJsonFunction => super.fromJsonFunction;
   // TODO: factory function and Map
 }
 
-enum PrickSection {
+enum LegImage {
   Left1,
   Left2,
   Left3,
@@ -38,5 +38,7 @@ enum PrickSection {
   Right3,
   Right4,
   Right5,
-  Right6
+  Right6,
+  LeftGreatToe,
+  RightGreatToe
 }
