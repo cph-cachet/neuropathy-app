@@ -1,7 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:vibration/vibration.dart';
+
+import 'examination_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,9 +28,17 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
         colorScheme: const ColorScheme(
-          brightness: Brightness.light, primary: Colors.lightBlue,
-          onPrimary: Colors.white, secondary: Colors.lightGreen, onSecondary: Colors.white, error: Colors.red, onError: Colors.redAccent,
-          background: Colors.white, onBackground: Colors.blue,  surface: Colors.white70, onSurface: Colors.black,
+          brightness: Brightness.light,
+          primary: Colors.lightBlue,
+          onPrimary: Colors.white,
+          secondary: Colors.lightGreen,
+          onSecondary: Colors.white,
+          error: Colors.red,
+          onError: Colors.redAccent,
+          background: Colors.white,
+          onBackground: Colors.blue,
+          surface: Colors.white70,
+          onSurface: Colors.black,
         ),
       ),
       home: const MyHomePage(title: 'Vibration Trigger App'),
@@ -60,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool _isVibrating = false;
 
   void _vibrate() {
-    if(_isVibrating) {
+    if (_isVibrating) {
       Vibration.cancel();
       setState(() {
         _isVibrating = false;
@@ -113,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Press the button below to have phone vibrate for ${widget.vibDuration/1000} seconds',
+              'Press the button below to have phone vibrate for ${widget.vibDuration / 1000} seconds',
               style: Theme.of(context).textTheme.headline5,
               textAlign: TextAlign.center,
             ),
@@ -122,6 +131,12 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: _vibrate,
               tooltip: (_isVibrating) ? "Stop Vibration" : "Start Vibration",
               child: Icon((_isVibrating) ? Icons.pause : Icons.play_arrow),
+            ),
+            ElevatedButton(
+              child: Text('Begin new examination'),
+              onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute<dynamic>(
+                      builder: (context) => ExaminationPage())),
             ),
           ],
         ),
