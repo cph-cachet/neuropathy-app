@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:neuro_planner/ui/widgets/toggle_button.dart';
 import 'package:vibration/vibration.dart';
 
 import 'examination_page.dart';
@@ -121,6 +122,8 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            ToggleButton(
+                options: <String>['YES', 'NO', 'MAYBE'], onPressed: () {}),
             Text(
               'Press the button below to have phone vibrate for ${widget.vibDuration / 1000} seconds',
               style: Theme.of(context).textTheme.headline5,
