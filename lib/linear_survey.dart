@@ -1,4 +1,5 @@
 //import 'package:carp_test_1/RPQuestionStepExt.dart';
+import 'RPPainSliderQuestionStep.dart';
 import 'RPPrickQuestionStep.dart';
 import 'package:research_package/research_package.dart';
 import 'package:research_package/model.dart';
@@ -55,7 +56,7 @@ RPQuestionStep skipPainStep = RPQuestionStep(
 
 RPSliderAnswerFormat painSliderFormat =
     RPSliderAnswerFormat(minValue: 0, maxValue: 100, divisions: 100);
-RPQuestionStep painSlider = RPQuestionStep(
+RPPainSliderQuestionStep painSlider = RPPainSliderQuestionStep(
     identifier: 'painSlider',
     title: 'On the scale below, mark your pain level.',
     answerFormat: painSliderFormat);
