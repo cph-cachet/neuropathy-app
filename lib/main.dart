@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:neuro_planner/ui/widgets/toggle_button.dart';
 import 'package:vibration/vibration.dart';
 
 import 'examination_page.dart';
@@ -29,12 +30,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         colorScheme: const ColorScheme(
           brightness: Brightness.light,
-          primary: Colors.lightBlue,
+          primary: Color(0xff22577a),
           onPrimary: Colors.white,
           secondary: Colors.lightGreen,
           onSecondary: Colors.white,
           error: Colors.red,
-          onError: Colors.redAccent,
+          onError: Colors.white,
           background: Colors.white,
           onBackground: Colors.blue,
           surface: Colors.white70,
