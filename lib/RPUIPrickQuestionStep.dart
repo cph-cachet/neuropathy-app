@@ -147,7 +147,7 @@ class RPUIPrickQuestionStepState extends State<RPUIPrickQuestionStep>
     ]));
   }
 
-  @override // TODO: implement
+  @override
   void createAndSendResult() {
     result.questionTitle = widget.step.title;
     result.setResult(_currentQuestionBodyResult);
