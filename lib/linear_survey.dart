@@ -127,19 +127,19 @@ RPInstructionStep vibrationInstructionStep = RPInstructionStep(
 );
 
 // Motor
-List<RPChoice> yesNo = [
-  RPChoice(text: 'Yes', value: 0),
-  RPChoice(text: 'No', value: 1),
+List<RPChoice> motorYesNo = [
+  RPChoice(text: 'Yes', value: 1),
+  RPChoice(text: 'No', value: 0),
 ];
-RPChoiceAnswerFormat yesNoFormat = RPChoiceAnswerFormat(
-    answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: yesNo);
+RPChoiceAnswerFormat motorYesNoFormat = RPChoiceAnswerFormat(
+    answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: motorYesNo);
 RPImageQuestionStep leftmotor = RPImageQuestionStep(
     identifier: 'leftMotorID',
     title: 'Left Great Toe',
     legImage: LegImage.leftGreatToe,
     text:
         'Apply firm pressure with your fingers to the great toe.\n\nIs it difficult to overcome the pressure?',
-    answerFormat: yesNoFormat);
+    answerFormat: motorYesNoFormat);
 
 // Completion
 RPCompletionStep completionStep = RPCompletionStep(
