@@ -1,9 +1,9 @@
-import 'RPImageQuestionStep.dart';
+import '../step/steps/rp_image_question_step.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:research_package/research_package.dart';
 
-import 'utils/themes/text_styles.dart';
+import '../utils/themes/text_styles.dart';
 
 class RPUIImageQuestionStep extends StatefulWidget {
   final RPImageQuestionStep step;

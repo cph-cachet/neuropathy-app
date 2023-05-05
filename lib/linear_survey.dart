@@ -2,7 +2,7 @@
 import 'package:neuro_planner/step/steps/rp_vibration_step.dart';
 
 import 'step/steps/rp_pain_slider_question_step.dart';
-import 'RPImageQuestionStep.dart';
+import 'step/steps/rp_image_question_step.dart';
 import 'package:research_package/research_package.dart';
 import 'package:research_package/model.dart';
 
