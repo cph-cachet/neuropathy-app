@@ -16,6 +16,19 @@ class VibrationButton extends StatefulWidget {
 }
 
 class VibrationButtonState extends State<VibrationButton> {
+  @override
+  void setState(fn) {
+    if (mounted) {
+      super.setState(fn);
+    }
+  }
+
+  @override
+  void dispose() {
+    Vibration.cancel();
+    super.dispose();
+  }
+
   bool _isVibrating = false;
   CancelableOperation? _futureStopVibrating;
 
