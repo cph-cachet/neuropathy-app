@@ -6,6 +6,14 @@ import 'RPPrickQuestionStep.dart';
 import 'package:research_package/research_package.dart';
 import 'package:research_package/model.dart';
 
+// Common question components
+List<RPChoice> yesNo = [
+  RPChoice(text: 'Yes', value: 0),
+  RPChoice(text: 'No', value: 1)
+];
+RPChoiceAnswerFormat yesNoAnswerFormat = RPChoiceAnswerFormat(
+    answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: yesNo);
+
 // Instruction
 RPInstructionStep instructionStep = RPInstructionStep(
   identifier: 'InstructionID',
@@ -14,49 +22,29 @@ RPInstructionStep instructionStep = RPInstructionStep(
 );
 
 // Prick
-List<RPChoice> siReNo = [
+List<RPChoice> siReAb = [
   RPChoice(text: 'Similar', value: 0),
   RPChoice(text: 'Reduced', value: 1),
   RPChoice(text: 'Absent', value: 2),
 ];
-RPChoiceAnswerFormat siReNoAnswerFormat = RPChoiceAnswerFormat(
-    answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: siReNo);
+RPChoiceAnswerFormat siReAbAnswerFormat = RPChoiceAnswerFormat(
+    answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: siReAb);
 RPPrickQuestionStep left1 = RPPrickQuestionStep(
     identifier: 'left1ID',
     title: 'Left leg',
     text:
         'Prick multiple spots in the blue area and select your prick sensitivity compared to the reference area. Only compare the sharpness of the prick sensation, not touch.',
     prickSection: PrickSection.Left1,
-    answerFormat: siReNoAnswerFormat);
-/*
-RPQuestionStep leftLeg1 = RPQuestionStep(
-    identifier: 'leftLeg1ID',
-    image: Image.asset('assets/RightLeg1.png', height: 300),
-    title:
-        'Prick multiple spots in the blue area and select your prick sensitivity compared to the reference area. Only compare the sharpness of the prick sensation, not touch.',
-    answerFormat: siReNoAnswerFormat);
-RPQuestionStep leftLeg2 = RPQuestionStep(
-    identifier: 'leftLeg2ID',
-    image: Image.asset('assets/RightLeg2.png', height: 300),
-    title:
-        'Prick multiple spots in the blue area and select your prick sensitivity compared to the reference area. Only compare the sharpness of the prick sensation, not touch.',
-    answerFormat: siReNoAnswerFormat);
-*/
-// vibration
-List<RPChoice> vibYesNo = [
-  RPChoice(text: 'Yes', value: 0),
-  RPChoice(text: 'No', value: 1)
-];
-RPChoiceAnswerFormat vibrationAnswerFormat = RPChoiceAnswerFormat(
-    answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: vibYesNo);
+    answerFormat: siReAbAnswerFormat);
 
+// vibration
 RPVibrationStep vib1 = RPVibrationStep(
     identifier: 'vib1',
     title: 'Left Leg',
     text:
         'Press play to start vibrating, and press the backside of the phone against the top side of the bone in your great toe.',
     vibrationSection: VibrationSection.leftToe,
-    answerFormat: vibrationAnswerFormat);
+    answerFormat: yesNoAnswerFormat);
 
 // Pain
 List<RPChoice> continueSkip = [
@@ -92,6 +80,38 @@ RPQuestionStep pain1 = RPQuestionStep(
         'Does your pain present one or more of the following characteristics?',
     answerFormat: pain1Format);
 
+List<RPChoice> pain2Choices = [
+  RPChoice(text: 'Tingling', value: 0),
+  RPChoice(text: 'Pins and needles', value: 1),
+  RPChoice(text: 'Numbness', value: 2),
+  RPChoice(text: 'Itching', value: 3),
+  RPChoice(text: 'None of the above', value: 4)
+];
+RPChoiceAnswerFormat pain2Format = RPChoiceAnswerFormat(
+    answerStyle: RPChoiceAnswerStyle.MultipleChoice, choices: pain2Choices);
+RPQuestionStep pain2 = RPQuestionStep(
+    identifier: 'pain2',
+    title: 'In the same area, is your pain associated to one or more symptoms?',
+    answerFormat: pain2Format);
+
+List<RPChoice> pain3Choices = [
+  RPChoice(text: 'Decreased sensitivity to touch', value: 0),
+  RPChoice(text: 'Decreased sensitivity to pricking', value: 1),
+  RPChoice(text: 'None of the above', value: 2)
+];
+RPChoiceAnswerFormat pain3Format = RPChoiceAnswerFormat(
+    answerStyle: RPChoiceAnswerStyle.MultipleChoice, choices: pain3Choices);
+RPQuestionStep pain3 = RPQuestionStep(
+    identifier: 'pain3',
+    title: 'Is the pain located in an area where the examination unveiled:',
+    answerFormat: pain3Format);
+
+RPQuestionStep pain4 = RPQuestionStep(
+    identifier: 'pain4',
+    title:
+        'Use your fingers to gently stroke the areas where the pain is present.\n\n\nIs the pain provoked or increased by the stroking?',
+    answerFormat: yesNoAnswerFormat);
+
 // Vibration
 RPInstructionStep vibrationInstructionStep = RPInstructionStep(
   identifier: 'vibrationInstructionID',
@@ -118,6 +138,9 @@ RPNavigableOrderedTask linearSurveyTask = RPNavigableOrderedTask(
       skipPainStep,
       painSlider,
       pain1,
+      pain2,
+      pain3,
+      pain4,
       vibrationInstructionStep,
       completionStep
     ])
