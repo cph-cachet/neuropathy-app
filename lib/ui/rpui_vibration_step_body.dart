@@ -9,7 +9,7 @@ import '../utils/spacing.dart';
 // TODO: Decide if vertical padding is more useful than alignment
 class RPUIVibrationStep extends StatefulWidget {
   final RPVibrationStep vibrationStep;
-  RPUIVibrationStep(this.vibrationStep);
+  const RPUIVibrationStep(this.vibrationStep, {super.key});
 
   @override
   RPUIVibrationStepState createState() => RPUIVibrationStepState();
@@ -52,8 +52,7 @@ class RPUIVibrationStepState extends State<RPUIVibrationStep>
                 ConstrainedBox(
                   constraints: BoxConstraints(
                       maxHeight: MediaQuery.of(context).size.height * 0.35),
-                  child: Image.asset(
-                      widget.vibrationStep.vibrationSection.imagePath,
+                  child: Image.asset(widget.vibrationStep.vibrationSection,
                       fit: BoxFit.cover),
                 ),
                 Text(widget.vibrationStep.title,
