@@ -1,20 +1,21 @@
-import 'RPImageQuestionStep.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:research_package/research_package.dart';
+import 'package:neuro_planner/utils/themes/text_styles.dart';
+import '../step/steps/rp_pain_slider_question_step.dart';
+import 'QuestionBody/rpui_pain_slider_question_body.dart';
 
-import 'utils/themes/text_styles.dart';
+class RPUIPainSliderQuestionStep extends StatefulWidget {
+  final RPPainSliderQuestionStep step;
 
-class RPUIImageQuestionStep extends StatefulWidget {
-  final RPImageQuestionStep step;
-
-  const RPUIImageQuestionStep(this.step, {super.key});
+  const RPUIPainSliderQuestionStep(this.step, {super.key});
 
   @override
-  RPUIImageQuestionStepState createState() => RPUIImageQuestionStepState();
+  RPUIPainSliderQuestionStepState createState() =>
+      RPUIPainSliderQuestionStepState();
 }
 
-class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
+class RPUIPainSliderQuestionStepState extends State<RPUIPainSliderQuestionStep>
     with CanSaveResult {
   // Dynamic because we don't know what value the RPChoice will have
   dynamic _currentQuestionBodyResult;
@@ -51,34 +52,9 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
   // Returning the according step body widget based on the answerFormat of the step
   Widget stepBody(RPAnswerFormat answerFormat) {
     switch (answerFormat.runtimeType) {
-      case RPIntegerAnswerFormat:
-        return RPUIIntegerQuestionBody((answerFormat as RPIntegerAnswerFormat),
-            (result) {
-          currentQuestionBodyResult = result;
-        });
-      case RPChoiceAnswerFormat:
-        return RPUIChoiceQuestionBody((answerFormat as RPChoiceAnswerFormat),
-            (result) {
-          currentQuestionBodyResult = result;
-        });
       case RPSliderAnswerFormat:
-        return RPUISliderQuestionBody((answerFormat as RPSliderAnswerFormat),
-            (result) {
-          currentQuestionBodyResult = result;
-        });
-      case RPImageChoiceAnswerFormat:
-        return RPUIImageChoiceQuestionBody(
-            (answerFormat as RPImageChoiceAnswerFormat), (result) {
-          currentQuestionBodyResult = result;
-        });
-      case RPDateTimeAnswerFormat:
-        return RPUIDateTimeQuestionBody(
-            (answerFormat as RPDateTimeAnswerFormat), (result) {
-          currentQuestionBodyResult = result;
-        });
-      case RPTextAnswerFormat:
-        return RPUITextInputQuestionBody((answerFormat as RPTextAnswerFormat),
-            (result) {
+        return RPUIPainSliderQuestionBody(
+            (answerFormat as RPSliderAnswerFormat), (result) {
           currentQuestionBodyResult = result;
         });
       default:
@@ -90,32 +66,18 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
   Widget build(BuildContext context) {
     RPLocalizations? locale = RPLocalizations.of(context);
     return SafeArea(
-        child: ListView(padding: const EdgeInsets.all(8), children: [
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
       // Image and title
       Padding(
           padding: const EdgeInsets.only(bottom: 24, left: 8, right: 8),
           child: Column(
             children: [
-              Image.asset(widget.step.legImage.imagePath),
               const SizedBox.square(dimension: 16),
-              Text(
-                locale?.translate(widget.step.title) ?? widget.step.title,
-                style: ThemeTextStyle.headline24sp,
-                textAlign: TextAlign.center,
-              ),
+              Text(widget.step.title,
+                  style: ThemeTextStyle.headline24sp,
+                  textAlign: TextAlign.center),
             ],
           )),
-      // Text
-      (widget.step.text == null)
-          ? Container()
-          : Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                locale?.translate(widget.step.text!) ?? widget.step.text!,
-                style: ThemeTextStyle.regularIBM18sp,
-                textAlign: TextAlign.center,
-              ),
-            ),
       // Step body
       Padding(
         padding: const EdgeInsets.all(8.0),
