@@ -1,18 +1,18 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:research_package/research_package.dart';
 
-import '../../ui/rpui_vibration_step_body.dart';
+import '../../ui/rpui_vibration_step.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake, includeIfNull: false)
 class RPVibrationStep extends RPStep {
-  String vibrationSection;
+  String? vibrationSection;
   RPAnswerFormat answerFormat;
 
   RPVibrationStep({
     required super.identifier,
     required super.title,
     super.text,
-    required this.vibrationSection,
+    this.vibrationSection,
     required this.answerFormat,
   });
 
