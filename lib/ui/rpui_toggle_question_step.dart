@@ -1,21 +1,21 @@
+//import 'RPPrickQuestionStep.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:research_package/research_package.dart';
-import 'package:neuro_planner/utils/themes/text_styles.dart';
-import '../step/steps/rp_pain_slider_question_step.dart';
-import 'QuestionBody/rpui_pain_slider_question_body.dart';
 
-class RPUIPainSliderQuestionStep extends StatefulWidget {
-  final RPPainSliderQuestionStep step;
+import '../step/steps/rp_toggle_question_step.dart';
+import '../utils/themes/text_styles.dart';
+import 'widgets/toggle_button.dart';
 
-  const RPUIPainSliderQuestionStep(this.step, {super.key});
+class RPUIToggleQuestionStep extends StatefulWidget {
+  final RPToggleQuestionStep step;
+
+  const RPUIToggleQuestionStep(this.step, {super.key});
 
   @override
-  RPUIPainSliderQuestionStepState createState() =>
-      RPUIPainSliderQuestionStepState();
+  RPUIToggleQuestionStepState createState() => RPUIToggleQuestionStepState();
 }
 
-class RPUIPainSliderQuestionStepState extends State<RPUIPainSliderQuestionStep>
+class RPUIToggleQuestionStepState extends State<RPUIToggleQuestionStep>
     with CanSaveResult {
   // Dynamic because we don't know what value the RPChoice will have
   dynamic _currentQuestionBodyResult;
@@ -49,39 +49,39 @@ class RPUIPainSliderQuestionStepState extends State<RPUIPainSliderQuestionStep>
     blocQuestion.sendReadyToProceed(false);
   }
 
-  // Returning the according step body widget based on the answerFormat of the step
-  Widget stepBody(RPAnswerFormat answerFormat) {
-    switch (answerFormat.runtimeType) {
-      case RPSliderAnswerFormat:
-        return RPUIPainSliderQuestionBody(
-            (answerFormat as RPSliderAnswerFormat), (result) {
-          currentQuestionBodyResult = result;
-        });
-      default:
-        return Container();
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     RPLocalizations? locale = RPLocalizations.of(context);
     return SafeArea(
-        child: ListView(padding: const EdgeInsets.all(8), children: [
+        child:
+            Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
       // Image and title
       Padding(
-          padding: const EdgeInsets.only(bottom: 24, left: 8, right: 8),
-          child: Column(
-            children: [
-              const SizedBox.square(dimension: 16),
-              Text(widget.step.title,
-                  style: ThemeTextStyle.headline24sp,
-                  textAlign: TextAlign.center),
-            ],
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          child: Text(
+            locale?.translate(widget.step.title) ?? widget.step.title,
+            style: ThemeTextStyle.regularIBM18sp,
+            textAlign: TextAlign.center,
           )),
+      // Text
+      (widget.step.text == null)
+          ? Container()
+          : Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                locale?.translate(widget.step.text!) ?? widget.step.text!,
+                style: ThemeTextStyle.regularIBM18sp,
+                textAlign: TextAlign.center,
+              ),
+            ),
       // Step body
       Padding(
         padding: const EdgeInsets.all(8.0),
-        child: stepBody(widget.step.answerFormat),
+        child: ToggleButton(
+            answerFormat: widget.step.answerFormat as RPChoiceAnswerFormat,
+            onPressed: (result) {
+              currentQuestionBodyResult = result;
+            }),
       ),
     ]));
   }

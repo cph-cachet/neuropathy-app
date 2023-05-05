@@ -20,8 +20,7 @@ class RPUIPainSliderQuestionBodyState extends State<RPUIPainSliderQuestionBody>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return Card(
-        child: Container(
+    return Container(
       padding: const EdgeInsets.all(8),
       alignment: Alignment.topLeft,
       child: Row(
@@ -46,7 +45,7 @@ class RPUIPainSliderQuestionBodyState extends State<RPUIPainSliderQuestionBody>
           Text('${widget.answerFormat.maxValue.toInt()}')
         ],
       ),
-    ));
+    );
   }
 
   @override

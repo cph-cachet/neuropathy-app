@@ -6,13 +6,7 @@ import 'RPPrickQuestionStep.dart';
 import 'package:research_package/research_package.dart';
 import 'package:research_package/model.dart';
 
-// Common question components
-List<RPChoice> yesNo = [
-  RPChoice(text: 'Yes', value: 0),
-  RPChoice(text: 'No', value: 1)
-];
-RPChoiceAnswerFormat yesNoAnswerFormat = RPChoiceAnswerFormat(
-    answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: yesNo);
+import 'step/steps/rp_toggle_question_step.dart';
 
 // Instruction
 RPInstructionStep instructionStep = RPInstructionStep(
@@ -38,13 +32,19 @@ RPPrickQuestionStep left1 = RPPrickQuestionStep(
     answerFormat: siReAbAnswerFormat);
 
 // vibration
+List<RPChoice> vibYesNo = [
+  RPChoice(text: 'Yes', value: 0),
+  RPChoice(text: 'No', value: 1)
+];
+RPChoiceAnswerFormat vibYesNoAnswerFormat = RPChoiceAnswerFormat(
+    answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: vibYesNo);
 RPVibrationStep vib1 = RPVibrationStep(
     identifier: 'vib1',
     title: 'Left Leg',
     text:
         'Press play to start vibrating, and press the backside of the phone against the top side of the bone in your great toe.',
     vibrationSection: VibrationSection.leftToe,
-    answerFormat: yesNoAnswerFormat);
+    answerFormat: vibYesNoAnswerFormat);
 
 // Pain
 List<RPChoice> continueSkip = [
@@ -63,7 +63,7 @@ RPSliderAnswerFormat painSliderFormat =
     RPSliderAnswerFormat(minValue: 0, maxValue: 100, divisions: 100);
 RPPainSliderQuestionStep painSlider = RPPainSliderQuestionStep(
     identifier: 'painSlider',
-    title: 'On the scale below, mark your pain level.',
+    title: 'On the scale below,\nmark your pain level.',
     answerFormat: painSliderFormat);
 
 List<RPChoice> pain1Choices = [
@@ -106,11 +106,17 @@ RPQuestionStep pain3 = RPQuestionStep(
     title: 'Is the pain located in an area where the examination unveiled:',
     answerFormat: pain3Format);
 
-RPQuestionStep pain4 = RPQuestionStep(
+List<RPChoice> painYesNo = [
+  RPChoice(text: 'yes', value: 1),
+  RPChoice(text: 'no', value: 0)
+];
+RPChoiceAnswerFormat painYesNoFormat = RPChoiceAnswerFormat(
+    answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: painYesNo);
+RPToggleQuestionStep pain4 = RPToggleQuestionStep(
     identifier: 'pain4',
     title:
         'Use your fingers to gently stroke the areas where the pain is present.\n\n\nIs the pain provoked or increased by the stroking?',
-    answerFormat: yesNoAnswerFormat);
+    answerFormat: painYesNoFormat);
 
 // Vibration
 RPInstructionStep vibrationInstructionStep = RPInstructionStep(
