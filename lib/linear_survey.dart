@@ -1,7 +1,7 @@
 //import 'package:carp_test_1/RPQuestionStepExt.dart';
 import 'package:neuro_planner/step/steps/rp_vibration_step.dart';
 
-import 'RPPainSliderQuestionStep.dart';
+import 'step/steps/rp_pain_slider_question_step.dart';
 import 'RPPrickQuestionStep.dart';
 import 'package:research_package/research_package.dart';
 import 'package:research_package/model.dart';

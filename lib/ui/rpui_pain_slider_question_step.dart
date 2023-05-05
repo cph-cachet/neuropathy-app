@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:research_package/research_package.dart';
 
-import 'RPPainSliderQuestionStep.dart';
-import 'RPUIPainSliderQuestionBody.dart';
+import '../step/steps/rp_pain_slider_question_step.dart';
+import 'QuestionBody/rpui_pain_slider_question_body.dart';
 
 class RPUIPainSliderQuestionStep extends StatefulWidget {
   final RPPainSliderQuestionStep step;
