@@ -23,6 +23,12 @@ class VibrationButtonState extends State<VibrationButton> {
     }
   }
 
+  @override
+  void dispose() {
+    Vibration.cancel();
+    super.dispose();
+  }
+
   bool _isVibrating = false;
   CancelableOperation? _futureStopVibrating;
 
