@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:research_package/research_package.dart';
 
 import '../utils/themes/text_styles.dart';
+import 'widgets/toggle_button.dart';
 
 class RPUIImageQuestionStep extends StatefulWidget {
   final RPImageQuestionStep step;
@@ -90,7 +91,8 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
   Widget build(BuildContext context) {
     RPLocalizations? locale = RPLocalizations.of(context);
     return SafeArea(
-        child: ListView(padding: const EdgeInsets.all(8), children: [
+        child:
+            Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
       // Image and title
       Padding(
           padding: const EdgeInsets.only(bottom: 24, left: 8, right: 8),
@@ -119,7 +121,11 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
       // Step body
       Padding(
         padding: const EdgeInsets.all(8.0),
-        child: stepBody(widget.step.answerFormat),
+        child: ToggleButton(
+            answerFormat: widget.step.answerFormat as RPChoiceAnswerFormat,
+            onPressed: (result) {
+              currentQuestionBodyResult = result;
+            }),
       ),
     ]));
   }
