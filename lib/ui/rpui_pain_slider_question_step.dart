@@ -66,7 +66,7 @@ class RPUIPainSliderQuestionStepState extends State<RPUIPainSliderQuestionStep>
   Widget build(BuildContext context) {
     RPLocalizations? locale = RPLocalizations.of(context);
     return SafeArea(
-        child: ListView(padding: const EdgeInsets.all(8), children: [
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
       // Image and title
       Padding(
           padding: const EdgeInsets.only(bottom: 24, left: 8, right: 8),
