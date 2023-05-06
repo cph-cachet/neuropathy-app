@@ -43,18 +43,21 @@ RPVibrationStep stepGenerator(
 
 //TODO: Localize
 enum VibrationStrings {
-  leftToe('left_toe', _leftLegTitle, _toeInstruction,
+  leftToe('viration_left_toe', _leftLegTitle, _toeInstruction,
       'assets/images/steps/vibration/left_toe.png'),
-  leftAnkle('left_ankle', _leftLegTitle, _ankleInstruction,
+  leftAnkle('vibration_left_ankle', _leftLegTitle, _ankleInstruction,
       'assets/images/steps/vibration/left_ankle.png'),
-  leftKnee('left_knee', _leftLegTitle, _kneeInstruction,
+  leftKnee('vibration_left_knee', _leftLegTitle, _kneeInstruction,
       'assets/images/steps/vibration/left_knee.png'),
+  leftToeExtension('vibration_left_toe_extension', _leftLegTitle, 'left', ''),
   rightToe('right_toe', _rightLegTitle, _toeInstruction,
       'assets/images/steps/vibration/right_toe.png'),
   rightAnkle('right_ankle', _rightLegTitle, _ankleInstruction,
       'assets/images/steps/vibration/right_ankle.png'),
   rightKnee('right_knee', _rightLegTitle, _kneeInstruction,
-      'assets/images/steps/vibration/right_knee.png');
+      'assets/images/steps/vibration/right_knee.png'),
+  rightToeExtension(
+      'vibration_right_toe_extension', _rightLegTitle, 'right', '');
 
   const VibrationStrings(
       this.identifier, this.title, this.instruction, this.imagePath);

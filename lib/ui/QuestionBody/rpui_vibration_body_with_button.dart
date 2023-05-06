@@ -9,7 +9,7 @@ class RPUIVibrationBodyWithButton extends StatelessWidget {
   final RPVibrationStep vibrationStep;
   final Widget toggleButton;
 
-  RPUIVibrationBodyWithButton({
+  const RPUIVibrationBodyWithButton({
     super.key,
     required this.vibrationStep,
     required this.toggleButton,

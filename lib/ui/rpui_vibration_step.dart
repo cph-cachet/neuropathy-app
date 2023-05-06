@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neuro_planner/ui/QuestionBody/rpui_vibrationi_body_only_toggle.dart';
 import 'package:research_package/research_package.dart';
 
 import 'package:neuro_planner/ui/QuestionBody/rpui_vibration_body_with_button.dart';
@@ -46,7 +47,8 @@ class RPUIVibrationStepState extends State<RPUIVibrationStep>
             vibrationStep.vibrationSection!.isNotEmpty
         ? RPUIVibrationBodyWithButton(
             vibrationStep: vibrationStep, toggleButton: button)
-        : Container();
+        : RPUIVibrationBodyOnlyToggle(
+            vibrationStep: vibrationStep, toggleButton: button);
   }
 
   @override
