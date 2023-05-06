@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neuro_planner/step/steps/rp_vibration_step.dart';
+import 'package:neuro_planner/ui/widgets/bottom_sheet_button.dart';
 import 'package:neuro_planner/utils/spacing.dart';
-import 'package:neuro_planner/utils/themes/styles.dart';
 import 'package:neuro_planner/utils/themes/text_styles.dart';
 
 class RPUIVibrationBodyOnlyToggle extends StatelessWidget {
@@ -39,13 +39,44 @@ class RPUIVibrationBodyOnlyToggle extends StatelessWidget {
                   const Text('Can you feel the movement in the joints?',
                       textAlign: TextAlign.center),
                   verticalSpacing(8),
-                  TextButton.icon(
-                      onPressed: (() {}),
-                      icon: const Icon(
-                        Icons.help_outline_rounded,
-                        size: 20,
-                      ),
-                      label: const Text('More Information')),
+                  BottomSheetButton(
+                    icon: const Icon(
+                      Icons.help_outline_rounded,
+                      size: 20,
+                    ),
+                    label: 'More Information',
+                    bottomSheetTitle: 'Feeling the movement',
+                    content: Column(
+                      children: [
+                        Text(
+                          'The feeling of movement is not a feeling of touch.',
+                          style: ThemeTextStyle.regularIBM20sp,
+                          textAlign: TextAlign.justify,
+                        ),
+                        verticalSpacing(24),
+                        RichText(
+                            textAlign: TextAlign.justify,
+                            text: TextSpan(
+                                style: ThemeTextStyle.regularIBM20sp,
+                                children: [
+                                  const TextSpan(
+                                      text:
+                                          'If you only feel your hand\'s grip, answer '),
+                                  TextSpan(
+                                      text: 'No',
+                                      style: ThemeTextStyle.regularIBM20sp
+                                          .copyWith(
+                                              fontWeight: FontWeight.bold)),
+                                  const TextSpan(text: ' to this question.'),
+                                ])),
+                        verticalSpacing(24),
+                        Text(
+                            style: ThemeTextStyle.regularIBM20sp,
+                            textAlign: TextAlign.justify,
+                            'If you don’t have symptoms in your hands, you can compare how your fingers feel when moved.'),
+                      ],
+                    ),
+                  ),
                 ],
               ),
               toggleButton,
