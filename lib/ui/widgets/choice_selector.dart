@@ -60,7 +60,7 @@ class ChoiceSelectorState extends State<ChoiceSelector> {
 
     selectedChoices.isNotEmpty
         ? widget.onResultChange(selectedChoices)
-        : widget.onResultChange([]);
+        : widget.onResultChange(null);
   }
 
   @override
