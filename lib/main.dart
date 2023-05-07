@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vibration/vibration.dart';
-
 import 'examination_page.dart';
 
 void main() {
@@ -16,6 +14,22 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        buttonTheme: ButtonThemeData(
+          //TODO: make this work on all buttons?
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(18.0),
+          ),
+        ),
+        checkboxTheme: CheckboxThemeData(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          ),
+          fillColor: MaterialStateProperty.all(Color(0xff22577a)),
+          checkColor: MaterialStateProperty.all(Colors.white),
+        ),
+        radioTheme: RadioThemeData(
+          fillColor: MaterialStateProperty.all(Color(0xff22577a)),
+        ),
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the

@@ -1,4 +1,5 @@
 //import 'package:carp_test_1/RPQuestionStepExt.dart';
+import 'package:neuro_planner/step/steps/rp_choice_question_step.dart';
 import 'package:neuro_planner/step/steps/rp_vibration_step.dart';
 import 'package:neuro_planner/survey/vibration_part.dart';
 
@@ -60,7 +61,7 @@ List<RPChoice> pain1Choices = [
 ];
 RPChoiceAnswerFormat pain1Format = RPChoiceAnswerFormat(
     answerStyle: RPChoiceAnswerStyle.MultipleChoice, choices: pain1Choices);
-RPQuestionStep pain1 = RPQuestionStep(
+RPChoiceQuestionStep pain1 = RPChoiceQuestionStep(
     identifier: 'pain1',
     title:
         'Does your pain present one or more of the following characteristics?',
@@ -75,7 +76,7 @@ List<RPChoice> pain2Choices = [
 ];
 RPChoiceAnswerFormat pain2Format = RPChoiceAnswerFormat(
     answerStyle: RPChoiceAnswerStyle.MultipleChoice, choices: pain2Choices);
-RPQuestionStep pain2 = RPQuestionStep(
+RPChoiceQuestionStep pain2 = RPChoiceQuestionStep(
     identifier: 'pain2',
     title: 'In the same area, is your pain associated to one or more symptoms?',
     answerFormat: pain2Format);
@@ -87,7 +88,7 @@ List<RPChoice> pain3Choices = [
 ];
 RPChoiceAnswerFormat pain3Format = RPChoiceAnswerFormat(
     answerStyle: RPChoiceAnswerStyle.MultipleChoice, choices: pain3Choices);
-RPQuestionStep pain3 = RPQuestionStep(
+RPChoiceQuestionStep pain3 = RPChoiceQuestionStep(
     identifier: 'pain3',
     title: 'Is the pain located in an area where the examination unveiled:',
     answerFormat: pain3Format);
