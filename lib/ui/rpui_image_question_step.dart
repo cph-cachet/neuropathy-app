@@ -115,7 +115,7 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
           (widget.step.text == null)
               ? Container()
               : Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
                     locale?.translate(widget.step.text!) ?? widget.step.text!,
                     style: ThemeTextStyle.regularIBM18sp,

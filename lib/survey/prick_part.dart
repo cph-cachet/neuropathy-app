@@ -2,6 +2,9 @@
 import 'package:neuro_planner/step/steps/rp_image_question_step.dart';
 import 'package:research_package/research_package.dart';
 
+const String _prickIntroductionTitle = 'Prick Test';
+const String _prickIntroductionText =
+    'Here you will test the pin-prick sensitivity of your legs using a needle or a sefety pin.\n\nChoose either the neck or the clavicle area to use as reference.\n\nPrick the reference area multiple times to compare sensitivity with the tested areas.';
 const String _leftLegTitle = 'Left Leg';
 const String _rightLegTitle = 'Right Leg';
 const String _prickInstruction =
@@ -9,6 +12,12 @@ const String _prickInstruction =
 const String _bottomSheetTitle = 'Pin-prick test';
 const String _bottomSheetText =
     'When pricking the area, follow the pictures. In sections 1-2 prick on the top of your foot, in sections 3-6 prick on the side of your leg. Try to avoid pricking directly over a bone.\n\nIf you fell the area is more sensitive to pricking than your referenced area, answer SIMILAR.';
+
+RPInstructionStep prickInstructionStep = RPInstructionStep(
+  identifier: 'prickInstructionID',
+  title: _prickIntroductionTitle,
+  text: _prickIntroductionText,
+);
 
 List<RPChoice> siReAb = [
   RPChoice(text: 'Similar', value: 0),
@@ -18,16 +27,19 @@ List<RPChoice> siReAb = [
 RPChoiceAnswerFormat siReAbAnswerFormat = RPChoiceAnswerFormat(
     answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: siReAb);
 
-List<RPStep> prickStepList = PrickStrings.values
-    .map((step) => RPImageQuestionStep(
-        identifier: step.identifier,
-        title: step.title,
-        text: step.instruction,
-        imagePath: step.imagePath,
-        bottomSheetTitle: step.bottomSheetTitle,
-        bottomSheetText: step.bottomSheetText,
-        answerFormat: siReAbAnswerFormat))
-    .toList();
+List<RPStep> prickStepList = [
+  prickInstructionStep,
+  ...PrickStrings.values
+      .map((step) => RPImageQuestionStep(
+          identifier: step.identifier,
+          title: step.title,
+          text: step.instruction,
+          imagePath: step.imagePath,
+          bottomSheetTitle: step.bottomSheetTitle,
+          bottomSheetText: step.bottomSheetText,
+          answerFormat: siReAbAnswerFormat))
+      .toList()
+];
 
 enum PrickStrings {
   leftLeg1('prick_left_1', _leftLegTitle, _prickInstruction,

@@ -2,6 +2,9 @@
 import 'package:neuro_planner/step/steps/rp_image_question_step.dart';
 import 'package:research_package/research_package.dart';
 
+const String _motorIntroductionTitle = 'Motor examination';
+const String _motorIntroductionText =
+    'Here you will test the pin-prick sensitivity of your legs using a needle or a sefety pin.\n\nChoose either the neck or the clavicle area to use as reference.\n\nPrick the reference area multiple times to compare sensitivity with the tested areas.';
 const String _leftLegTitle = 'Left Leg';
 const String _rightLegTitle = 'Right Leg';
 const String _instruction =
@@ -10,6 +13,12 @@ const String _bottomSheetTitle = 'Overcoming pressure';
 const String _bottomSheetText =
     'If you don\'t have symptoms in your hands, you can compare how your fingers overcome the pressure.\n\nIf you feel your great toe is weaker, answer YES to this question.';
 
+RPInstructionStep motorInstructionStep = RPInstructionStep(
+  identifier: 'motorInstructionID',
+  title: _motorIntroductionTitle,
+  text: _motorIntroductionText,
+);
+
 List<RPChoice> motorYesNo = [
   RPChoice(text: 'Yes', value: 1),
   RPChoice(text: 'No', value: 0),
@@ -17,16 +26,19 @@ List<RPChoice> motorYesNo = [
 RPChoiceAnswerFormat motorYesNoFormat = RPChoiceAnswerFormat(
     answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: motorYesNo);
 
-List<RPStep> motorStepList = MotorStrings.values
-    .map((step) => RPImageQuestionStep(
-        identifier: step.identifier,
-        title: step.title,
-        text: step.instruction,
-        imagePath: step.imagePath,
-        bottomSheetTitle: step.bottomSheetTitle,
-        bottomSheetText: step.bottomSheetText,
-        answerFormat: motorYesNoFormat))
-    .toList();
+List<RPStep> motorStepList = [
+  motorInstructionStep,
+  ...MotorStrings.values
+      .map((step) => RPImageQuestionStep(
+          identifier: step.identifier,
+          title: step.title,
+          text: step.instruction,
+          imagePath: step.imagePath,
+          bottomSheetTitle: step.bottomSheetTitle,
+          bottomSheetText: step.bottomSheetText,
+          answerFormat: motorYesNoFormat))
+      .toList()
+];
 
 enum MotorStrings {
   leftGreatToe('motor_left_toe', _leftLegTitle, _instruction,
