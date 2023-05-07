@@ -1,5 +1,7 @@
 //import 'package:carp_test_1/RPQuestionStepExt.dart';
 import 'package:neuro_planner/step/steps/rp_vibration_step.dart';
+import 'package:neuro_planner/survey/prick_part.dart';
+import 'package:neuro_planner/survey/motor_part.dart';
 import 'package:neuro_planner/survey/vibration_part.dart';
 
 import 'step/steps/rp_pain_slider_question_step.dart';
@@ -15,22 +17,6 @@ RPInstructionStep instructionStep = RPInstructionStep(
   title: 'Instructions',
   text: 'survey_introduction',
 );
-
-// Prick
-List<RPChoice> siReAb = [
-  RPChoice(text: 'Similar', value: 0),
-  RPChoice(text: 'Reduced', value: 1),
-  RPChoice(text: 'Absent', value: 2),
-];
-RPChoiceAnswerFormat siReAbAnswerFormat = RPChoiceAnswerFormat(
-    answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: siReAb);
-RPImageQuestionStep left1 = RPImageQuestionStep(
-    identifier: 'left1ID',
-    title: 'Left leg',
-    text:
-        'Prick multiple spots in the blue area and select your prick sensitivity compared to the reference area. Only compare the sharpness of the prick sensation, not touch.',
-    legImage: LegImage.leftLeg1,
-    answerFormat: siReAbAnswerFormat);
 
 // Pain
 List<RPChoice> continueSkip = [
@@ -112,21 +98,6 @@ RPInstructionStep vibrationInstructionStep = RPInstructionStep(
       'This begins the vibration sensation test.\n\nYou will test three points on each leg.\n\nWhen pressing the phone to your leg, use the backside of the phone.',
 );
 
-// Motor
-List<RPChoice> motorYesNo = [
-  RPChoice(text: 'Yes', value: 1),
-  RPChoice(text: 'No', value: 0),
-];
-RPChoiceAnswerFormat motorYesNoFormat = RPChoiceAnswerFormat(
-    answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: motorYesNo);
-RPImageQuestionStep leftmotor = RPImageQuestionStep(
-    identifier: 'leftMotorID',
-    title: 'Left Great Toe',
-    legImage: LegImage.leftGreatToe,
-    text:
-        'Apply firm pressure with your fingers to the great toe.\n\nIs it difficult to overcome the pressure?',
-    answerFormat: motorYesNoFormat);
-
 // Completion
 RPCompletionStep completionStep = RPCompletionStep(
     identifier: 'completionID',
@@ -140,7 +111,7 @@ RPNavigableOrderedTask linearSurveyTask = RPNavigableOrderedTask(
     identifier: 'SurveryTaskID',
     steps: [
       instructionStep,
-      left1,
+      ...prickStepList,
       skipPainStep,
       painSlider,
       pain1,
@@ -149,7 +120,7 @@ RPNavigableOrderedTask linearSurveyTask = RPNavigableOrderedTask(
       pain4,
       vibrationInstructionStep,
       ...vibrationStepList,
-      leftmotor,
+      ...motorStepList,
       completionStep
     ])
   ..setNavigationRuleForTriggerStepIdentifier(noPain, skipPainStep.identifier);
