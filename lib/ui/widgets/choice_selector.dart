@@ -78,20 +78,6 @@ class ChoiceSelectorState extends State<ChoiceSelector> {
               selectedChoices.contains(widget.answerFormat.choices[index]),
           onSelected: _onSelected,
         );
-        // return InkWell(
-        //   onTap: () => _onSelected(widget.answerFormat.choices[index]),
-        //   child: Row(
-        //     children: [
-        //       Checkbox(
-        //         value: selectedChoices
-        //             .contains(widget.answerFormat.choices[index]),
-        //         onChanged: ((_) =>
-        //             _onSelected(widget.answerFormat.choices[index])),
-        //       ),
-        //       Text(widget.answerFormat.choices[index].text),
-        //     ],
-        //   ),
-        // );
       },
     );
   }
@@ -111,44 +97,33 @@ class _Choice extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    if (answerStyle == RPChoiceAnswerStyle.SingleChoice) {
-      return InkWell(
-        onTap: () => onSelected(choice),
-        child: Row(
-          children: [
-            Transform.scale(
-              scale: 1.7,
-              child: Radio(
-                groupValue: selected ? choice : null,
-                value: choice,
-                onChanged: (_) {
-                  onSelected(choice);
-                },
-              ),
-            ),
-            Text(choice.text, style: ThemeTextStyle.regularIBM16sp),
-          ],
-        ),
-      );
-    } else {
-      return InkWell(
-        onTap: () => onSelected(choice),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Transform.scale(
-              scale: 1.7,
-              child: Checkbox(
-                value: selected,
-                onChanged: (_) {
-                  onSelected(choice);
-                },
-              ),
-            ),
-            Text(choice.text, style: ThemeTextStyle.regularIBM16sp),
-          ],
-        ),
-      );
-    }
+    return InkWell(
+      onTap: () => onSelected(choice),
+      child: Row(
+        children: [
+          answerStyle == RPChoiceAnswerStyle.SingleChoice
+              ? Transform.scale(
+                  scale: 1.7,
+                  child: Radio(
+                    groupValue: selected ? choice : null,
+                    value: choice,
+                    onChanged: (_) {
+                      onSelected(choice);
+                    },
+                  ),
+                )
+              : Transform.scale(
+                  scale: 1.7,
+                  child: Checkbox(
+                    value: selected,
+                    onChanged: (_) {
+                      onSelected(choice);
+                    },
+                  ),
+                ),
+          Text(choice.text, style: ThemeTextStyle.regularIBM16sp),
+        ],
+      ),
+    );
   }
 }
