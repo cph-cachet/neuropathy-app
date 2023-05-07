@@ -3,7 +3,7 @@ import 'package:neuro_planner/step/steps/rp_vibration_step.dart';
 import 'package:neuro_planner/survey/vibration_part.dart';
 
 import 'step/steps/rp_pain_slider_question_step.dart';
-import 'RPPrickQuestionStep.dart';
+import 'step/steps/rp_image_question_step.dart';
 import 'package:research_package/research_package.dart';
 import 'package:research_package/model.dart';
 
@@ -24,12 +24,12 @@ List<RPChoice> siReAb = [
 ];
 RPChoiceAnswerFormat siReAbAnswerFormat = RPChoiceAnswerFormat(
     answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: siReAb);
-RPPrickQuestionStep left1 = RPPrickQuestionStep(
+RPImageQuestionStep left1 = RPImageQuestionStep(
     identifier: 'left1ID',
     title: 'Left leg',
     text:
         'Prick multiple spots in the blue area and select your prick sensitivity compared to the reference area. Only compare the sharpness of the prick sensation, not touch.',
-    prickSection: PrickSection.Left1,
+    legImage: LegImage.leftLeg1,
     answerFormat: siReAbAnswerFormat);
 
 // Pain
@@ -112,6 +112,21 @@ RPInstructionStep vibrationInstructionStep = RPInstructionStep(
       'This begins the vibration sensation test.\n\nYou will test three points on each leg.\n\nWhen pressing the phone to your leg, use the backside of the phone.',
 );
 
+// Motor
+List<RPChoice> motorYesNo = [
+  RPChoice(text: 'Yes', value: 1),
+  RPChoice(text: 'No', value: 0),
+];
+RPChoiceAnswerFormat motorYesNoFormat = RPChoiceAnswerFormat(
+    answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: motorYesNo);
+RPImageQuestionStep leftmotor = RPImageQuestionStep(
+    identifier: 'leftMotorID',
+    title: 'Left Great Toe',
+    legImage: LegImage.leftGreatToe,
+    text:
+        'Apply firm pressure with your fingers to the great toe.\n\nIs it difficult to overcome the pressure?',
+    answerFormat: motorYesNoFormat);
+
 // Completion
 RPCompletionStep completionStep = RPCompletionStep(
     identifier: 'completionID',
@@ -134,6 +149,7 @@ RPNavigableOrderedTask linearSurveyTask = RPNavigableOrderedTask(
       pain4,
       vibrationInstructionStep,
       ...vibrationStepList,
+      leftmotor,
       completionStep
     ])
   ..setNavigationRuleForTriggerStepIdentifier(noPain, skipPainStep.identifier);

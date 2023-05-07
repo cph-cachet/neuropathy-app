@@ -1,18 +1,21 @@
-import 'RPPrickQuestionStep.dart';
+import '../step/steps/rp_image_question_step.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:research_package/research_package.dart';
 
-class RPUIPrickQuestionStep extends StatefulWidget {
-  final RPPrickQuestionStep step;
+import '../utils/themes/text_styles.dart';
+import 'widgets/toggle_button.dart';
 
-  const RPUIPrickQuestionStep(this.step, {super.key});
+class RPUIImageQuestionStep extends StatefulWidget {
+  final RPImageQuestionStep step;
+
+  const RPUIImageQuestionStep(this.step, {super.key});
 
   @override
-  RPUIPrickQuestionStepState createState() => RPUIPrickQuestionStepState();
+  RPUIImageQuestionStepState createState() => RPUIImageQuestionStepState();
 }
 
-class RPUIPrickQuestionStepState extends State<RPUIPrickQuestionStep>
+class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
     with CanSaveResult {
   // Dynamic because we don't know what value the RPChoice will have
   dynamic _currentQuestionBodyResult;
@@ -44,37 +47,6 @@ class RPUIPrickQuestionStepState extends State<RPUIPrickQuestionStep>
         questionTitle: widget.step.title,
         answerFormat: widget.step.answerFormat);
     blocQuestion.sendReadyToProceed(false);
-  }
-
-  Image prickSectionImage(PrickSection prickSection) {
-    switch (prickSection) {
-      case PrickSection.Left1:
-        return Image.asset('assets/LeftLeg1.png', scale: 0.9);
-      case PrickSection.Left2:
-        return Image.asset('assets/LeftLeg2.png', scale: 0.9);
-      case PrickSection.Left3:
-        return Image.asset('assets/LeftLeg3.png', scale: 0.9);
-      case PrickSection.Left4:
-        return Image.asset('assets/LeftLeg4.png', scale: 0.9);
-      case PrickSection.Left5:
-        return Image.asset('assets/LeftLeg5.png', scale: 0.9);
-      case PrickSection.Left6:
-        return Image.asset('assets/LeftLeg6.png', scale: 0.9);
-      case PrickSection.Right1:
-        return Image.asset('assets/RightLeg1.png', scale: 0.9);
-      case PrickSection.Right2:
-        return Image.asset('assets/RightLeg2.png', scale: 0.9);
-      case PrickSection.Right3:
-        return Image.asset('assets/RightLeg3.png', scale: 0.9);
-      case PrickSection.Right4:
-        return Image.asset('assets/RightLeg4.png', scale: 0.9);
-      case PrickSection.Right5:
-        return Image.asset('assets/RightLeg5.png', scale: 0.9);
-      case PrickSection.Right6:
-        return Image.asset('assets/RightLeg6.png', scale: 0.9);
-      default:
-        return Image.asset('DTUlogo.png');
-    }
   }
 
   // Returning the according step body widget based on the answerFormat of the step
@@ -119,16 +91,20 @@ class RPUIPrickQuestionStepState extends State<RPUIPrickQuestionStep>
   Widget build(BuildContext context) {
     RPLocalizations? locale = RPLocalizations.of(context);
     return SafeArea(
-        child: ListView(padding: const EdgeInsets.all(8), children: [
+        child:
+            Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
       // Image and title
       Padding(
           padding: const EdgeInsets.only(bottom: 24, left: 8, right: 8),
           child: Column(
             children: [
-              prickSectionImage(widget.step.prickSection),
+              Image.asset(widget.step.legImage.imagePath),
               const SizedBox.square(dimension: 16),
-              Text(locale?.translate(widget.step.title) ?? widget.step.title,
-                  style: Theme.of(context).textTheme.titleLarge),
+              Text(
+                locale?.translate(widget.step.title) ?? widget.step.title,
+                style: ThemeTextStyle.headline24sp,
+                textAlign: TextAlign.center,
+              ),
             ],
           )),
       // Text
@@ -137,12 +113,19 @@ class RPUIPrickQuestionStepState extends State<RPUIPrickQuestionStep>
           : Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
-                  locale?.translate(widget.step.text!) ?? widget.step.text!),
+                locale?.translate(widget.step.text!) ?? widget.step.text!,
+                style: ThemeTextStyle.regularIBM18sp,
+                textAlign: TextAlign.center,
+              ),
             ),
       // Step body
       Padding(
         padding: const EdgeInsets.all(8.0),
-        child: stepBody(widget.step.answerFormat),
+        child: ToggleButton(
+            answerFormat: widget.step.answerFormat as RPChoiceAnswerFormat,
+            onPressed: (result) {
+              currentQuestionBodyResult = result;
+            }),
       ),
     ]));
   }
