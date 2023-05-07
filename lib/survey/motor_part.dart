@@ -4,7 +4,7 @@ import 'package:research_package/research_package.dart';
 
 const String _motorIntroductionTitle = 'Motor examination';
 const String _motorIntroductionText =
-    'Here you will test the pin-prick sensitivity of your legs using a needle or a sefety pin.\n\nChoose either the neck or the clavicle area to use as reference.\n\nPrick the reference area multiple times to compare sensitivity with the tested areas.';
+    'Here you will test the strength of your great toes.\n\nThe great toe can usually resist a lot of pressure. In the test press down the great toe with your fingers while resisting the pressure.';
 const String _leftLegTitle = 'Left Leg';
 const String _rightLegTitle = 'Right Leg';
 const String _instruction =
