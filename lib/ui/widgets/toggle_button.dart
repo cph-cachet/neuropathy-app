@@ -6,7 +6,7 @@ class ToggleButton extends StatefulWidget {
   final Function onPressed;
   final RPChoiceAnswerFormat answerFormat;
 
-  ToggleButton(
+  const ToggleButton(
       {super.key, required this.onPressed, required this.answerFormat});
 
   @override
