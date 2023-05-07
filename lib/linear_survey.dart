@@ -1,5 +1,6 @@
 //import 'package:carp_test_1/RPQuestionStepExt.dart';
 import 'package:neuro_planner/step/steps/rp_vibration_step.dart';
+import 'package:neuro_planner/survey/vibration_part.dart';
 
 import 'step/steps/rp_pain_slider_question_step.dart';
 import 'step/steps/rp_image_question_step.dart';
@@ -30,21 +31,6 @@ RPImageQuestionStep left1 = RPImageQuestionStep(
         'Prick multiple spots in the blue area and select your prick sensitivity compared to the reference area. Only compare the sharpness of the prick sensation, not touch.',
     legImage: LegImage.leftLeg1,
     answerFormat: siReAbAnswerFormat);
-
-// vibration
-List<RPChoice> vibYesNo = [
-  RPChoice(text: 'Yes', value: 0),
-  RPChoice(text: 'No', value: 1)
-];
-RPChoiceAnswerFormat vibYesNoAnswerFormat = RPChoiceAnswerFormat(
-    answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: vibYesNo);
-RPVibrationStep vib1 = RPVibrationStep(
-    identifier: 'vib1',
-    title: 'Left Leg',
-    text:
-        'Press play to start vibrating, and press the backside of the phone against the top side of the bone in your great toe.',
-    vibrationSection: VibrationSection.leftToe,
-    answerFormat: vibYesNoAnswerFormat);
 
 // Pain
 List<RPChoice> continueSkip = [
@@ -155,7 +141,6 @@ RPNavigableOrderedTask linearSurveyTask = RPNavigableOrderedTask(
     steps: [
       instructionStep,
       left1,
-      vib1,
       skipPainStep,
       painSlider,
       pain1,
@@ -163,6 +148,7 @@ RPNavigableOrderedTask linearSurveyTask = RPNavigableOrderedTask(
       pain3,
       pain4,
       vibrationInstructionStep,
+      ...vibrationStepList,
       leftmotor,
       completionStep
     ])
