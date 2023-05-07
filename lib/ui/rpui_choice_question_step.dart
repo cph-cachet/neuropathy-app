@@ -49,20 +49,29 @@ class RPUIChoiceQuestionStepState extends State<RPUIChoiceQuestionStep>
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 72),
-              child: Text(
-                widget.step.title,
-                style: widget.step.textStyle ?? ThemeTextStyle.headline24sp,
-                textAlign: TextAlign.center,
+              padding: EdgeInsets.symmetric(
+                  vertical: widget.step.text != null ? 48.0 : 72.0),
+              child: Column(
+                children: [
+                  Text(
+                    widget.step.title,
+                    style: widget.step.text != null
+                        ? ThemeTextStyle.regularIBM22sp
+                        : ThemeTextStyle.headline24sp,
+                    textAlign: TextAlign.center,
+                  ),
+                  if (widget.step.text != null) verticalSpacing(24),
+                  if (widget.step.text != null)
+                    Text(
+                      widget.step.text!,
+                      style: widget.step.text != null
+                          ? ThemeTextStyle.regularIBM22sp
+                          : ThemeTextStyle.headline24sp,
+                      textAlign: TextAlign.center,
+                    ),
+                ],
               ),
             ),
-            if (widget.step.text != null) verticalSpacing(24),
-            if (widget.step.text != null)
-              Text(
-                widget.step.text!,
-                style: widget.step.textStyle ?? ThemeTextStyle.headline24sp,
-                textAlign: TextAlign.center,
-              ),
             Column(
               children: [
                 if (widget.step.answerFormat.answerStyle ==

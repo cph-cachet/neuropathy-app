@@ -20,6 +20,12 @@ class ThemeTextStyle {
     color: const Color(0xFF000000),
   );
 
+  static TextStyle regularIBM22sp = GoogleFonts.ibmPlexSans(
+    fontSize: 22,
+    fontWeight: FontWeight.w400,
+    color: const Color(0xFF000000),
+  );
+
   static TextStyle regularIBM16sp = GoogleFonts.ibmPlexSans(
     fontSize: 16,
     fontWeight: FontWeight.w400,

@@ -1,7 +1,9 @@
 //import 'package:carp_test_1/RPQuestionStepExt.dart';
 import 'package:neuro_planner/step/steps/rp_choice_question_step.dart';
 import 'package:neuro_planner/step/steps/rp_vibration_step.dart';
+import 'package:neuro_planner/survey/symptoms_part.dart';
 import 'package:neuro_planner/survey/vibration_part.dart';
+import 'package:neuro_planner/utils/themes/text_styles.dart';
 
 import 'step/steps/rp_pain_slider_question_step.dart';
 import 'step/steps/rp_image_question_step.dart';
@@ -140,6 +142,7 @@ RPStepJumpRule noPain =
 RPNavigableOrderedTask linearSurveyTask = RPNavigableOrderedTask(
     identifier: 'SurveryTaskID',
     steps: [
+      symptomsStep,
       instructionStep,
       left1,
       skipPainStep,
