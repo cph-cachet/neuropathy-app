@@ -26,7 +26,6 @@ class ChoiceSelectorState extends State<ChoiceSelector> {
     selectedChoices = [];
   }
 
-  //TODO: Parameter could be RPChoice instead of index
   void _onSelected(RPChoice selectedChoice) {
     if (widget.answerFormat.answerStyle == RPChoiceAnswerStyle.SingleChoice) {
       setState(() {
