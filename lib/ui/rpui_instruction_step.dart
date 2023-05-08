@@ -18,7 +18,7 @@ class RPUIInstructionStepWithChildren extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Text(step.title, style: ThemeTextStyle.header1),
+            Text(step.title, style: ThemeTextStyle.header1, textAlign: TextAlign.center),
             ...step.instructionContent
           ],
         ),
