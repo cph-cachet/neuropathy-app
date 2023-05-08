@@ -1,3 +1,5 @@
+import 'package:neuro_planner/ui/widgets/bottom_sheet_button.dart';
+
 import '../step/steps/rp_image_question_step.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -98,7 +100,7 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
           padding: const EdgeInsets.only(bottom: 24, left: 8, right: 8),
           child: Column(
             children: [
-              Image.asset(widget.step.legImage.imagePath),
+              Image.asset(widget.step.imagePath),
               const SizedBox.square(dimension: 16),
               Text(
                 locale?.translate(widget.step.title) ?? widget.step.title,
@@ -107,17 +109,33 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
               ),
             ],
           )),
-      // Text
-      (widget.step.text == null)
-          ? Container()
-          : Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                locale?.translate(widget.step.text!) ?? widget.step.text!,
-                style: ThemeTextStyle.regularIBM18sp,
-                textAlign: TextAlign.center,
+      Column(
+        children: [
+          // Text
+          (widget.step.text == null)
+              ? Container()
+              : Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Text(
+                    locale?.translate(widget.step.text!) ?? widget.step.text!,
+                    style: ThemeTextStyle.regularIBM18sp,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+          BottomSheetButton(
+              icon: const Icon(
+                Icons.help_outline_rounded,
+                size: 20,
               ),
-            ),
+              label: 'More Information',
+              bottomSheetTitle: widget.step.bottomSheetTitle,
+              content: Text(
+                widget.step.bottomSheetText,
+                style: ThemeTextStyle.regularIBM20sp,
+                textAlign: TextAlign.justify,
+              )),
+        ],
+      ),
       // Step body
       Padding(
         padding: const EdgeInsets.all(8.0),
