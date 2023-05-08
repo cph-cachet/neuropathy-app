@@ -1,10 +1,28 @@
 // TODO: Localize
+
+//TODO: fix \n in text
+// todo: idea - make a list of text children and apply spacing in the ui
+import 'package:flutter/material.dart';
 import 'package:neuro_planner/step/steps/rp_image_question_step.dart';
+import 'package:neuro_planner/step/steps/rp_instruction_step.dart';
+import 'package:neuro_planner/step/steps/rp_toggle_question_step.dart';
 import 'package:research_package/research_package.dart';
 
 const String _prickIntroductionTitle = 'Prick Test';
-const String _prickIntroductionText =
-    'Here you will test the pin-prick sensitivity of your legs using a needle or a sefety pin.\n\nChoose either the neck or the clavicle area to use as reference.\n\nPrick the reference area multiple times to compare sensitivity with the tested areas.';
+const List<Widget> _prickIntroText = [
+  Text(
+    'Now you will test the pin-prick sensitivity of your legs using a needle or a sefety pin.',
+    textAlign: TextAlign.center,
+  ),
+  Text(
+    'Choose either the neck or the clavicle area to use as reference.',
+    textAlign: TextAlign.center,
+  ),
+  Text(
+    'Prick the reference area multiple times to compare sensitivity with the tested areas.',
+    textAlign: TextAlign.center,
+  ),
+];
 const String _leftLegTitle = 'Left Leg';
 const String _rightLegTitle = 'Right Leg';
 const String _prickInstruction =
@@ -12,32 +30,50 @@ const String _prickInstruction =
 const String _bottomSheetTitle = 'Pin-prick test';
 const String _bottomSheetText =
     'When pricking the area, follow the pictures. In sections 1-2 prick on the top of your foot, in sections 3-6 prick on the side of your leg. Try to avoid pricking directly over a bone.\n\nIf you fell the area is more sensitive to pricking than your referenced area, answer SIMILAR.';
+const String _allodyniaQuestion =
+    'During the pin-prick examination, did you feel increased pain from pricking in the foot or toes?';
+const String _hyperaesthesiaQuestion =
+    'Do you experience discomfort or pain when touching the foot or toes?';
 
-RPInstructionStep prickInstructionStep = RPInstructionStep(
+RPInstructionStepWithChildren prickInstructionStep =
+    RPInstructionStepWithChildren(
   identifier: 'prickInstructionID',
   title: _prickIntroductionTitle,
-  text: _prickIntroductionText,
+  instructionContent: _prickIntroText,
 );
+
+List<RPChoice> pinPrickYesNo = [
+  RPChoice(text: "Yes", value: 1),
+  RPChoice(text: 'No', value: 0)
+];
 
 List<RPChoice> siReAb = [
   RPChoice(text: 'Similar', value: 0),
   RPChoice(text: 'Reduced', value: 1),
   RPChoice(text: 'Absent', value: 2),
 ];
-RPChoiceAnswerFormat siReAbAnswerFormat = RPChoiceAnswerFormat(
-    answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: siReAb);
+RPChoiceAnswerFormat pinPrickAnswerFormat(List<RPChoice> choices) {
+  return RPChoiceAnswerFormat(
+      answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: choices);
+}
 
 List<RPStep> prickStepList = [
   prickInstructionStep,
   ...PrickStrings.values
-      .map((step) => RPImageQuestionStep(
-          identifier: step.identifier,
-          title: step.title,
-          text: step.instruction,
-          imagePath: step.imagePath,
-          bottomSheetTitle: step.bottomSheetTitle,
-          bottomSheetText: step.bottomSheetText,
-          answerFormat: siReAbAnswerFormat))
+      .map((step) => step.imagePath.isNotEmpty
+          ? RPImageQuestionStep(
+              identifier: step.identifier,
+              title: step.title,
+              text: step.instruction,
+              imagePath: step.imagePath,
+              bottomSheetTitle: step.bottomSheetTitle,
+              bottomSheetText: step.bottomSheetText,
+              answerFormat: pinPrickAnswerFormat(siReAb))
+          : RPToggleQuestionStep(
+              identifier: step.identifier,
+              title: step.title,
+              text: step.instruction,
+              answerFormat: pinPrickAnswerFormat(pinPrickYesNo)))
       .toList()
 ];
 
@@ -54,6 +90,10 @@ enum PrickStrings {
       'assets/LeftLeg5.png', _bottomSheetTitle, _bottomSheetText),
   leftLeg6('prick_left_6', _leftLegTitle, _prickInstruction,
       'assets/LeftLeg6.png', _bottomSheetTitle, _bottomSheetText),
+  leftLegAllodynia(
+      'prick_left_allodynia', _leftLegTitle, _allodyniaQuestion, '', '', ''),
+  leftLegHyperaesthesia(
+      'prick_left_hyper', _leftLegTitle, _hyperaesthesiaQuestion, '', '', ''),
   rightLeg1('prick_right_1', _rightLegTitle, _prickInstruction,
       'assets/RightLeg1.png', _bottomSheetTitle, _bottomSheetText),
   rightLeg2('prick_right_2', _rightLegTitle, _prickInstruction,
@@ -65,7 +105,11 @@ enum PrickStrings {
   rightLeg5('prick_right_5', _rightLegTitle, _prickInstruction,
       'assets/RightLeg5.png', _bottomSheetTitle, _bottomSheetText),
   rightLeg6('prick_right_6', _rightLegTitle, _prickInstruction,
-      'assets/RightLeg6.png', _bottomSheetTitle, _bottomSheetText);
+      'assets/RightLeg6.png', _bottomSheetTitle, _bottomSheetText),
+  righLegAllodynia(
+      'prick_right_allodynia', _rightLegTitle, _allodyniaQuestion, '', '', ''),
+  rightLegHyperaesthesia(
+      'prick_right_hyper', _rightLegTitle, _hyperaesthesiaQuestion, '', '', '');
 
   const PrickStrings(this.identifier, this.title, this.instruction,
       this.imagePath, this.bottomSheetTitle, this.bottomSheetText);

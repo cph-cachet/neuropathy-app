@@ -1,4 +1,6 @@
 //import 'package:carp_test_1/RPQuestionStepExt.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:neuro_planner/step/steps/rp_instruction_step.dart';
 import 'package:neuro_planner/survey/pain_questionaire_part.dart';
 import 'package:neuro_planner/survey/symptoms_part.dart';
 import 'package:neuro_planner/survey/prick_part.dart';
@@ -16,14 +18,6 @@ RPInstructionStep instructionStep = RPInstructionStep(
   text: 'survey_introduction',
 );
 
-// Vibration
-RPInstructionStep vibrationInstructionStep = RPInstructionStep(
-  identifier: 'vibrationInstructionID',
-  title: 'Vibration Test',
-  text:
-      'This begins the vibration sensation test.\n\nYou will test three points on each leg.\n\nWhen pressing the phone to your leg, use the backside of the phone.',
-);
-
 // Completion
 RPCompletionStep completionStep = RPCompletionStep(
     identifier: 'completionID',
@@ -37,7 +31,6 @@ RPNavigableOrderedTask linearSurveyTask = RPNavigableOrderedTask(
     identifier: 'SurveryTaskID',
     steps: [
       symptomsStep,
-      instructionStep,
       ...prickStepList,
       skipPainStep,
       ...painStepList,

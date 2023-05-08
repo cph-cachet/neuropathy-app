@@ -1,10 +1,14 @@
 // TODO: Localize
+import 'package:flutter/material.dart';
 import 'package:neuro_planner/step/steps/rp_image_question_step.dart';
+import 'package:neuro_planner/step/steps/rp_instruction_step.dart';
 import 'package:research_package/research_package.dart';
 
+//TODO: fix \n in text
+// todo: idea - make a list of text children and apply spacing in the ui
+
+// todo move text to rpinstruction with children, just provide widget type
 const String _motorIntroductionTitle = 'Motor examination';
-const String _motorIntroductionText =
-    'Here you will test the strength of your great toes.\n\nThe great toe can usually resist a lot of pressure. In the test press down the great toe with your fingers while resisting the pressure.';
 const String _leftLegTitle = 'Left Leg';
 const String _rightLegTitle = 'Right Leg';
 const String _instruction =
@@ -13,10 +17,20 @@ const String _bottomSheetTitle = 'Overcoming pressure';
 const String _bottomSheetText =
     'If you don\'t have symptoms in your hands, you can compare how your fingers overcome the pressure.\n\nIf you feel your great toe is weaker, answer YES to this question.';
 
-RPInstructionStep motorInstructionStep = RPInstructionStep(
+RPInstructionStepWithChildren motorInstructionStep =
+    RPInstructionStepWithChildren(
   identifier: 'motorInstructionID',
   title: _motorIntroductionTitle,
-  text: _motorIntroductionText,
+  instructionContent: [
+    const Text(
+      'Here you will test the strength of your great toes.',
+      textAlign: TextAlign.center,
+    ),
+    const Text(
+      'The great toe can usually resist a lot of pressure. In the test press down the great toe with your fingers while resisting the pressure.',
+      textAlign: TextAlign.center,
+    ),
+  ],
 );
 
 List<RPChoice> motorYesNo = [

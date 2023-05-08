@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:neuro_planner/step/steps/rp_instruction_step.dart';
 import 'package:neuro_planner/step/steps/rp_vibration_step.dart';
 import 'package:research_package/research_package.dart';
 
@@ -10,6 +12,25 @@ const String _ankleInstruction =
     'Press play to start vibrating, and press the backside of the phone against the outside part of your ankle.';
 const String _toeInstruction =
     'Press play to start vibrating, and press the backside of the phone against the top side of the bone in your great toe.';
+
+RPInstructionStepWithChildren vibrationInstructionStep =
+    RPInstructionStepWithChildren(
+        identifier: 'vibrationInstructionID',
+        title: 'Vibration Test',
+        instructionContent: [
+      const Text(
+        'This begins the vibration sensation test.',
+        textAlign: TextAlign.center,
+      ),
+      const Text(
+        'You will test three points on each leg.',
+        textAlign: TextAlign.center,
+      ),
+      const Text(
+        'When pressing the phone to your leg, use the backside of the phone.',
+        textAlign: TextAlign.center,
+      ),
+    ]);
 
 List<RPStep> vibrationStepList = VibrationStrings.values
     .map((step) => stepGenerator(
