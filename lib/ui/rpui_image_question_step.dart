@@ -1,4 +1,5 @@
 import 'package:neuro_planner/ui/widgets/bottom_sheet_button.dart';
+import 'package:neuro_planner/utils/spacing.dart';
 
 import '../step/steps/rp_image_question_step.dart';
 import 'package:flutter/material.dart';
@@ -93,59 +94,62 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
   Widget build(BuildContext context) {
     RPLocalizations? locale = RPLocalizations.of(context);
     return SafeArea(
-        child:
-            Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-      // Image and title
-      Padding(
-          padding: const EdgeInsets.only(bottom: 24, left: 8, right: 8),
-          child: Column(
-            children: [
-              Image.asset(widget.step.imagePath),
-              const SizedBox.square(dimension: 16),
-              Text(
-                locale?.translate(widget.step.title) ?? widget.step.title,
-                style: ThemeTextStyle.headline24sp,
-                textAlign: TextAlign.center,
-              ),
-            ],
-          )),
-      Column(
-        children: [
-          // Text
-          (widget.step.text == null)
-              ? Container()
-              : Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Text(
+        child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24.0),
+      child:
+          Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+        // Image and title
+        Column(
+          children: [
+            ConstrainedBox(
+                constraints: BoxConstraints(
+                    maxHeight: MediaQuery.of(context).size.height * 0.35),
+                child: Image.asset(widget.step.imagePath)),
+            verticalSpacing(16),
+            Text(
+              locale?.translate(widget.step.title) ?? widget.step.title,
+              style: ThemeTextStyle.headline24sp,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+        Column(
+          children: [
+            // Text
+            (widget.step.text == null)
+                ? Container()
+                : Text(
                     locale?.translate(widget.step.text!) ?? widget.step.text!,
-                    style: ThemeTextStyle.regularIBM18sp,
+                    style: widget.step.identifier.contains('prick')
+                        ? ThemeTextStyle.regularIBM18sp
+                        : ThemeTextStyle.headline24sp,
                     textAlign: TextAlign.center,
                   ),
+            BottomSheetButton(
+                icon: const Icon(
+                  Icons.help_outline_rounded,
+                  size: 20,
                 ),
-          BottomSheetButton(
-              icon: const Icon(
-                Icons.help_outline_rounded,
-                size: 20,
-              ),
-              label: 'More Information',
-              bottomSheetTitle: widget.step.bottomSheetTitle,
-              content: Text(
-                widget.step.bottomSheetText,
-                style: ThemeTextStyle.regularIBM20sp,
-                textAlign: TextAlign.justify,
-              )),
-        ],
-      ),
-      // Step body
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ToggleButton(
-            answerFormat: widget.step.answerFormat as RPChoiceAnswerFormat,
-            onPressed: (result) {
-              currentQuestionBodyResult = result;
-            }),
-      ),
-    ]));
+                label: 'More Information',
+                bottomSheetTitle: widget.step.bottomSheetTitle,
+                content: Text(
+                  widget.step.bottomSheetText,
+                  style: ThemeTextStyle.regularIBM20sp,
+                  textAlign: TextAlign.justify,
+                )),
+          ],
+        ),
+        // Step body
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ToggleButton(
+              answerFormat: widget.step.answerFormat as RPChoiceAnswerFormat,
+              onPressed: (result) {
+                currentQuestionBodyResult = result;
+              }),
+        ),
+      ]),
+    ));
   }
 
   @override
