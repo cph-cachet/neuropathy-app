@@ -15,7 +15,10 @@ class RPUIInstructionStepWithChildren extends StatelessWidget {
         padding: const EdgeInsets.all(48),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: step.instructionContent,
+          children: [
+            Text(step.title, style: ThemeTextStyle.header1),
+            ...step.instructionContent
+          ],
         ),
       ),
     );
