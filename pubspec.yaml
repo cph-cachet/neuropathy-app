@@ -42,6 +42,7 @@ dependencies:
   async: ^2.9.0
   json_annotation: ^4.8.0
   carp_serializable: ^1.1.0
+  syncfusion_flutter_gauges: ^21.2.3
 
 dev_dependencies:
   flutter_test:

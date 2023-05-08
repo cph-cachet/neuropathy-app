@@ -28,6 +28,7 @@ RPStepJumpRule noPain =
     RPStepJumpRule(answerMap: {0: vibrationInstructionStep.identifier});
 
 RPNavigableOrderedTask linearSurveyTask = RPNavigableOrderedTask(
+    closeAfterFinished: false,
     identifier: 'SurveryTaskID',
     steps: [
       symptomsStep,
