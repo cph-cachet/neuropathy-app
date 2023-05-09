@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ThemeTextStyle {
+  static TextStyle header1 = GoogleFonts.workSans(
+      fontSize: 34,
+      fontWeight: FontWeight.bold,
+      color: const Color(0xFF000000));
+
   static TextStyle headline24sp = GoogleFonts.ibmPlexSans(
     fontSize: 24,
     fontWeight: FontWeight.w400,
