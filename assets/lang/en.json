@@ -9,9 +9,9 @@
                 "cancel": "Cancel",
                 "quit": "Quit",
                 "continue": "Continue",
-                "similar": "Similar",
-                "reduced": "Reduced",
-                "absent": "Absent",
+                "same": "Same",
+                "less": "Less",
+                "none": "None",
                 "yes": "Yes",
                 "no": "No",
                 "skip": "Skip"
@@ -59,11 +59,11 @@
             "prick-test-information":
             {
                 "title": "Prick test",
-                "info": "Here you will test the pin-prick sensitivity of your legs using a needle or a safety pin.\n\n\nChoose either the neck or the clavicle area to use as reference\n\n\nPrick the reference area multiple times to compare sensitivity with the tested areas."
+                "info": "Here you will test the pin-prick sensitivity of your legs using a needle or a safety pin.\n\n\nChoose either the neck or the clavicle area to use as reference\n\n\nDuring the test, prick both the reference area and the tested area to compare sensitivity."
             },
             "prick":
             {
-                "instructions": "Prick multiple spots in the blue area and select your prick sensitivity compared to the reference area. Only compare the sharpness of the prick sensation, not touch."
+                "instructions": "1: Prick multiple spots in the chosen reference area. 2: Prick multiple spots in the blue area on the leg. How sensitive is the area on the leg compared to the reference area? Only compare the sharpness of the prick sensation, not touch."
             },
             "right-prick-end":
             {
@@ -76,7 +76,7 @@
             "overlay-pin-prick":
             {
                 "title": "Pin-prick test",
-                "info": "When pricking the area, follow the pictures. In sections 1-2 prick on the top of your foot, in sections 3-6 prick on the side of your leg. Try to avoid pricking directly over a bone.\n\nIf you feel the area is more sensitive to pricking than your referenced area, answer SIMILAR."
+                "info": "When pricking the area, follow the pictures. In sections 1-2 prick on the top of your foot, in sections 3-6 prick on the side of your leg. Try to avoid pricking directly over a bone.\n\nIf you feel the area is more sensitive to pricking than your reference area, answer SAME."
             },
             "pricking-warning":
             {
