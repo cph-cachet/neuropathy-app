@@ -29,7 +29,7 @@ const String _prickInstruction =
     'Prick multiple spots in the blue area and select your prick sensitivity compared to the reference area. Only compare the sharpness of the prick sensation, not touch.';
 const String _bottomSheetTitle = 'Pin-prick test';
 const String _bottomSheetText =
-    'When pricking the area, follow the pictures. In sections 1-2 prick on the top of your foot, in sections 3-6 prick on the side of your leg. Try to avoid pricking directly over a bone.\n\nIf you fell the area is more sensitive to pricking than your referenced area, answer SIMILAR.';
+    'When pricking the area, follow the pictures. In sections 1-2 prick on the top of your foot, in sections 3-6 prick on the side of your leg. Try to avoid pricking directly over a bone.\n\nIf you fell the area is more sensitive to pricking than your referenced area, answer <b>SIMILAR</b>.';
 const String _allodyniaQuestion =
     'During the pin-prick examination, did you feel increased pain from pricking in the foot or toes?';
 const String _hyperaesthesiaQuestion =
