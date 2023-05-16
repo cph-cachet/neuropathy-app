@@ -33,7 +33,7 @@
     },
     "symptoms":
     {
-        "title": "General symptoms",
+        "title": "<b>General symptoms</b>",
         "text-1": "In your day-to-day life, do you notice any symptoms in your legs or feet?",
         "text-2": "Examples of symptoms are numbness, pain, or other unexpected sensations.",
         "choice-1": "No symptoms",
@@ -44,7 +44,7 @@
     },
     "prick-info":
     {
-        "title": "Prick test",
+        "title": "<b>Prick test</b>",
         "text-1": "Now you will test the pin-prick sensitivity of your legs using a needle or a safety pin.",
         "text-2": "Choose either the neck or the clavicle area to use as reference",
         "text-3": "During the test, prick both the reference area and the tested area to compare sensitivity."
@@ -56,7 +56,7 @@
         "text-3": "How sensitive is the area on the leg compared to the reference area? Only compare the sharpness of the prick sensation, not touch.",
         "bottom-sheet-title": "Pin-prick test",
         "bottom-sheet-text-1": "When pricking the area, follow the pictures. In the first two areas prick on the top of your foot, in the other areas prick on the side of your leg. Try to avoid pricking directly over a bone.",
-        "bottom-sheet-text-2": "If you feel the area is more sensitive to pricking than your reference area, also answer SAME."
+        "bottom-sheet-text-2": "If you feel the area is more sensitive to pricking than your reference area, also answer <b>SAME</b>."
     },
     "right-prick-end":
     {
@@ -82,7 +82,7 @@
     },
     "pain-skip":
     {
-        "title": "Are you experiencing pain in your feet?"
+        "title": "Are you experiencing pain in your <b>feet</b>?"
     },
     "pain-0":
     {
@@ -136,21 +136,21 @@
     "extension-left":
     {
         "text-1": "Put the phone aside.",
-        "text-2": "Grab your left great toe with your fingers and move it up and down a couple of times.",
+        "text-2": "Grab your <b>left</b> great toe with your fingers and move it up and down a couple of times.",
         "text-3": "Can you feel the movement in the joints?",
         "bottom-sheet-title": "Feeling the movement",
         "bottom-sheet-text-1": "The feeling of movement is not a feeling of touch.",
-        "bottom-sheet-text-2": "If you only feel your hand's grip, answer NO to this question.",
+        "bottom-sheet-text-2": "If you only feel your hand's grip, answer <b>NO</b> to this question.",
         "bottom-sheet-text-3": "If you don't have symptoms in your hands, you can compare how your fingers feel when moved."
     },
     "extension-right":
     {
         "text-1": "Put the phone aside.",
-        "text-2": "Grab your right great toe with your fingers and move it up and down a couple of times.",
+        "text-2": "Grab your <b>right</b> great toe with your fingers and move it up and down a couple of times.",
         "text-3": "Can you feel the movement in the joints?",
         "bottom-sheet-title": "Feeling the movement",
         "bottom-sheet-text-1": "The feeling of movement is not a feeling of touch.",
-        "bottom-sheet-text-2": "If you only feel your hand's grip, answer NO to this question.",
+        "bottom-sheet-text-2": "If you only feel your hand's grip, answer <b>NO</b> to this question.",
         "bottom-sheet-text-3": "If you don't have symptoms in your hands, you can compare how your fingers feel when moved."
     },
     "motor-info":
@@ -165,7 +165,7 @@
         "text-2": "Is it difficult to overcome the pressure?",
         "bottom-sheet-title": "Overcoming pressure",
         "bottom-sheet-text-1": "If you don't have symptoms in your hands, you can compare how your fingers overcome the pressure.",
-        "bottom-sheet-text-2": "If you feel your great toe is weaker, answer YES to this question."
+        "bottom-sheet-text-2": "If you feel your great toe is weaker, answer <b>YES</b> to this question."
     },
     "examination-completed":
     {
