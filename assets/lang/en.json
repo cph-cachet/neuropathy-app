@@ -1,209 +1,182 @@
 {
-    "survey_introduction": "Read the next line\n\n\nRead the previous line",
-    
-        "app-title": "Neuropathy App",
-        "common":
-        {
-            "buttons":
-            {
-                "cancel": "Cancel",
-                "quit": "Quit",
-                "continue": "Continue",
-                "similar": "Similar",
-                "reduced": "Reduced",
-                "absent": "Absent",
-                "yes": "Yes",
-                "no": "No",
-                "skip": "Skip"
-            },
-            "terms":
-            {
-                "left-leg": "Left leg",
-                "right-leg": "Right leg",
-                "left-great-toe": "Left great toe",
-                "right-great-toe": "Right great toe"
-            }
-        },
-        "overlay-quit-examination":
-        {
-            "title": "Quit examination?",
-            "info": "Your progress in this examination will be lost if you quit before completing it."
-        },
-        "main-menu":
-        {
-            "welcome-screen":
-            {
-                "welcome": "Welcome! You do not have any completed examinations yet.",
-                "tap-to-start": "Tap here to start a new one"
-            }
-        },
-        "begin-examination":
-        {
-            "examination-information":
-            {
-                "info": "The examination is a mix of questions and tasks to complete.\n\n\nA needle or a safety pin is needed for some of the activities.",
-                "button-start": "start examination"
-            }
-        },
-        "finish-examination":
-        {
-            "examination-completed":
-            {
-                "info": "Examination completed\n\n\nYour score is 17. You can read more details about it or return to the main screen.",
-                "button-main": "Main screen",
-                "button-details": "details"
-            }
-        },
-        "pin-prick":
-        {
-            "prick-test-information":
-            {
-                "title": "Prick test",
-                "info": "Here you will test the pin-prick sensitivity of your legs using a needle or a safety pin.\n\n\nChoose either the neck or the clavicle area to use as reference\n\n\nPrick the reference area multiple times to compare sensitivity with the tested areas."
-            },
-            "prick":
-            {
-                "instructions": "Prick multiple spots in the blue area and select your prick sensitivity compared to the reference area. Only compare the sharpness of the prick sensation, not touch."
-            },
-            "right-prick-end":
-            {
-                "completed": "Right leg completed!"
-            },
-            "left-prick-end":
-            {
-                "completed": "Left leg completed!"
-            },
-            "overlay-pin-prick":
-            {
-                "title": "Pin-prick test",
-                "info": "When pricking the area, follow the pictures. In sections 1-2 prick on the top of your foot, in sections 3-6 prick on the side of your leg. Try to avoid pricking directly over a bone.\n\nIf you feel the area is more sensitive to pricking than your referenced area, answer SIMILAR."
-            },
-            "pricking-warning":
-            {
-                "title": "Remember!",
-                "info": "Prick gently, to feel the sharpness, but not to break the skin!",
-                "button-understand": "I understand"
-            }
-        },
-        "allodynia-hypersensitivity":
-        {
-            "allodynia":
-            {
-                "question": "During the pin-prick examination, did you feel increased pain from pricking in the foot or toes?"
-            },
-            "hypersensitivity":
-            {
-                "question": "Do you experience discomfort or pain when touching the foot or toes?"
-            }
-        },
-        "symptoms":
-        {
-            "symptoms-screen":
-            {
-                "title": "General symptoms",
-                "question": "In your day-to-day life, do you notice any symptoms in your legs or feet?",
-                "info": "Examples of symptoms are numbness, pain, or other unexpected sensations.",
-                "option-1": "No symptoms",
-                "option-2": "In the toes",
-                "option-3": "Up to the ankle",
-                "option-4": "Up to the knee",
-                "option-5": "Beyond the knee"
-            }
-        },
-        "pain":
-        {
-            "pain-skip":
-            {
-                "instructions": "If you are experiencing pain in your feet, please answer the following questions.\n\nOtherwise, press the SKIP button."
-            },
-            "pain-0":
-            {
-                "instructions": "On the scale below, mark your pain level."
-            },
-            "pain-1":
-            {
-                "question": "Does your pain present one or more of the following characteristics?",
-                "option-1": "Pain feels like burning",
-                "option-2": "Sensation of painful cold",
-                "option-3": "Pain feels like electric shocks",
-                "instructions": "Check all that apply"
-            },
-            "pain-2":
-            {
-                "question": "In the same area, is your pain associated to one or more symptoms?",
-                "option-1": "Tingling",
-                "option-2": "Pins and needles",
-                "option-3": "Numbness",
-                "option-4": "Itching",
-                "instructions": "Check all that apply"
-            },
-            "pain-3":
-            {
-                "question": "Is the pain located in an area where the examination unveiled:",
-                "option-1": "Decreased sensitivity to touch",
-                "option-2": "Decreased sensitivity to pricking",
-                "instructions": "Check all that apply"
-            },
-            "pain-4":
-            {
-                "instructions": "Use your fingers to gently stroke the areas where the pain is present.",
-                "question": "Is the pain provoked or increased by the stroking?"
-            }
-        },
-        "vibration":
-        {
-            "vibration-intro":
-            {
-                "title": "Vibration Test",
-                "info": "This begins the vibration sensation test.\n\n\nYou will test three points on each leg.\n\n\nWhen pressing the phone to your leg,\nuse the backside of the phone, not the edge."
-            },
-            "leg-vibration-1":
-            {
-                "instructions": "Press play to start vibrating, and press the backside of the phone against the top side of the bone in your great toe.",
-                "question": "Can you feel the vibration?"
-            },
-            "leg-vibration-2":
-            {
-                "instructions": "Press play to start vibrating, and press the backside of the phone against the outside part of your ankle.",
-                "question": "Can you feel the vibration?"
-            },
-            "leg-vibration-3":
-            {
-                "instructions": "Press play to start vibrating, and press the backside of the phone against the bone just below your kneecap.",
-                "question": "Can you feel the vibration?"
-            },
-            "left-leg-vibration-4":
-            {
-                "instructions": "Put the phone aside.\n\n\nGrab your left great toe with your fingers and move it up and down a couple of times.",
-                "question": "Can you feel the movement in the joints?"
-            },
-            "right-leg-vibration-4":
-            {
-                "instructions": "Put the phone aside.\n\n\nGrab your right great toe with your fingers and move it up and down a couple of times.",
-                "question": "Can you feel the movement in the joints?"
-            },
-            "overlay-feeling-extension":
-            {
-                "title": "Feeling the movement",
-                "info": "The feeling of movement is not a feeling of touch.\n\nIf you only feel your hand’s grip, answer NO to this question.\n\nIf you don’t have symptoms in your hands, you can compare how your fingers feel when moved."
-            }
-        },
-        "motor":
-        {
-            "great-toe-test-information":
-            {
-                "title": "Motor examination",
-                "info": "Here you will test the strength of your great toes.\n\n\nThe great toe can usually resist a lot of pressure. In the test press down the great toe with your fingers while resisting the pressure."
-            },
-            "motor":
-            {
-                "instructions": "Apply firm pressure with your fingers to the great toe.",
-                "question": "Is it difficult to overcome the pressure?"
-            },
-            "overlay-motor":
-            {
-                "title": "Overcoming pressure",
-                "info": "If you don’t have symptoms in your hands, you can compare how your fingers overcome the pressure.\n\nIf you feel your great toe is weaker, answer YES to this question."
-            }
-        }
+    "app-title": "Neuropathy App",
+    "common":
+    {
+        "cancel": "Cancel",
+        "quit": "Quit",
+        "continue": "Continue",
+        "same": "Same",
+        "less": "Less",
+        "none": "None",
+        "yes": "Yes",
+        "no": "No",
+        "more-info": "More information",
+        "check-all-that-apply": "Check all that apply",
+        "none-of-the-above": "None of the above",
+        "feel-vibration": "Can you feel the vibration?",
+        "left-leg": "Left leg",
+        "right-leg": "Right leg",
+        "left-great-toe": "Left great toe",
+        "right-great-toe": "Right great toe"
+    },
+    "welcome-screen":
+    {
+        "welcome": "Welcome!",
+        "no-completed": "You do not have any completed examinations yet.",
+        "tap-to-start": "Tap here to start a new one"
+    },
+    "begin-examination":
+    {
+        "text-1": "The examination is a mix of questions and tasks to complete.",
+        "text-2": "A needle or a safety pin is needed for some of the activities.",
+        "button-start": "Start examination"
+    },
+    "symptoms":
+    {
+        "title": "General symptoms",
+        "text-1": "In your day-to-day life, do you notice any symptoms in your legs or feet?",
+        "text-2": "Examples of symptoms are numbness, pain, or other unexpected sensations.",
+        "choice-1": "No symptoms",
+        "choice-2": "In the toes",
+        "choice-3": "Up to the ankle",
+        "choice-4": "Up to the knee",
+        "choice-5": "Beyond the knee"
+    },
+    "prick-info":
+    {
+        "title": "Prick test",
+        "text-1": "Now you will test the pin-prick sensitivity of your legs using a needle or a safety pin.",
+        "text-2": "Choose either the neck or the clavicle area to use as reference",
+        "text-3": "During the test, prick both the reference area and the tested area to compare sensitivity."
+    },
+    "prick-test":
+    {
+        "text-1": "1: Prick multiple spots in the chosen reference area.",
+        "text-2": "2: Prick multiple spots in the blue area on the leg.",
+        "text-3": "How sensitive is the area on the leg compared to the reference area? Only compare the sharpness of the prick sensation, not touch.",
+        "bottom-sheet-title": "Pin-prick test",
+        "bottom-sheet-text-1": "When pricking the area, follow the pictures. In the first two areas prick on the top of your foot, in the other areas prick on the side of your leg. Try to avoid pricking directly over a bone.",
+        "bottom-sheet-text-2": "If you feel the area is more sensitive to pricking than your reference area, also answer SAME."
+    },
+    "right-prick-end":
+    {
+        "completed": "Right leg completed!"
+    },
+    "left-prick-end":
+    {
+        "completed": "Left leg completed!"
+    },
+    "pricking-warning":
+    {
+        "title": "Remember!",
+        "info": "Prick gently, to feel the sharpness, but not to break the skin!",
+        "button-understand": "I understand"
+    },
+    "allodynia":
+    {
+        "text": "During the pin-prick examination, did you feel increased pain from pricking in the foot or toes?"
+    },
+    "hypersensitivity":
+    {
+        "text": "Do you experience discomfort or pain when touching the foot or toes?"
+    },
+    "pain-skip":
+    {
+        "title": "Are you experiencing pain in your feet?"
+    },
+    "pain-0":
+    {
+        "title": "On the scale below, mark your pain level."
+    },
+    "pain-1":
+    {
+        "title": "Does your pain present one or more of the following characteristics?",
+        "choice-1": "Pain feels like burning",
+        "choice-2": "Sensation of painful cold",
+        "choice-3": "Pain feels like electric shocks"
+    },
+    "pain-2":
+    {
+        "title": "In the same area, is your pain associated to one or more symptoms?",
+        "choice-1": "Tingling",
+        "choice-2": "Pins and needles",
+        "choice-3": "Numbness",
+        "choice-4": "Itching"
+    },
+    "pain-3":
+    {
+        "title": "Is the pain located in an area where the examination unveiled:",
+        "choice-1": "Decreased sensitivity to touch",
+        "choice-2": "Decreased sensitivity to pricking"
+    },
+    "pain-4":
+    {
+        "title-1": "Use your fingers to gently stroke the areas where the pain is present.",
+        "title-2": "Is the pain provoked or increased by the stroking?"
+    },
+    "vibration-info":
+    {
+        "title": "Vibration Test",
+        "text-1": "This begins the vibration sensation test.",
+        "text-2": "You will test three points on each leg.",
+        "text-3": "When pressing the phone to your leg, use the backside of the phone."
+    },
+    "vibration-toe":
+    {
+        "text": "Press start to start vibrating, and press the backside of the phone against the top side of the bone in your great toe."
+    },
+    "vibration-ankle":
+    {
+        "text": "Press start to start vibrating, and press the backside of the phone against the outside part of your ankle."
+    },
+    "vibration-knee":
+    {
+        "text": "Press start to start vibrating, and press the backside of the phone against the bone just below your kneecap."
+    },
+    "extension-left":
+    {
+        "text-1": "Put the phone aside.",
+        "text-2": "Grab your left great toe with your fingers and move it up and down a couple of times.",
+        "text-3": "Can you feel the movement in the joints?",
+        "bottom-sheet-title": "Feeling the movement",
+        "bottom-sheet-text-1": "The feeling of movement is not a feeling of touch.",
+        "bottom-sheet-text-2": "If you only feel your hand's grip, answer NO to this question.",
+        "bottom-sheet-text-3": "If you don't have symptoms in your hands, you can compare how your fingers feel when moved."
+    },
+    "extension-right":
+    {
+        "text-1": "Put the phone aside.",
+        "text-2": "Grab your right great toe with your fingers and move it up and down a couple of times.",
+        "text-3": "Can you feel the movement in the joints?",
+        "bottom-sheet-title": "Feeling the movement",
+        "bottom-sheet-text-1": "The feeling of movement is not a feeling of touch.",
+        "bottom-sheet-text-2": "If you only feel your hand's grip, answer NO to this question.",
+        "bottom-sheet-text-3": "If you don't have symptoms in your hands, you can compare how your fingers feel when moved."
+    },
+    "motor-info":
+    {
+        "title": "Motor examination",
+        "text-1": "Here you will test the strength of your great toes.",
+        "text-2": "The great toe can usually resist a lot of pressure. In the test press down the great toe with your fingers while resisting the pressure."
+    },
+    "motor-test":
+    {
+        "text-1": "Apply firm pressure with your fingers to the great toe.",
+        "text-2": "Is it difficult to overcome the pressure?",
+        "bottom-sheet-title": "Overcoming pressure",
+        "bottom-sheet-text-1": "If you don't have symptoms in your hands, you can compare how your fingers overcome the pressure.",
+        "bottom-sheet-text-2": "If you feel your great toe is weaker, answer YES to this question."
+    },
+    "examination-completed":
+    {
+        "title": "Examination completed",
+        "text": "Thanks, buddy"
+    },
+    "result-screen":
+    {
+        "title": "Examination completed",
+        "text-1": "Your score",
+        "text-2": "Unlikely",
+        "button-main": "Back to home"
     }
+}
