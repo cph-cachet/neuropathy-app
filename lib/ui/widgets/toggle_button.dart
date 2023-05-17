@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neuro_planner/languages.dart';
 import 'package:neuro_planner/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
 
@@ -73,7 +74,7 @@ class ToggleButtonState extends State<ToggleButton> {
         isSelected: _isSelected,
         children: widget.answerFormat.choices
             .map((e) => Text(
-                  e.text.toUpperCase(),
+                  Languages.of(context)!.translate(e.text).toUpperCase(),
                   style: ThemeTextStyle.toggleButtonStyle,
                 ))
             .toList());

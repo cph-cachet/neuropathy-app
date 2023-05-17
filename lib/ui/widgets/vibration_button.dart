@@ -2,6 +2,7 @@ import 'package:async/async.dart';
 import 'package:flutter/material.dart';
 import 'package:vibration/vibration.dart';
 
+import '../../languages.dart';
 import '../../utils/spacing.dart';
 import '../../utils/themes/styles.dart';
 
@@ -81,7 +82,9 @@ class VibrationButtonState extends State<VibrationButton> {
             children: [
               Icon(_isVibrating ? Icons.pause : Icons.vibration),
               horizontalSpacing(8),
-              Text(_isVibrating ? 'Stop' : 'Start'),
+              Text(_isVibrating
+                  ? Languages.of(context)!.translate('common.stop')
+                  : Languages.of(context)!.translate('common.start')),
             ],
           ),
         ),

@@ -5,6 +5,8 @@
         "cancel": "Cancel",
         "quit": "Quit",
         "continue": "Continue",
+        "start": "Start",
+        "stop": "Stop",
         "same": "Same",
         "less": "Less",
         "none": "None",
@@ -133,20 +135,10 @@
     {
         "text": "Press start to start vibrating, and press the backside of the phone against the bone just below your kneecap."
     },
-    "extension-left":
-    {
+    "extension": {
         "text-1": "Put the phone aside.",
-        "text-2": "Grab your <b>left</b> great toe with your fingers and move it up and down a couple of times.",
-        "text-3": "Can you feel the movement in the joints?",
-        "bottom-sheet-title": "Feeling the movement",
-        "bottom-sheet-text-1": "The feeling of movement is not a feeling of touch.",
-        "bottom-sheet-text-2": "If you only feel your hand's grip, answer <b>NO</b> to this question.",
-        "bottom-sheet-text-3": "If you don't have symptoms in your hands, you can compare how your fingers feel when moved."
-    },
-    "extension-right":
-    {
-        "text-1": "Put the phone aside.",
-        "text-2": "Grab your <b>right</b> great toe with your fingers and move it up and down a couple of times.",
+        "text-2-left": "Grab your <b>left</b> great toe with your fingers and move it up and down a couple of times.",
+        "text-2-right": "Grab your <b>right</b> great toe with your fingers and move it up and down a couple of times.",
         "text-3": "Can you feel the movement in the joints?",
         "bottom-sheet-title": "Feeling the movement",
         "bottom-sheet-text-1": "The feeling of movement is not a feeling of touch.",

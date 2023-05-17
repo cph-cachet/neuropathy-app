@@ -5,6 +5,8 @@
         "cancel": "Fortryd",
         "quit": "Afbryd",
         "continue": "Videre",
+        "start": "Start danish",
+        "stop": "Stop danish",
         "same": "Samme",
         "less": "Mindre",
         "none": "Ingen",
@@ -133,20 +135,11 @@
     {
         "text": "Tryk start for at starte vibrationen og tryk bagsiden af mobilen mod knoglen lige under din knæskal."
     },
-    "extension-left":
+    "extension":
     {
         "text-1": "Læg mobilen til side.",
-        "text-2": "Hold din <b>venstre</b> storetå med fingrene og flyt den op og ned et par gange.",
-        "text-3": "Kan du mærke bevægelsen i leddene?",
-        "bottom-sheet-title": "At mærke bevægelsen",
-        "bottom-sheet-text-1": "At mærke bevægelse er ikke det samme som at mærke berøring.",
-        "bottom-sheet-text-2": "Svar <b>NEJ</b> til dette spørgsmål, hvis du kun mærker håndens berøring.",
-        "bottom-sheet-text-3": "Hvis du ikke har symptomer i dine hænder, kan du sammenligne hvordan dine fingre føles når de bliver flyttet."
-    },
-    "extension-right":
-    {
-        "text-1": "Læg mobilen til side.",
-        "text-2": "Hold din <b>højre</b> storetå med fingrene og flyt den op og ned et par gange.",
+        "text-2-left": "Hold din <b>venstre</b> storetå med fingrene og flyt den op og ned et par gange.",
+        "text-2-right": "Hold din <b>højre</b> storetå med fingrene og flyt den op og ned et par gange.",
         "text-3": "Kan du mærke bevægelsen i leddene?",
         "bottom-sheet-title": "At mærke bevægelsen",
         "bottom-sheet-text-1": "At mærke bevægelse er ikke det samme som at mærke berøring.",
