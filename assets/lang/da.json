@@ -8,9 +8,9 @@
             "cancel": "Fortryd",
             "quit": "Afbryd",
             "continue": "Videre",
-            "similar": "Tilsvarende",
-            "reduced": "Reduceret",
-            "absent": "Ingen",
+            "same": "Samme",
+            "less": "Mindre",
+            "none": "Ingen",
             "yes": "Ja",
             "no": "Nej",
             "skip": "Spring over"
@@ -58,11 +58,11 @@
         "prick-test-information":
         {
             "title": "Priktest",
-            "info": "Her testes dine bens følsomhed over for prik med en nål eller en sikkerhedsnål.\n\n\nVælg enten halsen eller området omkring kravebenet som reference\n\n\nPrik referenceområdet flere gange så du kan sammenligne følsomheden med de områder, der bliver testet."
+            "info": "Her testes dine bens følsomhed over for prik med en nål eller en sikkerhedsnål.\n\n\nVælg enten halsen eller området omkring kravebenet som reference\n\n\nPrik både referenceområdet og det testede område i løbet af testen, så du kan sammenligne følsomheden."
         },
         "prick":
         {
-            "instructions": "Prik flere forskellige steder i det blå område og vælg din følsomhed sammenlignet med referenceområdet. Sammenlign kun følelsen af skarphed, ikke følelsen af berøring."
+            "instructions": "1: Prik flere forskellige steder i det valgte referenceområde. 2: Prik flere forskellige steder i det blå område på benet. Hvor følsomt er området på benet sammenlignet med referenceområdet? Sammenlign kun følelsen af skarphed, ikke følelsen af berøring."
         },
         "right-prick-end":
         {
@@ -75,7 +75,7 @@
         "overlay-pin-prick":
         {
             "title": "Nåle-prik test",
-            "info": "Følg billederne når du prikker et område. Prik oven på foden i område 1-2, og prik på siden af benet i område 3-6. Undgå at prikke direkte på en knogle.\n\nSvar TILSVARENDE, hvis området er mere følsomt over for prik end referenceområdet."
+            "info": "Følg billederne når du prikker et område. Prik oven på foden i område 1-2, og prik på siden af benet i område 3-6. Undgå at prikke direkte på en knogle.\n\nSvar SAMME, hvis området er mere følsomt over for prik end referenceområdet."
         },
         "pricking-warning":
         {
