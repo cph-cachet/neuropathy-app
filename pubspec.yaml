@@ -73,6 +73,7 @@ flutter:
   assets:
     - assets/
     - assets/images/steps/vibration/
+    - assets/images/steps/prick/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
