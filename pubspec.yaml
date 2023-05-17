@@ -47,6 +47,7 @@ dependencies:
   syncfusion_flutter_gauges: ^21.2.3
   shared_preferences: ^2.1.1
   flat: ^0.4.1
+  circle_flags: ^1.0.3
 
 dev_dependencies:
   flutter_test:

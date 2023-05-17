@@ -1,3 +1,4 @@
+import 'package:circle_flags/circle_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:neuro_planner/languages.dart';
@@ -176,19 +177,60 @@ class _MyHomePageState extends State<MyHomePage> {
                     MaterialPageRoute<dynamic>(
                         builder: (context) => ExaminationPage())),
               ),
-              TextButton(
-                  onPressed: () async {
-                    if (await languages.readLocaleKey() == 'en') {
-                      languages.setLocale(context,
-                          const Locale.fromSubtags(languageCode: 'da'));
-                    } else {
-                      languages.setLocale(context,
-                          const Locale.fromSubtags(languageCode: 'en'));
-                    }
-                  },
-                  child: const Text('Change language')),
-              //Text(Languages.of(context)!.translate('app-title')),
-              //Text(Languages.of(context)!.translate('common.buttons.cancel'))
+              verticalSpacing(48),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width * 0.4),
+                    child: OutlinedButton(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 8.0),
+                            child: CircleFlag(
+                              'gb',
+                              size: 20,
+                            ),
+                          ),
+                          Text('English'),
+                        ],
+                      ),
+                      onPressed: () {
+                        languages.setLocale(context,
+                            const Locale.fromSubtags(languageCode: 'en'));
+                      },
+                    ),
+                  ),
+                  horizontalSpacing(MediaQuery.of(context).size.width * 0.05),
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width * 0.4),
+                    child: OutlinedButton(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 8),
+                            child: CircleFlag(
+                              'dk',
+                              size: 20,
+                            ),
+                          ),
+                          Text('Dansk'),
+                        ],
+                      ),
+                      onPressed: () {
+                        languages.setLocale(context,
+                            const Locale.fromSubtags(languageCode: 'da'));
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),

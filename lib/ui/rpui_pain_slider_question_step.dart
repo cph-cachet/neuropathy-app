@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:research_package/research_package.dart';
 import 'package:neuro_planner/utils/themes/text_styles.dart';
+import '../languages.dart';
 import '../step/steps/rp_pain_slider_question_step.dart';
 import 'QuestionBody/rpui_pain_slider_question_body.dart';
 
@@ -73,7 +74,7 @@ class RPUIPainSliderQuestionStepState extends State<RPUIPainSliderQuestionStep>
           child: Column(
             children: [
               const SizedBox.square(dimension: 16),
-              Text(widget.step.title,
+              Text(Languages.of(context)!.translate(widget.step.title),
                   style: ThemeTextStyle.headline24sp,
                   textAlign: TextAlign.center),
             ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neuro_planner/languages.dart';
 import 'package:neuro_planner/step/steps/rp_choice_question_step.dart';
 import 'package:neuro_planner/ui/widgets/choice_selector.dart';
 import 'package:neuro_planner/utils/spacing.dart';
@@ -54,7 +55,7 @@ class RPUIChoiceQuestionStepState extends State<RPUIChoiceQuestionStep>
               child: Column(
                 children: [
                   Text(
-                    widget.step.title,
+                    Languages.of(context)!.translate(widget.step.title),
                     style: widget.step.text != null
                         ? ThemeTextStyle.regularIBM22sp
                         : ThemeTextStyle.headline24sp,
@@ -63,7 +64,7 @@ class RPUIChoiceQuestionStepState extends State<RPUIChoiceQuestionStep>
                   if (widget.step.text != null) verticalSpacing(24),
                   if (widget.step.text != null)
                     Text(
-                      widget.step.text!,
+                      Languages.of(context)!.translate(widget.step.text!),
                       style: widget.step.text != null
                           ? ThemeTextStyle.regularIBM22sp
                           : ThemeTextStyle.headline24sp,
@@ -77,7 +78,8 @@ class RPUIChoiceQuestionStepState extends State<RPUIChoiceQuestionStep>
                 if (widget.step.answerFormat.answerStyle ==
                     RPChoiceAnswerStyle.MultipleChoice) ...[
                   Text(
-                    'Check all that apply',
+                    Languages.of(context)!
+                        .translate('common.check-all-that-apply'),
                     style: ThemeTextStyle.regularIBM14sp,
                     textAlign: TextAlign.center,
                   ),
