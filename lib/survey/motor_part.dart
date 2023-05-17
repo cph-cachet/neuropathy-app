@@ -15,7 +15,7 @@ const String _instruction =
     'Apply firm pressure with your fingers to the great toe.\n\nIs it difficult to overcome the pressure?';
 const String _bottomSheetTitle = 'Overcoming pressure';
 const String _bottomSheetText =
-    'If you don\'t have symptoms in your hands, you can compare how your fingers overcome the pressure.\n\nIf you feel your great toe is weaker, answer YES to this question.';
+    'If you don\'t have symptoms in your hands, you can compare how your fingers overcome the pressure.\n\nIf you feel your great toe is weaker, answer <b>YES</b> to this question.';
 
 RPInstructionStepWithChildren motorInstructionStep =
     RPInstructionStepWithChildren(

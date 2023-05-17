@@ -1,208 +1,182 @@
 {
-    "survey_introduction": "Læs næste linje\n\n\nLæs foregående linje",
     "app-title": "Neuropati App",
     "common":
     {
-        "buttons":
-        {
-            "cancel": "Fortryd",
-            "quit": "Afbryd",
-            "continue": "Videre",
-            "same": "Samme",
-            "less": "Mindre",
-            "none": "Ingen",
-            "yes": "Ja",
-            "no": "Nej",
-            "skip": "Spring over"
-        },
-        "terms":
-        {
-            "left-leg": "Venstre ben",
-            "right-leg": "Højre ben",
-            "left-great-toe": "Venstre storetå",
-            "right-great-toe": "Højre storetå"
-        }
+        "cancel": "Fortryd",
+        "quit": "Afbryd",
+        "continue": "Videre",
+        "same": "Samme",
+        "less": "Mindre",
+        "none": "Ingen",
+        "yes": "Ja",
+        "no": "Nej",
+        "more-info": "Mere information",
+        "check-all-that-apply": "Markér alle der er relevante",
+        "none-of-the-above": "Ingen af ovenstående",
+        "feel-vibration": "Kan du mærke vibrationen?",
+        "left-leg": "Venstre ben",
+        "right-leg": "Højre ben",
+        "left-great-toe": "Venstre storetå",
+        "right-great-toe": "Højre storetå"
     },
-    "overlay-quit-examination":
+    "welcome-screen":
     {
-        "title": "Afbryd examination?",
-        "info": "Data for den igangværende eksamination gemmes ikke hvis den afbrydes."
-    },
-    "main-menu":
-    {
-        "welcome-screen":
-        {
-            "welcome": "Velkommen! du har ingen færdiggjorte eksaminationer endnu.",
-            "tap-to-start": "Tryk her for at begynde"
-        }
+        "welcome": "Velkommen!",
+        "no-completed": "Du har ingen færdiggjorte eksaminationer endnu.",
+        "tap-to-start": "Tryk her for at begynde"
     },
     "begin-examination":
     {
-        "examination-information":
-        {
-            "info": "Eksaminationen består af både spørgsmål og tests\n\n\nDu skal bruge en nål eller en sikkerhedsnål til nogle af disse tests.",
-            "button-start": "begynd examination"
-        }
-    },
-    "finish-examination":
-    {
-        "examination-completed":
-        {
-            "info": "Examination gennemført\n\n\nDu fik 17 point. Du kan se flere detaljer om det eller vende tilbage til hovedmenuen.",
-            "button-main": "Hovedmenu",
-            "button-details": "detaljer"
-        }
-    },
-    "pin-prick":
-    {
-        "prick-test-information":
-        {
-            "title": "Priktest",
-            "info": "Her testes dine bens følsomhed over for prik med en nål eller en sikkerhedsnål.\n\n\nVælg enten halsen eller området omkring kravebenet som reference\n\n\nPrik både referenceområdet og det testede område i løbet af testen, så du kan sammenligne følsomheden."
-        },
-        "prick":
-        {
-            "instructions": "1: Prik flere forskellige steder i det valgte referenceområde. 2: Prik flere forskellige steder i det blå område på benet. Hvor følsomt er området på benet sammenlignet med referenceområdet? Sammenlign kun følelsen af skarphed, ikke følelsen af berøring."
-        },
-        "right-prick-end":
-        {
-            "completed": "Højre ben færdiggjort!"
-        },
-        "left-prick-end":
-        {
-            "completed": "Venstre ben færdiggjort!"
-        },
-        "overlay-pin-prick":
-        {
-            "title": "Nåle-prik test",
-            "info": "Følg billederne når du prikker et område. Prik oven på foden i område 1-2, og prik på siden af benet i område 3-6. Undgå at prikke direkte på en knogle.\n\nSvar SAMME, hvis området er mere følsomt over for prik end referenceområdet."
-        },
-        "pricking-warning":
-        {
-            "title": "Husk!",
-            "info": "Prik blødt, så du kan føle skarpheden uden at prikke hul i huden!",
-            "button-understand": "Jeg forstår"
-        }
-    },
-    "allodynia-hypersensitivity":
-    {
-        "allodynia":
-        {
-            "question": "Oplevede du forøget smerte i foden eller tæerne i løbet af priktesten?"
-        },
-        "hypersensitivity":
-        {
-            "question": "Oplever du ubehag eller smerte når du rør foden eller tæerne?"
-        }
+        "text-1": "Eksaminationen består af både spørgsmål og tests.",
+        "text-2": "Du skal bruge en nål eller en sikkerhedsnål til nogle af disse tests.",
+        "button-start": "Begynd examination"
     },
     "symptoms":
     {
-        "symptoms-screen":
-        {
-            "title": "Generelle symptomer",
-            "question": "Bemærker du nogen symptomer i dine ben eller fødder i din dagligdag?",
-            "info": "Symptomer kunne for eksempel være følelsesløshed, smerte, eller andre uventede følelser.",
-            "option-1": "Ingen symptomer",
-            "option-2": "I tæerne",
-            "option-3": "Op til anklen",
-            "option-4": "Op til knæet",
-            "option-5": "Længere end knæet"
-        }
+        "title": "<b>Generelle symptomer</b>",
+        "text-1": "Bemærker du nogen symptomer i dine ben eller fødder i din dagligdag?",
+        "text-2": "Symptomer kunne for eksempel være følelsesløshed, smerte, eller andre uventede følelser.",
+        "choice-1": "Ingen symptomer",
+        "choice-2": "I tæerne",
+        "choice-3": "Op til anklen",
+        "choice-4": "Op til knæet",
+        "choice-5": "Længere end knæet"
     },
-    "pain":
+    "prick-info":
     {
-        "pain-skip":
-        {
-            "instructions": "Besvar venligst de følgende spørgsmål, hvis du oplever smerte i fødderne.\n\nTryk SPRING OVER hvis det ikke er tilfældet."
-        },
-        "pain-0":
-        {
-            "instructions": "Brug skalaen nedenunder til at indikere størrelsen af smerten."
-        },
-        "pain-1":
-        {
-            "question": "Har smerten et eller flere af følgende kendetegn?",
-            "option-1": "Brændende",
-            "option-2": "Smertefuld kold",
-            "option-3": "Elektriske stød",
-            "instructions": "Markér alle, der gør sig gældende"
-        },
-        "pain-2":
-        {
-            "question": "Er smerten forbundet med et eller flere af følgende symptomer inden for samme område?",
-            "option-1": "Snurren",
-            "option-2": "Stikken og prikken",
-            "option-3": "Følelsesløshed",
-            "option-4": "Kløe",
-            "instructions": "Markér alle der gør sig gældende"
-        },
-        "pain-3":
-        {
-            "question": "Er smerten lokaliserret til et område, hvor den objektive undersøgelse kan afsløre ét eller flere af følgende kendetegn?:",
-            "option-1": "Formindsket følsomhed over for berøring",
-            "option-2": "Formindsket følsomhed over for stik",
-            "instructions": "Markér alle der gør sig gældende"
-        },
-        "pain-4":
-        {
-            "instructions": "Brug dine fingre til blødt at stryge de områder hvor du oplever smerte.",
-            "question": "Kan smerten forårsages eller intensiveres af strygende berøring i det smertefulde område?"
-        }
+        "title": "<b>Priktest</b>",
+        "text-1": "Nu testes dine bens følsomhed over for prik med en nål eller en sikkerhedsnål.",
+        "text-2": "Vælg enten halsen eller området omkring kravebenet som reference",
+        "text-3": "Prik både referenceområdet og det testede område i løbet af testen, så du kan sammenligne følsomheden."
     },
-    "vibration":
+    "prick-test":
     {
-        "vibration-intro":
-        {
-            "title": "Vibrationstest",
-            "info": "Nu begynder vibration-følelsestesten.\n\n\nTre områder vil blive testet på hvert ben.\n\n\nBrug bagsiden af mobilen (ikke kanten),\nnår du trykker mobilen mod dit ben."
-        },
-        "leg-vibration-1":
-        {
-            "instructions": "Tryk play for at starte vibrationen og tryk bagsiden af mobilen mod oversiden af knoglen i storetåen.",
-            "question": "Kan du mærke vibrationen?"
-        },
-        "leg-vibration-2":
-        {
-            "instructions": "Tryk play for at starte vibrationen og tryk bagsiden af mobilen mod ydersiden af anklen.",
-            "question": "Kan du mærke vibrationen?"
-        },
-        "leg-vibration-3":
-        {
-            "instructions": "Tryk play for at starte vibrationen og tryk bagsiden af mobilen mod knoglen lige under din knæskal.",
-            "question": "Kan du mærke vibrationen?"
-        },
-        "left-leg-vibration-4":
-        {
-            "instructions": "Læg mobilen til side.\n\n\nHold din venstre storetå med fingrene og flyt den op og ned et par gange.",
-            "question": "Kan du mærke bevægelsen i leddene?"
-        },
-        "right-leg-vibration-4":
-        {
-            "instructions": "Læg mobilen til side.\n\n\nHold din højre storetå med fingrene og flyt den op og ned et par gange.",
-            "question": "Kan du mærke bevægelsen i leddene?"
-        },
-        "overlay-feeling-extension":
-        {
-            "title": "At mærke bevægelsen",
-            "info": "At mærke bevægelse er ikke det samme som at mærke berøring.\n\nSvar NEJ til dette spørgsmål, hvis du kun mærker håndens berøring.\n\nHvis du ikke har symptomer i dine hænder, kan du sammenligne hvordan dine fingre føles når de bliver flyttet."
-        }
+        "text-1": "1: Prik flere forskellige steder i det valgte referenceområde.",
+        "text-2": "2: Prik flere forskellige steder i det blå område på benet.",
+        "text-3": "Hvor følsomt er området på benet sammenlignet med referenceområdet? Sammenlign kun følelsen af skarphed, ikke følelsen af berøring.",
+        "bottom-sheet-title": "Nåle-prik test",
+        "bottom-sheet-text-1": "Følg billederne når du prikker et område. Prik oven på foden i de første to områder, og prik på siden af benet i de resterende områder. Undgå at prikke direkte på en knogle.",
+        "bottom-sheet-text-2": "Hvis området er mere følsomt over for prik end referenceområdet, skal du også svare <b>SAMME</b>."
     },
-    "motor":
+    "right-prick-end":
     {
-        "great-toe-test-information":
-        {
-            "title": "Motorisk test",
-            "info": "Her testes dine storetæers styrke.\n\n\nNormalt kan storetåen modstå kraftigt tryk. I løbet af testen skal du trykke ned på storetåen med fingrene, mens du modstår trykket med storetåen."
-        },
-        "motor":
-        {
-            "instructions": "Brug fingrene til at påføre et fast tryk på din storetå.",
-            "question": "Er det svært at modvirke trykket?"
-        },
-        "overlay-motor":
-        {
-            "title": "At modvirke trykket",
-            "info": "Hvis du ikke har symptomer i hænderne, kan du sammenligne dine fingres evne til at modvirke trykket.\n\nSvar JA til dette spørgsmål, hvis du føler at din storetå er svagere end dine fingre."
-        }
+        "completed": "Højre ben færdiggjort!"
+    },
+    "left-prick-end":
+    {
+        "completed": "Venstre ben færdiggjort!"
+    },
+    "pricking-warning":
+    {
+        "title": "Husk!",
+        "info": "Prik blødt, så du kan føle skarpheden uden at prikke hul i huden!",
+        "button-understand": "Jeg forstår"
+    },
+    "allodynia":
+    {
+        "text": "Oplevede du forøget smerte i foden eller tæerne i løbet af priktesten?"
+    },
+    "hypersensitivity":
+    {
+        "text": "Oplever du ubehag eller smerte når du rør foden eller tæerne?"
+    },
+    "pain-skip":
+    {
+        "title": "Oplever du smerte i <b>fødderne</b>?"
+    },
+    "pain-0":
+    {
+        "title": "Brug skalaen nedenunder til at indikere størrelsen af smerten."
+    },
+    "pain-1":
+    {
+        "title": "Har smerten et eller flere af følgende kendetegn?",
+        "choice-1": "Brændende",
+        "choice-2": "Smertefuld kold",
+        "choice-3": "Elektriske stød"
+    },
+    "pain-2":
+    {
+        "title": "Er smerten forbundet med et eller flere af følgende symptomer inden for samme område?",
+        "choice-1": "Snurren",
+        "choice-2": "Stikken og prikken",
+        "choice-3": "Følelsesløshed",
+        "choice-4": "Kløe"
+    },
+    "pain-3":
+    {
+        "title": "Er smerten lokaliserret til et område, hvor den objektive undersøgelse kan afsløre ét eller flere af følgende kendetegn?:",
+        "choice-1": "Formindsket følsomhed over for berøring",
+        "choice-2": "Formindsket følsomhed over for stik"
+    },
+    "pain-4":
+    {
+        "title-1": "Brug dine fingre til blødt at stryge de områder hvor du oplever smerte.",
+        "title-2": "Kan smerten forårsages eller intensiveres af strygende berøring i det smertefulde område?"
+    },
+    "vibration-info":
+    {
+        "title": "Vibrationstest",
+        "text-1": "Nu begynder vibration-følelsestesten.",
+        "text-2": "Tre områder vil blive testet på hvert ben.",
+        "text-3": "Brug bagsiden af mobilen, når du trykker mobilen mod dit ben."
+    },
+    "vibration-toe":
+    {
+        "text": "Tryk start for at starte vibrationen og tryk bagsiden af mobilen mod oversiden af knoglen i storetåen."
+    },
+    "vibration-ankle":
+    {
+        "text": "Tryk start for at starte vibrationen og tryk bagsiden af mobilen mod ydersiden af anklen."
+    },
+    "vibration-knee":
+    {
+        "text": "Tryk start for at starte vibrationen og tryk bagsiden af mobilen mod knoglen lige under din knæskal."
+    },
+    "extension-left":
+    {
+        "text-1": "Læg mobilen til side.",
+        "text-2": "Hold din <b>venstre</b> storetå med fingrene og flyt den op og ned et par gange.",
+        "text-3": "Kan du mærke bevægelsen i leddene?",
+        "bottom-sheet-title": "At mærke bevægelsen",
+        "bottom-sheet-text-1": "At mærke bevægelse er ikke det samme som at mærke berøring.",
+        "bottom-sheet-text-2": "Svar <b>NEJ</b> til dette spørgsmål, hvis du kun mærker håndens berøring.",
+        "bottom-sheet-text-3": "Hvis du ikke har symptomer i dine hænder, kan du sammenligne hvordan dine fingre føles når de bliver flyttet."
+    },
+    "extension-right":
+    {
+        "text-1": "Læg mobilen til side.",
+        "text-2": "Hold din <b>højre</b> storetå med fingrene og flyt den op og ned et par gange.",
+        "text-3": "Kan du mærke bevægelsen i leddene?",
+        "bottom-sheet-title": "At mærke bevægelsen",
+        "bottom-sheet-text-1": "At mærke bevægelse er ikke det samme som at mærke berøring.",
+        "bottom-sheet-text-2": "Svar <b>NEJ</b> til dette spørgsmål, hvis du kun mærker håndens berøring.",
+        "bottom-sheet-text-3": "Hvis du ikke har symptomer i dine hænder, kan du sammenligne hvordan dine fingre føles når de bliver flyttet."
+    },
+    "motor-info":
+    {
+        "title": "Motorisk test",
+        "text-1": "Her testes dine storetæers styrke.",
+        "text-2": "Normalt kan storetåen modstå kraftigt tryk. I løbet af testen skal du trykke ned på storetåen med fingrene, mens du modstår trykket med storetåen."
+    },
+    "motor-test":
+    {
+        "text-1": "Brug fingrene til at påføre et fast tryk på din storetå.",
+        "text-2": "Er det svært at modvirke trykket?",
+        "bottom-sheet-title": "At modvirke trykket",
+        "bottom-sheet-text-1": "Hvis du ikke har symptomer i hænderne, kan du sammenligne dine fingres evne til at modvirke trykket.",
+        "bottom-sheet-text-2": "Svar <b>JA</b> til dette spørgsmål, hvis du føler at din storetå er svagere end dine fingre."
+    },
+    "examination-completed":
+    {
+        "title": "Eksamination færdiggjort",
+        "text": "Tak"
+    },
+    "result-screen":
+    {
+        "title": "Examination gennemført",
+        "text-1": "Din score",
+        "text-2": "Lav sandsynlighed",
+        "button-main": "Tilbage til hovedmenuen"
     }
 }
