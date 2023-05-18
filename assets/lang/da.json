@@ -5,8 +5,8 @@
         "cancel": "Fortryd",
         "quit": "Afbryd",
         "continue": "Videre",
-        "start": "Start danish",
-        "stop": "Stop danish",
+        "start": "Start",
+        "stop": "Stop",
         "same": "Samme",
         "less": "Mindre",
         "none": "Ingen",
@@ -107,7 +107,7 @@
     },
     "pain-3":
     {
-        "title": "Er smerten lokaliserret til et område, hvor den objektive undersøgelse kan afsløre ét eller flere af følgende kendetegn?:",
+        "title": "Er smerten lokaliseret til et område, hvor den objektive undersøgelse kan afsløre ét eller flere af følgende kendetegn?:",
         "choice-1": "Formindsket følsomhed over for berøring",
         "choice-2": "Formindsket følsomhed over for stik"
     },
