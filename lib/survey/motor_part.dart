@@ -11,8 +11,10 @@ import 'package:research_package/research_package.dart';
 const String _motorIntroductionTitle = 'Motor examination';
 const String _leftLegTitle = 'common.left-leg';
 const String _rightLegTitle = 'common.right-leg';
-const String _instruction =
-    'Apply firm pressure with your fingers to the great toe.\n\nIs it difficult to overcome the pressure?';
+const List<Text> _motorTextContent = [
+  Text('motor-test.text-1', textAlign: TextAlign.center),
+  Text('motor-test.text-2', textAlign: TextAlign.center)
+];
 const String _bottomSheetTitle = 'motor-test.bottom-sheet-title';
 const String _bottomSheetText =
     'If you don\'t have symptoms in your hands, you can compare how your fingers overcome the pressure.\n\nIf you feel your great toe is weaker, answer <b>YES</b> to this question.';
@@ -46,7 +48,7 @@ List<RPStep> motorStepList = [
       .map((step) => RPImageQuestionStep(
           identifier: step.identifier,
           title: step.title,
-          text: step.instruction,
+          textContent: step.textContent,
           imagePath: step.imagePath,
           bottomSheetTitle: step.bottomSheetTitle,
           bottomSheetText: step.bottomSheetText,
@@ -55,16 +57,16 @@ List<RPStep> motorStepList = [
 ];
 
 enum MotorStrings {
-  leftGreatToe('motor_left_toe', _leftLegTitle, _instruction,
+  leftGreatToe('motor_left_toe', _leftLegTitle, _motorTextContent,
       'assets/LeftGreatToe.png', _bottomSheetTitle, _bottomSheetText),
-  rightGreatToe('motor_right_toe', _rightLegTitle, _instruction,
+  rightGreatToe('motor_right_toe', _rightLegTitle, _motorTextContent,
       'assets/RightGreatToe.png', _bottomSheetTitle, _bottomSheetText);
 
-  const MotorStrings(this.identifier, this.title, this.instruction,
+  const MotorStrings(this.identifier, this.title, this.textContent,
       this.imagePath, this.bottomSheetTitle, this.bottomSheetText);
   final String identifier;
   final String title;
-  final String instruction;
+  final List<Text> textContent;
   final String imagePath;
   final String bottomSheetTitle;
   final String bottomSheetText;

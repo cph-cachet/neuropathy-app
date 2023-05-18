@@ -1,3 +1,4 @@
+import 'package:neuro_planner/languages.dart';
 import 'package:neuro_planner/ui/widgets/bottom_sheet_button.dart';
 import 'package:neuro_planner/ui/widgets/semi_bold_text.dart';
 import 'package:neuro_planner/utils/spacing.dart';
@@ -93,13 +94,19 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
 
   @override
   Widget build(BuildContext context) {
-    RPLocalizations? locale = RPLocalizations.of(context);
+    TextStyle textStyle = widget.step.identifier.contains('prick')
+        ? ThemeTextStyle.regularIBM18sp
+        : ThemeTextStyle.headline24sp;
+    List<Widget> children = widget.step.textContent
+        .map((e) => Text(Languages.of(context)!.translate(e.data.toString()),
+            style: textStyle, textAlign: e.textAlign))
+        .toList();
+
     return SafeArea(
         child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child:
           Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-        // Image and title
         Column(
           children: [
             ConstrainedBox(
@@ -108,38 +115,26 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
                 child: Image.asset(widget.step.imagePath)),
             verticalSpacing(16),
             Text(
-              locale?.translate(widget.step.title) ?? widget.step.title,
+              Languages.of(context)!.translate(widget.step.title),
               style: ThemeTextStyle.headline24sp,
               textAlign: TextAlign.center,
             ),
           ],
         ),
-        Column(
-          children: [
-            // Text
-            (widget.step.text == null)
-                ? Container()
-                : semiBoldText(
-                    locale?.translate(widget.step.text!) ?? widget.step.text!,
-                    widget.step.identifier.contains('prick')
-                        ? ThemeTextStyle.regularIBM18sp
-                        : ThemeTextStyle.headline24sp,
-                    TextAlign.center,
-                  ),
-            BottomSheetButton(
-                icon: const Icon(
-                  Icons.help_outline_rounded,
-                  size: 20,
-                ),
-                label: 'More Information',
-                bottomSheetTitle: widget.step.bottomSheetTitle,
-                content: semiBoldText(
-                  widget.step.bottomSheetText,
-                  ThemeTextStyle.regularIBM20sp,
-                  TextAlign.justify,
-                )),
-          ],
-        ),
+        // Text
+        ...children,
+        BottomSheetButton(
+            icon: const Icon(
+              Icons.help_outline_rounded,
+              size: 20,
+            ),
+            label: 'More Information',
+            bottomSheetTitle: widget.step.bottomSheetTitle,
+            content: semiBoldText(
+              widget.step.bottomSheetText,
+              ThemeTextStyle.regularIBM20sp,
+              TextAlign.justify,
+            )),
         // Step body
         Padding(
           padding: const EdgeInsets.all(8.0),

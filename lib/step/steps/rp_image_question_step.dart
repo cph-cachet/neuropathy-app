@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:research_package/research_package.dart';
 
@@ -7,6 +8,7 @@ import '../../ui/rpui_image_question_step.dart';
 class RPImageQuestionStep extends RPStep {
   RPAnswerFormat answerFormat;
 
+  List<Text> textContent;
   String imagePath;
   String bottomSheetTitle;
   String bottomSheetText;
@@ -14,7 +16,7 @@ class RPImageQuestionStep extends RPStep {
   RPImageQuestionStep({
     required super.identifier,
     required super.title,
-    super.text,
+    required this.textContent,
     required this.imagePath,
     required this.bottomSheetTitle,
     required this.bottomSheetText,

@@ -46,7 +46,7 @@
     },
     "prick-info":
     {
-        "title": "<b>Priktest</b>",
+        "title": "Priktest",
         "text-1": "Nu testes dine bens følsomhed over for prik med en nål eller en sikkerhedsnål.",
         "text-2": "Vælg enten halsen eller området omkring kravebenet som reference",
         "text-3": "Prik både referenceområdet og det testede område i løbet af testen, så du kan sammenligne følsomheden."
