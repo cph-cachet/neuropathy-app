@@ -57,33 +57,8 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
   // Returning the according step body widget based on the answerFormat of the step
   Widget stepBody(RPAnswerFormat answerFormat) {
     switch (answerFormat.runtimeType) {
-      case RPIntegerAnswerFormat:
-        return RPUIIntegerQuestionBody((answerFormat as RPIntegerAnswerFormat),
-            (result) {
-          currentQuestionBodyResult = result;
-        });
       case RPChoiceAnswerFormat:
         return RPUIChoiceQuestionBody((answerFormat as RPChoiceAnswerFormat),
-            (result) {
-          currentQuestionBodyResult = result;
-        });
-      case RPSliderAnswerFormat:
-        return RPUISliderQuestionBody((answerFormat as RPSliderAnswerFormat),
-            (result) {
-          currentQuestionBodyResult = result;
-        });
-      case RPImageChoiceAnswerFormat:
-        return RPUIImageChoiceQuestionBody(
-            (answerFormat as RPImageChoiceAnswerFormat), (result) {
-          currentQuestionBodyResult = result;
-        });
-      case RPDateTimeAnswerFormat:
-        return RPUIDateTimeQuestionBody(
-            (answerFormat as RPDateTimeAnswerFormat), (result) {
-          currentQuestionBodyResult = result;
-        });
-      case RPTextAnswerFormat:
-        return RPUITextInputQuestionBody((answerFormat as RPTextAnswerFormat),
             (result) {
           currentQuestionBodyResult = result;
         });
