@@ -3,31 +3,27 @@ import 'package:neuro_planner/step/steps/rp_instruction_step.dart';
 import 'package:neuro_planner/step/steps/rp_vibration_step.dart';
 import 'package:research_package/research_package.dart';
 
-//TODO: localize
-const String _leftLegTitle = 'Left Leg';
-const String _rightLegTitle = 'Right Leg';
-const String _kneeInstruction =
-    'Press play to start vibrating, and press the backside of the phone against the bone just below your kneecap.';
-const String _ankleInstruction =
-    'Press play to start vibrating, and press the backside of the phone against the outside part of your ankle.';
-const String _toeInstruction =
-    'Press play to start vibrating, and press the backside of the phone against the top side of the bone in your great toe.';
+const String _leftLegTitle = 'common.left-leg';
+const String _rightLegTitle = 'common.right-leg';
+const String _kneeInstruction = 'vibration-knee.text';
+const String _ankleInstruction = 'vibration-ankle.text';
+const String _toeInstruction = 'vibration-toe.text';
 
 RPInstructionStepWithChildren vibrationInstructionStep =
     RPInstructionStepWithChildren(
         identifier: 'vibrationInstructionID',
-        title: 'Vibration Test',
+        title: 'vibration-info.title',
         instructionContent: [
       const Text(
-        'This begins the vibration sensation test.',
+        'vibration-info.text-1',
         textAlign: TextAlign.center,
       ),
       const Text(
-        'You will test three points on each leg.',
+        'vibration-info.text-2',
         textAlign: TextAlign.center,
       ),
       const Text(
-        'When pressing the phone to your leg, use the backside of the phone.',
+        'vibration-info.text-3',
         textAlign: TextAlign.center,
       ),
     ]);
@@ -41,8 +37,8 @@ List<RPStep> vibrationStepList = VibrationStrings.values
     .toList();
 
 List<RPChoice> vibrationYesNoChoiceList = [
-  RPChoice(text: 'Yes', value: 0),
-  RPChoice(text: 'No', value: 1)
+  RPChoice(text: 'common.yes', value: 0),
+  RPChoice(text: 'common.no', value: 1)
 ];
 
 RPChoiceAnswerFormat vibrationAnswerFormat = RPChoiceAnswerFormat(
@@ -62,7 +58,6 @@ RPVibrationStep stepGenerator(
       answerFormat: vibrationAnswerFormat);
 }
 
-//TODO: Localize
 enum VibrationStrings {
   leftToe('viration_left_toe', _leftLegTitle, _toeInstruction,
       'assets/images/steps/vibration/left_toe.png'),

@@ -1,7 +1,9 @@
 //import 'RPPrickQuestionStep.dart';
 import 'package:flutter/material.dart';
+import 'package:neuro_planner/ui/widgets/semi_bold_text.dart';
 import 'package:research_package/research_package.dart';
 
+import '../languages.dart';
 import '../step/steps/rp_toggle_question_step.dart';
 import '../utils/themes/text_styles.dart';
 import 'widgets/toggle_button.dart';
@@ -58,10 +60,10 @@ class RPUIToggleQuestionStepState extends State<RPUIToggleQuestionStep>
       // Image and title
       Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
-          child: Text(
-            locale?.translate(widget.step.title) ?? widget.step.title,
-            style: ThemeTextStyle.headline24sp,
-            textAlign: TextAlign.center,
+          child: semiBoldText(
+            Languages.of(context)!.translate(widget.step.title),
+            ThemeTextStyle.headline24sp,
+            TextAlign.center,
           )),
       // Text
       (widget.step.text == null)
@@ -69,7 +71,7 @@ class RPUIToggleQuestionStepState extends State<RPUIToggleQuestionStep>
           : Padding(
               padding: const EdgeInsets.symmetric(horizontal: 36.0),
               child: Text(
-                locale?.translate(widget.step.text!) ?? widget.step.text!,
+                Languages.of(context)!.translate(widget.step.text!),
                 style: ThemeTextStyle.headline24sp,
                 textAlign: TextAlign.center,
               ),

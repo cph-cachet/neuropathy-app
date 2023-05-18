@@ -2,6 +2,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:neuro_planner/languages.dart';
 import 'package:research_package/model.dart';
 
 import '../../utils/themes/text_styles.dart';
@@ -38,7 +39,7 @@ class ChoiceSelectorState extends State<ChoiceSelector> {
         setState(() {
           selectedChoices.remove(selectedChoice);
         });
-      } else if (selectedChoice.text == "None of the above") {
+      } else if (selectedChoice.text == 'common.none-of-the-above') {
         if (selectedChoices.contains(selectedChoice)) {
           setState(() {
             selectedChoices.remove(selectedChoice);
@@ -51,8 +52,8 @@ class ChoiceSelectorState extends State<ChoiceSelector> {
         }
       } else {
         setState(() {
-          selectedChoices
-              .removeWhere((element) => element.text == "None of the above");
+          selectedChoices.removeWhere(
+              (element) => element.text == 'common.none-of-the-above');
           selectedChoices.add(selectedChoice);
         });
       }
@@ -120,7 +121,10 @@ class _Choice extends StatelessWidget {
                     },
                   ),
                 ),
-          Text(choice.text, style: ThemeTextStyle.regularIBM16sp),
+          Expanded(
+            child: Text(Languages.of(context)!.translate(choice.text),
+                style: ThemeTextStyle.regularIBM16sp),
+          ),
         ],
       ),
     );

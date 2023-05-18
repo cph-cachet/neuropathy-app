@@ -1,4 +1,7 @@
+import 'package:circle_flags/circle_flags.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:neuro_planner/languages.dart';
 import 'package:neuro_planner/utils/spacing.dart';
 import 'package:neuro_planner/utils/themes/text_styles.dart';
 import 'examination_page.dart';
@@ -7,13 +10,67 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  static void setLocale(BuildContext context, Locale locale) {
+    _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+    state?.setLocale(locale);
+  }
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Locale _locale = const Locale.fromSubtags(languageCode: 'en');
+
+  void setLocale(Locale locale) {
+    setState(() {
+      _locale = locale;
+    });
+  }
+
+  @override
+  void didChangeDependencies() async {
+    super.didChangeDependencies();
+    final languages = Languages();
+    final localeKey = await languages.readLocaleKey();
+    if (localeKey == 'en') {
+      setState(() {
+        _locale = const Locale.fromSubtags(languageCode: 'en');
+      });
+    } else if (localeKey == 'da') {
+      setState(() {
+        _locale = const Locale.fromSubtags(languageCode: 'da');
+      });
+    }
+  }
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      supportedLocales: const [
+        Locale.fromSubtags(languageCode: 'en'),
+        Locale.fromSubtags(languageCode: 'da'),
+      ],
+      localizationsDelegates: const [
+        Languages.delegate,
+        //DefaultMaterialLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      locale: _locale,
+      localeResolutionCallback: (locale, supportedLocales) {
+        for (var supportedLocale in supportedLocales) {
+          if (supportedLocale.languageCode == locale?.languageCode) {
+            return supportedLocale;
+          }
+        }
+        return supportedLocales.first;
+      },
       title: 'Flutter Demo',
       theme: ThemeData(
         buttonTheme: ButtonThemeData(
@@ -71,6 +128,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Languages languages = Languages();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -118,10 +177,69 @@ class _MyHomePageState extends State<MyHomePage> {
                     MaterialPageRoute<dynamic>(
                         builder: (context) => ExaminationPage())),
               ),
+              verticalSpacing(48),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width * 0.4),
+                    child: OutlinedButton(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 8.0),
+                            child: CircleFlag(
+                              'gb',
+                              size: 20,
+                            ),
+                          ),
+                          Text('English'),
+                        ],
+                      ),
+                      onPressed: () {
+                        languages.setLocale(context,
+                            const Locale.fromSubtags(languageCode: 'en'));
+                      },
+                    ),
+                  ),
+                  horizontalSpacing(MediaQuery.of(context).size.width * 0.05),
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width * 0.4),
+                    child: OutlinedButton(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 8),
+                            child: CircleFlag(
+                              'dk',
+                              size: 20,
+                            ),
+                          ),
+                          Text('Dansk'),
+                        ],
+                      ),
+                      onPressed: () {
+                        languages.setLocale(context,
+                            const Locale.fromSubtags(languageCode: 'da'));
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
   }
 }

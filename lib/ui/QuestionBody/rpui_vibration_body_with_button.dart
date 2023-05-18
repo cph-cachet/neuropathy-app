@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:neuro_planner/step/steps/rp_vibration_step.dart';
 import 'package:neuro_planner/utils/spacing.dart';
 
+import '../../languages.dart';
 import '../../utils/themes/text_styles.dart';
 import '../widgets/vibration_button.dart';
 
@@ -32,7 +33,8 @@ class RPUIVibrationBodyWithButton extends StatelessWidget {
                         fit: BoxFit.cover)
                     : const Icon(Icons.error),
               ),
-              Text(vibrationStep.title, style: ThemeTextStyle.headline24sp),
+              Text(Languages.of(context)!.translate(vibrationStep.title),
+                  style: ThemeTextStyle.headline24sp),
             ],
           ),
           //verticalSpacing(8),
@@ -40,7 +42,9 @@ class RPUIVibrationBodyWithButton extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
             child: Text(
-              vibrationStep.text ?? '',
+              vibrationStep.text != null
+                  ? Languages.of(context)!.translate(vibrationStep.text!)
+                  : '',
               style: ThemeTextStyle.regularIBM18sp,
               textAlign: TextAlign.center,
             ),
@@ -49,7 +53,7 @@ class RPUIVibrationBodyWithButton extends StatelessWidget {
           const VibrationButton(),
           //verticalSpacing(24),
           Text(
-            'Can you feel the vibration?',
+            Languages.of(context)!.translate('common.feel-vibration'),
             style: ThemeTextStyle.regularIBM18sp,
             textAlign: TextAlign.center,
           ),
