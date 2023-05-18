@@ -23,17 +23,15 @@ const List<Widget> _prickIntroText = [
     textAlign: TextAlign.center,
   ),
 ];
-const String _leftLegTitle = 'Left Leg';
-const String _rightLegTitle = 'Right Leg';
+const String _leftLegTitle = 'common.left-leg';
+const String _rightLegTitle = 'common.right-leg';
 const String _prickInstruction =
     '1: Prick multiple spots in the chosen reference area. 2: Prick multiple spots in the blue area on the leg. How sensitive is the area on the leg compared to the reference area? Only compare the sharpness of the prick sensation, not touch.';
-const String _bottomSheetTitle = 'Pin-prick test';
+const String _bottomSheetTitle = 'prick-test.bottom-sheet-title';
 const String _bottomSheetText =
     'When pricking the area, follow the pictures. In sections 1-2 prick on the top of your foot, in sections 3-6 prick on the side of your leg. Try to avoid pricking directly over a bone.\n\nIf you fell the area is more sensitive to pricking than your referenced area, answer <b>SIMILAR</b>.';
-const String _allodyniaQuestion =
-    'During the pin-prick examination, did you feel increased pain from pricking in the foot or toes?';
-const String _hyperaesthesiaQuestion =
-    'Do you experience discomfort or pain when touching the foot or toes?';
+const String _allodyniaQuestion = 'allodynia.text';
+const String _hyperaesthesiaQuestion = 'hypersensitivity.text';
 
 RPInstructionStepWithChildren prickInstructionStep =
     RPInstructionStepWithChildren(
@@ -43,14 +41,14 @@ RPInstructionStepWithChildren prickInstructionStep =
 );
 
 List<RPChoice> pinPrickYesNo = [
-  RPChoice(text: "Yes", value: 1),
-  RPChoice(text: 'No', value: 0)
+  RPChoice(text: "common.yes", value: 1),
+  RPChoice(text: 'common.no', value: 0)
 ];
 
 List<RPChoice> saLeNo = [
-  RPChoice(text: 'Same', value: 0),
-  RPChoice(text: 'Less', value: 1),
-  RPChoice(text: 'None', value: 2),
+  RPChoice(text: 'common.same', value: 0),
+  RPChoice(text: 'common.less', value: 1),
+  RPChoice(text: 'common.none', value: 2),
 ];
 RPChoiceAnswerFormat pinPrickAnswerFormat(List<RPChoice> choices) {
   return RPChoiceAnswerFormat(
