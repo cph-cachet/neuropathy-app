@@ -16,8 +16,10 @@ const List<Text> _motorTextContent = [
   Text('motor-test.text-2', textAlign: TextAlign.center)
 ];
 const String _bottomSheetTitle = 'motor-test.bottom-sheet-title';
-const String _bottomSheetText =
-    'If you don\'t have symptoms in your hands, you can compare how your fingers overcome the pressure.\n\nIf you feel your great toe is weaker, answer <b>YES</b> to this question.';
+const List<Text> _bottomSheetTextContent = [
+  Text('motor-test.bottom-sheet-text-1'),
+  Text('motor-test.bottom-sheet-text-2'),
+];
 
 RPInstructionStepWithChildren motorInstructionStep =
     RPInstructionStepWithChildren(
@@ -51,23 +53,23 @@ List<RPStep> motorStepList = [
           textContent: step.textContent,
           imagePath: step.imagePath,
           bottomSheetTitle: step.bottomSheetTitle,
-          bottomSheetText: step.bottomSheetText,
+          bottomSheetTextContent: step.bottomSheetTextContent,
           answerFormat: motorYesNoFormat))
       .toList()
 ];
 
 enum MotorStrings {
   leftGreatToe('motor_left_toe', _leftLegTitle, _motorTextContent,
-      'assets/LeftGreatToe.png', _bottomSheetTitle, _bottomSheetText),
+      'assets/LeftGreatToe.png', _bottomSheetTitle, _bottomSheetTextContent),
   rightGreatToe('motor_right_toe', _rightLegTitle, _motorTextContent,
-      'assets/RightGreatToe.png', _bottomSheetTitle, _bottomSheetText);
+      'assets/RightGreatToe.png', _bottomSheetTitle, _bottomSheetTextContent);
 
   const MotorStrings(this.identifier, this.title, this.textContent,
-      this.imagePath, this.bottomSheetTitle, this.bottomSheetText);
+      this.imagePath, this.bottomSheetTitle, this.bottomSheetTextContent);
   final String identifier;
   final String title;
   final List<Text> textContent;
   final String imagePath;
   final String bottomSheetTitle;
-  final String bottomSheetText;
+  final List<Text> bottomSheetTextContent;
 }

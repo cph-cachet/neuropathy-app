@@ -11,7 +11,7 @@ class RPImageQuestionStep extends RPStep {
   List<Text> textContent;
   String imagePath;
   String bottomSheetTitle;
-  String bottomSheetText;
+  List<Text> bottomSheetTextContent;
 
   RPImageQuestionStep({
     required super.identifier,
@@ -19,7 +19,7 @@ class RPImageQuestionStep extends RPStep {
     required this.textContent,
     required this.imagePath,
     required this.bottomSheetTitle,
-    required this.bottomSheetText,
+    required this.bottomSheetTextContent,
     super.optional,
     required this.answerFormat,
   });

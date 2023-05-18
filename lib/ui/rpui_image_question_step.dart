@@ -72,11 +72,18 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
     TextStyle textStyle = widget.step.identifier.contains('prick')
         ? ThemeTextStyle.regularIBM18sp
         : ThemeTextStyle.headline24sp;
-    List<Widget> children = widget.step.textContent
+    List<Text> textContent = widget.step.textContent
         .map((e) => Text(Languages.of(context)!.translate(e.data.toString()),
             style: textStyle, textAlign: e.textAlign))
         .toList();
 
+    List<RichText> bottomSheetTextContent = widget.step.bottomSheetTextContent
+        .map((e) => semiBoldText(
+              Languages.of(context)!.translate(e.data.toString()),
+              ThemeTextStyle.regularIBM20sp,
+              TextAlign.justify,
+            ))
+        .toList();
     return SafeArea(
         child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -97,19 +104,16 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
           ],
         ),
         // Text
-        ...children,
+        ...textContent,
         BottomSheetButton(
             icon: const Icon(
               Icons.help_outline_rounded,
               size: 20,
             ),
             label: 'More Information',
-            bottomSheetTitle: widget.step.bottomSheetTitle,
-            content: semiBoldText(
-              widget.step.bottomSheetText,
-              ThemeTextStyle.regularIBM20sp,
-              TextAlign.justify,
-            )),
+            bottomSheetTitle:
+                Languages.of(context)!.translate(widget.step.bottomSheetTitle),
+            content: Column(children: bottomSheetTextContent)),
         // Step body
         Padding(
           padding: const EdgeInsets.all(8.0),
