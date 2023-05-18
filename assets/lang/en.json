@@ -169,6 +169,9 @@
         "title": "Examination completed",
         "text-1": "Your score",
         "text-2": "Unlikely",
-        "button-main": "Back to home"
+        "button-main": "Back to home",
+        "today": "Today",
+        "yesterday": "Yesterday"
+
     }
 }

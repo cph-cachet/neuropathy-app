@@ -2,6 +2,7 @@ import 'package:circle_flags/circle_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:neuro_planner/languages.dart';
+import 'package:neuro_planner/ui/widgets/row_icon_title_subtitle.dart';
 import 'package:neuro_planner/utils/spacing.dart';
 import 'package:neuro_planner/utils/themes/text_styles.dart';
 import 'examination_page.dart';
@@ -158,6 +159,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 textAlign: TextAlign.center,
               ),
               verticalSpacing(48),
+              IconRowWithText(
+                icon: Icons.calendar_month,
+                title: 'Owo',
+                subtitle: 'Uwu',
+              ),
               GestureDetector(
                 onTap: () => Navigator.of(context).push(
                     MaterialPageRoute<dynamic>(
