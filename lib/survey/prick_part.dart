@@ -26,22 +26,18 @@ const List<Widget> _prickIntroText = [
 ];
 const String _leftLegTitle = 'common.left-leg';
 const String _rightLegTitle = 'common.right-leg';
-const List<Text> _prickTextContent = [
-  Text('prick-test.text-1', textAlign: TextAlign.center),
-  Text('prick-test.text-2', textAlign: TextAlign.center),
-  Text('prick-test.text-3', textAlign: TextAlign.center)
+const List<String> _prickTextContent = [
+  'prick-test.text-1',
+  'prick-test.text-2',
+  'prick-test.text-3'
 ];
 const String _bottomSheetTitle = 'prick-test.bottom-sheet-title';
-const List<Text> _bottomSheetTextContent = [
-  Text('prick-test.bottom-sheet-text-1'),
-  Text('prick-test.bottom-sheet-text-2'),
+const List<String> _bottomSheetTextContent = [
+  'prick-test.bottom-sheet-text-1',
+  'prick-test.bottom-sheet-text-2',
 ];
-const List<Text> _allodyniaQuestion = [
-  Text('allodynia.text', textAlign: TextAlign.center)
-];
-const List<Text> _hyperaesthesiaQuestion = [
-  Text('hypersensitivity.text', textAlign: TextAlign.center)
-];
+const List<String> _allodyniaQuestion = ['allodynia.text'];
+const List<String> _hyperaesthesiaQuestion = ['hypersensitivity.text'];
 
 RPInstructionStepWithChildren prickInstructionStep =
     RPInstructionStepWithChildren(
@@ -80,7 +76,7 @@ List<RPStep> prickStepList = [
           : RPToggleQuestionStep(
               identifier: step.identifier,
               title: step.title,
-              text: step.textContent[0].data,
+              text: step.textContent[0],
               answerFormat: pinPrickAnswerFormat(pinPrickYesNo)))
       .toList()
 ];
@@ -183,8 +179,8 @@ enum PrickStrings {
       this.imagePath, this.bottomSheetTitle, this.bottomSheetTextContent);
   final String identifier;
   final String title;
-  final List<Text> textContent;
+  final List<String> textContent;
   final String imagePath;
   final String bottomSheetTitle;
-  final List<Text> bottomSheetTextContent;
+  final List<String> bottomSheetTextContent;
 }

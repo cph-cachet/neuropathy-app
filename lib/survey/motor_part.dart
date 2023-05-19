@@ -11,14 +11,14 @@ import 'package:research_package/research_package.dart';
 const String _motorIntroductionTitle = 'Motor examination';
 const String _leftLegTitle = 'common.left-leg';
 const String _rightLegTitle = 'common.right-leg';
-const List<Text> _motorTextContent = [
-  Text('motor-test.text-1', textAlign: TextAlign.center),
-  Text('motor-test.text-2', textAlign: TextAlign.center)
+const List<String> _motorTextContent = [
+  'motor-test.text-1',
+  'motor-test.text-2'
 ];
 const String _bottomSheetTitle = 'motor-test.bottom-sheet-title';
-const List<Text> _bottomSheetTextContent = [
-  Text('motor-test.bottom-sheet-text-1'),
-  Text('motor-test.bottom-sheet-text-2'),
+const List<String> _bottomSheetTextContent = [
+  'motor-test.bottom-sheet-text-1',
+  'motor-test.bottom-sheet-text-2'
 ];
 
 RPInstructionStepWithChildren motorInstructionStep =
@@ -68,8 +68,8 @@ enum MotorStrings {
       this.imagePath, this.bottomSheetTitle, this.bottomSheetTextContent);
   final String identifier;
   final String title;
-  final List<Text> textContent;
+  final List<String> textContent;
   final String imagePath;
   final String bottomSheetTitle;
-  final List<Text> bottomSheetTextContent;
+  final List<String> bottomSheetTextContent;
 }

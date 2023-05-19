@@ -67,23 +67,35 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
     }
   }
 
-  @override
-  Widget build(BuildContext context) {
+  List<Widget> makeTextContent() {
     TextStyle textStyle = widget.step.identifier.contains('prick')
         ? ThemeTextStyle.regularIBM18sp
         : ThemeTextStyle.headline24sp;
-    List<Text> textContent = widget.step.textContent
-        .map((e) => Text(Languages.of(context)!.translate(e.data.toString()),
-            style: textStyle, textAlign: e.textAlign))
-        .toList();
 
-    List<RichText> bottomSheetTextContent = widget.step.bottomSheetTextContent
-        .map((e) => semiBoldText(
-              Languages.of(context)!.translate(e.data.toString()),
-              ThemeTextStyle.regularIBM20sp,
-              TextAlign.justify,
-            ))
+    return widget.step.textContent
+        .map((s) => Text(Languages.of(context)!.translate(s),
+            style: textStyle, textAlign: TextAlign.center))
         .toList();
+  }
+
+  List<Widget> makeBottomSheetTextContent() {
+    List<Widget> content = [];
+
+    for (String s in widget.step.bottomSheetTextContent) {
+      content.add(semiBoldText(
+        Languages.of(context)!.translate(s),
+        ThemeTextStyle.regularIBM20sp,
+        TextAlign.justify,
+      ));
+      content.add(verticalSpacing(24));
+    }
+    content.removeLast();
+
+    return content;
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return SafeArea(
         child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -104,7 +116,7 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
           ],
         ),
         // Text
-        ...textContent,
+        ...makeTextContent(),
         BottomSheetButton(
             icon: const Icon(
               Icons.help_outline_rounded,
@@ -113,7 +125,7 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
             label: 'More Information',
             bottomSheetTitle:
                 Languages.of(context)!.translate(widget.step.bottomSheetTitle),
-            content: Column(children: bottomSheetTextContent)),
+            content: Column(children: makeBottomSheetTextContent())),
         // Step body
         Padding(
           padding: const EdgeInsets.all(8.0),

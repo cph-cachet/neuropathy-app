@@ -8,10 +8,10 @@ import '../../ui/rpui_image_question_step.dart';
 class RPImageQuestionStep extends RPStep {
   RPAnswerFormat answerFormat;
 
-  List<Text> textContent;
+  List<String> textContent;
   String imagePath;
   String bottomSheetTitle;
-  List<Text> bottomSheetTextContent;
+  List<String> bottomSheetTextContent;
 
   RPImageQuestionStep({
     required super.identifier,
