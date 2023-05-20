@@ -29,6 +29,7 @@
     },
     "begin-examination":
     {
+        "title": "Information",
         "text-1": "The examination is a mix of questions and tasks to complete.",
         "text-2": "A needle or a safety pin is needed for some of the activities.",
         "button-start": "Start examination"

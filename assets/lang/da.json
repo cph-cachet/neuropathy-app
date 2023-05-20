@@ -29,6 +29,7 @@
     },
     "begin-examination":
     {
+        "title": "Information",
         "text-1": "Eksaminationen består af både spørgsmål og tests.",
         "text-2": "Du skal bruge en nål eller en sikkerhedsnål til nogle af disse tests.",
         "button-start": "Begynd examination"

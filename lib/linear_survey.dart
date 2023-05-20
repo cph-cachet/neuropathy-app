@@ -12,10 +12,13 @@ import 'package:research_package/research_package.dart';
 import 'package:research_package/model.dart';
 
 // Instruction
-RPInstructionStep instructionStep = RPInstructionStep(
+RPInstructionStepWithChildren introductionStep = RPInstructionStepWithChildren(
   identifier: 'InstructionID',
-  title: 'Instructions',
-  text: 'survey_introduction',
+  title: 'begin-examination.title',
+  instructionContent: [
+    const Text('begin-examination.text-1', textAlign: TextAlign.center),
+    const Text('begin-examination.text-2', textAlign: TextAlign.center)
+  ],
 );
 
 // Completion
@@ -31,10 +34,11 @@ RPNavigableOrderedTask linearSurveyTask = RPNavigableOrderedTask(
     closeAfterFinished: false,
     identifier: 'SurveryTaskID',
     steps: [
-      symptomsStep,
+      introductionStep,
+      /*symptomsStep,
       ...prickStepList,
       skipPainStep,
-      ...painStepList,
+      ...painStepList,*/
       vibrationInstructionStep,
       ...vibrationStepList,
       ...motorStepList,
