@@ -1,4 +1,5 @@
 import 'package:neuro_planner/ui/widgets/bottom_sheet_button.dart';
+import 'package:neuro_planner/ui/widgets/semi_bold_text.dart';
 import 'package:neuro_planner/utils/spacing.dart';
 
 import '../step/steps/rp_image_question_step.dart';
@@ -118,12 +119,12 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
             // Text
             (widget.step.text == null)
                 ? Container()
-                : Text(
+                : semiBoldText(
                     locale?.translate(widget.step.text!) ?? widget.step.text!,
-                    style: widget.step.identifier.contains('prick')
+                    widget.step.identifier.contains('prick')
                         ? ThemeTextStyle.regularIBM18sp
                         : ThemeTextStyle.headline24sp,
-                    textAlign: TextAlign.center,
+                    TextAlign.center,
                   ),
             BottomSheetButton(
                 icon: const Icon(
@@ -132,10 +133,10 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
                 ),
                 label: 'More Information',
                 bottomSheetTitle: widget.step.bottomSheetTitle,
-                content: Text(
+                content: semiBoldText(
                   widget.step.bottomSheetText,
-                  style: ThemeTextStyle.regularIBM20sp,
-                  textAlign: TextAlign.justify,
+                  ThemeTextStyle.regularIBM20sp,
+                  TextAlign.justify,
                 )),
           ],
         ),

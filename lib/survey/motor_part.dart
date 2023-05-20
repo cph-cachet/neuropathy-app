@@ -9,13 +9,13 @@ import 'package:research_package/research_package.dart';
 
 // todo move text to rpinstruction with children, just provide widget type
 const String _motorIntroductionTitle = 'Motor examination';
-const String _leftLegTitle = 'Left Leg';
-const String _rightLegTitle = 'Right Leg';
+const String _leftLegTitle = 'common.left-leg';
+const String _rightLegTitle = 'common.right-leg';
 const String _instruction =
     'Apply firm pressure with your fingers to the great toe.\n\nIs it difficult to overcome the pressure?';
-const String _bottomSheetTitle = 'Overcoming pressure';
+const String _bottomSheetTitle = 'motor-test.bottom-sheet-title';
 const String _bottomSheetText =
-    'If you don\'t have symptoms in your hands, you can compare how your fingers overcome the pressure.\n\nIf you feel your great toe is weaker, answer YES to this question.';
+    'If you don\'t have symptoms in your hands, you can compare how your fingers overcome the pressure.\n\nIf you feel your great toe is weaker, answer <b>YES</b> to this question.';
 
 RPInstructionStepWithChildren motorInstructionStep =
     RPInstructionStepWithChildren(
@@ -34,8 +34,8 @@ RPInstructionStepWithChildren motorInstructionStep =
 );
 
 List<RPChoice> motorYesNo = [
-  RPChoice(text: 'Yes', value: 1),
-  RPChoice(text: 'No', value: 0),
+  RPChoice(text: 'common.yes', value: 1),
+  RPChoice(text: 'common.no', value: 0),
 ];
 RPChoiceAnswerFormat motorYesNoFormat = RPChoiceAnswerFormat(
     answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: motorYesNo);

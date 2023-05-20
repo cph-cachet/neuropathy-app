@@ -11,7 +11,7 @@ import 'package:research_package/research_package.dart';
 const String _prickIntroductionTitle = 'Prick Test';
 const List<Widget> _prickIntroText = [
   Text(
-    'Now you will test the pin-prick sensitivity of your legs using a needle or a sefety pin.',
+    'Now you will test the pin-prick sensitivity of your legs using a needle or a safety pin.',
     textAlign: TextAlign.center,
   ),
   Text(
@@ -19,21 +19,19 @@ const List<Widget> _prickIntroText = [
     textAlign: TextAlign.center,
   ),
   Text(
-    'Prick the reference area multiple times to compare sensitivity with the tested areas.',
+    'During the test, prick both the reference area and the tested area to compare sensitivity.',
     textAlign: TextAlign.center,
   ),
 ];
-const String _leftLegTitle = 'Left Leg';
-const String _rightLegTitle = 'Right Leg';
+const String _leftLegTitle = 'common.left-leg';
+const String _rightLegTitle = 'common.right-leg';
 const String _prickInstruction =
-    'Prick multiple spots in the blue area and select your prick sensitivity compared to the reference area. Only compare the sharpness of the prick sensation, not touch.';
-const String _bottomSheetTitle = 'Pin-prick test';
+    '1: Prick multiple spots in the chosen reference area. 2: Prick multiple spots in the blue area on the leg. How sensitive is the area on the leg compared to the reference area? Only compare the sharpness of the prick sensation, not touch.';
+const String _bottomSheetTitle = 'prick-test.bottom-sheet-title';
 const String _bottomSheetText =
-    'When pricking the area, follow the pictures. In sections 1-2 prick on the top of your foot, in sections 3-6 prick on the side of your leg. Try to avoid pricking directly over a bone.\n\nIf you fell the area is more sensitive to pricking than your referenced area, answer SIMILAR.';
-const String _allodyniaQuestion =
-    'During the pin-prick examination, did you feel increased pain from pricking in the foot or toes?';
-const String _hyperaesthesiaQuestion =
-    'Do you experience discomfort or pain when touching the foot or toes?';
+    'When pricking the area, follow the pictures. In sections 1-2 prick on the top of your foot, in sections 3-6 prick on the side of your leg. Try to avoid pricking directly over a bone.\n\nIf you fell the area is more sensitive to pricking than your referenced area, answer <b>SIMILAR</b>.';
+const String _allodyniaQuestion = 'allodynia.text';
+const String _hyperaesthesiaQuestion = 'hypersensitivity.text';
 
 RPInstructionStepWithChildren prickInstructionStep =
     RPInstructionStepWithChildren(
@@ -43,14 +41,14 @@ RPInstructionStepWithChildren prickInstructionStep =
 );
 
 List<RPChoice> pinPrickYesNo = [
-  RPChoice(text: "Yes", value: 1),
-  RPChoice(text: 'No', value: 0)
+  RPChoice(text: "common.yes", value: 1),
+  RPChoice(text: 'common.no', value: 0)
 ];
 
-List<RPChoice> siReAb = [
-  RPChoice(text: 'Similar', value: 0),
-  RPChoice(text: 'Reduced', value: 1),
-  RPChoice(text: 'Absent', value: 2),
+List<RPChoice> saLeNo = [
+  RPChoice(text: 'common.same', value: 0),
+  RPChoice(text: 'common.less', value: 1),
+  RPChoice(text: 'common.none', value: 2),
 ];
 RPChoiceAnswerFormat pinPrickAnswerFormat(List<RPChoice> choices) {
   return RPChoiceAnswerFormat(
@@ -68,7 +66,7 @@ List<RPStep> prickStepList = [
               imagePath: step.imagePath,
               bottomSheetTitle: step.bottomSheetTitle,
               bottomSheetText: step.bottomSheetText,
-              answerFormat: pinPrickAnswerFormat(siReAb))
+              answerFormat: pinPrickAnswerFormat(saLeNo))
           : RPToggleQuestionStep(
               identifier: step.identifier,
               title: step.title,
@@ -78,34 +76,94 @@ List<RPStep> prickStepList = [
 ];
 
 enum PrickStrings {
-  leftLeg1('prick_left_1', _leftLegTitle, _prickInstruction,
-      'assets/LeftLeg1.png', _bottomSheetTitle, _bottomSheetText),
-  leftLeg2('prick_left_2', _leftLegTitle, _prickInstruction,
-      'assets/LeftLeg2.png', _bottomSheetTitle, _bottomSheetText),
-  leftLeg3('prick_left_3', _leftLegTitle, _prickInstruction,
-      'assets/LeftLeg3.png', _bottomSheetTitle, _bottomSheetText),
-  leftLeg4('prick_left_4', _leftLegTitle, _prickInstruction,
-      'assets/LeftLeg4.png', _bottomSheetTitle, _bottomSheetText),
-  leftLeg5('prick_left_5', _leftLegTitle, _prickInstruction,
-      'assets/LeftLeg5.png', _bottomSheetTitle, _bottomSheetText),
-  leftLeg6('prick_left_6', _leftLegTitle, _prickInstruction,
-      'assets/LeftLeg6.png', _bottomSheetTitle, _bottomSheetText),
+  leftLeg1(
+      'prick_left_1',
+      _leftLegTitle,
+      _prickInstruction,
+      'assets/images/steps/prick/left_leg_1.png',
+      _bottomSheetTitle,
+      _bottomSheetText),
+  leftLeg2(
+      'prick_left_2',
+      _leftLegTitle,
+      _prickInstruction,
+      'assets/images/steps/prick/left_leg_2.png',
+      _bottomSheetTitle,
+      _bottomSheetText),
+  leftLeg3(
+      'prick_left_3',
+      _leftLegTitle,
+      _prickInstruction,
+      'assets/images/steps/prick/left_leg_3.png',
+      _bottomSheetTitle,
+      _bottomSheetText),
+  leftLeg4(
+      'prick_left_4',
+      _leftLegTitle,
+      _prickInstruction,
+      'assets/images/steps/prick/left_leg_4.png',
+      _bottomSheetTitle,
+      _bottomSheetText),
+  leftLeg5(
+      'prick_left_5',
+      _leftLegTitle,
+      _prickInstruction,
+      'assets/images/steps/prick/left_leg_5.png',
+      _bottomSheetTitle,
+      _bottomSheetText),
+  leftLeg6(
+      'prick_left_6',
+      _leftLegTitle,
+      _prickInstruction,
+      'assets/images/steps/prick/left_leg_6.png',
+      _bottomSheetTitle,
+      _bottomSheetText),
   leftLegAllodynia(
       'prick_left_allodynia', _leftLegTitle, _allodyniaQuestion, '', '', ''),
   leftLegHyperaesthesia(
       'prick_left_hyper', _leftLegTitle, _hyperaesthesiaQuestion, '', '', ''),
-  rightLeg1('prick_right_1', _rightLegTitle, _prickInstruction,
-      'assets/RightLeg1.png', _bottomSheetTitle, _bottomSheetText),
-  rightLeg2('prick_right_2', _rightLegTitle, _prickInstruction,
-      'assets/RightLeg2.png', _bottomSheetTitle, _bottomSheetText),
-  rightLeg3('prick_right_3', _rightLegTitle, _prickInstruction,
-      'assets/RightLeg3.png', _bottomSheetTitle, _bottomSheetText),
-  rightLeg4('prick_right_4', _rightLegTitle, _prickInstruction,
-      'assets/RightLeg4.png', _bottomSheetTitle, _bottomSheetText),
-  rightLeg5('prick_right_5', _rightLegTitle, _prickInstruction,
-      'assets/RightLeg5.png', _bottomSheetTitle, _bottomSheetText),
-  rightLeg6('prick_right_6', _rightLegTitle, _prickInstruction,
-      'assets/RightLeg6.png', _bottomSheetTitle, _bottomSheetText),
+  rightLeg1(
+      'prick_right_1',
+      _rightLegTitle,
+      _prickInstruction,
+      'assets/images/steps/prick/right_leg_1.png',
+      _bottomSheetTitle,
+      _bottomSheetText),
+  rightLeg2(
+      'prick_right_2',
+      _rightLegTitle,
+      _prickInstruction,
+      'assets/images/steps/prick/right_leg_2.png',
+      _bottomSheetTitle,
+      _bottomSheetText),
+  rightLeg3(
+      'prick_right_3',
+      _rightLegTitle,
+      _prickInstruction,
+      'assets/images/steps/prick/right_leg_3.png',
+      _bottomSheetTitle,
+      _bottomSheetText),
+  rightLeg4(
+      'prick_right_4',
+      _rightLegTitle,
+      _prickInstruction,
+      'assets/images/steps/prick/right_leg_4.png',
+      _bottomSheetTitle,
+      _bottomSheetText),
+  rightLeg5(
+      'prick_right_5',
+      _rightLegTitle,
+      _prickInstruction,
+      'assets/images/steps/prick/right_leg_5.png',
+      _bottomSheetTitle,
+      _bottomSheetText),
+  rightLeg6(
+      'prick_right_6',
+      _rightLegTitle,
+      _prickInstruction,
+      'assets/images/steps/prick/right_leg_6.png',
+      _bottomSheetTitle,
+      _bottomSheetText),
   righLegAllodynia(
       'prick_right_allodynia', _rightLegTitle, _allodyniaQuestion, '', '', ''),
   rightLegHyperaesthesia(
