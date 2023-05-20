@@ -47,6 +47,8 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
+  Languages languages = Languages();
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -128,8 +130,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  Languages languages = Languages();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -143,7 +143,7 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'Welcome!',
+                Languages.of(context)!.translate('welcome-screen.welcome'),
                 style: ThemeTextStyle.headline24sp.copyWith(
                   height: 1.25,
                 ),
@@ -151,7 +151,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               verticalSpacing(48),
               Text(
-                'You do not have any completed examinations yet.',
+                Languages.of(context)!.translate('welcome-screen.no-completed'),
                 style: ThemeTextStyle.headline24sp.copyWith(
                   height: 1.25,
                 ),
@@ -163,7 +163,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     MaterialPageRoute<dynamic>(
                         builder: (context) => ExaminationPage())),
                 child: Text(
-                  'Tap here to start a new one',
+                  Languages.of(context)!
+                      .translate('welcome-screen.tap-to-start'),
                   style: ThemeTextStyle.headline24sp.copyWith(
                     height: 1.25,
                   ),
@@ -200,7 +201,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       ),
                       onPressed: () {
-                        languages.setLocale(context,
+                        Languages.of(context)!.setLocale(context,
                             const Locale.fromSubtags(languageCode: 'en'));
                       },
                     ),
@@ -224,7 +225,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       ),
                       onPressed: () {
-                        languages.setLocale(context,
+                        Languages.of(context)!.setLocale(context,
                             const Locale.fromSubtags(languageCode: 'da'));
                       },
                     ),
