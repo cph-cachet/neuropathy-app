@@ -35,10 +35,10 @@ RPNavigableOrderedTask linearSurveyTask = RPNavigableOrderedTask(
     identifier: 'SurveryTaskID',
     steps: [
       introductionStep,
-      /*symptomsStep,
+      symptomsStep,
       ...prickStepList,
       skipPainStep,
-      ...painStepList,*/
+      ...painStepList,
       vibrationInstructionStep,
       ...vibrationStepList,
       ...motorStepList,
