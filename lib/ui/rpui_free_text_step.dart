@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:neuro_planner/languages.dart';
 import 'package:neuro_planner/step/steps/rp_free_text_step.dart';
 import 'package:research_package/research_package.dart';
 import 'package:neuro_planner/utils/themes/text_styles.dart';
@@ -64,7 +65,6 @@ class RPUIFreeTextStepState extends State<RPUIFreeTextStep> with CanSaveResult {
 
   @override
   Widget build(BuildContext context) {
-    RPLocalizations? locale = RPLocalizations.of(context);
     return SafeArea(
         child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -75,14 +75,14 @@ class RPUIFreeTextStepState extends State<RPUIFreeTextStep> with CanSaveResult {
             child: Column(
               children: [
                 const SizedBox.square(dimension: 16),
-                Text(widget.step.title,
+                Text(Languages.of(context)!.translate(widget.step.title),
                     style: ThemeTextStyle.headline24sp,
                     textAlign: TextAlign.center),
               ],
             )),
         if (widget.step.text != null)
           Text(
-            widget.step.text!,
+            Languages.of(context)!.translate(widget.step.text!),
             style: ThemeTextStyle.regularIBM18sp,
             textAlign: TextAlign.center,
           ),

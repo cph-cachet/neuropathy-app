@@ -159,6 +159,11 @@
         "bottom-sheet-text-1": "If you don't have symptoms in your hands, you can compare how your fingers overcome the pressure.",
         "bottom-sheet-text-2": "If you feel your great toe is weaker, answer <b>YES</b> to this question."
     },
+    "free-text":
+    {
+        "title": "Closing comments",
+        "text": "Do you have any thought or comments that weren't addressed in the examination? If so, please write them below."
+    },
     "examination-completed":
     {
         "title": "Examination completed",
