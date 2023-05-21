@@ -168,7 +168,8 @@
     {
         "title": "Examination completed",
         "text-1": "Your score",
-        "text-2": "Unlikely",
+        "text-2": "The score is calculated from the examination, but the score can't tell you whether you have neuropathy.",
+        "text-3": "The lower the score is, the better",
         "button-main": "Back to home"
     }
 }
