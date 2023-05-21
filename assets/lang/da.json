@@ -29,6 +29,7 @@
     },
     "begin-examination":
     {
+        "title": "Information",
         "text-1": "Eksaminationen består af både spørgsmål og tests.",
         "text-2": "Du skal bruge en nål eller en sikkerhedsnål til nogle af disse tests.",
         "button-start": "Begynd eksamination"
@@ -46,7 +47,7 @@
     },
     "prick-info":
     {
-        "title": "<b>Priktest</b>",
+        "title": "Priktest",
         "text-1": "Nu testes dine bens følsomhed over for prik med en nål eller en sikkerhedsnål.",
         "text-2": "Vælg enten halsen eller området omkring kravebenet som reference",
         "text-3": "Prik både referenceområdet og det testede område i løbet af testen, så du kan sammenligne følsomheden."
