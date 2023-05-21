@@ -1,11 +1,17 @@
+import 'package:carp_serializable/carp_serializable.dart';
 import 'package:circle_flags/circle_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get_it/get_it.dart';
 import 'package:neuro_planner/languages.dart';
+import 'package:neuro_planner/repositories/result_repository.dart';
 import 'package:neuro_planner/ui/widgets/row_icon_title_subtitle.dart';
+import 'package:neuro_planner/utils/date_formatter.dart';
 import 'package:neuro_planner/utils/spacing.dart';
 import 'package:neuro_planner/utils/themes/text_styles.dart';
+import 'package:research_package/research_package.dart';
 import 'examination_page.dart';
+import 'init.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,6 +30,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final Future _init = Init.initialize();
+
+  //todo maybe move to Init?
   Locale _locale = const Locale.fromSubtags(languageCode: 'en');
 
   void setLocale(Locale locale) {
@@ -114,7 +123,19 @@ class _MyAppState extends State<MyApp> {
           onSurface: Colors.black,
         ),
       ),
-      home: const MyHomePage(title: 'Neuropathy assesment'),
+      home: FutureBuilder(
+        future: _init,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return const MyHomePage(title: 'Neuropathy assesment');
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
+      ),
+      //const MyHomePage(title: 'Neuropathy assesment'),
     );
   }
 }
@@ -129,7 +150,22 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  ResultRepository _resultRepository = GetIt.I.get();
   Languages languages = Languages();
+  List<RPTaskResult> _results = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadResults();
+  }
+
+  _loadResults() async {
+    // await _resultRepository
+    //     .deleteAllResults(); //used for debug delete all results
+    final results = await _resultRepository.getResults();
+    setState(() => _results = results);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -159,11 +195,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 textAlign: TextAlign.center,
               ),
               verticalSpacing(48),
-              IconRowWithText(
-                icon: Icons.calendar_month,
-                title: 'Owo',
-                subtitle: 'Uwu',
-              ),
               GestureDetector(
                 onTap: () => Navigator.of(context).push(
                     MaterialPageRoute<dynamic>(
@@ -184,6 +215,17 @@ class _MyHomePageState extends State<MyHomePage> {
                         builder: (context) => ExaminationPage())),
               ),
               verticalSpacing(48),
+              // Container(
+              //     height: 200,
+              //     child: ListView.builder(
+              //         physics: const NeverScrollableScrollPhysics(),
+              //         shrinkWrap: true,
+              //         itemCount: _results.length,
+              //         itemBuilder: (context, index) {
+              //           final res = _results[index].results.values.first
+              //               as RPStepResult;
+              //           return Text(res.questionTitle);
+              //         })), // Leaving here for debugging purposes
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
