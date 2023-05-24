@@ -5,6 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:neuro_planner/languages.dart';
 import 'package:neuro_planner/utils/spacing.dart';
 import 'package:neuro_planner/utils/themes/text_styles.dart';
+import 'package:research_package/research_package.dart';
 import 'examination_page.dart';
 
 void main() {
@@ -60,8 +61,9 @@ class _MyAppState extends State<MyApp> {
         Locale.fromSubtags(languageCode: 'en'),
         Locale.fromSubtags(languageCode: 'da'),
       ],
-      localizationsDelegates: const [
+      localizationsDelegates: [
         Languages.delegate,
+        RPLocalizations.delegate,
         //DefaultMaterialLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,

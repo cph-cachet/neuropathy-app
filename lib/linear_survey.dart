@@ -25,8 +25,8 @@ RPInstructionStepWithChildren introductionStep = RPInstructionStepWithChildren(
 // Completion
 RPCompletionStep completionStep = RPCompletionStep(
     identifier: 'completionID',
-    title: 'Examination completed',
-    text: 'Thanks, buddy');
+    title: 'examination-completed-title',
+    text: 'examination-completed-text');
 
 RPStepJumpRule noPain =
     RPStepJumpRule(answerMap: {0: vibrationInstructionStep.identifier});
