@@ -122,7 +122,7 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
               Icons.help_outline_rounded,
               size: 20,
             ),
-            label: 'More Information',
+            label: Languages.of(context)!.translate('common.more-info'),
             bottomSheetTitle:
                 Languages.of(context)!.translate(widget.step.bottomSheetTitle),
             content: Column(children: makeBottomSheetTextContent())),
