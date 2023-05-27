@@ -17,6 +17,13 @@ class Init {
   }
 
   static _registerToJsonFactory() {
+    FromJsonFactory().register(RPTextAnswerFormat(hintText: "Enter your name"));
+    FromJsonFactory().register(RPSliderAnswerFormat(
+        divisions: 10,
+        minValue: 0,
+        maxValue: 10,
+        prefix: "Not at all",
+        suffix: "Very much"));
     FromJsonFactory().register(RPChoiceAnswerFormat(
         answerStyle: RPChoiceAnswerStyle.SingleChoice,
         choices: [
