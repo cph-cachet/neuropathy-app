@@ -18,7 +18,7 @@ class MainPageEmptyResults extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Welcome!',
+              Languages.of(context)!.translate('welcome-screen.welcome'),
               style: ThemeTextStyle.headline24sp.copyWith(
                 height: 1.25,
               ),
@@ -26,7 +26,7 @@ class MainPageEmptyResults extends StatelessWidget {
             ),
             verticalSpacing(48),
             Text(
-              'You do not have any completed examinations yet.',
+              Languages.of(context)!.translate('welcome-screen.no-completed'),
               style: ThemeTextStyle.headline24sp.copyWith(
                 height: 1.25,
               ),
@@ -38,7 +38,7 @@ class MainPageEmptyResults extends StatelessWidget {
                   MaterialPageRoute<dynamic>(
                       builder: (context) => ExaminationPage())),
               child: Text(
-                'Tap here to start a new one',
+                Languages.of(context)!.translate('welcome-screen.tap-to-start'),
                 style: ThemeTextStyle.headline24sp.copyWith(
                   height: 1.25,
                 ),
@@ -53,36 +53,6 @@ class MainPageEmptyResults extends StatelessWidget {
                       builder: (context) => ExaminationPage())),
             ),
             verticalSpacing(48),
-            //Column(children:)
-            // if (_results.isNotEmpty)
-            //   ListView.builder(
-            //     shrinkWrap: true,
-            //     physics: const AlwaysScrollableScrollPhysics(),
-            //     itemCount: _results.length,
-            //     itemBuilder: (context, index) {
-            //       final res = _results[index];
-            //       //as RPStepResult;
-            //       return Card(
-            //         child: ListTile(
-            //           leading: Icon(Icons.local_hospital),
-            //           trailing: Icon(Icons.download),
-            //           title: Text(
-            //               dateFormatter.getFormattedTime(res.startDate!)),
-            //         ),
-            //       );
-            //     },
-            //   ),
-            // Container(
-            //     height: 200,
-            //     child: ListView.builder(
-            //         physics: const NeverScrollableScrollPhysics(),
-            //         shrinkWrap: true,
-            //         itemCount: _results.length,
-            //         itemBuilder: (context, index) {
-            //           final res = _results[index].results.values.first
-            //               as RPStepResult;
-            //           return Text(res.questionTitle);
-            //         })), // Leaving here for debugging purposes
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
