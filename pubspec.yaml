@@ -54,6 +54,7 @@ dependencies:
   path_provider: ^2.0.15
   build_runner: ^2.4.4
   json_serializable: ^6.7.0
+  avatar_glow: ^2.0.2
 
 dev_dependencies:
   flutter_test:

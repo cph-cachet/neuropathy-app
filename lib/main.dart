@@ -1,5 +1,6 @@
 import 'dart:ffi';
 
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:carp_serializable/carp_serializable.dart';
 import 'package:circle_flags/circle_flags.dart';
 import 'package:flutter/material.dart';
@@ -189,8 +190,15 @@ class _MyHomePageState extends State<MyHomePage> {
               ? MainPageBodyWithExaminations(
                   taskResults: _results, languages: languages)
               : const MainPageEmptyResults()
-          : const Center(
-              child: CircularProgressIndicator(),
+          : Center(
+              child: AvatarGlow(
+                  glowColor: Theme.of(context).colorScheme.primary,
+                  endRadius: 50,
+                  child: Icon(
+                    Icons.book,
+                    size: 50,
+                    color: Theme.of(context).colorScheme.primary,
+                  )),
             ),
     );
   }
