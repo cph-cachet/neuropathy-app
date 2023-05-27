@@ -1,8 +1,4 @@
-import 'dart:ffi';
-
 import 'package:avatar_glow/avatar_glow.dart';
-import 'package:carp_serializable/carp_serializable.dart';
-import 'package:circle_flags/circle_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
@@ -11,12 +7,8 @@ import 'package:neuro_planner/repositories/result_repository/result_repository.d
 import 'package:neuro_planner/ui/main_page_empty.dart';
 import 'package:neuro_planner/ui/main_page_examinations.dart';
 import 'package:neuro_planner/ui/widgets/add_examination_button.dart';
-import 'package:neuro_planner/ui/widgets/row_icon_title_subtitle.dart';
-import 'package:neuro_planner/utils/date_formatter.dart';
 import 'package:neuro_planner/utils/spacing.dart';
-import 'package:neuro_planner/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
-import 'examination_page.dart';
 import 'init.dart';
 
 void main() {

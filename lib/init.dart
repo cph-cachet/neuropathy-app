@@ -7,8 +7,6 @@ import 'package:research_package/model.dart';
 import 'package:sembast/sembast.dart';
 import 'package:sembast/sembast_io.dart';
 
-import 'languages.dart';
-
 class Init {
   static Future initialize() async {
     await _initSembast();

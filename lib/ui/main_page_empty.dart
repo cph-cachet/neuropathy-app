@@ -71,7 +71,7 @@ class MainPageEmptyResults extends StatelessWidget {
                             size: 20,
                           ),
                         ),
-                        Text('English'),
+                        const Text('English'),
                       ],
                     ),
                     onPressed: () {
@@ -95,7 +95,7 @@ class MainPageEmptyResults extends StatelessWidget {
                             size: 20,
                           ),
                         ),
-                        Text('Dansk'),
+                        const Text('Dansk'),
                       ],
                     ),
                     onPressed: () {
