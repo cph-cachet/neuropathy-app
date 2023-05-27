@@ -62,6 +62,8 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
+  Languages languages = Languages();
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

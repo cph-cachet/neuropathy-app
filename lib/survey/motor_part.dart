@@ -11,11 +11,15 @@ import 'package:research_package/research_package.dart';
 const String _motorIntroductionTitle = 'Motor examination';
 const String _leftLegTitle = 'common.left-leg';
 const String _rightLegTitle = 'common.right-leg';
-const String _instruction =
-    'Apply firm pressure with your fingers to the great toe.\n\nIs it difficult to overcome the pressure?';
+const List<String> _motorTextContent = [
+  'motor-test.text-1',
+  'motor-test.text-2'
+];
 const String _bottomSheetTitle = 'motor-test.bottom-sheet-title';
-const String _bottomSheetText =
-    'If you don\'t have symptoms in your hands, you can compare how your fingers overcome the pressure.\n\nIf you feel your great toe is weaker, answer <b>YES</b> to this question.';
+const List<String> _bottomSheetTextContent = [
+  'motor-test.bottom-sheet-text-1',
+  'motor-test.bottom-sheet-text-2'
+];
 
 RPInstructionStepWithChildren motorInstructionStep =
     RPInstructionStepWithChildren(
@@ -46,26 +50,26 @@ List<RPStep> motorStepList = [
       .map((step) => RPImageQuestionStep(
           identifier: step.identifier,
           title: step.title,
-          text: step.instruction,
+          textContent: step.textContent,
           imagePath: step.imagePath,
           bottomSheetTitle: step.bottomSheetTitle,
-          bottomSheetText: step.bottomSheetText,
+          bottomSheetTextContent: step.bottomSheetTextContent,
           answerFormat: motorYesNoFormat))
       .toList()
 ];
 
 enum MotorStrings {
-  leftGreatToe('motor_left_toe', _leftLegTitle, _instruction,
-      'assets/LeftGreatToe.png', _bottomSheetTitle, _bottomSheetText),
-  rightGreatToe('motor_right_toe', _rightLegTitle, _instruction,
-      'assets/RightGreatToe.png', _bottomSheetTitle, _bottomSheetText);
+  leftGreatToe('motor_left_toe', _leftLegTitle, _motorTextContent,
+      'assets/LeftGreatToe.png', _bottomSheetTitle, _bottomSheetTextContent),
+  rightGreatToe('motor_right_toe', _rightLegTitle, _motorTextContent,
+      'assets/RightGreatToe.png', _bottomSheetTitle, _bottomSheetTextContent);
 
-  const MotorStrings(this.identifier, this.title, this.instruction,
-      this.imagePath, this.bottomSheetTitle, this.bottomSheetText);
+  const MotorStrings(this.identifier, this.title, this.textContent,
+      this.imagePath, this.bottomSheetTitle, this.bottomSheetTextContent);
   final String identifier;
   final String title;
-  final String instruction;
+  final List<String> textContent;
   final String imagePath;
   final String bottomSheetTitle;
-  final String bottomSheetText;
+  final List<String> bottomSheetTextContent;
 }

@@ -29,6 +29,7 @@
     },
     "begin-examination":
     {
+        "title": "Information",
         "text-1": "The examination is a mix of questions and tasks to complete.",
         "text-2": "A needle or a safety pin is needed for some of the activities.",
         "button-start": "Start examination"
@@ -46,7 +47,7 @@
     },
     "prick-info":
     {
-        "title": "<b>Prick test</b>",
+        "title": "Prick test",
         "text-1": "Now you will test the pin-prick sensitivity of your legs using a needle or a safety pin.",
         "text-2": "Choose either the neck or the clavicle area to use as reference",
         "text-3": "During the test, prick both the reference area and the tested area to compare sensitivity."
@@ -159,6 +160,11 @@
         "bottom-sheet-text-1": "If you don't have symptoms in your hands, you can compare how your fingers overcome the pressure.",
         "bottom-sheet-text-2": "If you feel your great toe is weaker, answer <b>YES</b> to this question."
     },
+    "free-text":
+    {
+        "title": "Closing comments",
+        "text": "Do you have any thought or comments that weren't addressed in the examination? If so, please write them below."
+    },
     "examination-completed":
     {
         "title": "Examination completed",
@@ -168,7 +174,8 @@
     {
         "title": "Examination completed",
         "text-1": "Your score",
-        "text-2": "Unlikely",
+        "text-2": "The score is calculated from the examination, but the score can't tell you whether you have neuropathy.",
+        "text-3": "The lower the score is, the better",
         "button-main": "Back to home",
         "today": "Today",
         "yesterday": "Yesterday"

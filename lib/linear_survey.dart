@@ -6,16 +6,20 @@ import 'package:neuro_planner/survey/symptoms_part.dart';
 import 'package:neuro_planner/survey/prick_part.dart';
 import 'package:neuro_planner/survey/motor_part.dart';
 import 'package:neuro_planner/survey/vibration_part.dart';
+import 'package:neuro_planner/survey/free_text_part.dart';
 
 import 'step/steps/rp_image_question_step.dart';
 import 'package:research_package/research_package.dart';
 import 'package:research_package/model.dart';
 
 // Instruction
-RPInstructionStep instructionStep = RPInstructionStep(
+RPInstructionStepWithChildren introductionStep = RPInstructionStepWithChildren(
   identifier: 'InstructionID',
-  title: 'Instructions',
-  text: 'survey_introduction',
+  title: 'begin-examination.title',
+  instructionContent: [
+    const Text('begin-examination.text-1', textAlign: TextAlign.center),
+    const Text('begin-examination.text-2', textAlign: TextAlign.center)
+  ],
 );
 
 // Completion
@@ -31,6 +35,7 @@ RPNavigableOrderedTask linearSurveyTask = RPNavigableOrderedTask(
     closeAfterFinished: false,
     identifier: 'SurveryTaskID',
     steps: [
+      introductionStep,
       symptomsStep,
       ...prickStepList,
       skipPainStep,
@@ -38,6 +43,7 @@ RPNavigableOrderedTask linearSurveyTask = RPNavigableOrderedTask(
       vibrationInstructionStep,
       ...vibrationStepList,
       ...motorStepList,
+      freeTextStep,
       completionStep
     ])
   ..setNavigationRuleForTriggerStepIdentifier(noPain, skipPainStep.identifier);

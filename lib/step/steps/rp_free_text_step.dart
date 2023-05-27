@@ -1,31 +1,21 @@
-import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:neuro_planner/ui/rpui_free_text_step.dart';
 import 'package:research_package/research_package.dart';
 
-import '../../ui/rpui_image_question_step.dart';
-
 @JsonSerializable(fieldRename: FieldRename.snake, includeIfNull: false)
-class RPImageQuestionStep extends RPStep {
+class RPFreeTextStep extends RPStep {
   RPAnswerFormat answerFormat;
 
-  List<String> textContent;
-  String imagePath;
-  String bottomSheetTitle;
-  List<String> bottomSheetTextContent;
-
-  RPImageQuestionStep({
+  RPFreeTextStep({
     required super.identifier,
     required super.title,
-    required this.textContent,
-    required this.imagePath,
-    required this.bottomSheetTitle,
-    required this.bottomSheetTextContent,
+    super.text,
     super.optional,
     required this.answerFormat,
   });
 
   @override
-  get stepWidget => RPUIImageQuestionStep(this);
+  get stepWidget => RPUIFreeTextStep(this);
 
   @override // TODO: implement fromJsonFunction
   Function get fromJsonFunction => super.fromJsonFunction;

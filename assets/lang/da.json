@@ -29,9 +29,10 @@
     },
     "begin-examination":
     {
+        "title": "Information",
         "text-1": "Eksaminationen består af både spørgsmål og tests.",
         "text-2": "Du skal bruge en nål eller en sikkerhedsnål til nogle af disse tests.",
-        "button-start": "Begynd examination"
+        "button-start": "Begynd eksamination"
     },
     "symptoms":
     {
@@ -46,7 +47,7 @@
     },
     "prick-info":
     {
-        "title": "<b>Priktest</b>",
+        "title": "Priktest",
         "text-1": "Nu testes dine bens følsomhed over for prik med en nål eller en sikkerhedsnål.",
         "text-2": "Vælg enten halsen eller området omkring kravebenet som reference",
         "text-3": "Prik både referenceområdet og det testede område i løbet af testen, så du kan sammenligne følsomheden."
@@ -160,6 +161,11 @@
         "bottom-sheet-text-1": "Hvis du ikke har symptomer i hænderne, kan du sammenligne dine fingres evne til at modvirke trykket.",
         "bottom-sheet-text-2": "Svar <b>JA</b> til dette spørgsmål, hvis du føler at din storetå er svagere end dine fingre."
     },
+    "free-text":
+    {
+        "title": "Afsluttende kommentarer",
+        "text": "Har du nogen tanker eller kommentarer, der ikke kom frem under eksaminationen? I så fald, kan du skrive dem herunder."
+    },
     "examination-completed":
     {
         "title": "Eksamination færdiggjort",
@@ -167,9 +173,10 @@
     },
     "result-screen":
     {
-        "title": "Examination gennemført",
+        "title": "Eksamination gennemført",
         "text-1": "Din score",
-        "text-2": "Lav sandsynlighed",
+        "text-2": "Scoren er udregnet fra eksaminationen, men scoren kan ikke fortælle om du har neuropati.",
+        "text-3": "Jo lavere score, des bedre.",
         "button-main": "Tilbage til hovedmenuen"
     }
 }

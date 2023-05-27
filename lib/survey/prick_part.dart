@@ -6,32 +6,38 @@ import 'package:flutter/material.dart';
 import 'package:neuro_planner/step/steps/rp_image_question_step.dart';
 import 'package:neuro_planner/step/steps/rp_instruction_step.dart';
 import 'package:neuro_planner/step/steps/rp_toggle_question_step.dart';
+import 'package:neuro_planner/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
 
-const String _prickIntroductionTitle = 'Prick Test';
+const String _prickIntroductionTitle = 'prick-info.title';
 const List<Widget> _prickIntroText = [
   Text(
-    'Now you will test the pin-prick sensitivity of your legs using a needle or a safety pin.',
+    'prick-info.text-1',
     textAlign: TextAlign.center,
   ),
   Text(
-    'Choose either the neck or the clavicle area to use as reference.',
+    'prick-info.text-2',
     textAlign: TextAlign.center,
   ),
   Text(
-    'During the test, prick both the reference area and the tested area to compare sensitivity.',
+    'prick-info.text-3',
     textAlign: TextAlign.center,
   ),
 ];
 const String _leftLegTitle = 'common.left-leg';
 const String _rightLegTitle = 'common.right-leg';
-const String _prickInstruction =
-    '1: Prick multiple spots in the chosen reference area. 2: Prick multiple spots in the blue area on the leg. How sensitive is the area on the leg compared to the reference area? Only compare the sharpness of the prick sensation, not touch.';
+const List<String> _prickTextContent = [
+  'prick-test.text-1',
+  'prick-test.text-2',
+  'prick-test.text-3'
+];
 const String _bottomSheetTitle = 'prick-test.bottom-sheet-title';
-const String _bottomSheetText =
-    'When pricking the area, follow the pictures. In sections 1-2 prick on the top of your foot, in sections 3-6 prick on the side of your leg. Try to avoid pricking directly over a bone.\n\nIf you fell the area is more sensitive to pricking than your referenced area, answer <b>SIMILAR</b>.';
-const String _allodyniaQuestion = 'allodynia.text';
-const String _hyperaesthesiaQuestion = 'hypersensitivity.text';
+const List<String> _bottomSheetTextContent = [
+  'prick-test.bottom-sheet-text-1',
+  'prick-test.bottom-sheet-text-2',
+];
+const List<String> _allodyniaQuestion = ['allodynia.text'];
+const List<String> _hyperaesthesiaQuestion = ['hypersensitivity.text'];
 
 RPInstructionStepWithChildren prickInstructionStep =
     RPInstructionStepWithChildren(
@@ -62,15 +68,15 @@ List<RPStep> prickStepList = [
           ? RPImageQuestionStep(
               identifier: step.identifier,
               title: step.title,
-              text: step.instruction,
+              textContent: step.textContent,
               imagePath: step.imagePath,
               bottomSheetTitle: step.bottomSheetTitle,
-              bottomSheetText: step.bottomSheetText,
+              bottomSheetTextContent: step.bottomSheetTextContent,
               answerFormat: pinPrickAnswerFormat(saLeNo))
           : RPToggleQuestionStep(
               identifier: step.identifier,
               title: step.title,
-              text: step.instruction,
+              text: step.textContent[0],
               answerFormat: pinPrickAnswerFormat(pinPrickYesNo)))
       .toList()
 ];
@@ -79,102 +85,102 @@ enum PrickStrings {
   leftLeg1(
       'prick_left_1',
       _leftLegTitle,
-      _prickInstruction,
+      _prickTextContent,
       'assets/images/steps/prick/left_leg_1.png',
       _bottomSheetTitle,
-      _bottomSheetText),
+      _bottomSheetTextContent),
   leftLeg2(
       'prick_left_2',
       _leftLegTitle,
-      _prickInstruction,
+      _prickTextContent,
       'assets/images/steps/prick/left_leg_2.png',
       _bottomSheetTitle,
-      _bottomSheetText),
+      _bottomSheetTextContent),
   leftLeg3(
       'prick_left_3',
       _leftLegTitle,
-      _prickInstruction,
+      _prickTextContent,
       'assets/images/steps/prick/left_leg_3.png',
       _bottomSheetTitle,
-      _bottomSheetText),
+      _bottomSheetTextContent),
   leftLeg4(
       'prick_left_4',
       _leftLegTitle,
-      _prickInstruction,
+      _prickTextContent,
       'assets/images/steps/prick/left_leg_4.png',
       _bottomSheetTitle,
-      _bottomSheetText),
+      _bottomSheetTextContent),
   leftLeg5(
       'prick_left_5',
       _leftLegTitle,
-      _prickInstruction,
+      _prickTextContent,
       'assets/images/steps/prick/left_leg_5.png',
       _bottomSheetTitle,
-      _bottomSheetText),
+      _bottomSheetTextContent),
   leftLeg6(
       'prick_left_6',
       _leftLegTitle,
-      _prickInstruction,
+      _prickTextContent,
       'assets/images/steps/prick/left_leg_6.png',
       _bottomSheetTitle,
-      _bottomSheetText),
+      _bottomSheetTextContent),
   leftLegAllodynia(
-      'prick_left_allodynia', _leftLegTitle, _allodyniaQuestion, '', '', ''),
+      'prick_left_allodynia', _leftLegTitle, _allodyniaQuestion, '', '', []),
   leftLegHyperaesthesia(
-      'prick_left_hyper', _leftLegTitle, _hyperaesthesiaQuestion, '', '', ''),
+      'prick_left_hyper', _leftLegTitle, _hyperaesthesiaQuestion, '', '', []),
   rightLeg1(
       'prick_right_1',
       _rightLegTitle,
-      _prickInstruction,
+      _prickTextContent,
       'assets/images/steps/prick/right_leg_1.png',
       _bottomSheetTitle,
-      _bottomSheetText),
+      _bottomSheetTextContent),
   rightLeg2(
       'prick_right_2',
       _rightLegTitle,
-      _prickInstruction,
+      _prickTextContent,
       'assets/images/steps/prick/right_leg_2.png',
       _bottomSheetTitle,
-      _bottomSheetText),
+      _bottomSheetTextContent),
   rightLeg3(
       'prick_right_3',
       _rightLegTitle,
-      _prickInstruction,
+      _prickTextContent,
       'assets/images/steps/prick/right_leg_3.png',
       _bottomSheetTitle,
-      _bottomSheetText),
+      _bottomSheetTextContent),
   rightLeg4(
       'prick_right_4',
       _rightLegTitle,
-      _prickInstruction,
+      _prickTextContent,
       'assets/images/steps/prick/right_leg_4.png',
       _bottomSheetTitle,
-      _bottomSheetText),
+      _bottomSheetTextContent),
   rightLeg5(
       'prick_right_5',
       _rightLegTitle,
-      _prickInstruction,
+      _prickTextContent,
       'assets/images/steps/prick/right_leg_5.png',
       _bottomSheetTitle,
-      _bottomSheetText),
+      _bottomSheetTextContent),
   rightLeg6(
       'prick_right_6',
       _rightLegTitle,
-      _prickInstruction,
+      _prickTextContent,
       'assets/images/steps/prick/right_leg_6.png',
       _bottomSheetTitle,
-      _bottomSheetText),
+      _bottomSheetTextContent),
   righLegAllodynia(
-      'prick_right_allodynia', _rightLegTitle, _allodyniaQuestion, '', '', ''),
+      'prick_right_allodynia', _rightLegTitle, _allodyniaQuestion, '', '', []),
   rightLegHyperaesthesia(
-      'prick_right_hyper', _rightLegTitle, _hyperaesthesiaQuestion, '', '', '');
+      'prick_right_hyper', _rightLegTitle, _hyperaesthesiaQuestion, '', '', []);
 
-  const PrickStrings(this.identifier, this.title, this.instruction,
-      this.imagePath, this.bottomSheetTitle, this.bottomSheetText);
+  const PrickStrings(this.identifier, this.title, this.textContent,
+      this.imagePath, this.bottomSheetTitle, this.bottomSheetTextContent);
   final String identifier;
   final String title;
-  final String instruction;
+  final List<String> textContent;
   final String imagePath;
   final String bottomSheetTitle;
-  final String bottomSheetText;
+  final List<String> bottomSheetTextContent;
 }
