@@ -106,15 +106,6 @@ class _MyAppState extends State<MyApp> {
         radioTheme: RadioThemeData(
           fillColor: MaterialStateProperty.all(Color(0xff22577a)),
         ),
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
         colorScheme: const ColorScheme(
           brightness: Brightness.light,
@@ -131,18 +122,26 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       home: FutureBuilder(
-        future: _init,
+        future: Future.delayed(const Duration(seconds: 1), () => _init),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return const MyHomePage(title: 'Neuropathy assesment');
           } else {
-            return const Center(
-              child: CircularProgressIndicator(),
+            return Scaffold(
+              body: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Loading...'),
+                    verticalSpacing(16),
+                    CircularProgressIndicator(),
+                  ],
+                ),
+              ),
             );
           }
         },
       ),
-      //const MyHomePage(title: 'Neuropathy assesment'),
     );
   }
 }
@@ -157,146 +156,43 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  ResultRepository _resultRepository = GetIt.I.get();
+  final ResultRepository _resultRepository = GetIt.I.get();
   Languages languages = Languages();
   List<RPTaskResult> _results = [];
-
+  bool _hasLoaded = false;
   @override
   void initState() {
-    super.initState();
     _loadResults();
+    super.initState();
   }
 
   _loadResults() async {
     // await _resultRepository
     //     .deleteAllResults(); //used for debug delete all results
-    final results = await _resultRepository.getResults();
+    final results = await Future.delayed(
+        const Duration(seconds: 1), () => _resultRepository.getResults());
     setState(() => _results = results);
+    setState(() => _hasLoaded = true);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        floatingActionButton:
-            _results.isNotEmpty ? const AddExaminationButton() : null,
-        body: _results.isNotEmpty
-            ? MainPageBodyWithExaminations(
-                taskResults: _results, languages: languages)
-            : MainPageEmptyResults());
-    // Center(
-    //   child: Padding(
-    //     padding: const EdgeInsets.symmetric(horizontal: 80),
-    //     child: Column(
-    //       mainAxisAlignment: MainAxisAlignment.center,
-    //       children: <Widget>[
-    //         Text(
-    //           'Welcome!',
-    //           style: ThemeTextStyle.headline24sp.copyWith(
-    //             height: 1.25,
-    //           ),
-    //           textAlign: TextAlign.center,
-    //         ),
-    //         verticalSpacing(48),
-    //         Text(
-    //           'You do not have any completed examinations yet.',
-    //           style: ThemeTextStyle.headline24sp.copyWith(
-    //             height: 1.25,
-    //           ),
-    //           textAlign: TextAlign.center,
-    //         ),
-    //         verticalSpacing(48),
-    //         GestureDetector(
-    //           onTap: () => Navigator.of(context).push(
-    //               MaterialPageRoute<dynamic>(
-    //                   builder: (context) => ExaminationPage())),
-    //           child: Text(
-    //             'Tap here to start a new one',
-    //             style: ThemeTextStyle.headline24sp.copyWith(
-    //               height: 1.25,
-    //             ),
-    //             textAlign: TextAlign.center,
-    //           ),
-    //         ),
-    //         verticalSpacing(24),
-    //         FloatingActionButton(
-    //           child: const Icon(Icons.add_rounded, size: 36),
-    //           onPressed: () => Navigator.of(context).push(
-    //               MaterialPageRoute<dynamic>(
-    //                   builder: (context) => ExaminationPage())),
-    //         ),
-    //         verticalSpacing(48),
-    //         // Container(
-    //         //     height: 200,
-    //         //     child: ListView.builder(
-    //         //         physics: const NeverScrollableScrollPhysics(),
-    //         //         shrinkWrap: true,
-    //         //         itemCount: _results.length,
-    //         //         itemBuilder: (context, index) {
-    //         //           final res = _results[index].results.values.first
-    //         //               as RPStepResult;
-    //         //           return Text(res.questionTitle);
-    //         //         })), // Leaving here for debugging purposes
-    //         Row(
-    //           mainAxisAlignment: MainAxisAlignment.center,
-    //           mainAxisSize: MainAxisSize.min,
-    //           children: <Widget>[
-    //             ConstrainedBox(
-    //               constraints: BoxConstraints(
-    //                   maxWidth: MediaQuery.of(context).size.width * 0.4),
-    //               child: OutlinedButton(
-    //                 child: Row(
-    //                   mainAxisSize: MainAxisSize.min,
-    //                   children: [
-    //                     Padding(
-    //                       padding: const EdgeInsets.only(right: 8.0),
-    //                       child: CircleFlag(
-    //                         'gb',
-    //                         size: 20,
-    //                       ),
-    //                     ),
-    //                     Text('English'),
-    //                   ],
-    //                 ),
-    //                 onPressed: () {
-    //                   languages.setLocale(context,
-    //                       const Locale.fromSubtags(languageCode: 'en'));
-    //                 },
-    //               ),
-    //             ),
-    //             horizontalSpacing(MediaQuery.of(context).size.width * 0.05),
-    //             ConstrainedBox(
-    //               constraints: BoxConstraints(
-    //                   maxWidth: MediaQuery.of(context).size.width * 0.4),
-    //               child: OutlinedButton(
-    //                 child: Row(
-    //                   mainAxisSize: MainAxisSize.min,
-    //                   children: [
-    //                     Padding(
-    //                       padding: const EdgeInsets.only(right: 8),
-    //                       child: CircleFlag(
-    //                         'dk',
-    //                         size: 20,
-    //                       ),
-    //                     ),
-    //                     Text('Dansk'),
-    //                   ],
-    //                 ),
-    //                 onPressed: () {
-    //                   languages.setLocale(context,
-    //                       const Locale.fromSubtags(languageCode: 'da'));
-    //                 },
-    //               ),
-    //             ),
-    //           ],
-    //         ),
-    //       ],
-    //     ),
-    //   ),
-    //), // This trailing comma makes auto-formatting nicer for build methods.
-    //);
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      floatingActionButton: _hasLoaded && _results.isNotEmpty
+          ? const AddExaminationButton()
+          : null,
+      body: _hasLoaded
+          ? _results.isNotEmpty
+              ? MainPageBodyWithExaminations(
+                  taskResults: _results, languages: languages)
+              : const MainPageEmptyResults()
+          : const Center(
+              child: CircularProgressIndicator(),
+            ),
+    );
   }
 
   @override

@@ -11,9 +11,12 @@ import 'languages.dart';
 
 class Init {
   static Future initialize() async {
-    Languages languages = Languages();
     await _initSembast();
     _registerRepositories();
+    _registerToJsonFactory();
+  }
+
+  static _registerToJsonFactory() {
     FromJsonFactory().register(RPChoiceAnswerFormat(
         answerStyle: RPChoiceAnswerStyle.SingleChoice,
         choices: [
