@@ -32,12 +32,12 @@ RPNavigableOrderedTask linearSurveyTask = RPNavigableOrderedTask(
     identifier: 'SurveryTaskID',
     steps: [
       symptomsStep,
-      //...prickStepList,
-      //skipPainStep,
-      //...painStepList,
-      //vibrationInstructionStep,
-      //...vibrationStepList,
-      //...motorStepList,
+      ...prickStepList,
+      skipPainStep,
+      ...painStepList,
+      vibrationInstructionStep,
+      ...vibrationStepList,
+      ...motorStepList,
       completionStep
-    ]);
-  //..setNavigationRuleForTriggerStepIdentifier(noPain, skipPainStep.identifier);
+    ])
+  ..setNavigationRuleForTriggerStepIdentifier(noPain, skipPainStep.identifier);

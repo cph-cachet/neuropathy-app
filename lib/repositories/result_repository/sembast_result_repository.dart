@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:carp_serializable/carp_serializable.dart';
 import 'package:get_it/get_it.dart';
-import 'package:neuro_planner/repositories/result_repository.dart';
+import 'package:neuro_planner/repositories/result_repository/result_repository.dart';
 import 'package:research_package/model.dart';
 import 'package:sembast/sembast.dart';
 

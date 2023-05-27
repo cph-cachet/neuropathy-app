@@ -34,8 +34,8 @@ RPInstructionStepWithChildren motorInstructionStep =
 );
 
 List<RPChoice> motorYesNo = [
-  RPChoice(text: 'common.yes', value: 1),
-  RPChoice(text: 'common.no', value: 0),
+  RPChoice(text: 'common.yes', value: 0),
+  RPChoice(text: 'common.no', value: 1),
 ];
 RPChoiceAnswerFormat motorYesNoFormat = RPChoiceAnswerFormat(
     answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: motorYesNo);
