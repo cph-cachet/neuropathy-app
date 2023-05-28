@@ -126,15 +126,15 @@
     },
     "vibration-toe":
     {
-        "text": "Tryk start for at starte vibrationen og tryk bagsiden af mobilen mod oversiden af knoglen i storetåen."
+        "text": "Tryk start for at starte vibrationen og tryk bagsiden af mobilen mod oversiden af knoglen i storetåen med et fast tryk."
     },
     "vibration-ankle":
     {
-        "text": "Tryk start for at starte vibrationen og tryk bagsiden af mobilen mod ydersiden af anklen."
+        "text": "Tryk start for at starte vibrationen og tryk bagsiden af mobilen mod ydersiden af anklen med et fast tryk."
     },
     "vibration-knee":
     {
-        "text": "Tryk start for at starte vibrationen og tryk bagsiden af mobilen mod knoglen lige under din knæskal."
+        "text": "Tryk start for at starte vibrationen og tryk bagsiden af mobilen mod knoglen lige under din knæskal med et fast tryk."
     },
     "extension":
     {
@@ -175,8 +175,8 @@
     {
         "title": "Eksamination gennemført",
         "text-1": "Din score",
-        "text-2": "Scoren er udregnet fra eksaminationen, men scoren kan ikke fortælle om du har neuropati.",
-        "text-3": "Jo lavere score, des bedre.",
+        "text-2": "Scoren er et udtryk for hvor udbredte symptomer, der blev fundet under eksaminationen (jo lavere score, des bedre).",
+        "text-3": "Du bør ikke fastsætte dig på nogen diagnose uden at have snakket med en læge.",
         "button-main": "Tilbage til hovedmenuen"
     }
 }
