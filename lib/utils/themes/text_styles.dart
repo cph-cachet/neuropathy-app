@@ -20,7 +20,7 @@ class ThemeTextStyle {
   );
 
   static TextStyle regularIBM20sp = GoogleFonts.ibmPlexSans(
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: FontWeight.w400,
     color: const Color(0xFF000000),
   );
@@ -34,7 +34,13 @@ class ThemeTextStyle {
   static TextStyle regularIBM16sp = GoogleFonts.ibmPlexSans(
     fontSize: 16,
     fontWeight: FontWeight.w400,
-    color: Color(0xFF000000),
+    color: const Color(0xFF000000),
+  );
+
+  static TextStyle extraLightIBM16sp = GoogleFonts.ibmPlexSans(
+    fontSize: 16,
+    fontWeight: FontWeight.w200,
+    color: const Color(0xFF000000),
   );
 
   static TextStyle regularIBM14sp = GoogleFonts.ibmPlexSans(

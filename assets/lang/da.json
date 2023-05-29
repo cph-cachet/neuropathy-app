@@ -177,6 +177,8 @@
         "text-1": "Din score",
         "text-2": "Scoren er udregnet fra eksaminationen, men scoren kan ikke fortælle om du har neuropati.",
         "text-3": "Jo lavere score, des bedre.",
-        "button-main": "Tilbage til hovedmenuen"
+        "button-main": "Tilbage til hovedmenuen",
+        "today": "I dag",
+        "yesterday": "I går"
     }
 }
