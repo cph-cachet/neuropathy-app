@@ -30,8 +30,10 @@
     "begin-examination":
     {
         "title": "Information",
-        "text-1": "Eksaminationen består af både spørgsmål og tests.",
-        "text-2": "Du skal bruge en nål eller en sikkerhedsnål til nogle af disse tests.",
+        "text-1": "Eksaminationen består af både spørgsmål og test.",
+        "text-2": "Følgende er nødvendigt for at kunne gennemføre eksaminationen:",
+        "text-3": "1. En nål eller en sikkerhedsnål.",
+        "text-4": "2. At du kan komme til bar hud på fødderne og op til lidt over knæet, for eksempel ved at tage sokker af og rulle bukseben op.",
         "button-start": "Begynd eksamination"
     },
     "symptoms":
@@ -48,18 +50,23 @@
     "prick-info":
     {
         "title": "Priktest",
-        "text-1": "Nu testes dine bens følsomhed over for prik med en nål eller en sikkerhedsnål.",
-        "text-2": "Vælg enten halsen eller området omkring kravebenet som reference",
-        "text-3": "Prik både referenceområdet og det testede område i løbet af testen, så du kan sammenligne følsomheden."
+        "text-1": "På de følgende sider testes dine bens følsomhed over for prik med en nål eller en sikkerhedsnål.",
+        "text-2": "Din følsomhed over for prik afgøres ved at sammenligne følsomheden af et angivet område på benet med området omkring kravebenet (\"referenceområdet\").",
+        "text-3": "Sørg for at prikke på bar hud."
     },
     "prick-test":
     {
-        "text-1": "1: Prik flere forskellige steder i det valgte referenceområde.",
-        "text-2": "2: Prik flere forskellige steder i det blå område på benet.",
-        "text-3": "Hvor følsomt er området på benet sammenlignet med referenceområdet? Sammenlign kun følelsen af skarphed, ikke følelsen af berøring.",
+        "text-1": "1: Prik flere forskellige steder i referenceområdet.",
+        "text-2-toe": "2: Prik flere forskellige steder oven på tæerne.",
+        "text-2-foot": "2: Prik flere forskellige steder oven på foden.",
+        "text-2-leg": "2: Prik flere forskellige steder i det blå område på ydersiden af benet.",
+        "text-3-toe": "Hvor følsomme er tæerne sammenlignet med referenceområdet? Sammenlign kun følelsen af skarphed, ikke følelsen af berøring.",
+        "text-3-foot": "Hvor følsom er foden sammenlignet med referenceområdet? Sammenlign kun følelsen af skarphed, ikke følelsen af berøring.",
+        "text-3-leg": "Hvor følsomt er området på benet sammenlignet med referenceområdet? Sammenlign kun følelsen af skarphed, ikke følelsen af berøring.",
         "bottom-sheet-title": "Nåle-prik test",
-        "bottom-sheet-text-1": "Følg billederne når du prikker et område. Prik oven på foden i de første to områder, og prik på siden af benet i de resterende områder. Undgå at prikke direkte på en knogle.",
-        "bottom-sheet-text-2": "Hvis området er mere følsomt over for prik end referenceområdet, skal du også svare <b>SAMME</b>."
+        "bottom-sheet-text-1": "Svar <b>SAMME</b> hvis området på benet er cirka lige så følsomt over for prik som referenceområdet (eller mere).",
+        "bottom-sheet-text-2": "Svar <b>MINDRE</b> hvis området er mindre følsomt, men prikket stadigvæk kan mærkes.",
+        "bottom-sheet-text-3": "Svar <b>INGEN</b> hvis du ikke mærker prikket på området."
     },
     "right-prick-end":
     {

@@ -26,15 +26,26 @@ const List<Widget> _prickIntroText = [
 ];
 const String _leftLegTitle = 'common.left-leg';
 const String _rightLegTitle = 'common.right-leg';
-const List<String> _prickTextContent = [
+const List<String> _toePrickTextContent = [
   'prick-test.text-1',
-  'prick-test.text-2',
-  'prick-test.text-3'
+  'prick-test.text-2-toe',
+  'prick-test.text-3-toe'
+];
+const List<String> _footPrickTextContent = [
+  'prick-test.text-1',
+  'prick-test.text-2-foot',
+  'prick-test.text-3-foot'
+];
+const List<String> _legPrickTextContent = [
+  'prick-test.text-1',
+  'prick-test.text-2-leg',
+  'prick-test.text-3-leg'
 ];
 const String _bottomSheetTitle = 'prick-test.bottom-sheet-title';
 const List<String> _bottomSheetTextContent = [
   'prick-test.bottom-sheet-text-1',
   'prick-test.bottom-sheet-text-2',
+  'prick-test.bottom-sheet-text-3',
 ];
 const List<String> _allodyniaQuestion = ['allodynia.text'];
 const List<String> _hyperaesthesiaQuestion = ['hypersensitivity.text'];
@@ -85,42 +96,42 @@ enum PrickStrings {
   leftLeg1(
       'prick_left_1',
       _leftLegTitle,
-      _prickTextContent,
+      _toePrickTextContent,
       'assets/images/steps/prick/left_leg_1.png',
       _bottomSheetTitle,
       _bottomSheetTextContent),
   leftLeg2(
       'prick_left_2',
       _leftLegTitle,
-      _prickTextContent,
+      _footPrickTextContent,
       'assets/images/steps/prick/left_leg_2.png',
       _bottomSheetTitle,
       _bottomSheetTextContent),
   leftLeg3(
       'prick_left_3',
       _leftLegTitle,
-      _prickTextContent,
+      _legPrickTextContent,
       'assets/images/steps/prick/left_leg_3.png',
       _bottomSheetTitle,
       _bottomSheetTextContent),
   leftLeg4(
       'prick_left_4',
       _leftLegTitle,
-      _prickTextContent,
+      _legPrickTextContent,
       'assets/images/steps/prick/left_leg_4.png',
       _bottomSheetTitle,
       _bottomSheetTextContent),
   leftLeg5(
       'prick_left_5',
       _leftLegTitle,
-      _prickTextContent,
+      _legPrickTextContent,
       'assets/images/steps/prick/left_leg_5.png',
       _bottomSheetTitle,
       _bottomSheetTextContent),
   leftLeg6(
       'prick_left_6',
       _leftLegTitle,
-      _prickTextContent,
+      _legPrickTextContent,
       'assets/images/steps/prick/left_leg_6.png',
       _bottomSheetTitle,
       _bottomSheetTextContent),
@@ -131,42 +142,42 @@ enum PrickStrings {
   rightLeg1(
       'prick_right_1',
       _rightLegTitle,
-      _prickTextContent,
+      _toePrickTextContent,
       'assets/images/steps/prick/right_leg_1.png',
       _bottomSheetTitle,
       _bottomSheetTextContent),
   rightLeg2(
       'prick_right_2',
       _rightLegTitle,
-      _prickTextContent,
+      _footPrickTextContent,
       'assets/images/steps/prick/right_leg_2.png',
       _bottomSheetTitle,
       _bottomSheetTextContent),
   rightLeg3(
       'prick_right_3',
       _rightLegTitle,
-      _prickTextContent,
+      _legPrickTextContent,
       'assets/images/steps/prick/right_leg_3.png',
       _bottomSheetTitle,
       _bottomSheetTextContent),
   rightLeg4(
       'prick_right_4',
       _rightLegTitle,
-      _prickTextContent,
+      _legPrickTextContent,
       'assets/images/steps/prick/right_leg_4.png',
       _bottomSheetTitle,
       _bottomSheetTextContent),
   rightLeg5(
       'prick_right_5',
       _rightLegTitle,
-      _prickTextContent,
+      _legPrickTextContent,
       'assets/images/steps/prick/right_leg_5.png',
       _bottomSheetTitle,
       _bottomSheetTextContent),
   rightLeg6(
       'prick_right_6',
       _rightLegTitle,
-      _prickTextContent,
+      _legPrickTextContent,
       'assets/images/steps/prick/right_leg_6.png',
       _bottomSheetTitle,
       _bottomSheetTextContent),

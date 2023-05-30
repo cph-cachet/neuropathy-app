@@ -31,7 +31,9 @@
     {
         "title": "Information",
         "text-1": "The examination is a mix of questions and tasks to complete.",
-        "text-2": "A needle or a safety pin is needed for some of the activities.",
+        "text-2": "The following will be necessary in order to complete the examination:",
+        "text-3": "1. A needle or a safety pin.",
+        "text-4": "2. That you can get to bare skin on your feet and up to slightly past the knee, for example by taking off socks and rolling up pants.",
         "button-start": "Start examination"
     },
     "symptoms":
@@ -48,18 +50,23 @@
     "prick-info":
     {
         "title": "Prick test",
-        "text-1": "Now you will test the pin-prick sensitivity of your legs using a needle or a safety pin.",
-        "text-2": "Choose either the neck or the clavicle area to use as reference",
-        "text-3": "During the test, prick both the reference area and the tested area to compare sensitivity."
+        "text-1": "On the following pages you will test the pin-prick sensitivity of your legs using a needle or a safety pin.",
+        "text-2": "Your prick sensitivity is determined by comparing the sensitivity of a specified area on your leg with the area around the clavicle (\"the reference area\").",
+        "text-3": "Make sure to prick on bare skin."
     },
     "prick-test":
     {
-        "text-1": "1: Prick multiple spots in the chosen reference area.",
-        "text-2": "2: Prick multiple spots in the blue area on the leg.",
-        "text-3": "How sensitive is the area on the leg compared to the reference area? Only compare the sharpness of the prick sensation, not touch.",
+        "text-1": "1: Prick multiple spots in the reference area.",
+        "text-2-toe": "2: Prick multiple spots on top of the toes.",
+        "text-2-foot": "2: Prick multiple spots on top of the foot.",
+        "text-2-leg": "2: Prick multiple spots in the blue area on the outside of the leg.",
+        "text-3-toe": "How sensitive are the toes compared to the reference area? Only compare the sharpness of the prick sensation, not touch.",
+        "text-3-foot": "How sensitive is the foot compared to the reference area? Only compare the sharpness of the prick sensation, not touch.",
+        "text-3-leg": "How sensitive is the area on the leg compared to the reference area? Only compare the sharpness of the prick sensation, not touch.",
         "bottom-sheet-title": "Pin-prick test",
-        "bottom-sheet-text-1": "When pricking the area, follow the pictures. In the first two areas prick on the top of your foot, in the other areas prick on the side of your leg. Try to avoid pricking directly over a bone.",
-        "bottom-sheet-text-2": "If you feel the area is more sensitive to pricking than your reference area, also answer <b>SAME</b>."
+        "bottom-sheet-text-1": "Answer <b>SAME</b> if the area on the leg is about as sensitive to pricking as the reference area (or more).",
+        "bottom-sheet-text-2": "Answer <b>LESS</b> if the area is less sensitive, but you can still feel the prick.",
+        "bottom-sheet-text-3": "Answer <b>NONE</b> if you don't feel the prick in the area."
     },
     "right-prick-end":
     {
