@@ -8,7 +8,18 @@ import 'package:research_package/research_package.dart';
 // todo: idea - make a list of text children and apply spacing in the ui
 
 // todo move text to rpinstruction with children, just provide widget type
-const String _motorIntroductionTitle = 'Motor examination';
+const String _motorIntroductionTitle = 'motor-info.title';
+const List<Widget> _motorIntroContent = [
+  Text(
+    'motor-info.text-1',
+    textAlign: TextAlign.center,
+  ),
+  Text(
+    'motor-info.text-2',
+    textAlign: TextAlign.center,
+  ),
+];
+
 const String _leftLegTitle = 'common.left-leg';
 const String _rightLegTitle = 'common.right-leg';
 const List<String> _motorTextContent = [
@@ -25,16 +36,7 @@ RPInstructionStepWithChildren motorInstructionStep =
     RPInstructionStepWithChildren(
   identifier: 'motorInstructionID',
   title: _motorIntroductionTitle,
-  instructionContent: [
-    const Text(
-      'Here you will test the strength of your great toes.',
-      textAlign: TextAlign.center,
-    ),
-    const Text(
-      'The great toe can usually resist a lot of pressure. In the test press down the great toe with your fingers while resisting the pressure.',
-      textAlign: TextAlign.center,
-    ),
-  ],
+  instructionContent: _motorIntroContent,
 );
 
 List<RPChoice> motorYesNo = [

@@ -166,11 +166,8 @@
         "title": "Afsluttende kommentarer",
         "text": "Har du nogen tanker eller kommentarer, der ikke kom frem under eksaminationen? I så fald, kan du skrive dem herunder."
     },
-    "examination-completed":
-    {
-        "title": "Eksamination færdiggjort",
-        "text": "Tak"
-    },
+    "examination-completed-title": "Eksamination gennemført",
+    "examination-completed-text": "Tryk FÆRDIG for at afslutte og se resultatet",
     "result-screen":
     {
         "title": "Eksamination gennemført",
