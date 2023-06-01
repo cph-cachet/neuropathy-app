@@ -48,6 +48,13 @@ dependencies:
   shared_preferences: ^2.1.1
   flat: ^0.4.1
   circle_flags: ^1.0.3
+  intl: ^0.18.0
+  sembast: ^3.4.4
+  get_it: ^7.6.0
+  path_provider: ^2.0.15
+  build_runner: ^2.4.4
+  json_serializable: ^6.7.0
+  avatar_glow: ^2.0.2
 
 dev_dependencies:
   flutter_test:

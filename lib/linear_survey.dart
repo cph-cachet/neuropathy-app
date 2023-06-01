@@ -8,7 +8,6 @@ import 'package:neuro_planner/survey/motor_part.dart';
 import 'package:neuro_planner/survey/vibration_part.dart';
 import 'package:neuro_planner/survey/free_text_part.dart';
 
-import 'step/steps/rp_image_question_step.dart';
 import 'package:research_package/research_package.dart';
 import 'package:research_package/model.dart';
 

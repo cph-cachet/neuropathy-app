@@ -1,12 +1,16 @@
-import 'package:circle_flags/circle_flags.dart';
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get_it/get_it.dart';
 import 'package:neuro_planner/languages.dart';
+import 'package:neuro_planner/repositories/result_repository/result_repository.dart';
+import 'package:neuro_planner/ui/main_page_empty.dart';
+import 'package:neuro_planner/ui/main_page_examinations.dart';
+import 'package:neuro_planner/ui/widgets/add_examination_button.dart';
 import 'package:neuro_planner/utils/spacing.dart';
-import 'package:neuro_planner/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
-import 'examination_page.dart';
+import 'init.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,6 +29,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final Future _init = Init.initialize();
+
+  //todo maybe move to Init?
   Locale _locale = const Locale.fromSubtags(languageCode: 'en');
 
   void setLocale(Locale locale) {
@@ -96,15 +103,6 @@ class _MyAppState extends State<MyApp> {
         radioTheme: RadioThemeData(
           fillColor: MaterialStateProperty.all(Color(0xff22577a)),
         ),
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
         colorScheme: const ColorScheme(
           brightness: Brightness.light,
@@ -120,7 +118,27 @@ class _MyAppState extends State<MyApp> {
           onSurface: Colors.black,
         ),
       ),
-      home: const MyHomePage(title: 'Neuropathy assesment'),
+      home: FutureBuilder(
+        future: Future.delayed(const Duration(seconds: 1), () => _init),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return const MyHomePage(title: 'Neuropathy assesment');
+          } else {
+            return Scaffold(
+              body: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Loading...'),
+                    verticalSpacing(16),
+                    CircularProgressIndicator(),
+                  ],
+                ),
+              ),
+            );
+          }
+        },
+      ),
     );
   }
 }
@@ -135,112 +153,49 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final ResultRepository _resultRepository = GetIt.I.get();
+  Languages languages = Languages();
+  List<RPTaskResult> _results = [];
+  bool _hasLoaded = false;
+  @override
+  void initState() {
+    _loadResults();
+    super.initState();
+  }
+
+  _loadResults() async {
+    // await _resultRepository
+    //     .deleteAllResults(); //used for debug delete all results
+    final results = await Future.delayed(
+        const Duration(seconds: 1), () => _resultRepository.getResults());
+    setState(() => _results = results);
+    setState(() => _hasLoaded = true);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 80),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                Languages.of(context)!.translate('welcome-screen.welcome'),
-                style: ThemeTextStyle.headline24sp.copyWith(
-                  height: 1.25,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              verticalSpacing(48),
-              Text(
-                Languages.of(context)!.translate('welcome-screen.no-completed'),
-                style: ThemeTextStyle.headline24sp.copyWith(
-                  height: 1.25,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              verticalSpacing(48),
-              GestureDetector(
-                onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute<dynamic>(
-                        builder: (context) => ExaminationPage())),
-                child: Text(
-                  Languages.of(context)!
-                      .translate('welcome-screen.tap-to-start'),
-                  style: ThemeTextStyle.headline24sp.copyWith(
-                    height: 1.25,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              verticalSpacing(24),
-              FloatingActionButton(
-                child: const Icon(Icons.add_rounded, size: 36),
-                onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute<dynamic>(
-                        builder: (context) => ExaminationPage())),
-              ),
-              verticalSpacing(48),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  ConstrainedBox(
-                    constraints: BoxConstraints(
-                        maxWidth: MediaQuery.of(context).size.width * 0.4),
-                    child: OutlinedButton(
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(right: 8.0),
-                            child: CircleFlag(
-                              'gb',
-                              size: 20,
-                            ),
-                          ),
-                          Text('English'),
-                        ],
-                      ),
-                      onPressed: () {
-                        Languages.of(context)!.setLocale(context,
-                            const Locale.fromSubtags(languageCode: 'en'));
-                      },
-                    ),
-                  ),
-                  horizontalSpacing(MediaQuery.of(context).size.width * 0.05),
-                  ConstrainedBox(
-                    constraints: BoxConstraints(
-                        maxWidth: MediaQuery.of(context).size.width * 0.4),
-                    child: OutlinedButton(
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(right: 8),
-                            child: CircleFlag(
-                              'dk',
-                              size: 20,
-                            ),
-                          ),
-                          Text('Dansk'),
-                        ],
-                      ),
-                      onPressed: () {
-                        Languages.of(context)!.setLocale(context,
-                            const Locale.fromSubtags(languageCode: 'da'));
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      floatingActionButton: _hasLoaded && _results.isNotEmpty
+          ? const AddExaminationButton()
+          : null,
+      body: _hasLoaded
+          ? _results.isNotEmpty
+              ? MainPageBodyWithExaminations(
+                  taskResults: _results, languages: languages)
+              : const MainPageEmptyResults()
+          : Center(
+              child: AvatarGlow(
+                  glowColor: Theme.of(context).colorScheme.primary,
+                  endRadius: 50,
+                  child: Icon(
+                    Icons.book,
+                    size: 50,
+                    color: Theme.of(context).colorScheme.primary,
+                  )),
+            ),
     );
   }
 

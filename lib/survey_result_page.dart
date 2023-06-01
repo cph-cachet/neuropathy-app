@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:neuro_planner/languages.dart';
 import 'package:neuro_planner/utils/spacing.dart';
 import 'package:neuro_planner/utils/themes/text_styles.dart';
-import 'package:research_package/model.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class SurveyResultPage extends StatelessWidget {
