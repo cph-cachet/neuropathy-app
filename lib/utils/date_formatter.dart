@@ -11,7 +11,7 @@ class DateFormatter extends StatelessWidget {
   String getFormattedTime(DateTime dateTime, BuildContext context) {
     DateTime now = DateTime.now();
     DateTime localDateTime = dateTime.toLocal();
-    String timeString = DateFormat('jm').format(dateTime);
+    String timeString = DateFormat('Hm').format(dateTime);
 
     if (now.year == localDateTime.year &&
         now.month == localDateTime.month &&
