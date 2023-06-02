@@ -47,7 +47,7 @@ class _SurveyResultPageState extends State<SurveyResultPage> {
         textStyle: ThemeTextStyle.headline24sp,
         child: Center(
           child: !_hasLoaded
-              ? const Text('Calculating result')
+              ? Text(Languages.of(context)!.translate('common.calculating'))
               : Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Column(
