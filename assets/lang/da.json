@@ -134,15 +134,15 @@
     },
     "vibration-toe":
     {
-        "text": "Tryk start for at starte vibrationen og tryk bagsiden af mobilen mod oversiden af knoglen i storetåen med et fast tryk."
+        "text": "Tryk start for at starte vibrationen og tryk bagsiden af mobilen mod oversiden af knoglen i storetåen <b>med et fast tryk</b>."
     },
     "vibration-ankle":
     {
-        "text": "Tryk start for at starte vibrationen og tryk bagsiden af mobilen mod ydersiden af anklen med et fast tryk."
+        "text": "Tryk start for at starte vibrationen og tryk bagsiden af mobilen mod ydersiden af anklen <b>med et fast tryk</b>."
     },
     "vibration-knee":
     {
-        "text": "Tryk start for at starte vibrationen og tryk bagsiden af mobilen mod knoglen lige under din knæskal med et fast tryk."
+        "text": "Tryk start for at starte vibrationen og tryk bagsiden af mobilen mod knoglen lige under din knæskal <b>med et fast tryk</b>."
     },
     "extension":
     {
@@ -164,7 +164,7 @@
     "motor-test":
     {
         "text-1": "Brug fingrene til at påføre et fast tryk på din storetå.",
-        "text-2": "Er det svært at modvirke trykket?",
+        "text-2": "Er det svært for tåen at modvirke trykket?",
         "bottom-sheet-title": "At modvirke trykket",
         "bottom-sheet-text-1": "Hvis du ikke har symptomer i hænderne, kan du sammenligne dine fingres evne til at modvirke trykket.",
         "bottom-sheet-text-2": "Svar <b>JA</b> til dette spørgsmål, hvis du føler at din storetå er svagere end dine fingre."

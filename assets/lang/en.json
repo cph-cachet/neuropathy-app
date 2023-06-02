@@ -134,15 +134,15 @@
     },
     "vibration-toe":
     {
-        "text": "Press start to start vibrating, and press the backside of the phone firmly against the top side of the bone in your great toe."
+        "text": "Press start to start vibrating, and press the backside of the phone <b>firmly</b> against the top side of the bone in your great toe."
     },
     "vibration-ankle":
     {
-        "text": "Press start to start vibrating, and press the backside of the phone firmly against the outside part of your ankle."
+        "text": "Press start to start vibrating, and press the backside of the phone <b>firmly</b> against the outside part of your ankle."
     },
     "vibration-knee":
     {
-        "text": "Press start to start vibrating, and press the backside of the phone firmly against the bone just below your kneecap."
+        "text": "Press start to start vibrating, and press the backside of the phone <b>firmly</b> against the bone just below your kneecap."
     },
     "extension": {
         "text-1": "Put the phone aside.",
@@ -163,7 +163,7 @@
     "motor-test":
     {
         "text-1": "Apply firm pressure with your fingers to the great toe.",
-        "text-2": "Is it difficult to overcome the pressure?",
+        "text-2": "Is it difficult for the toe to overcome the pressure?",
         "bottom-sheet-title": "Overcoming pressure",
         "bottom-sheet-text-1": "If you don't have symptoms in your hands, you can compare how your fingers overcome the pressure.",
         "bottom-sheet-text-2": "If you feel your great toe is weaker, answer <b>YES</b> to this question."
