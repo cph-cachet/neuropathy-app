@@ -72,38 +72,27 @@ class _SurveyResultPageState extends State<SurveyResultPage> {
                                   SfRadialGauge(
                                     axes: <RadialAxis>[
                                       RadialAxis(
+                                        axisLineStyle:
+                                            const AxisLineStyle(thickness: 30),
                                         minimum: minScore,
                                         maximum: maxScore,
                                         startAngle: 180,
                                         endAngle: 0,
                                         showTicks: false,
                                         showLabels: false,
-                                        radiusFactor: 0.8,
-                                        ranges: <GaugeRange>[
-                                          GaugeRange(
-                                              startValue: minScore,
-                                              endValue: maxScore,
-                                              startWidth: 30,
-                                              endWidth: 30,
-                                              gradient: const SweepGradient(
-                                                  colors: <Color>[
-                                                    Colors.green,
-                                                    Colors.yellow,
-                                                    Colors.red
-                                                  ],
-                                                  stops: <double>[
-                                                    0,
-                                                    0.5,
-                                                    1
-                                                  ]))
-                                        ],
+                                        radiusFactor: 0.75,
                                         pointers: <GaugePointer>[
+                                          RangePointer(
+                                            value: testScore.toDouble(),
+                                            width: 30,
+                                            color: Colors.blue,
+                                          ),
                                           MarkerPointer(
                                             value: testScore.toDouble(),
                                             color: Colors.black,
                                             markerHeight: 20,
                                             markerWidth: 20,
-                                            markerOffset: -0.15,
+                                            markerOffset: -0.20,
                                             enableAnimation: true,
                                             borderColor: Colors.black,
                                             offsetUnit: GaugeSizeUnit.factor,
@@ -112,7 +101,7 @@ class _SurveyResultPageState extends State<SurveyResultPage> {
                                         annotations: <GaugeAnnotation>[
                                           GaugeAnnotation(
                                               angle: 180,
-                                              positionFactor: 0.94,
+                                              positionFactor: 1,
                                               verticalAlignment:
                                                   GaugeAlignment.near,
                                               widget: Text(
@@ -121,7 +110,7 @@ class _SurveyResultPageState extends State<SurveyResultPage> {
                                                       fontSize: 16))),
                                           GaugeAnnotation(
                                               angle: 0,
-                                              positionFactor: 0.94,
+                                              positionFactor: 1,
                                               verticalAlignment:
                                                   GaugeAlignment.near,
                                               widget: Text(
