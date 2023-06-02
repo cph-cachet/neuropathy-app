@@ -86,6 +86,7 @@ class _SurveyResultPageState extends State<SurveyResultPage> {
                                             value: testScore.toDouble(),
                                             width: 30,
                                             color: Colors.blue,
+                                            enableAnimation: true,
                                           ),
                                           MarkerPointer(
                                             value: testScore.toDouble(),
