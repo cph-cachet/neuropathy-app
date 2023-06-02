@@ -22,7 +22,7 @@ class MainPageBodyWithExaminations extends StatelessWidget {
       itemBuilder: (context, index) {
         return Card(
           child: ListTile(
-            title: DateFormatter(dateTime: taskResults[index].endDate!),
+            title: DateFormatter(dateTime: taskResults[index].startDate!),
             subtitle: Text(calculateScore(taskResults[index]).toString()),
             trailing: const Icon(Icons.download),
             leading: const Icon(Icons.thermostat),
