@@ -26,6 +26,10 @@ RPInstructionStepWithChildren vibrationInstructionStep =
         'vibration-info.text-3',
         textAlign: TextAlign.center,
       ),
+      const Text(
+        'vibration-info.text-4',
+        textAlign: TextAlign.center,
+      ),
     ]);
 
 List<RPStep> vibrationStepList = VibrationStrings.values

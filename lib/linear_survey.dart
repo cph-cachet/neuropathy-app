@@ -17,7 +17,9 @@ RPInstructionStepWithChildren introductionStep = RPInstructionStepWithChildren(
   title: 'begin-examination.title',
   instructionContent: [
     const Text('begin-examination.text-1', textAlign: TextAlign.center),
-    const Text('begin-examination.text-2', textAlign: TextAlign.center)
+    const Text('begin-examination.text-2', textAlign: TextAlign.center),
+    const Text('begin-examination.text-3', textAlign: TextAlign.center),
+    const Text('begin-examination.text-4', textAlign: TextAlign.center)
   ],
 );
 

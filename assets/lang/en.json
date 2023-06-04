@@ -31,7 +31,9 @@
     {
         "title": "Information",
         "text-1": "The examination is a mix of questions and tasks to complete.",
-        "text-2": "A needle or a safety pin is needed for some of the activities.",
+        "text-2": "The following will be necessary in order to complete the examination:",
+        "text-3": "1. A needle or a safety pin.",
+        "text-4": "2. That you can get to bare skin on your feet and up to slightly past the knee, for example by taking off socks and rolling up pants.",
         "button-start": "Start examination"
     },
     "symptoms":
@@ -48,18 +50,23 @@
     "prick-info":
     {
         "title": "Prick test",
-        "text-1": "Now you will test the pin-prick sensitivity of your legs using a needle or a safety pin.",
-        "text-2": "Choose either the neck or the clavicle area to use as reference",
-        "text-3": "During the test, prick both the reference area and the tested area to compare sensitivity."
+        "text-1": "On the following pages you will test the pin-prick sensitivity of your legs using a needle or a safety pin.",
+        "text-2": "Your prick sensitivity is determined by comparing the sensitivity of a specified area on your leg with the area around the clavicle (\"the reference area\").",
+        "text-3": "Make sure to prick on bare skin."
     },
     "prick-test":
     {
-        "text-1": "1: Prick multiple spots in the chosen reference area.",
-        "text-2": "2: Prick multiple spots in the blue area on the leg.",
-        "text-3": "How sensitive is the area on the leg compared to the reference area? Only compare the sharpness of the prick sensation, not touch.",
+        "text-1": "1: Prick multiple spots in the reference area.",
+        "text-2-toe": "2: Prick multiple spots on top of the toes.",
+        "text-2-foot": "2: Prick multiple spots on top of the foot.",
+        "text-2-leg": "2: Prick multiple spots in the blue area on the outside of the leg.",
+        "text-3-toe": "How sensitive are the toes compared to the reference area? Only compare the sharpness of the prick sensation, not touch.",
+        "text-3-foot": "How sensitive is the foot compared to the reference area? Only compare the sharpness of the prick sensation, not touch.",
+        "text-3-leg": "How sensitive is the area on the leg compared to the reference area? Only compare the sharpness of the prick sensation, not touch.",
         "bottom-sheet-title": "Pin-prick test",
-        "bottom-sheet-text-1": "When pricking the area, follow the pictures. In the first two areas prick on the top of your foot, in the other areas prick on the side of your leg. Try to avoid pricking directly over a bone.",
-        "bottom-sheet-text-2": "If you feel the area is more sensitive to pricking than your reference area, also answer <b>SAME</b>."
+        "bottom-sheet-text-1": "Answer <b>SAME</b> if the area on the leg is about as sensitive to pricking as the reference area (or more).",
+        "bottom-sheet-text-2": "Answer <b>LESS</b> if the area is less sensitive, but you can still feel the prick.",
+        "bottom-sheet-text-3": "Answer <b>NONE</b> if you don't feel the prick in the area."
     },
     "right-prick-end":
     {
@@ -122,19 +129,20 @@
         "title": "Vibration Test",
         "text-1": "This begins the vibration sensation test.",
         "text-2": "You will test three points on each leg.",
-        "text-3": "When pressing the phone to your leg, use the backside of the phone."
+        "text-3": "When pressing the phone to your leg, use the backside of the phone.",
+        "text-4": "Make sure to do the test agains bare skin."
     },
     "vibration-toe":
     {
-        "text": "Press start to start vibrating, and press the backside of the phone against the top side of the bone in your great toe."
+        "text": "Press start to start vibrating, and press the backside of the phone <b>firmly</b> against the top side of the bone in your great toe."
     },
     "vibration-ankle":
     {
-        "text": "Press start to start vibrating, and press the backside of the phone against the outside part of your ankle."
+        "text": "Press start to start vibrating, and press the backside of the phone <b>firmly</b> against the outside part of your ankle."
     },
     "vibration-knee":
     {
-        "text": "Press start to start vibrating, and press the backside of the phone against the bone just below your kneecap."
+        "text": "Press start to start vibrating, and press the backside of the phone <b>firmly</b> against the bone just below your kneecap."
     },
     "extension": {
         "text-1": "Put the phone aside.",
@@ -155,7 +163,7 @@
     "motor-test":
     {
         "text-1": "Apply firm pressure with your fingers to the great toe.",
-        "text-2": "Is it difficult to overcome the pressure?",
+        "text-2": "Is it difficult for the toe to overcome the pressure?",
         "bottom-sheet-title": "Overcoming pressure",
         "bottom-sheet-text-1": "If you don't have symptoms in your hands, you can compare how your fingers overcome the pressure.",
         "bottom-sheet-text-2": "If you feel your great toe is weaker, answer <b>YES</b> to this question."
@@ -171,8 +179,8 @@
     {
         "title": "Examination completed",
         "text-1": "Your score",
-        "text-2": "The score is calculated from the examination, but the score can't tell you whether you have neuropathy.",
-        "text-3": "The lower the score is, the better",
+        "text-2": "The score reflects the severity of your symptoms and findings during the examination (the lower the score is, the better).",
+        "text-3": "You should not conclude on any diagnosis without seeing a health professional.",
         "button-main": "Back to home",
         "today": "Today",
         "yesterday": "Yesterday"

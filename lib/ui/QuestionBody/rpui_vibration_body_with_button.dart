@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neuro_planner/step/steps/rp_vibration_step.dart';
+import 'package:neuro_planner/ui/widgets/semi_bold_text.dart';
 import 'package:neuro_planner/utils/spacing.dart';
 
 import '../../languages.dart';
@@ -41,12 +42,12 @@ class RPUIVibrationBodyWithButton extends StatelessWidget {
           //verticalSpacing(16),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
-            child: Text(
+            child: semiBoldText(
               vibrationStep.text != null
                   ? Languages.of(context)!.translate(vibrationStep.text!)
                   : '',
-              style: ThemeTextStyle.regularIBM18sp,
-              textAlign: TextAlign.center,
+              ThemeTextStyle.regularIBM18sp,
+              TextAlign.center,
             ),
           ),
           //verticalSpacing(24),
