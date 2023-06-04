@@ -40,7 +40,7 @@ RPInstructionStepWithChildren motorInstructionStep =
 );
 
 List<RPChoice> motorYesNo = [
-  RPChoice(text: 'common.yes', value: 1),
+  RPChoice(text: 'common.yes', value: 2),
   RPChoice(text: 'common.no', value: 0),
 ];
 RPChoiceAnswerFormat motorYesNoFormat = RPChoiceAnswerFormat(

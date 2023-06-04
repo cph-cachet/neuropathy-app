@@ -12,6 +12,7 @@
         "none": "None",
         "yes": "Yes",
         "no": "No",
+        "calculating": "Calculating score...",
         "more-info": "More information",
         "check-all-that-apply": "Check all that apply",
         "none-of-the-above": "None of the above",
