@@ -4,7 +4,10 @@ import 'package:get_it/get_it.dart';
 import 'package:neuro_planner/languages.dart';
 import 'package:neuro_planner/repositories/result_repository/result_repository.dart';
 import 'package:neuro_planner/ui/widgets/confirn_operation_alert_dialog.dart';
+import 'package:neuro_planner/utils/generate_csv.dart';
+import 'package:research_package/model.dart';
 import 'package:settings_ui/settings_ui.dart';
+import 'package:to_csv/to_csv.dart' as exportCSV;
 
 class SettingsScreen extends StatefulWidget {
   SettingsScreen({super.key});
@@ -15,10 +18,25 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  final ResultRepository _resultRepository = GetIt.I.get();
+  List<RPTaskResult> _results = [];
+
+  _loadResults() async {
+    // await _resultRepository
+    //     .deleteAllResults(); //used for debug delete all results
+    final results = await Future.delayed(
+        const Duration(seconds: 1), () => _resultRepository.getResults());
+    setState(() => _results = results);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadResults();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final ResultRepository _resultRepository = GetIt.I.get();
-
     _resetDatabase() async {
       await _resultRepository.deleteAllResults();
     }
@@ -87,6 +105,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                       color: Theme.of(context)
                                           .colorScheme
                                           .error))))),
+              SettingsTile(
+                title: Text('Export data'),
+                leading: Icon(Icons.import_export),
+                onPressed: (context) {
+                  CsvData csvData = CsvData.fromResults(_results);
+                  exportCSV.myCSV(csvData.headers, csvData.rows);
+                },
+              )
             ],
           ),
         ]));

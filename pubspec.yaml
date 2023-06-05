@@ -57,6 +57,7 @@ dependencies:
   avatar_glow: ^2.0.2
   settings_ui: ^2.0.2
   country_codes: ^2.2.0
+  to_csv: ^1.1.2
 
 dev_dependencies:
   flutter_test:

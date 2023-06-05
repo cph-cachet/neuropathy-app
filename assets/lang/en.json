@@ -197,6 +197,12 @@
             "text": "Are you sure you want to delete the database? This will delete all your data and cannot be undone.",
             "button-cancel": "Cancel",
             "button-delete": "Delete"
+        },
+        "vibration": {
+            "title": "Vibration",
+            "text": "Vibration is used in the vibration test.",
+            "button-on": "On",
+            "button-off": "Off"
         }
     }
 }
