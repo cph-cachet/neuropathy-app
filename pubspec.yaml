@@ -55,6 +55,8 @@ dependencies:
   build_runner: ^2.4.4
   json_serializable: ^6.7.0
   avatar_glow: ^2.0.2
+  settings_ui: ^2.0.2
+  country_codes: ^2.2.0
 
 dev_dependencies:
   flutter_test:
