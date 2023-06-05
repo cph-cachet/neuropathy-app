@@ -190,9 +190,15 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
         actions: [
           IconButton(
-              onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute<dynamic>(
-                      builder: (context) => SettingsScreen())),
+              onPressed: () => Navigator.of(context)
+                      .push(MaterialPageRoute<dynamic>(
+                          builder: (context) => SettingsScreen()))
+                      .then((shouldReload) {
+                    if (shouldReload == true) {
+                      setState(() => _hasLoaded = false);
+                      _loadResults();
+                    }
+                  }),
               icon: const Icon(Icons.settings))
         ],
       ),

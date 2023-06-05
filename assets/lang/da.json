@@ -186,5 +186,17 @@
         "button-main": "Tilbage til hovedmenuen",
         "today": "I dag",
         "yesterday": "I går"
+    },
+    "settings": {
+        "title": "dk Settings",
+        "language": "dk Language",	
+        "confirm": "dk Confirm",
+        "cancel": " dk Cancel",
+        "delete-database": {
+            "title": "dk Delete database",
+            "text": "dk Are you sure you want to delete the database? This will delete all your data and cannot be undone.",
+            "button-cancel": "dk Cancel",
+            "button-delete": "dk Delete"
+        }
     }
 }
