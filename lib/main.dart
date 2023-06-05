@@ -1,6 +1,7 @@
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:country_codes/country_codes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
 import 'package:neuro_planner/languages.dart';
@@ -65,13 +66,16 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     return MaterialApp(
       supportedLocales: const [
         Locale.fromSubtags(languageCode: 'en', countryCode: 'US'),
         Locale.fromSubtags(languageCode: 'da', countryCode: 'DK'),
       ],
-      localizationsDelegates: const [
+      localizationsDelegates: [
         Languages.delegate,
+        RPLocalizations.delegate,
         //DefaultMaterialLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,

@@ -17,15 +17,17 @@ RPInstructionStepWithChildren introductionStep = RPInstructionStepWithChildren(
   title: 'begin-examination.title',
   instructionContent: [
     const Text('begin-examination.text-1', textAlign: TextAlign.center),
-    const Text('begin-examination.text-2', textAlign: TextAlign.center)
+    const Text('begin-examination.text-2', textAlign: TextAlign.center),
+    const Text('begin-examination.text-3', textAlign: TextAlign.center),
+    const Text('begin-examination.text-4', textAlign: TextAlign.center)
   ],
 );
 
 // Completion
 RPCompletionStep completionStep = RPCompletionStep(
     identifier: 'completionID',
-    title: 'Examination completed',
-    text: 'Thanks, buddy');
+    title: 'examination-completed-title',
+    text: 'examination-completed-text');
 
 RPStepJumpRule noPain =
     RPStepJumpRule(answerMap: {0: vibrationInstructionStep.identifier});
