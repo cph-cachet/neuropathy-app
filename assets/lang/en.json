@@ -189,7 +189,34 @@
     },
     "settings": {
         "title": "Settings",
-        "language": "Language",	
+        "sections": {
+            "app": "Application",
+            "personal-info": "Personal information"
+        },
+        "language": {
+            "title": "Language",
+            "select": "Select language"
+        },
+        "sex": {
+            "title": "Sex",
+            "input": "Provide information",
+            "bottom-sheet-title": "Select your sex",
+            "male": "Male",
+            "female": "Female",
+            "other": "Other"
+        },
+        "age": {
+            "title": "Age",
+            "input": "Provide information",
+            "bottom-sheet-title": "Select your date of birth",
+            "years": " years old"
+        },
+        "change-info-warning": {
+            "title": "Change personal information",
+            "text": "Changing your personal information will reset your examination history. Are you sure you want to continue?",
+            "button-change": "Change"
+        },
+        "export-data": "Export examinations",	
         "confirm": "Confirm",
         "cancel": "Cancel",
         "delete-database": {

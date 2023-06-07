@@ -52,60 +52,6 @@ class MainPageEmptyResults extends StatelessWidget {
                   MaterialPageRoute<dynamic>(
                       builder: (context) => ExaminationPage())),
             ),
-            verticalSpacing(48),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                ConstrainedBox(
-                  constraints: BoxConstraints(
-                      maxWidth: MediaQuery.of(context).size.width * 0.4),
-                  child: OutlinedButton(
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
-                          child: CircleFlag(
-                            'gb',
-                            size: 20,
-                          ),
-                        ),
-                        const Text('English'),
-                      ],
-                    ),
-                    onPressed: () {
-                      Languages.of(context)!.setLocale(context,
-                          const Locale.fromSubtags(languageCode: 'en'));
-                    },
-                  ),
-                ),
-                horizontalSpacing(MediaQuery.of(context).size.width * 0.05),
-                ConstrainedBox(
-                  constraints: BoxConstraints(
-                      maxWidth: MediaQuery.of(context).size.width * 0.4),
-                  child: OutlinedButton(
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 8),
-                          child: CircleFlag(
-                            'dk',
-                            size: 20,
-                          ),
-                        ),
-                        const Text('Dansk'),
-                      ],
-                    ),
-                    onPressed: () {
-                      Languages.of(context)!.setLocale(context,
-                          const Locale.fromSubtags(languageCode: 'da'));
-                    },
-                  ),
-                ),
-              ],
-            ),
           ],
         ),
       ),

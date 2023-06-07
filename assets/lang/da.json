@@ -189,14 +189,47 @@
     },
     "settings": {
         "title": "dk Settings",
-        "language": "dk Language",	
-        "confirm": "dk Confirm",
-        "cancel": " dk Cancel",
+        "sections": {
+            "app": "dk Application",
+            "personal-info": "dk Personal information"
+        },
+        "language": {
+            "title": "dk Language",
+            "select": "dk Select language"
+        },
+        "sex": {
+            "title": "dk Sex",
+            "input": "dk Provide information",
+            "bottom-sheet-title": "dk Select your sex",
+            "male": "dk Male",
+            "female": "dk Female",
+            "other": "dk Other"
+        },
+        "age": {
+            "title": "dk Age",
+            "input": "dk Provide information",
+            "bottom-sheet-title": "dk Select your date of birth",
+            "years": "dk years old"
+        },
+        "change-info-warning": {
+            "title": "dk Change personal information",
+            "text": "dk Changing your personal information will reset your examination history. Are you sure you want to continue?",
+            "button-change": "dk Change"
+        },
+        "export-data": "dk Export examinations",	
+        "confirm": " dk Confirm",
+        "cancel": "dk Cancel",
         "delete-database": {
             "title": "dk Delete database",
             "text": "dk Are you sure you want to delete the database? This will delete all your data and cannot be undone.",
             "button-cancel": "dk Cancel",
             "button-delete": "dk Delete"
+        },
+        "vibration": {
+            "title": "dk Vibration",
+            "text": "dk Vibration is used in the vibration test.",
+            "button-on": "dk On",
+            "button-off": "dk Off"
         }
     }
 }

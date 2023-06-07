@@ -6,7 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
 import 'package:neuro_planner/languages.dart';
 import 'package:neuro_planner/repositories/result_repository/result_repository.dart';
-import 'package:neuro_planner/settings.dart';
+import 'package:neuro_planner/ui/settings/settings.dart';
 import 'package:neuro_planner/ui/main_page_empty.dart';
 import 'package:neuro_planner/ui/main_page_examinations.dart';
 import 'package:neuro_planner/ui/widgets/add_examination_button.dart';
@@ -181,6 +181,13 @@ class _MyHomePageState extends State<MyHomePage> {
         const Duration(seconds: 1), () => _resultRepository.getResults());
     setState(() => _results = results);
     setState(() => _hasLoaded = true);
+  }
+
+  @override
+  setState(fn) {
+    if (mounted) {
+      super.setState(fn);
+    }
   }
 
   @override
