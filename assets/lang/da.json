@@ -188,48 +188,48 @@
         "yesterday": "I går"
     },
     "settings": {
-        "title": "dk Settings",
+        "title": "Indstillinger",
         "sections": {
-            "app": "dk Application",
-            "personal-info": "dk Personal information"
+            "app": "Applikation",
+            "personal-info": "Personlige oplysninger"
         },
         "language": {
-            "title": "dk Language",
-            "select": "dk Select language"
+            "title": "Sprog",
+            "select": "Vælg sprog"
         },
         "sex": {
-            "title": "dk Sex",
-            "input": "dk Provide information",
-            "bottom-sheet-title": "dk Select your sex",
-            "male": "dk Male",
-            "female": "dk Female",
-            "other": "dk Other"
+            "title": "Køn",
+            "input": "Angiv køn",
+            "bottom-sheet-title": "Vælg dit køn",
+            "male": "Mand",
+            "female": "Kvinde",
+            "other": "Andet"
         },
         "age": {
-            "title": "dk Age",
-            "input": "dk Provide information",
-            "bottom-sheet-title": "dk Select your date of birth",
-            "years": "dk years old"
+            "title": "Alder",
+            "input": "Angiv alder",
+            "bottom-sheet-title": "Vælg din fødselsdato",
+            "years": "år"
         },
         "change-info-warning": {
-            "title": "dk Change personal information",
-            "text": "dk Changing your personal information will reset your examination history. Are you sure you want to continue?",
-            "button-change": "dk Change"
+            "title": "Ændr personlige oplysninger",
+            "text": "Hvis du ændrer dine personlige oplysninger, slettes dine tidligere eksaminationer. Er du sikker på at du vil ændre dine oplysninger?",
+            "button-change": "Ændr oplysninger"
         },
-        "export-data": "dk Export examinations",	
-        "confirm": " dk Confirm",
-        "cancel": "dk Cancel",
+        "export-data": "Eksporter eksaminationer",	
+        "confirm": "Bekræft",
+        "cancel": "Fortryd",
         "delete-database": {
-            "title": "dk Delete database",
-            "text": "dk Are you sure you want to delete the database? This will delete all your data and cannot be undone.",
-            "button-cancel": "dk Cancel",
-            "button-delete": "dk Delete"
+            "title": "Slet database",
+            "text": "Er du sikker på at du vil slette databasen? Alt dit data vil blive slettet og det kan ikke gøres om.",
+            "button-cancel": "Fortryd",
+            "button-delete": "Slet"
         },
         "vibration": {
-            "title": "dk Vibration",
-            "text": "dk Vibration is used in the vibration test.",
-            "button-on": "dk On",
-            "button-off": "dk Off"
+            "title": "Vibration",
+            "text": "Vibration bliver brugt i vibrationstesten.",
+            "button-on": "Tænd",
+            "button-off": "Sluk"
         }
     }
 }
