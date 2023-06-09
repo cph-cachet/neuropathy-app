@@ -78,7 +78,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text('Settings'),
+          title: Text(Languages.of(context)!.translate('settings.title')),
           leading: IconButton(
               onPressed: () => Navigator.pop(context, willReload),
               icon: const Icon(Icons.arrow_back)),

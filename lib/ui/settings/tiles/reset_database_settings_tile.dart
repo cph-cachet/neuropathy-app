@@ -4,7 +4,7 @@ import 'package:settings_ui/settings_ui.dart';
 
 import '../../../languages.dart';
 import '../../../repositories/result_repository/result_repository.dart';
-import '../../widgets/confirn_operation_alert_dialog.dart';
+import '../../widgets/confirm_operation_alert_dialog.dart';
 
 class ResetDatabaseSettingsTile extends AbstractSettingsTile {
   final void onShouldReload;
@@ -19,7 +19,7 @@ class ResetDatabaseSettingsTile extends AbstractSettingsTile {
 
     return SettingsTile(
         title: Text(
-          "Reset database",
+          Languages.of(context)!.translate("settings.reset-database"),
           style: TextStyle(color: Theme.of(context).colorScheme.error),
         ),
         leading: Icon(

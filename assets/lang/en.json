@@ -218,11 +218,10 @@
         },
         "export-data": "Export examinations",	
         "confirm": "Confirm",
-        "cancel": "Cancel",
+        "reset-database": "Reset database",
         "delete-database": {
             "title": "Delete database",
             "text": "Are you sure you want to delete the database? This will delete all your data and cannot be undone.",
-            "button-cancel": "Cancel",
             "button-delete": "Delete"
         },
         "vibration": {

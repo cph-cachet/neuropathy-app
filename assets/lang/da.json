@@ -218,11 +218,10 @@
         },
         "export-data": "Eksporter eksaminationer",	
         "confirm": "Bekræft",
-        "cancel": "Fortryd",
+        "reset-database": "Nulstil database",
         "delete-database": {
             "title": "Slet database",
             "text": "Er du sikker på at du vil slette databasen? Alt dit data vil blive slettet og det kan ikke gøres om.",
-            "button-cancel": "Fortryd",
             "button-delete": "Slet"
         },
         "vibration": {
