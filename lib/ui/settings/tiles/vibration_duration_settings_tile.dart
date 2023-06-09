@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:get_it/get_it.dart';
+import 'package:neuro_planner/languages.dart';
 import 'package:settings_ui/settings_ui.dart';
 
-import '../../../repositories/settings_repository/settings_repository.dart';
 import '../pages/vibration_duration_settings.dart';
 
 class VibrationDurationSettingsTile extends AbstractSettingsTile {
@@ -15,10 +13,13 @@ class VibrationDurationSettingsTile extends AbstractSettingsTile {
   @override
   Widget build(BuildContext context) {
     return SettingsTile(
-        title: Text('Vibration Duration'),
-        leading: Icon(Icons.vibration),
-        value:
-            Text(initialVibDuration != 0 ? initialVibDuration.toString() : ''),
+        title:
+            Text(Languages.of(context)!.translate('settings.vibration.title')),
+        leading: const Icon(Icons.vibration),
+        value: Text(initialVibDuration != 0
+            ? initialVibDuration.toString() +
+                Languages.of(context)!.translate('settings.vibration.seconds')
+            : ''),
         onPressed: (context) => {
               showDialog(
                   context: context,
