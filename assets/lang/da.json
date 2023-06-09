@@ -186,5 +186,49 @@
         "button-main": "Tilbage til hovedmenuen",
         "today": "I dag",
         "yesterday": "I går"
+    },
+    "settings": {
+        "title": "Indstillinger",
+        "sections": {
+            "app": "Applikation",
+            "personal-info": "Personlige oplysninger"
+        },
+        "language": {
+            "title": "Sprog",
+            "select": "Vælg sprog"
+        },
+        "sex": {
+            "title": "Køn",
+            "input": "Angiv køn",
+            "bottom-sheet-title": "Vælg dit køn",
+            "male": "Mand",
+            "female": "Kvinde",
+            "other": "Andet"
+        },
+        "age": {
+            "title": "Alder",
+            "input": "Angiv alder",
+            "bottom-sheet-title": "Vælg din fødselsdato",
+            "years": "år"
+        },
+        "change-info-warning": {
+            "title": "Ændr personlige oplysninger",
+            "text": "Hvis du ændrer dine personlige oplysninger, slettes dine tidligere eksaminationer. Er du sikker på at du vil ændre dine oplysninger?",
+            "button-change": "Ændr oplysninger"
+        },
+        "export-data": "Eksporter eksaminationer",	
+        "confirm": "Bekræft",
+        "reset-database": "Nulstil database",
+        "delete-database": {
+            "title": "Slet database",
+            "text": "Er du sikker på at du vil slette databasen? Alt dit data vil blive slettet og det kan ikke gøres om.",
+            "button-delete": "Slet"
+        },
+        "vibration": {
+            "title": "Vibration",
+            "text": "Vibration bliver brugt i vibrationstesten.",
+            "button-on": "Tænd",
+            "button-off": "Sluk"
+        }
     }
 }

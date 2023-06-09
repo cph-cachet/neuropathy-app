@@ -1,10 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:neuro_planner/utils/date_formatter.dart';
+import 'package:neuro_planner/utils/generate_csv.dart';
 import 'package:research_package/research_package.dart';
 
 import '../languages.dart';
 import '../repositories/result_repository/examination_score.dart';
+import 'package:to_csv/to_csv.dart' as exportCSV;
 
 class MainPageBodyWithExaminations extends StatelessWidget {
   final List<RPTaskResult> taskResults;
@@ -22,10 +24,25 @@ class MainPageBodyWithExaminations extends StatelessWidget {
       itemBuilder: (context, index) {
         return Card(
           child: ListTile(
+            isThreeLine: false,
             title: DateFormatter(dateTime: taskResults[index].startDate!),
             subtitle: Text(calculateScore(taskResults[index]).toString()),
-            trailing: const Icon(Icons.download),
-            leading: const Icon(Icons.thermostat),
+            leading: Icon(
+              Icons.thermostat,
+              size: 30,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            trailing: GestureDetector(
+              child: Icon(
+                Icons.download,
+                size: 30,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+              onTap: () {
+                CsvData csvData = CsvData.fromResults([taskResults[index]]);
+                exportCSV.myCSV(csvData.headers, csvData.rows);
+              },
+            ),
             onTap: () {
               // Navigator.push(
               //   context,
