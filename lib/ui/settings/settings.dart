@@ -1,4 +1,3 @@
-import 'package:country_codes/country_codes.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
@@ -10,13 +9,14 @@ import 'package:neuro_planner/ui/settings/tiles/export_data_settings_tile.dart';
 import 'package:neuro_planner/ui/settings/tiles/language_settings_tile.dart';
 import 'package:neuro_planner/ui/settings/tiles/reset_database_settings_tile.dart';
 import 'package:neuro_planner/ui/settings/tiles/sex_settings_tile.dart';
+import 'package:neuro_planner/ui/settings/tiles/vibration_duration_settings_tile.dart';
 import 'package:research_package/model.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 import '../../repositories/settings_repository/patient.dart';
 
 class SettingsScreen extends StatefulWidget {
-  SettingsScreen({super.key});
+  const SettingsScreen({super.key});
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -28,6 +28,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   List<RPTaskResult> _results = [];
   Patient? _patient;
   bool willReload = false;
+  int vibrationDuration = 0;
 
   _loadResults() async {
     final results = await Future.delayed(
@@ -54,6 +55,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
     await _resultRepository.deleteAllResults();
   }
 
+  _setVibrationDuration(int val) async {
+    await _settingsRepository.setVibrationDuration(val);
+    _getVibrationDuration();
+  }
+
+  _getVibrationDuration() async {
+    int val = await _settingsRepository.getVibrationDuration();
+    setState(() {
+      vibrationDuration = val;
+    });
+  }
+
   @override
   void setState(fn) {
     if (mounted) {
@@ -64,6 +77,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   void initState() {
     _getPatient();
+    _getVibrationDuration();
     _loadResults();
     super.initState();
   }
@@ -115,6 +129,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
               const LanguagesSettingsTile(),
               ExportDataSettingTile(_results),
               ResetDatabaseSettingsTile(shouldReload()),
+              VibrationDurationSettingsTile(
+                initialVibDuration: vibrationDuration,
+                onConfirm: (val) => _setVibrationDuration(val),
+              )
             ],
           ),
         ]));

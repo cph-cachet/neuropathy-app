@@ -51,7 +51,7 @@ class RPUIVibrationBodyWithButton extends StatelessWidget {
             ),
           ),
           //verticalSpacing(24),
-          const VibrationButton(),
+          VibrationButton(),
           //verticalSpacing(24),
           Text(
             Languages.of(context)!.translate('common.feel-vibration'),
