@@ -62,6 +62,22 @@ RPVibrationStep stepGenerator(
       answerFormat: vibrationAnswerFormat);
 }
 
+List<String> leftVibrationSteps = VibrationStrings.values
+    .where((element) => element.identifier.contains('left'))
+    .map((e) => e.identifier)
+    .toList();
+
+List<String> rightVibrationSteps = VibrationStrings.values
+    .where((element) {
+      return element.identifier.contains('right');
+    })
+    .map((e) => e.identifier)
+    .toList();
+List<String> allVibrationIdentifiers = [
+  ...leftVibrationSteps,
+  ...rightVibrationSteps
+];
+
 enum VibrationStrings {
   leftToe('viration_left_toe', _leftLegTitle, _toeInstruction,
       'assets/images/steps/vibration/left_toe.png'),

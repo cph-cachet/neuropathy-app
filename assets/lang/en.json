@@ -187,6 +187,19 @@
         "yesterday": "Yesterday"
 
     },
+    "results" : {
+        "vibration" : {
+            "title": "Vibration",
+            "section-score": "Section score",
+            "feeling-vibration": "Feeling the vibration",
+            "feeling-toe": "Feeling toe extension",
+            "left": "Left",
+            "right": "Right",
+            "toe": "Toe",
+            "ankle": "Ankle",
+            "knee": "Knee"
+        }
+    },
     "settings": {
         "title": "Settings",
         "sections": {

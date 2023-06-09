@@ -187,6 +187,19 @@
         "today": "I dag",
         "yesterday": "I går"
     },
+    "results" : {
+        "vibration" : {
+            "title": "dk Vibration",
+            "section-score": "dk Section score",
+            "feeling-vibration": "dk Feeling the vibration",
+            "feeling-toe": "dk Feeling toe extension",
+            "left": "dk Left",
+            "right": "dk Right",
+            "toe": "dk Toe",
+            "ankle": "dk Ankle",
+            "knee": "dk Knee"
+        }
+    },
     "settings": {
         "title": "dk Settings",
         "sections": {

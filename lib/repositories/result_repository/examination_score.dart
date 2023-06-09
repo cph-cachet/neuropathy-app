@@ -30,3 +30,27 @@ int calculateScore(RPTaskResult result) {
           (element.results['answer'].fold(0, (p, e2) => p + e2['value'])
               as int));
 }
+
+Map<String, int> gradingScoreMap(RPTaskResult result) {
+  result.results.removeWhere(
+      (key, value) => !gradingTaskIdentifiers.contains(value.identifier));
+  List<RPStepResult> stepResults =
+      result.results.values.cast<RPStepResult>().toList();
+  return {
+    for (var e in stepResults)
+      e.identifier: e.results['answer'][0]['value'] as int
+  };
+}
+
+Map<String, int> painScoreMap(RPTaskResult result) {
+  result.results.removeWhere(
+      (key, value) => !painTaskIdentifiers.contains(value.identifier));
+  List<RPStepResult> stepResults =
+      result.results.values.cast<RPStepResult>().toList();
+
+  return {};
+  //TODO implement pain score map
+  //return { for (var e in stepResults) e.identifier : e.results['answer'][0]['value'] as int } ;
+  // .firstWhere((element) => element.identifier == header)
+  // .results['answer'][0]['value']
+}

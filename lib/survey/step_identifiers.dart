@@ -10,6 +10,14 @@ List<String> gradingTaskIdentifiers = [
   ...VibrationStrings.values.map((e) => e.identifier)
 ];
 
+List<String> painTaskIdentifiers = [
+  'painSlider',
+  'pain1',
+  'pain2',
+  'pain3',
+  'pain4'
+];
+
 enum TaskStepIdentifiers {
   motorLeftToe('motor_left_toe'),
   motorRightToe('motor_right_toe'),
