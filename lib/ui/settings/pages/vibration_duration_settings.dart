@@ -31,18 +31,27 @@ class _VibrationSettingDialogState extends State<VibrationSettingDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text(Languages.of(context)!.translate('settings.vibration.title')),
+      title: Text(
+        Languages.of(context)!.translate('settings.vibration.title'),
+        textAlign: TextAlign.center,
+      ),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(Languages.of(context)!.translate('settings.vibration.text')),
+          Text(
+            Languages.of(context)!.translate('settings.vibration.text'),
+            textAlign: TextAlign.center,
+          ),
           verticalSpacing(16),
           InputQty(
+              btnColor1: Theme.of(context).colorScheme.primary,
+              showMessageLimit: false,
+              boxDecoration: const BoxDecoration(),
+              borderShape: BorderShapeBtn.circle,
               minVal: 1,
               initVal: widget.initialVibDuration,
               onQtyChanged: (val) => _changeVibration(val as int)),
-          verticalSpacing(4),
           Text(Languages.of(context)!.translate('settings.vibration.seconds'),
               style: ThemeTextStyle.regularIBM14sp.copyWith(
                   fontStyle: FontStyle.italic, color: Colors.black54)),

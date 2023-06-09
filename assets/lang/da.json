@@ -225,10 +225,9 @@
             "button-delete": "Slet"
         },
         "vibration": {
-            "title": "Vibration",
-            "text": "Vibration bliver brugt i vibrationstesten.",
-            "button-on": "Tænd",
-            "button-off": "Sluk"
+            "title": "dk Vibration duration",
+            "seconds": "dk seconds",
+            "text": "dk Vibration is used in the vibration test. On different models of phones, how long the phone can vibrate may differ. Adjust the duration of the vibration to fit your phone, and test that the button below works."
         }
     }
 }
