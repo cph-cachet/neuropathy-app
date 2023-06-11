@@ -226,8 +226,8 @@
         },
         "vibration": {
             "title": "Vibration varighed",
-            "seconds": "dk seconds",
-            "text": "dk Vibration is used in the vibration test. On different models of phones, how long the phone can vibrate may differ. Adjust the duration of the vibration to fit your phone, and test that the button below works."
+            "seconds": "sekunder",
+            "text": "Vibration bruges til vibrationstesten. Hvor længe mobilen kan vibrere, kan afhænge af modellen. Juster varigheden af vibrationen så den passer til din mobil, og test at knappen nedenunder virker."
         }
     }
 }
