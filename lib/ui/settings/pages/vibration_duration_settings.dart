@@ -21,7 +21,7 @@ class _VibrationSettingDialogState extends State<VibrationSettingDialog> {
   int? currentSetting;
 
   _changeVibration(int newValue) {
-    if (newValue != widget.initialVibDuration) {
+    if (!(newValue == widget.initialVibDuration && currentSetting == null)) {
       setState(() {
         currentSetting = newValue;
       });
@@ -45,6 +45,7 @@ class _VibrationSettingDialogState extends State<VibrationSettingDialog> {
           ),
           verticalSpacing(16),
           InputQty(
+              maxVal: 30,
               btnColor1: Theme.of(context).colorScheme.primary,
               showMessageLimit: false,
               boxDecoration: const BoxDecoration(),
@@ -74,7 +75,8 @@ class _VibrationSettingDialogState extends State<VibrationSettingDialog> {
         ElevatedButton(
             style: Styles.roundedButtonStyle,
             onPressed: () {
-              if (currentSetting != widget.initialVibDuration) {
+              if (currentSetting != widget.initialVibDuration &&
+                  currentSetting != null) {
                 widget.onConfirm(currentSetting);
               }
               Navigator.pop(context);
