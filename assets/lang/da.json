@@ -225,7 +225,7 @@
             "button-delete": "Slet"
         },
         "vibration": {
-            "title": "dk Vibration duration",
+            "title": "Vibration varighed",
             "seconds": "dk seconds",
             "text": "dk Vibration is used in the vibration test. On different models of phones, how long the phone can vibrate may differ. Adjust the duration of the vibration to fit your phone, and test that the button below works."
         }
