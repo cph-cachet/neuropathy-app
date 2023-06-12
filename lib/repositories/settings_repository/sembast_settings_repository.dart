@@ -24,14 +24,15 @@ class SembastSettingsRepository extends SettingsRepository {
 
   @override
   Future<int> getVibrationDuration() {
-    // TODO: implement getVibrationDuration
-    throw UnimplementedError();
+    return _store
+        .record('vibrationDuration')
+        .get(_database)
+        .then((value) => value != null ? value as int : 15);
   }
 
   @override
-  Future setVibrationDuration(int newValue) {
-    // TODO: implement setVibrationDuration
-    throw UnimplementedError();
+  Future setVibrationDuration(int newValue) async {
+    await _store.record('vibrationDuration').put(_database, newValue);
   }
 
   @override

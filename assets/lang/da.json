@@ -225,10 +225,9 @@
             "button-delete": "Slet"
         },
         "vibration": {
-            "title": "Vibration",
-            "text": "Vibration bliver brugt i vibrationstesten.",
-            "button-on": "Tænd",
-            "button-off": "Sluk"
+            "title": "Vibration varighed",
+            "seconds": "sekunder",
+            "text": "Vibration bruges til vibrationstesten. Hvor længe mobilen kan vibrere, kan afhænge af modellen. Juster varigheden af vibrationen så den passer til din mobil, og test at knappen nedenunder virker."
         }
     }
 }

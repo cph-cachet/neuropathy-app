@@ -225,10 +225,9 @@
             "button-delete": "Delete"
         },
         "vibration": {
-            "title": "Vibration",
-            "text": "Vibration is used in the vibration test.",
-            "button-on": "On",
-            "button-off": "Off"
+            "title": "Vibration duration",
+            "seconds": " seconds",
+            "text": "Vibration is used in the vibration test. On different models of phones, how long the phone can vibrate may differ. Adjust the duration of the vibration to fit your phone, and test that the button below works."
         }
     }
 }
