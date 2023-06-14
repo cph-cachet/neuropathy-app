@@ -92,6 +92,17 @@ class _MyAppState extends State<MyApp> {
       },
       title: 'Flutter Demo',
       theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          iconTheme: IconThemeData(color: Color(0xff22577a)),
+          actionsIconTheme: IconThemeData(color: Color(0xff22577a)),
+          shadowColor: Color(0xff22577a),
+          // titleTextStyle: TextStyle(
+          //   color: Color(0xff22577a),
+          //   fontSize: 20,
+          //   fontWeight: FontWeight.normal,
+          // ),
+          elevation: 0,
+        ),
         buttonTheme: ButtonThemeData(
           //TODO: make this work on all buttons?
           shape: RoundedRectangleBorder(
@@ -108,6 +119,7 @@ class _MyAppState extends State<MyApp> {
         radioTheme: RadioThemeData(
           fillColor: MaterialStateProperty.all(Color(0xff22577a)),
         ),
+        iconTheme: const IconThemeData(color: Color(0xff22577a)),
         primarySwatch: Colors.blue,
         colorScheme: const ColorScheme(
           brightness: Brightness.light,

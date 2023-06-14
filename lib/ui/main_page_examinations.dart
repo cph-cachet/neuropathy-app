@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:neuro_planner/ui/results/result_page.dart';
 import 'package:neuro_planner/utils/date_formatter.dart';
 import 'package:neuro_planner/utils/generate_csv.dart';
 import 'package:research_package/research_package.dart';
@@ -44,14 +45,14 @@ class MainPageBodyWithExaminations extends StatelessWidget {
               },
             ),
             onTap: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => RPUITaskResult(
-              //       taskResult: taskResults[index],
-              //     ),
-              //   ),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultPage(
+                    result: taskResults[index],
+                  ),
+                ),
+              );
             },
           ),
         );
