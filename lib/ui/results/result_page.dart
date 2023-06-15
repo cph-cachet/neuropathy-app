@@ -5,7 +5,6 @@ import 'package:neuro_planner/ui/results/panels/panel_item.dart';
 import 'package:neuro_planner/ui/results/panels/pin_prick_tile.dart';
 import 'package:neuro_planner/ui/results/panels/vibration_panel.dart';
 import 'package:neuro_planner/ui/results/results_panel_list.dart';
-import 'package:neuro_planner/ui/widgets/app_bar.dart';
 import 'package:neuro_planner/utils/date_formatter.dart';
 import 'package:neuro_planner/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';

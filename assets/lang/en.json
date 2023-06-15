@@ -188,6 +188,9 @@
 
     },
     "results" : {
+        "common": {
+        "score": "Score", "left": "Left",
+        "right": "Right"},
         "vibration" : {
             "title": "Vibration",
             "section-score": "Section score",
@@ -198,6 +201,10 @@
             "toe": "Toe",
             "ankle": "Ankle",
             "knee": "Knee"
+        },
+        "prick": {
+            "hyper": "Pain Sensitivity",
+            "allodynia": "Prick Sensitivity"
         }
     },
     "settings": {

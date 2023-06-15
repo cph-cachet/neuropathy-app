@@ -188,16 +188,25 @@
         "yesterday": "I går"
     },
     "results" : {
+        "common": {
+        "score": "dk Score",
+        "left": "Højre",
+        "right": "Venstre"
+    },
         "vibration" : {
             "title": "dk Vibration",
             "section-score": "dk Section score",
             "feeling-vibration": "dk Feeling the vibration",
             "feeling-toe": "dk Feeling toe extension",
-            "left": "dk Left",
-            "right": "dk Right",
+            "left": "Højre",
+            "right": "Venstre",
             "toe": "dk Toe",
             "ankle": "dk Ankle",
             "knee": "dk Knee"
+        },
+        "prick": {
+            "hyper": "dk Pain Sensitivity",
+            "allodynia": "dk Prick Sensitivity"
         }
     },
     "settings": {

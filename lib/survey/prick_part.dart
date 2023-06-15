@@ -195,3 +195,6 @@ enum PrickStrings {
   final String bottomSheetTitle;
   final List<String> bottomSheetTextContent;
 }
+
+List<String> pinPrickIdentifiers =
+    PrickStrings.values.map((e) => e.identifier).toList();

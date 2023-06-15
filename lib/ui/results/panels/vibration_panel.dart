@@ -45,22 +45,24 @@ class VibrationPanelBody extends StatelessWidget {
                   .translate('results.vibration.feeling-vibration'),
               style: ThemeTextStyle.resultSectionLabelStyle),
           verticalSpacing(8),
-          VibrationResultRow(
+          StackedResultRow(
             leading:
                 VibrationLeadingItem(sectionIdentifier: leftScores.keys.first),
             items: leftScores.entries
-                .map((e) => VibrationResultItem(
+                .map((e) => StackedResultItem(
+                      translationSection: 'vibration',
                       label: e.key,
                       score: e.value,
                     ))
                 .toList(),
           ),
           verticalSpacing(8),
-          VibrationResultRow(
+          StackedResultRow(
             leading:
                 VibrationLeadingItem(sectionIdentifier: rightScores.keys.first),
             items: rightScores.entries
-                .map((e) => VibrationResultItem(
+                .map((e) => StackedResultItem(
+                      translationSection: 'vibration',
                       label: e.key,
                       score: e.value,
                     ))
@@ -76,11 +78,12 @@ class VibrationPanelBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               //TODO: move that to separate ez generated widget
-              VibrationResultRow(
+              StackedResultRow(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   items: [
                     horizontalSpacing(24),
-                    VibrationResultItem(
+                    StackedResultItem(
+                      translationSection: 'vibration',
                       skipMiddleLabel: true,
                       label: VibrationStrings.rightToeExtension.identifier,
                       score: vibrationScores[
@@ -90,11 +93,12 @@ class VibrationPanelBody extends StatelessWidget {
                   leading: VibrationLeadingItem(
                       sectionIdentifier:
                           VibrationStrings.rightToeExtension.identifier)),
-              VibrationResultRow(
+              StackedResultRow(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   items: [
                     horizontalSpacing(24),
-                    VibrationResultItem(
+                    StackedResultItem(
+                      translationSection: 'vibration',
                       skipMiddleLabel: true,
                       label: VibrationStrings.leftToeExtension.identifier,
                       score: vibrationScores[
@@ -113,20 +117,26 @@ class VibrationPanelBody extends StatelessWidget {
   }
 }
 
-class VibrationResultItem extends StatelessWidget {
+class StackedResultItem extends StatelessWidget {
   final String label;
   final int score;
   final bool skipMiddleLabel;
   final String? scoreOverZeroLabel;
   final String? scoreZeroLabel;
+  final bool skipScoreCount;
+  final String translationSection;
+  final Widget? overrideScoreResult;
 
-  const VibrationResultItem({
+  const StackedResultItem({
     super.key,
     required this.label,
     required this.score,
     this.skipMiddleLabel = false,
     this.scoreOverZeroLabel,
     this.scoreZeroLabel,
+    this.skipScoreCount = false,
+    required this.translationSection,
+    this.overrideScoreResult,
   });
 
   @override
@@ -134,23 +144,27 @@ class VibrationResultItem extends StatelessWidget {
     String translateString = score > 0
         ? scoreOverZeroLabel ?? 'common.no'
         : scoreZeroLabel ?? 'common.yes';
-    String translateLabel = StringUtils.removeExp(label, '.+_');
+    String translateLabel = translationSection == 'vibration'
+        ? StringUtils.removeExp(label, '.+_')
+        : label;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Text(
-          Languages.of(context)!.translate(translateString),
-          style: ThemeTextStyle.regularIBM18sp.copyWith(
-              color: score > 0
-                  ? Theme.of(context).colorScheme.error
-                  : Theme.of(context).colorScheme.secondary),
-        ),
+        overrideScoreResult == null
+            ? Text(
+                Languages.of(context)!.translate(translateString),
+                style: ThemeTextStyle.regularIBM18sp.copyWith(
+                    color: score > 0
+                        ? Theme.of(context).colorScheme.error
+                        : Theme.of(context).colorScheme.secondary),
+              )
+            : overrideScoreResult!,
         if (!skipMiddleLabel)
           Text(
               Languages.of(context)!
-                  .translate('results.vibration.$translateLabel'),
+                  .translate('results.$translationSection.$translateLabel'),
               style: ThemeTextStyle.resultsLabelsStyle),
-        if (score > 0)
+        if (score > 0 && !skipScoreCount)
           Text(
             '+$score',
             style: ThemeTextStyle.regularIBM14sp
@@ -172,7 +186,7 @@ class VibrationLeadingItem extends StatelessWidget {
     return Column(
       children: [
         isLeft
-            ? Icon(Icons.thumb_up_sharp)
+            ? Icon(Icons.thumb_up_sharp) // TODO add proper icons
             : Transform.flip(flipX: true, child: Icon(Icons.thumb_up_sharp)),
         Text(
           Languages.of(context)!.translate(
@@ -184,15 +198,15 @@ class VibrationLeadingItem extends StatelessWidget {
   }
 }
 
-class VibrationResultRow extends StatelessWidget {
+class StackedResultRow extends StatelessWidget {
   final List<Widget> items;
-  final Widget leading;
+  final Widget? leading;
   final CrossAxisAlignment crossAxisAlignment;
 
-  const VibrationResultRow(
+  const StackedResultRow(
       {super.key,
       required this.items,
-      required this.leading,
+      this.leading,
       this.crossAxisAlignment = CrossAxisAlignment.start});
 
   @override
@@ -201,7 +215,7 @@ class VibrationResultRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: crossAxisAlignment,
       children: [
-        leading,
+        if (leading != null) leading!,
         ...items,
       ],
     );

@@ -11,6 +11,7 @@ import 'package:neuro_planner/ui/main_page_empty.dart';
 import 'package:neuro_planner/ui/main_page_examinations.dart';
 import 'package:neuro_planner/ui/widgets/add_examination_button.dart';
 import 'package:neuro_planner/utils/spacing.dart';
+import 'package:neuro_planner/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
 import 'init.dart';
 
@@ -92,7 +93,10 @@ class _MyAppState extends State<MyApp> {
       },
       title: 'Flutter Demo',
       theme: ThemeData(
+        unselectedWidgetColor: Color(0xff22577a).withOpacity(0.7),
+        dividerColor: Colors.transparent,
         appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.transparent,
           iconTheme: IconThemeData(color: Color(0xff22577a)),
           actionsIconTheme: IconThemeData(color: Color(0xff22577a)),
           shadowColor: Color(0xff22577a),
@@ -146,7 +150,7 @@ class _MyAppState extends State<MyApp> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Loading...'),
+                    Text('Loading...'), // TODO: translate
                     verticalSpacing(16),
                     CircularProgressIndicator(),
                   ],
@@ -187,8 +191,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   _loadResults() async {
-    // await _resultRepository
-    //     .deleteAllResults(); //used for debug delete all results
     final results = await Future.delayed(
         const Duration(seconds: 1), () => _resultRepository.getResults());
     setState(() => _results = results);
@@ -206,7 +208,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        backgroundColor: Colors.transparent,
+        title: Text(widget.title.toUpperCase(),
+            style: ThemeTextStyle.extraLightIBM16sp.copyWith(
+                color: Theme.of(context).colorScheme.primary,
+                fontWeight: FontWeight.bold)),
         actions: [
           IconButton(
               onPressed: () => Navigator.of(context)
@@ -218,7 +224,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       _loadResults();
                     }
                   }),
-              icon: const Icon(Icons.settings))
+              icon: const Icon(Icons.settings_outlined))
         ],
       ),
       floatingActionButton: _hasLoaded && _results.isNotEmpty
