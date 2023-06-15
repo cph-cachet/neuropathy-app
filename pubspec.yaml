@@ -61,6 +61,7 @@ dependencies:
   basic_utils: ^5.5.4
   flag: ^6.0.0
   jiffy: ^6.2.1
+  smooth_page_indicator: ^1.1.0
 
 dev_dependencies:
   flutter_test:

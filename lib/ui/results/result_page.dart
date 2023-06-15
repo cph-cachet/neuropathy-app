@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:neuro_planner/repositories/result_repository/examination_score.dart';
+import 'package:neuro_planner/survey/vibration_part.dart';
 import 'package:neuro_planner/ui/results/panels/panel_item.dart';
+import 'package:neuro_planner/ui/results/panels/pin_prick_tile.dart';
+import 'package:neuro_planner/ui/results/panels/vibration_panel.dart';
 import 'package:neuro_planner/ui/results/results_panel_list.dart';
 import 'package:neuro_planner/ui/widgets/app_bar.dart';
 import 'package:neuro_planner/utils/date_formatter.dart';
@@ -16,6 +19,13 @@ class ResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Map<String, int> vibrationScores = Map.fromEntries(result.results.values
+        .cast<RPStepResult>()
+        .toList()
+        .where(
+            (element) => allVibrationIdentifiers.contains(element.identifier))
+        .map((e) =>
+            MapEntry(e.identifier, e.results['answer'][0]['value'] as int)));
     return Scaffold(
       appBar: AppBar(
         title: Text('examination result'.toUpperCase(),
@@ -50,7 +60,7 @@ class ResultPage extends StatelessWidget {
         //   ),
         // ),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -81,9 +91,17 @@ class ResultPage extends StatelessWidget {
                   size: 40,
                   color: Theme.of(context).colorScheme.primary,
                 )),
-            ResultsPanelList(panelItems: [
-              PanelItem(icon: Icons.vibration, title: 'Vibration')
-            ], result: result)
+            PinPrickTile(result: result),
+            ExpansionTile(
+                title: Text('Vibration', style: ThemeTextStyle.regularIBM20sp),
+                leading: Icon(
+                  Icons.vibration,
+                  size: 40,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+                children: [
+                  VibrationPanelBody(vibrationScores: vibrationScores),
+                ]),
           ],
         ),
       ),

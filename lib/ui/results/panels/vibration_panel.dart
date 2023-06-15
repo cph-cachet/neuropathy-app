@@ -8,21 +8,21 @@ import 'package:vibration/vibration.dart';
 import '../../../languages.dart';
 
 class VibrationPanelBody extends StatelessWidget {
-  VibrationPanelBody({Key? key, required this.vibrationScores})
+  const VibrationPanelBody({Key? key, required this.vibrationScores})
       : super(key: key);
 
   final Map<String, int> vibrationScores;
-  late Map<String, int> leftScores = Map.fromEntries(vibrationScores.entries
-      .where((element) =>
-          leftVibrationSteps.contains(element.key) &&
-          element.key != VibrationStrings.leftToeExtension.identifier));
-  late Map<String, int> rightScores = Map.fromEntries(vibrationScores.entries
-      .where((element) =>
-          rightVibrationSteps.contains(element.key) &&
-          element.key != VibrationStrings.rightToeExtension.identifier));
 
   @override
   Widget build(BuildContext context) {
+    Map<String, int> leftScores = Map.fromEntries(vibrationScores.entries.where(
+        (element) =>
+            leftVibrationSteps.contains(element.key) &&
+            element.key != VibrationStrings.leftToeExtension.identifier));
+    Map<String, int> rightScores = Map.fromEntries(vibrationScores.entries
+        .where((element) =>
+            rightVibrationSteps.contains(element.key) &&
+            element.key != VibrationStrings.rightToeExtension.identifier));
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 48.0),
       child: Column(
