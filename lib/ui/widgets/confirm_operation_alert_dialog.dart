@@ -28,7 +28,7 @@ class ConfirmOperationAlertDialog extends StatelessWidget {
               if (onCancel != null) onCancel!();
               Navigator.pop(context);
             },
-            child: Text(Languages.of(context)!.translate('settings.cancel'))),
+            child: Text(Languages.of(context)!.translate('common.cancel'))),
         TextButton(
             onPressed: () {
               onConfirm();

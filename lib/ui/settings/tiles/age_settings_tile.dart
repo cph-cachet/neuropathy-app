@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jiffy/jiffy.dart';
-import 'package:neuro_planner/ui/widgets/confirn_operation_alert_dialog.dart';
+import 'package:neuro_planner/ui/widgets/confirm_operation_alert_dialog.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 import '../../../languages.dart';
