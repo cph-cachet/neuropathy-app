@@ -63,16 +63,38 @@ String _getCellValue(String header, RPTaskResult result, Patient? patient) {
         res = "";
         break;
       }
-    default:
-      if (stepResults.any((element) => element.identifier == header)) {
+    case "free_text_step":
+      {
+        var val = stepResults
+            .firstWhere((element) => element.identifier == header)
+            .results['answer'];
+        res = val != null ? val[0]['value'].toString() : "";
+        break;
+      }
+    case "painSlider":
+      {
         res = stepResults
             .firstWhere((element) => element.identifier == header)
-            .results['answer'][0]['value']
+            .results['answer']
             .toString();
-      } else {
-        res = "";
+        break;
       }
-      break;
+    default:
+      // TODO: switch case for different answer formats instead of the separate cases with identifiers
+      {
+        _getAnswerFormat(header, stepResults);
+        if (stepResults.any((element) => element.identifier == header)) {
+          res = stepResults
+              .firstWhere((element) => element.identifier == header)
+              .results['answer'][0]['value']
+              .toString();
+        } else {
+          res = "";
+        }
+        break;
+      }
   }
   return res;
 }
+
+void _getAnswerFormat(String header, List<RPStepResult> stepResults) {}
