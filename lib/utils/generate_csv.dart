@@ -56,45 +56,46 @@ String _getCellValue(String header, RPTaskResult result, Patient? patient) {
     case "result":
       res = calculateScore(result).toString();
       break;
-    case "pain1":
-    case "pain2":
-    case "pain3":
-      {
-        res = "";
-        break;
-      }
-    case "free_text_step":
-      {
-        var val = stepResults
-            .firstWhere((element) => element.identifier == header)
-            .results['answer'];
-        res = val != null ? val[0]['value'].toString() : "";
-        break;
-      }
-    case "painSlider":
-      {
-        res = stepResults
-            .firstWhere((element) => element.identifier == header)
-            .results['answer']
-            .toString();
-        break;
-      }
     default:
-      // TODO: switch case for different answer formats instead of the separate cases with identifiers
       {
-        _getAnswerFormat(header, stepResults);
-        if (stepResults.any((element) => element.identifier == header)) {
-          res = stepResults
-              .firstWhere((element) => element.identifier == header)
-              .results['answer'][0]['value']
-              .toString();
-        } else {
-          res = "";
-        }
+        res = _getAnswerFromFormat(header, stepResults);
         break;
       }
   }
   return res;
 }
 
-void _getAnswerFormat(String header, List<RPStepResult> stepResults) {}
+String _getAnswerFromFormat(String header, List<RPStepResult> stepResults) {
+  String res = "";
+  if (stepResults.any((element) => element.identifier == header)) {
+    RPStepResult stepResult =
+        stepResults.firstWhere((element) => element.identifier == header);
+
+    switch (stepResult.answerFormat.runtimeType) {
+      case RPSliderAnswerFormat:
+        {
+          res = stepResult.results['answer'].toString();
+          break;
+        }
+      case RPChoiceAnswerFormat:
+        {
+          res = stepResult.results['answer']
+              .fold(0, (p, e2) => p + e2['value'])
+              .toString();
+          break;
+        }
+      case RPTextAnswerFormat:
+        {
+          var val = stepResult.results['answer'];
+          res = val != null ? val[0]['value'].toString() : "";
+          break;
+        }
+
+      default:
+        {
+          break;
+        }
+    }
+  }
+  return res;
+}
