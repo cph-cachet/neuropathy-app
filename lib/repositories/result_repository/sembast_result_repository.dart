@@ -22,17 +22,21 @@ class SembastResultRepository extends ResultRepository {
     final records = await _store.find(_database, finder: finder);
     //print(records);
 
-    return records.map((snapshot) {
-      Map<String, dynamic> stepResultMap1 =
-          json.decode(snapshot.value.toString())['results'];
+    return records
+        .map((snapshot) {
+          Map<String, dynamic> stepResultMap1 =
+              json.decode(snapshot.value.toString())['results'];
 
-      RPTaskResult taskResult = RPTaskResult.fromJson(
-          json.decode(snapshot.value.toString()) as Map<String, dynamic>);
-      taskResult.results = stepResultMap1
-          .map((key, value) => MapEntry(key, RPStepResult.fromJson(value)));
+          RPTaskResult taskResult = RPTaskResult.fromJson(
+              json.decode(snapshot.value.toString()) as Map<String, dynamic>);
+          taskResult.results = stepResultMap1
+              .map((key, value) => MapEntry(key, RPStepResult.fromJson(value)));
 
-      return taskResult;
-    }).toList();
+          return taskResult;
+        })
+        .toList()
+        .reversed
+        .toList();
   }
 
   @override
