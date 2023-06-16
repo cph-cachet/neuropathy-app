@@ -127,7 +127,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 Text(Languages.of(context)!.translate('settings.sections.app')),
             tiles: [
               const LanguagesSettingsTile(),
-              ExportDataSettingTile(_results),
+              ExportDataSettingTile(_results, _patient ?? Patient()),
               ResetDatabaseSettingsTile(shouldReload()),
               VibrationDurationSettingsTile(
                 initialVibDuration: vibrationDuration,

@@ -6,6 +6,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
 import 'package:neuro_planner/languages.dart';
 import 'package:neuro_planner/repositories/result_repository/result_repository.dart';
+import 'package:neuro_planner/repositories/settings_repository/patient.dart';
+import 'package:neuro_planner/repositories/settings_repository/settings_repository.dart';
 import 'package:neuro_planner/ui/settings/settings.dart';
 import 'package:neuro_planner/ui/main_page_empty.dart';
 import 'package:neuro_planner/ui/main_page_examinations.dart';
@@ -159,15 +161,23 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final ResultRepository _resultRepository = GetIt.I.get();
+  final SettingsRepository _settingsRepository = GetIt.I.get();
   Languages languages = Languages();
   List<RPTaskResult> _results = [];
+  Patient? _patient;
 
   bool _hasLoaded = false;
   @override
   void initState() {
     _initCountryCodes(context);
     _loadResults();
+    _loadPatient();
     super.initState();
+  }
+
+  _loadPatient() async {
+    Patient patient = await _settingsRepository.getPatientInformation();
+    setState(() => _patient = patient);
   }
 
   _initCountryCodes(BuildContext context) async {
@@ -204,6 +214,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     if (shouldReload == true) {
                       setState(() => _hasLoaded = false);
                       _loadResults();
+                      _loadPatient();
                     }
                   }),
               icon: const Icon(Icons.settings))
@@ -215,7 +226,10 @@ class _MyHomePageState extends State<MyHomePage> {
       body: _hasLoaded
           ? _results.isNotEmpty
               ? MainPageBodyWithExaminations(
-                  taskResults: _results, languages: languages)
+                  taskResults: _results,
+                  languages: languages,
+                  patient: _patient ?? Patient(),
+                )
               : const MainPageEmptyResults()
           : Center(
               child: AvatarGlow(
