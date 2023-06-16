@@ -58,6 +58,7 @@ class MainPageBodyWithExaminations extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => ResultPage(
+                    patient: patient,
                     result: taskResults[index],
                   ),
                 ),

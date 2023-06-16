@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neuro_planner/survey/vibration_part.dart';
-import 'package:neuro_planner/ui/results/panels/panel_item.dart';
-import 'package:neuro_planner/ui/results/panels/vibration_panel.dart';
+import 'package:neuro_planner/ui/results/tiles/panel_item.dart';
+import 'package:neuro_planner/ui/results/tiles/vibration_panel.dart';
 import 'package:research_package/research_package.dart';
 
 class ResultsPanelList extends StatefulWidget {

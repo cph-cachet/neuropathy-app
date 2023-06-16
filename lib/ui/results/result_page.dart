@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:neuro_planner/repositories/result_repository/examination_score.dart';
+import 'package:neuro_planner/repositories/settings_repository/patient.dart';
+import 'package:neuro_planner/survey/free_text_part.dart';
 import 'package:neuro_planner/survey/vibration_part.dart';
-import 'package:neuro_planner/ui/results/panels/panel_item.dart';
-import 'package:neuro_planner/ui/results/panels/pin_prick_tile.dart';
-import 'package:neuro_planner/ui/results/panels/vibration_panel.dart';
+import 'package:neuro_planner/ui/results/tiles/comments_tile.dart';
+import 'package:neuro_planner/ui/results/tiles/panel_item.dart';
+import 'package:neuro_planner/ui/results/tiles/pin_prick_tile.dart';
+import 'package:neuro_planner/ui/results/tiles/vibration_panel.dart';
 import 'package:neuro_planner/ui/results/results_panel_list.dart';
 import 'package:neuro_planner/ui/widgets/neuropathy_icons.dart';
 import 'package:neuro_planner/utils/date_formatter.dart';
@@ -14,8 +17,10 @@ import 'package:to_csv/to_csv.dart' as exportCSV;
 import '../../utils/generate_csv.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({Key? key, required this.result}) : super(key: key);
+  const ResultPage({Key? key, required this.result, required this.patient})
+      : super(key: key);
   final RPTaskResult result;
+  final Patient patient;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +41,7 @@ class ResultPage extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.file_download_outlined),
           onPressed: () {
-            CsvData csvData = CsvData.fromResults([result]);
+            CsvData csvData = CsvData.fromResults([result], patient);
             exportCSV.myCSV(csvData.headers, csvData.rows);
           },
         ),
@@ -89,6 +94,9 @@ class ResultPage extends StatelessWidget {
                 children: [
                   VibrationPanelBody(vibrationScores: vibrationScores),
                 ]),
+            if (result.results.keys
+                .any((element) => element == freeTextStep.identifier))
+              CommentsExpansionTile(text: 'aaaaa')
           ],
         ),
       ),
