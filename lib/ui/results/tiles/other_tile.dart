@@ -40,6 +40,19 @@ class OtherFindingsTile extends StatelessWidget {
         Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            Text(
+              Languages.of(context)!
+                  .translate('results.vibration.section-score'),
+              style: ThemeTextStyle.resultsLabelsStyle,
+            ),
+            Text(
+              motorScores.values
+                  .fold(general.results['answer'][0]['value'],
+                      (previousValue, element) => previousValue + element)
+                  .toString(),
+              style: ThemeTextStyle.headline24sp,
+            ),
+            verticalSpacing(16),
             Text(Languages.of(context)!.translate('results.other.motor'),
                 style: ThemeTextStyle.resultSectionLabelStyle),
             verticalSpacing(16),
@@ -47,7 +60,6 @@ class OtherFindingsTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                //TODO: move that to separate ez generated widget
                 StackedResultRow(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     items: [
@@ -97,11 +109,12 @@ class OtherFindingsTile extends StatelessWidget {
                   scoreOverZeroLabel: 'common.yes',
                 ),
                 horizontalSpacing(24),
-                Text(
-                  Languages.of(context)!
-                      .translate(general.results['answer'][0]['text']),
-                  style: ThemeTextStyle.resultsLabelsStyle,
-                )
+                if (general.results['answer'][0]['value']! > 0)
+                  Text(
+                    Languages.of(context)!
+                        .translate(general.results['answer'][0]['text']),
+                    style: ThemeTextStyle.resultsLabelsStyle,
+                  )
               ],
             ),
           ],

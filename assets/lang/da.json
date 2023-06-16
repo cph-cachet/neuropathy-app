@@ -212,6 +212,16 @@
             "title": "dk Other Findings",
             "motor": "dk Normal Motor Function",
             "symptoms": "dk Day-to-day symptoms"
+        },
+        "pain": {
+            "level": "dk Pain level",
+            "score": "dk Pain score",
+            "prick": "dk Prick",
+            "touch": "dk Touch",
+            "stroking": "dk Stroking",
+            "sensitivity": "dk Sensitivity",
+            "characteristics": "dk Characteristics",
+            "other": "dk Other symptoms in feet"
         }
     },
     "settings": {

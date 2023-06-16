@@ -15,6 +15,7 @@ import 'package:neuro_planner/ui/results/tiles/vibration_panel.dart';
 import 'package:neuro_planner/ui/results/results_panel_list.dart';
 import 'package:neuro_planner/ui/widgets/neuropathy_icons.dart';
 import 'package:neuro_planner/utils/date_formatter.dart';
+import 'package:neuro_planner/utils/spacing.dart';
 import 'package:neuro_planner/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
 import 'package:to_csv/to_csv.dart' as exportCSV;
