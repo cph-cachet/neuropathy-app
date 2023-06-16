@@ -48,7 +48,7 @@ class VibrationPanelBody extends StatelessWidget {
           verticalSpacing(8),
           StackedResultRow(
             leading:
-                VibrationLeadingItem(sectionIdentifier: leftScores.keys.first),
+                StackedLeadingItem(sectionIdentifier: leftScores.keys.first),
             items: leftScores.entries
                 .map((e) => StackedResultItem(
                       translationSection: 'vibration',
@@ -60,7 +60,7 @@ class VibrationPanelBody extends StatelessWidget {
           verticalSpacing(8),
           StackedResultRow(
             leading:
-                VibrationLeadingItem(sectionIdentifier: rightScores.keys.first),
+                StackedLeadingItem(sectionIdentifier: rightScores.keys.first),
             items: rightScores.entries
                 .map((e) => StackedResultItem(
                       translationSection: 'vibration',
@@ -91,7 +91,7 @@ class VibrationPanelBody extends StatelessWidget {
                           VibrationStrings.rightToeExtension.identifier]!,
                     ),
                   ],
-                  leading: VibrationLeadingItem(
+                  leading: StackedLeadingItem(
                       sectionIdentifier:
                           VibrationStrings.rightToeExtension.identifier)),
               StackedResultRow(
@@ -106,7 +106,7 @@ class VibrationPanelBody extends StatelessWidget {
                           VibrationStrings.leftToeExtension.identifier]!,
                     )
                   ],
-                  leading: VibrationLeadingItem(
+                  leading: StackedLeadingItem(
                       sectionIdentifier:
                           VibrationStrings.leftToeExtension.identifier))
             ],
@@ -119,24 +119,24 @@ class VibrationPanelBody extends StatelessWidget {
 }
 
 class StackedResultItem extends StatelessWidget {
-  final String label;
+  final String? label;
   final int score;
   final bool skipMiddleLabel;
   final String? scoreOverZeroLabel;
   final String? scoreZeroLabel;
   final bool skipScoreCount;
-  final String translationSection;
+  final String? translationSection;
   final Widget? overrideScoreResult;
 
   const StackedResultItem({
     super.key,
-    required this.label,
+    this.label,
     required this.score,
     this.skipMiddleLabel = false,
     this.scoreOverZeroLabel,
     this.scoreZeroLabel,
     this.skipScoreCount = false,
-    required this.translationSection,
+    this.translationSection,
     this.overrideScoreResult,
   });
 
@@ -145,9 +145,11 @@ class StackedResultItem extends StatelessWidget {
     String translateString = score > 0
         ? scoreOverZeroLabel ?? 'common.no'
         : scoreZeroLabel ?? 'common.yes';
-    String translateLabel = translationSection == 'vibration'
-        ? StringUtils.removeExp(label, '.+_')
-        : label;
+    String translateLabel = label != null
+        ? translationSection == 'vibration'
+            ? StringUtils.removeExp(label!, '.+_')
+            : label!
+        : '';
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -176,14 +178,17 @@ class StackedResultItem extends StatelessWidget {
   }
 }
 
-class VibrationLeadingItem extends StatelessWidget {
+class StackedLeadingItem extends StatelessWidget {
   final String sectionIdentifier;
+  final bool? isLeftOverride;
 
-  const VibrationLeadingItem({super.key, required this.sectionIdentifier});
+  const StackedLeadingItem(
+      {super.key, required this.sectionIdentifier, this.isLeftOverride});
 
   @override
   Widget build(BuildContext context) {
-    bool isLeft = leftVibrationSteps.contains(sectionIdentifier);
+    bool isLeft =
+        isLeftOverride ?? leftVibrationSteps.contains(sectionIdentifier);
     return Column(
       children: [
         isLeft

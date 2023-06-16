@@ -1,9 +1,14 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:neuro_planner/repositories/result_repository/examination_score.dart';
 import 'package:neuro_planner/repositories/settings_repository/patient.dart';
 import 'package:neuro_planner/survey/free_text_part.dart';
+import 'package:neuro_planner/survey/step_identifiers.dart';
 import 'package:neuro_planner/survey/vibration_part.dart';
 import 'package:neuro_planner/ui/results/tiles/comments_tile.dart';
+import 'package:neuro_planner/ui/results/tiles/other_tile.dart';
+import 'package:neuro_planner/ui/results/tiles/pain_tile.dart';
 import 'package:neuro_planner/ui/results/tiles/panel_item.dart';
 import 'package:neuro_planner/ui/results/tiles/pin_prick_tile.dart';
 import 'package:neuro_planner/ui/results/tiles/vibration_panel.dart';
@@ -94,9 +99,26 @@ class ResultPage extends StatelessWidget {
                 children: [
                   VibrationPanelBody(vibrationScores: vibrationScores),
                 ]),
+            OtherFindingsTile(taskResult: result),
             if (result.results.keys
-                .any((element) => element == freeTextStep.identifier))
-              CommentsExpansionTile(text: 'aaaaa')
+                .any((element) => painStepIdentifiers.contains(element)))
+              PainTile(taskResult: result),
+            if (result.results.keys
+                    .any((element) => element == freeTextStep.identifier) &&
+                result.results.entries
+                        .where(
+                            (element) => element.key == freeTextStep.identifier)
+                        .map((e) => e.value as RPStepResult)
+                        .first
+                        .results['answer'] !=
+                    null)
+              CommentsExpansionTile(
+                  text: result.results.entries
+                      .where(
+                          (element) => element.key == freeTextStep.identifier)
+                      .map((e) => e.value as RPStepResult)
+                      .first
+                      .results['answer']),
           ],
         ),
       ),

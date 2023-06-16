@@ -207,6 +207,11 @@
         "prick": {
             "hyper": "dk Pain Sensitivity",
             "allodynia": "dk Prick Sensitivity"
+        },
+        "other": {
+            "title": "dk Other Findings",
+            "motor": "dk Normal Motor Function",
+            "symptoms": "dk Day-to-day symptoms"
         }
     },
     "settings": {

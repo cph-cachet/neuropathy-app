@@ -205,6 +205,11 @@
         "prick": {
             "hyper": "Pain Sensitivity",
             "allodynia": "Prick Sensitivity"
+        },
+        "other": {
+            "title": "Other Findings",
+            "motor": "Normal Motor Function",
+            "symptoms": "Day-to-day symptoms"
         }
     },
     "settings": {
