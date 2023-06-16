@@ -1,6 +1,7 @@
 import 'package:basic_utils/basic_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:neuro_planner/survey/vibration_part.dart';
+import 'package:neuro_planner/ui/widgets/neuropathy_icons.dart';
 import 'package:neuro_planner/utils/spacing.dart';
 import 'package:neuro_planner/utils/themes/text_styles.dart';
 import 'package:vibration/vibration.dart';
@@ -186,8 +187,13 @@ class VibrationLeadingItem extends StatelessWidget {
     return Column(
       children: [
         isLeft
-            ? Icon(Icons.thumb_up_sharp) // TODO add proper icons
-            : Transform.flip(flipX: true, child: Icon(Icons.thumb_up_sharp)),
+            ? const Icon(NeuropathyIcons.icon_park_foot, size: 30)
+            : Transform.flip(
+                flipX: true,
+                child: const Icon(
+                  NeuropathyIcons.icon_park_foot,
+                  size: 30,
+                )),
         Text(
           Languages.of(context)!.translate(
               isLeft ? 'results.vibration.left' : 'results.vibration.right'),
@@ -201,18 +207,20 @@ class VibrationLeadingItem extends StatelessWidget {
 class StackedResultRow extends StatelessWidget {
   final List<Widget> items;
   final Widget? leading;
+  final MainAxisAlignment mainAxisAlignment;
   final CrossAxisAlignment crossAxisAlignment;
 
   const StackedResultRow(
       {super.key,
       required this.items,
       this.leading,
-      this.crossAxisAlignment = CrossAxisAlignment.start});
+      this.crossAxisAlignment = CrossAxisAlignment.start,
+      this.mainAxisAlignment = MainAxisAlignment.spaceBetween});
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: mainAxisAlignment,
       crossAxisAlignment: crossAxisAlignment,
       children: [
         if (leading != null) leading!,

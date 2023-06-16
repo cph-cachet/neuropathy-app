@@ -2,6 +2,7 @@ import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:neuro_planner/survey/prick_part.dart';
 import 'package:neuro_planner/ui/results/panels/vibration_panel.dart';
+import 'package:neuro_planner/ui/widgets/neuropathy_icons.dart';
 import 'package:neuro_planner/utils/spacing.dart';
 import 'package:neuro_planner/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
@@ -51,7 +52,7 @@ class _PinPrickTileState extends State<PinPrickTile> {
 
   void _onSelected(int index) {
     _controller.animateToPage(index,
-        duration: Duration(milliseconds: 300), curve: Curves.easeIn);
+        duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
     setState(() {
       _isLeftSelected = index == 0;
       _choices[index].isSelected = true;
@@ -66,7 +67,8 @@ class _PinPrickTileState extends State<PinPrickTile> {
         'Pin prick',
         style: ThemeTextStyle.regularIBM20sp,
       ),
-      leading: Icon(Icons.create, color: Theme.of(context).colorScheme.primary),
+      leading: Icon(NeuropathyIcons.ph_needle_fillprick_needle,
+          size: 40, color: Theme.of(context).colorScheme.primary),
       children: [
         Column(
           mainAxisSize: MainAxisSize.min,
@@ -138,10 +140,10 @@ class _PinPrickTileState extends State<PinPrickTile> {
             //         .toList()),
             verticalSpacing(24),
             ConstrainedBox(
-              //todo: change to sized box
+              //TODO: change to sized box
               constraints: BoxConstraints(
                   maxHeight: MediaQuery.of(context).size.height * 0.4,
-                  maxWidth: MediaQuery.of(context).size.width * 0.8),
+                  maxWidth: MediaQuery.of(context).size.width * 0.9),
               child: PageView(
                 onPageChanged: (index) => _onSelected(index),
                 controller: _controller,
@@ -233,38 +235,41 @@ class _PinPrickResultBody extends StatelessWidget {
           ),
         ]),
         verticalSpacing(16),
-        StackedResultRow(items: [
-          StackedResultItem(
-            label: 'allodynia',
-            score: leg == PinPrickLeg.left
-                ? results[PrickStrings.leftLegAllodynia.identifier]!
-                : results[PrickStrings.righLegAllodynia.identifier]!,
-            translationSection: 'prick',
-            scoreZeroLabel: 'common.no',
-            scoreOverZeroLabel: 'common.yes',
-          ),
-          StackedResultItem(
-            label: 'hyper',
-            score: leg == PinPrickLeg.left
-                ? results[PrickStrings.leftLegHyperaesthesia.identifier]!
-                : results[PrickStrings.rightLegHyperaesthesia.identifier]!,
-            translationSection: 'prick',
-            scoreZeroLabel: 'common.no',
-            scoreOverZeroLabel: 'common.yes',
-          ),
-          StackedResultItem(
-            label: 'score',
-            score: 0, // Irrelevant
-            translationSection: 'common',
-            skipScoreCount: true,
-            overrideScoreResult: Text(
-              results.values
-                  .fold(0, (previousValue, element) => previousValue + element)
-                  .toString(),
-              style: ThemeTextStyle.regularIBM18sp,
-            ),
-          ),
-        ]),
+        StackedResultRow(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            items: [
+              StackedResultItem(
+                label: 'allodynia',
+                score: leg == PinPrickLeg.left
+                    ? results[PrickStrings.leftLegAllodynia.identifier]!
+                    : results[PrickStrings.righLegAllodynia.identifier]!,
+                translationSection: 'prick',
+                scoreZeroLabel: 'common.no',
+                scoreOverZeroLabel: 'common.yes',
+              ),
+              StackedResultItem(
+                label: 'hyper',
+                score: leg == PinPrickLeg.left
+                    ? results[PrickStrings.leftLegHyperaesthesia.identifier]!
+                    : results[PrickStrings.rightLegHyperaesthesia.identifier]!,
+                translationSection: 'prick',
+                scoreZeroLabel: 'common.no',
+                scoreOverZeroLabel: 'common.yes',
+              ),
+              StackedResultItem(
+                label: 'score',
+                score: 0, // Irrelevant
+                translationSection: 'common',
+                skipScoreCount: true,
+                overrideScoreResult: Text(
+                  results.values
+                      .fold(0,
+                          (previousValue, element) => previousValue + element)
+                      .toString(),
+                  style: ThemeTextStyle.regularIBM18sp,
+                ),
+              ),
+            ]),
       ],
     );
   }
