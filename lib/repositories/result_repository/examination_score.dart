@@ -19,10 +19,10 @@ class ExaminationScore {
 }
 
 int calculateScore(RPTaskResult result) {
-  result.results.removeWhere(
-      (key, value) => !gradingTaskIdentifiers.contains(value.identifier));
-  List<RPStepResult> stepResults =
-      result.results.values.cast<RPStepResult>().toList();
+  List<RPStepResult> stepResults = result.results.values
+      .where((element) => gradingTaskIdentifiers.contains(element.identifier))
+      .map((e) => e as RPStepResult)
+      .toList();
   return stepResults.fold(
       0,
       (previousValue, element) =>
