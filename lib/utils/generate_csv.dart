@@ -1,4 +1,5 @@
 import 'package:neuro_planner/repositories/result_repository/examination_score.dart';
+import 'package:neuro_planner/survey/free_text_part.dart';
 import 'package:neuro_planner/survey/step_identifiers.dart';
 import 'package:research_package/research_package.dart';
 import '../repositories/settings_repository/patient.dart';
@@ -8,7 +9,9 @@ List<String> csvHeaders = [
   "sex",
   "age",
   "result",
-  ...gradingTaskIdentifiers
+  ...gradingTaskIdentifiers,
+  freeTextStep.identifier,
+  ...painStepIdentifiers
 ];
 
 class CsvData {
@@ -53,11 +56,22 @@ String _getCellValue(String header, RPTaskResult result, Patient? patient) {
     case "result":
       res = calculateScore(result).toString();
       break;
+    case "pain1":
+    case "pain2":
+    case "pain3":
+      {
+        res = "";
+        break;
+      }
     default:
-      res = stepResults
-          .firstWhere((element) => element.identifier == header)
-          .results['answer'][0]['value']
-          .toString();
+      if (stepResults.any((element) => element.identifier == header)) {
+        res = stepResults
+            .firstWhere((element) => element.identifier == header)
+            .results['answer'][0]['value']
+            .toString();
+      } else {
+        res = "";
+      }
       break;
   }
   return res;
