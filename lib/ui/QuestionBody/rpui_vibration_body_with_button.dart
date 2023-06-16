@@ -31,13 +31,15 @@ class _RPUIVibrationBodyWithButtonState
 
   @override
   void initState() {
-    _loadVibrationDuration();
     super.initState();
+    _loadVibrationDuration();
   }
 
   void _loadVibrationDuration() async {
     int vibrationDuration = await _settingsRepository.getVibrationDuration();
-    setState(() => _vibrationDuration = vibrationDuration);
+    if (mounted) {
+      setState(() => _vibrationDuration = vibrationDuration);
+    }
   }
 
   @override
