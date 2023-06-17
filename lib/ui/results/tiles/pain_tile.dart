@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:neuro_planner/languages.dart';
-import 'package:neuro_planner/step/steps/rp_pain_slider_question_step.dart';
 import 'package:neuro_planner/survey/step_identifiers.dart';
 import 'package:neuro_planner/ui/results/tiles/vibration_tile.dart';
 import 'package:neuro_planner/utils/spacing.dart';
@@ -107,14 +106,14 @@ class PainTile extends StatelessWidget {
               ),
               if (painResults[pain1.identifier]?.results['answer'][0]['text'] !=
                   'common.none-of-the-above')
-                _painMultipleChoiceResultWidget(
+                _PainMultipleChoiceResultWidget(
                   result: painResults[pain1.identifier]!,
                   icons: pain1Icons,
                   title: 'results.pain.characteristics',
                 ),
               if (painResults[pain2.identifier]?.results['answer'][0]['text'] !=
                   'common.none-of-the-above')
-                _painMultipleChoiceResultWidget(
+                _PainMultipleChoiceResultWidget(
                   result: painResults[pain2.identifier]!,
                   icons: pain2Icons,
                   title: 'results.pain.other',
@@ -162,16 +161,13 @@ class _PainStackedRow extends StatelessWidget {
   }
 }
 
-class _painMultipleChoiceResultWidget extends StatelessWidget {
+class _PainMultipleChoiceResultWidget extends StatelessWidget {
   final RPStepResult result;
   final Map<String, IconData> icons;
   final String title;
 
-  const _painMultipleChoiceResultWidget(
-      {super.key,
-      required this.result,
-      required this.icons,
-      required this.title});
+  const _PainMultipleChoiceResultWidget(
+      {required this.result, required this.icons, required this.title});
 
   @override
   Widget build(BuildContext context) {
