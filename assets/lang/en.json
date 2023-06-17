@@ -212,6 +212,10 @@
             "symptoms": "Day-to-day symptoms"
         },
         "pain": {
+            "increased": "Increased",
+            "normal": "Normal",
+            "decreased": "Decreased",
+            "title": "Pain",
             "level": "Pain level",
             "score": "Pain score",
             "prick": "Prick",

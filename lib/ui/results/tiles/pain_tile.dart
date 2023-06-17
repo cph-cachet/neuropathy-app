@@ -22,9 +22,35 @@ class PainTile extends StatelessWidget {
             .where((element) => painStepIdentifiers.contains(element.key)))
         .cast<String, RPStepResult>();
 
+    int painScore = painResults.values
+        .where((element) => element.identifier != painSlider.identifier)
+        .fold(
+            0,
+            (previousValue, element) =>
+                previousValue +
+                (element.results['answer'].fold(0, (p, e2) => p + e2['value'])
+                    as int));
+    List<int> stackedRowScores = [
+      painResults[pain3.identifier]
+              ?.results['answer']
+              ?.map(((e) => e['text']))
+              .toList()
+              .contains(pain3ChoicesStrings[0])
+          ? 1
+          : 0,
+      painResults[pain3.identifier]
+              ?.results['answer']
+              ?.map(((e) => e['text']))
+              .toList()
+              .contains(pain3ChoicesStrings[1])
+          ? 1
+          : 0,
+      painResults[pain4.identifier]?.results['answer'][0]['value'],
+    ];
+
     return ExpansionTile(
       title: Text(
-        'Pain',
+        Languages.of(context)!.translate('results.pain.title'),
         style: ThemeTextStyle.regularIBM20sp,
       ),
       leading: Icon(
@@ -34,7 +60,7 @@ class PainTile extends StatelessWidget {
       ),
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 32.0, right: 32.0, bottom: 32),
+          padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 32),
           child: Column(
             children: [
               Text(
@@ -42,38 +68,41 @@ class PainTile extends StatelessWidget {
                 style: ThemeTextStyle.resultsLabelsStyle,
               ),
               Text(
-                '0',
+                painScore.toString(),
                 style: ThemeTextStyle.headline24sp,
               ),
               verticalSpacing(24),
               Text(Languages.of(context)!.translate('results.pain.sensitivity'),
                   style: ThemeTextStyle.resultsLabelsStyle),
               verticalSpacing(8),
-              _PainStackedRow(taskResult: taskResult),
+              _PainStackedRow(scores: stackedRowScores),
               verticalSpacing(16),
               Text(Languages.of(context)!.translate('results.pain.level'),
                   style: ThemeTextStyle.resultsLabelsStyle),
               AbsorbPointer(
-                child: Row(
-                  children: [
-                    Text('0', style: ThemeTextStyle.regularIBM16sp),
-                    Expanded(
-                      child: Slider(
-                        activeColor:
-                            Theme.of(context).sliderTheme.activeTrackColor,
-                        inactiveColor:
-                            Theme.of(context).sliderTheme.inactiveTrackColor,
-                        value: painResults[painSlider.identifier]
-                                ?.results['answer'] ??
-                            0,
-                        onChanged: (double newValue) {},
-                        min: 0,
-                        max: 100,
-                        divisions: 100,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Row(
+                    children: [
+                      Text('0', style: ThemeTextStyle.regularIBM16sp),
+                      Expanded(
+                        child: Slider(
+                          activeColor:
+                              Theme.of(context).sliderTheme.activeTrackColor,
+                          inactiveColor:
+                              Theme.of(context).sliderTheme.inactiveTrackColor,
+                          value: painResults[painSlider.identifier]
+                                  ?.results['answer'] ??
+                              0,
+                          onChanged: (_) {},
+                          min: 0,
+                          max: 100,
+                          divisions: 100,
+                        ),
                       ),
-                    ),
-                    Text('100', style: ThemeTextStyle.regularIBM16sp)
-                  ],
+                      Text('100', style: ThemeTextStyle.regularIBM16sp)
+                    ],
+                  ),
                 ),
               ),
               verticalSpacing(16),
@@ -103,9 +132,9 @@ class PainTile extends StatelessWidget {
 }
 
 class _PainStackedRow extends StatelessWidget {
-  final RPTaskResult taskResult;
+  final List<int> scores;
 
-  const _PainStackedRow({required this.taskResult});
+  const _PainStackedRow({required this.scores});
 
   @override
   Widget build(BuildContext context) {
@@ -113,22 +142,22 @@ class _PainStackedRow extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         items: [
           StackedResultItem(
-            scoreOverZeroLabel: 'common.yes',
-            scoreZeroLabel: 'common.no',
+            scoreOverZeroLabel: 'results.pain.decreased',
+            scoreZeroLabel: 'results.pain.normal',
             translationSection: 'pain',
-            label: 'prick',
+            label: 'touch',
             score: 0,
           ),
           StackedResultItem(
-            scoreOverZeroLabel: 'common.yes',
-            scoreZeroLabel: 'common.no',
+            scoreOverZeroLabel: 'results.pain.decreased',
+            scoreZeroLabel: 'results.pain.normal',
             translationSection: 'pain',
-            label: 'touch',
+            label: 'prick',
             score: 1,
           ),
           StackedResultItem(
-            scoreOverZeroLabel: 'common.yes',
-            scoreZeroLabel: 'common.no',
+            scoreOverZeroLabel: 'results.pain.increased',
+            scoreZeroLabel: 'results.pain.normal',
             translationSection: 'pain',
             label: 'stroking',
             score: 0,

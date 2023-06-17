@@ -214,6 +214,10 @@
             "symptoms": "dk Day-to-day symptoms"
         },
         "pain": {
+            "increased": "dk Increased",
+            "normal": "dk Normal",
+            "decreased": "dk Decreased",
+            "title": "dk Pain",
             "level": "dk Pain level",
             "score": "dk Pain score",
             "prick": "dk Prick",

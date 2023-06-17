@@ -10,8 +10,8 @@ List<RPStep> painStepList = [
   painSlider,
   _pain1,
   _pain2,
-  _pain3,
-  _pain4,
+  pain3,
+  pain4,
 ];
 
 //------------------------- common -------------------------
@@ -67,21 +67,21 @@ RPChoiceQuestionStep _pain2 = RPChoiceQuestionStep(
             _choiceFactory(text: _pain2ChoicesStrings, addNoneOfAbove: true)));
 
 // ------------------------- PAIN 3 -------------------------
-List<String> _pain3ChoicesStrings = [
+List<String> pain3ChoicesStrings = [
   'pain-3.choice-1',
   'pain-3.choice-2',
 ];
 
-RPChoiceQuestionStep _pain3 = RPChoiceQuestionStep(
+RPChoiceQuestionStep pain3 = RPChoiceQuestionStep(
     identifier: 'pain3',
     title: 'pain-3.title',
     answerFormat: RPChoiceAnswerFormat(
         answerStyle: RPChoiceAnswerStyle.MultipleChoice,
         choices:
-            _choiceFactory(text: _pain3ChoicesStrings, addNoneOfAbove: true)));
+            _choiceFactory(text: pain3ChoicesStrings, addNoneOfAbove: true)));
 
 // ------------------------- PAIN 4 -------------------------
-RPToggleQuestionStep _pain4 = RPToggleQuestionStep(
+RPToggleQuestionStep pain4 = RPToggleQuestionStep(
     identifier: 'pain4',
     title: 'pain-4.title-1',
     text: 'pain-4.title-2',
