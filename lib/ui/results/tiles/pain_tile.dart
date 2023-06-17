@@ -133,7 +133,7 @@ class _PainStackedRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const StackedResultRow(
+    return StackedResultRow(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         items: [
           StackedResultItem(
@@ -141,21 +141,21 @@ class _PainStackedRow extends StatelessWidget {
             scoreZeroLabel: 'results.pain.normal',
             translationSection: 'pain',
             label: 'touch',
-            score: 0,
+            score: scores[0],
           ),
           StackedResultItem(
             scoreOverZeroLabel: 'results.pain.decreased',
             scoreZeroLabel: 'results.pain.normal',
             translationSection: 'pain',
             label: 'prick',
-            score: 1,
+            score: scores[1],
           ),
           StackedResultItem(
             scoreOverZeroLabel: 'results.pain.increased',
             scoreZeroLabel: 'results.pain.normal',
             translationSection: 'pain',
             label: 'stroking',
-            score: 0,
+            score: scores[2],
           ),
         ]);
   }
