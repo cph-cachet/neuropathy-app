@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neuro_planner/survey/motor_part.dart';
-import 'package:neuro_planner/ui/results/tiles/vibration_panel.dart';
+import 'package:neuro_planner/ui/results/tiles/vibration_tile.dart';
+
 import 'package:research_package/model.dart';
 
 import '../../../languages.dart';

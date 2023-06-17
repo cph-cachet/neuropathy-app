@@ -4,7 +4,6 @@ import 'package:neuro_planner/survey/vibration_part.dart';
 import 'package:neuro_planner/ui/widgets/neuropathy_icons.dart';
 import 'package:neuro_planner/utils/spacing.dart';
 import 'package:neuro_planner/utils/themes/text_styles.dart';
-import 'package:vibration/vibration.dart';
 
 import '../../../languages.dart';
 

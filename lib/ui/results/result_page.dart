@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:neuro_planner/repositories/result_repository/examination_score.dart';
 import 'package:neuro_planner/repositories/settings_repository/patient.dart';
@@ -9,13 +7,11 @@ import 'package:neuro_planner/survey/vibration_part.dart';
 import 'package:neuro_planner/ui/results/tiles/comments_tile.dart';
 import 'package:neuro_planner/ui/results/tiles/other_tile.dart';
 import 'package:neuro_planner/ui/results/tiles/pain_tile.dart';
-import 'package:neuro_planner/ui/results/tiles/panel_item.dart';
 import 'package:neuro_planner/ui/results/tiles/pin_prick_tile.dart';
-import 'package:neuro_planner/ui/results/tiles/vibration_panel.dart';
-import 'package:neuro_planner/ui/results/results_panel_list.dart';
+import 'package:neuro_planner/ui/results/tiles/vibration_tile.dart';
+
 import 'package:neuro_planner/ui/widgets/neuropathy_icons.dart';
 import 'package:neuro_planner/utils/date_formatter.dart';
-import 'package:neuro_planner/utils/spacing.dart';
 import 'package:neuro_planner/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
 import 'package:to_csv/to_csv.dart' as exportCSV;

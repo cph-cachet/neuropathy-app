@@ -1,7 +1,8 @@
 import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:neuro_planner/survey/prick_part.dart';
-import 'package:neuro_planner/ui/results/tiles/vibration_panel.dart';
+import 'package:neuro_planner/ui/results/tiles/vibration_tile.dart';
+
 import 'package:neuro_planner/ui/widgets/neuropathy_icons.dart';
 import 'package:neuro_planner/utils/spacing.dart';
 import 'package:neuro_planner/utils/themes/text_styles.dart';
@@ -278,7 +279,7 @@ class _PinPrickResultBody extends StatelessWidget {
 class _PinPrickLabelText extends StatelessWidget {
   final int score;
 
-  const _PinPrickLabelText({super.key, required this.score});
+  const _PinPrickLabelText({required this.score});
 
   @override
   Widget build(BuildContext context) {

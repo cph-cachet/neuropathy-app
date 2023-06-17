@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neuro_planner/languages.dart';
-import 'package:neuro_planner/ui/results/tiles/vibration_panel.dart';
+import 'package:neuro_planner/ui/results/tiles/vibration_tile.dart';
 import 'package:neuro_planner/utils/spacing.dart';
 import 'package:research_package/model.dart';
 
@@ -96,7 +96,7 @@ class PainTile extends StatelessWidget {
 class _PainStackedRow extends StatelessWidget {
   final RPTaskResult taskResult;
 
-  const _PainStackedRow({super.key, required this.taskResult});
+  const _PainStackedRow({required this.taskResult});
 
   @override
   Widget build(BuildContext context) {
@@ -132,8 +132,7 @@ class _ResultItemRow extends StatelessWidget {
   final IconData iconData;
   final String label;
 
-  const _ResultItemRow(
-      {super.key, required this.iconData, required this.label});
+  const _ResultItemRow({required this.iconData, required this.label});
 
   @override
   Widget build(BuildContext context) {

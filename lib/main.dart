@@ -95,7 +95,7 @@ class _MyAppState extends State<MyApp> {
       },
       title: 'Flutter Demo',
       theme: ThemeData(
-        unselectedWidgetColor: Color(0xff22577a).withOpacity(0.7),
+        unselectedWidgetColor: const Color(0xff22577a).withOpacity(0.7),
         dividerColor: Colors.transparent,
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
@@ -119,11 +119,11 @@ class _MyAppState extends State<MyApp> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5),
           ),
-          fillColor: MaterialStateProperty.all(Color(0xff22577a)),
+          fillColor: MaterialStateProperty.all(const Color(0xff22577a)),
           checkColor: MaterialStateProperty.all(Colors.white),
         ),
         radioTheme: RadioThemeData(
-          fillColor: MaterialStateProperty.all(Color(0xff22577a)),
+          fillColor: MaterialStateProperty.all(const Color(0xff22577a)),
         ),
         iconTheme: const IconThemeData(color: Color(0xff22577a)),
         primarySwatch: Colors.blue,
@@ -152,9 +152,9 @@ class _MyAppState extends State<MyApp> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Loading...'), // TODO: translate
+                    const Text('Loading...'), // TODO: translate
                     verticalSpacing(16),
-                    CircularProgressIndicator(),
+                    const CircularProgressIndicator(),
                   ],
                 ),
               ),
@@ -227,7 +227,7 @@ class _MyHomePageState extends State<MyHomePage> {
           IconButton(
               onPressed: () => Navigator.of(context)
                       .push(MaterialPageRoute<dynamic>(
-                          builder: (context) => SettingsScreen()))
+                          builder: (context) => const SettingsScreen()))
                       .then((shouldReload) {
                     if (shouldReload == true) {
                       setState(() => _hasLoaded = false);
