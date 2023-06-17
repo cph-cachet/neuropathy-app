@@ -1,6 +1,8 @@
 // Pain
 //TODO: identifiers in assets constants
+import 'package:flutter/material.dart';
 import 'package:neuro_planner/step/steps/rp_toggle_question_step.dart';
+import 'package:neuro_planner/ui/widgets/neuropathy_icons.dart';
 import 'package:research_package/research_package.dart';
 
 import '../step/steps/rp_choice_question_step.dart';
@@ -8,8 +10,8 @@ import '../step/steps/rp_pain_slider_question_step.dart';
 
 List<RPStep> painStepList = [
   painSlider,
-  _pain1,
-  _pain2,
+  pain1,
+  pain2,
   pain3,
   pain4,
 ];
@@ -43,7 +45,13 @@ List<String> _pain1ChoicesStrings = [
   'pain-1.choice-3',
 ];
 
-RPChoiceQuestionStep _pain1 = RPChoiceQuestionStep(
+Map<String, IconData> pain1Icons = {
+  'pain-1.choice-1': NeuropathyIcons.fire,
+  'pain-1.choice-2': NeuropathyIcons.cold,
+  'pain-1.choice-3': Icons.bolt,
+};
+
+RPChoiceQuestionStep pain1 = RPChoiceQuestionStep(
     identifier: 'pain1',
     title: 'pain-1.title',
     answerFormat: RPChoiceAnswerFormat(
@@ -58,7 +66,15 @@ List<String> _pain2ChoicesStrings = [
   'pain-2.choice-3',
   'pain-2.choice-4',
 ];
-RPChoiceQuestionStep _pain2 = RPChoiceQuestionStep(
+
+Map<String, IconData> pain2Icons = {
+  'pain-2.choice-1': NeuropathyIcons.ant,
+  'pain-2.choice-2': NeuropathyIcons.pin,
+  'pain-2.choice-3': NeuropathyIcons.wave,
+  'pain-2.choice-4': NeuropathyIcons.itching,
+};
+
+RPChoiceQuestionStep pain2 = RPChoiceQuestionStep(
     identifier: 'pain2',
     title: 'pain-2.title',
     answerFormat: RPChoiceAnswerFormat(

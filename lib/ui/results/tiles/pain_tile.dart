@@ -105,24 +105,20 @@ class PainTile extends StatelessWidget {
                   ),
                 ),
               ),
-              verticalSpacing(16),
-              Text(
-                  Languages.of(context)!
-                      .translate('results.pain.characteristics'),
-                  style: ThemeTextStyle.resultsLabelsStyle),
-              verticalSpacing(8),
-              _ResultItemRow(
-                iconData: NeuropathyIcons.fire,
-                label: Languages.of(context)!.translate('results.pain.burning'),
-              ),
-              verticalSpacing(24),
-              Text(Languages.of(context)!.translate('results.pain.other'),
-                  style: ThemeTextStyle.resultsLabelsStyle),
-              verticalSpacing(8),
-              _ResultItemRow(
-                iconData: NeuropathyIcons.itching,
-                label: Languages.of(context)!.translate('results.pain.burning'),
-              ),
+              if (painResults[pain1.identifier]?.results['answer'][0]['text'] !=
+                  'common.none-of-the-above')
+                _painMultipleChoiceResultWidget(
+                  result: painResults[pain1.identifier]!,
+                  icons: pain1Icons,
+                  title: 'results.pain.characteristics',
+                ),
+              if (painResults[pain2.identifier]?.results['answer'][0]['text'] !=
+                  'common.none-of-the-above')
+                _painMultipleChoiceResultWidget(
+                  result: painResults[pain2.identifier]!,
+                  icons: pain2Icons,
+                  title: 'results.pain.other',
+                ),
             ],
           ),
         )
@@ -166,6 +162,32 @@ class _PainStackedRow extends StatelessWidget {
   }
 }
 
+class _painMultipleChoiceResultWidget extends StatelessWidget {
+  final RPStepResult result;
+  final Map<String, IconData> icons;
+  final String title;
+
+  const _painMultipleChoiceResultWidget(
+      {super.key,
+      required this.result,
+      required this.icons,
+      required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        verticalSpacing(24),
+        Text(Languages.of(context)!.translate(title),
+            style: ThemeTextStyle.resultsLabelsStyle),
+        verticalSpacing(8),
+        ...result.results['answer'].map((e) => _ResultItemRow(
+            iconData: icons[e['text']] ?? Icons.error, label: e['text']))
+      ],
+    );
+  }
+}
+
 class _ResultItemRow extends StatelessWidget {
   final IconData iconData;
   final String label;
@@ -174,26 +196,29 @@ class _ResultItemRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(
-          iconData,
-          color: Theme.of(context).colorScheme.primary,
-          size: 20,
-        ),
-        horizontalSpacing(4),
-        Text(
-          label,
-          style: ThemeTextStyle.resultSectionLabelStyle,
-        ),
-        horizontalSpacing(4),
-        Text(
-          '+1',
-          style: ThemeTextStyle.regularIBM14sp
-              .copyWith(color: Theme.of(context).colorScheme.error),
-        )
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6.0),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            iconData,
+            color: Theme.of(context).colorScheme.primary,
+            size: 25,
+          ),
+          horizontalSpacing(4),
+          Text(
+            Languages.of(context)!.translate(label),
+            style: ThemeTextStyle.resultSectionLabelStyle,
+          ),
+          horizontalSpacing(4),
+          Text(
+            '+1',
+            style: ThemeTextStyle.regularIBM14sp
+                .copyWith(color: Theme.of(context).colorScheme.error),
+          )
+        ],
+      ),
     );
   }
 }
