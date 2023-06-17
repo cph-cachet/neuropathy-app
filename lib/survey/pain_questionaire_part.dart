@@ -7,7 +7,7 @@ import '../step/steps/rp_choice_question_step.dart';
 import '../step/steps/rp_pain_slider_question_step.dart';
 
 List<RPStep> painStepList = [
-  _painSlider,
+  painSlider,
   _pain1,
   _pain2,
   _pain3,
@@ -30,7 +30,7 @@ RPToggleQuestionStep skipPainStep = RPToggleQuestionStep(
     answerFormat: painYesNoFormat);
 
 // ------------------------- Pain slider -------------------------
-RPPainSliderQuestionStep _painSlider = RPPainSliderQuestionStep(
+RPPainSliderQuestionStep painSlider = RPPainSliderQuestionStep(
     identifier: 'painSlider',
     title: 'pain-0.title',
     answerFormat:

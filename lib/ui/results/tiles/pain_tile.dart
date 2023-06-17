@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:neuro_planner/languages.dart';
+import 'package:neuro_planner/step/steps/rp_pain_slider_question_step.dart';
+import 'package:neuro_planner/survey/step_identifiers.dart';
 import 'package:neuro_planner/ui/results/tiles/vibration_tile.dart';
 import 'package:neuro_planner/utils/spacing.dart';
 import 'package:research_package/model.dart';
 
+import '../../../survey/pain_questionaire_part.dart';
 import '../../../utils/themes/text_styles.dart';
 import '../../widgets/neuropathy_icons.dart';
 
@@ -14,6 +17,11 @@ class PainTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Map<String, RPStepResult> painResults = Map.fromEntries(taskResult
+            .results.entries
+            .where((element) => painStepIdentifiers.contains(element.key)))
+        .cast<String, RPStepResult>();
+
     return ExpansionTile(
       title: Text(
         'Pain',
@@ -55,8 +63,9 @@ class PainTile extends StatelessWidget {
                             Theme.of(context).sliderTheme.activeTrackColor,
                         inactiveColor:
                             Theme.of(context).sliderTheme.inactiveTrackColor,
-                        value: 75,
-                        label: '75',
+                        value: painResults[painSlider.identifier]
+                                ?.results['answer'] ??
+                            0,
                         onChanged: (double newValue) {},
                         min: 0,
                         max: 100,
