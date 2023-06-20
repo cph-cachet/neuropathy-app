@@ -7,10 +7,24 @@ class AddExaminationButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget slideTransition(animation, child) {
+      return SlideTransition(
+        position: Tween<Offset>(
+          begin: const Offset(0, 1),
+          end: Offset.zero,
+        ).animate(animation),
+        child: child,
+      );
+    }
+
     return FloatingActionButton(
       child: const Icon(Icons.add_rounded, size: 36),
-      onPressed: () => Navigator.of(context).push(
-          MaterialPageRoute<dynamic>(builder: (context) => ExaminationPage())),
+      onPressed: () => Navigator.of(context).push(PageRouteBuilder(
+        pageBuilder: (_, __, ___) => ExaminationPage(),
+        transitionDuration: const Duration(milliseconds: 350),
+        transitionsBuilder: (_, animation, __, child) =>
+            slideTransition(animation, child),
+      )),
     );
   }
 }
