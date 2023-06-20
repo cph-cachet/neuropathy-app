@@ -1,7 +1,3 @@
-// TODO: Localize
-
-//TODO: fix \n in text
-// todo: idea - make a list of text children and apply spacing in the ui
 import 'package:flutter/material.dart';
 import 'package:neuro_planner/step/steps/rp_image_question_step.dart';
 import 'package:neuro_planner/step/steps/rp_instruction_step.dart';

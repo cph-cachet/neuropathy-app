@@ -9,7 +9,8 @@ import 'package:sembast/sembast.dart';
 class SembastResultRepository extends ResultRepository {
   final Database _database = GetIt.I.get();
   final StoreRef _store = intMapStoreFactory.store("result_store");
-  var _latest_id;
+  // ignore: prefer_typing_uninitialized_variables
+  var _latestId;
 
   RPTaskResult decodeRecord(record) {
     Map<String, dynamic> stepResultMap1 =
@@ -31,7 +32,7 @@ class SembastResultRepository extends ResultRepository {
 
   @override
   Future<RPTaskResult> getLatest() async {
-    return getResult(_latest_id);
+    return getResult(_latestId);
   }
 
   @override
@@ -39,17 +40,18 @@ class SembastResultRepository extends ResultRepository {
     final finder = Finder(sortOrders: [SortOrder('id')]);
     final records = await _store.find(_database, finder: finder);
 
-    return records.map((snapshot) {
-      return decodeRecord(snapshot.value);
-    })
-  .toList()
-  .reversed
-  .toList();;
+    return records
+        .map((snapshot) {
+          return decodeRecord(snapshot.value);
+        })
+        .toList()
+        .reversed
+        .toList();
   }
 
   @override
   Future insertResult(RPTaskResult result) async {
-    _latest_id = await _store.add(_database, toJsonString(result));
+    _latestId = await _store.add(_database, toJsonString(result));
   }
 
   @override

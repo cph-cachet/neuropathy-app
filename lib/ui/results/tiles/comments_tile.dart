@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neuro_planner/languages.dart';
 import 'package:neuro_planner/ui/widgets/neuropathy_icons.dart';
 
 import '../../../utils/themes/text_styles.dart';
@@ -12,7 +13,7 @@ class CommentsExpansionTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ExpansionTile(
         title: Text(
-          'Comments',
+          Languages.of(context)!.translate('results.comments.title'),
           style: ThemeTextStyle.regularIBM20sp,
         ),
         leading: Icon(

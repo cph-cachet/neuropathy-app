@@ -1,5 +1,4 @@
 // Pain
-//TODO: identifiers in assets constants
 import 'package:flutter/material.dart';
 import 'package:neuro_planner/step/steps/rp_toggle_question_step.dart';
 import 'package:neuro_planner/ui/widgets/neuropathy_icons.dart';

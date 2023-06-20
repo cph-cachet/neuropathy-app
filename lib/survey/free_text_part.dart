@@ -1,5 +1,3 @@
-//TODO: Localize
-
 import 'package:neuro_planner/step/steps/rp_free_text_step.dart';
 import 'package:research_package/research_package.dart';
 

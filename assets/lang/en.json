@@ -203,6 +203,7 @@
             "knee": "Knee"
         },
         "prick": {
+            "title": "Pin prick",
             "hyper": "Pain Sensitivity",
             "allodynia": "Prick Sensitivity"
         },
@@ -224,6 +225,9 @@
             "sensitivity": "Sensitivity",
             "characteristics": "Characteristics",
             "other": "Other symptoms in feet"
+        }, 
+        "comments": {
+            "title": "Comments"
         }
     },
     "settings": {

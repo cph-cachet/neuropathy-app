@@ -65,7 +65,7 @@ class _PinPrickTileState extends State<PinPrickTile> {
   Widget build(BuildContext context) {
     return ExpansionTile(
       title: Text(
-        'Pin prick',
+        Languages.of(context)!.translate('results.prick.title'),
         style: ThemeTextStyle.regularIBM20sp,
       ),
       leading: Icon(NeuropathyIcons.ph_needle_fillprick_needle,
@@ -117,28 +117,6 @@ class _PinPrickTileState extends State<PinPrickTile> {
                           fontWeight: FontWeight.bold),
                     )),
             ),
-            // ToggleButtons(
-            //     direction: Axis.horizontal,
-            //     onPressed: _onSelected,
-            //     borderRadius: const BorderRadius.all(Radius.circular(20)),
-            //     borderColor: Theme.of(context).colorScheme.primary,
-            //     selectedColor: Colors.white,
-            //     selectedBorderColor: Theme.of(context).colorScheme.primary,
-            //     fillColor: Theme.of(context).colorScheme.primary,
-            //     color: Theme.of(context).colorScheme.primary,
-            //     constraints: const BoxConstraints(
-            //       minHeight: 35.0,
-            //       minWidth: 80.0,
-            //     ),
-            //     isSelected: _choices.map((e) => e.isSelected).toList(),
-            //     children: _choices
-            //         .map((e) => Text(
-            //               Languages.of(context)!
-            //                   .translate(e.text)
-            //                   .toUpperCase(),
-            //               style: ThemeTextStyle.toggleButtonStyle,
-            //             ))
-            //         .toList()),
             verticalSpacing(24),
             ConstrainedBox(
               //TODO: change to sized box
