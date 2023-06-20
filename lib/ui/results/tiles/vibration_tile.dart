@@ -1,5 +1,8 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:basic_utils/basic_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:research_package/model.dart';
+
 import 'package:neuro_planner/survey/vibration_part.dart';
 import 'package:neuro_planner/ui/widgets/neuropathy_icons.dart';
 import 'package:neuro_planner/utils/spacing.dart';
@@ -7,8 +10,39 @@ import 'package:neuro_planner/utils/themes/text_styles.dart';
 
 import '../../../languages.dart';
 
-class VibrationPanelBody extends StatelessWidget {
-  const VibrationPanelBody({Key? key, required this.vibrationScores})
+class VibrationTile extends StatelessWidget {
+  final RPTaskResult result;
+  const VibrationTile({
+    Key? key,
+    required this.result,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    Map<String, int> vibrationScores = Map.fromEntries(result.results.values
+        .cast<RPStepResult>()
+        .toList()
+        .where(
+            (element) => allVibrationIdentifiers.contains(element.identifier))
+        .map((e) =>
+            MapEntry(e.identifier, e.results['answer'][0]['value'] as int)));
+
+    return ExpansionTile(
+        title: Text(Languages.of(context)!.translate('results.vibration.title'),
+            style: ThemeTextStyle.regularIBM20sp),
+        leading: Icon(
+          NeuropathyIcons.bxs_mobile_vibration,
+          size: 40,
+          color: Theme.of(context).colorScheme.primary,
+        ),
+        children: [
+          VibrationTileBody(vibrationScores: vibrationScores),
+        ]);
+  }
+}
+
+class VibrationTileBody extends StatelessWidget {
+  const VibrationTileBody({Key? key, required this.vibrationScores})
       : super(key: key);
 
   final Map<String, int> vibrationScores;

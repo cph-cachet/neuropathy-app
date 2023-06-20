@@ -188,6 +188,9 @@
         "yesterday": "I går"
     },
     "results" : {
+        "title" : "dk Examination Result",
+        "date": "dk Examination date",
+        "score": "dk Total score",
         "common": {
         "score": "dk Score",
         "left": "Højre",
@@ -205,6 +208,7 @@
             "knee": "dk Knee"
         },
         "prick": {
+            "title": "dk Pin prick",
             "hyper": "dk Pain Sensitivity",
             "allodynia": "dk Prick Sensitivity"
         },
@@ -226,6 +230,9 @@
             "sensitivity": "dk Sensitivity",
             "characteristics": "dk Characteristics",
             "other": "dk Other symptoms in feet"
+        }, 
+        "comments": {
+            "title": "dk Comments"
         }
     },
     "settings": {

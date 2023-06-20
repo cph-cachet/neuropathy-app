@@ -188,6 +188,9 @@
 
     },
     "results" : {
+        "title" : "Examination Result",
+        "date": "Examination date",
+        "score": "Total score",
         "common": {
         "score": "Score", "left": "Left",
         "right": "Right"},
