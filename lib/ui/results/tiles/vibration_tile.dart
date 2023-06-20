@@ -152,6 +152,11 @@ class StackedResultItem extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
+        if (!skipMiddleLabel)
+          Text(
+              Languages.of(context)!
+                  .translate('results.$translationSection.$translateLabel'),
+              style: ThemeTextStyle.resultsLabelsStyle),
         overrideScoreResult == null
             ? Text(
                 Languages.of(context)!.translate(translateString),
@@ -161,17 +166,12 @@ class StackedResultItem extends StatelessWidget {
                         : Theme.of(context).colorScheme.secondary),
               )
             : overrideScoreResult!,
-        if (!skipMiddleLabel)
-          Text(
-              Languages.of(context)!
-                  .translate('results.$translationSection.$translateLabel'),
-              style: ThemeTextStyle.resultsLabelsStyle),
         if (score > 0 && !skipScoreCount)
           Text(
             '+$score',
             style: ThemeTextStyle.regularIBM14sp
                 .copyWith(color: Theme.of(context).colorScheme.error),
-          )
+          ),
       ],
     );
   }

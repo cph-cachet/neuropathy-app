@@ -68,7 +68,7 @@ List<String> _pain2ChoicesStrings = [
 ];
 
 Map<String, IconData> pain2Icons = {
-  'pain-2.choice-1': NeuropathyIcons.ant,
+  'pain-2.choice-1': NeuropathyIcons.feather,
   'pain-2.choice-2': NeuropathyIcons.pin,
   'pain-2.choice-3': NeuropathyIcons.wave,
   'pain-2.choice-4': NeuropathyIcons.itching,

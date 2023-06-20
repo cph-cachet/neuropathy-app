@@ -12,6 +12,10 @@
 ///       - asset: fonts/NeuropathyIcons.ttf
 ///
 ///
+/// * Entypo, Copyright (C) 2012 by Daniel Bruce
+///         Author:    Daniel Bruce
+///         License:   SIL (http://scripts.sil.org/OFL)
+///         Homepage:  http://www.entypo.com
 /// * Font Awesome 5, Copyright (C) 2016 by Dave Gandy
 ///         Author:    Dave Gandy
 ///         License:   SIL (https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt)
@@ -27,6 +31,8 @@ class NeuropathyIcons {
   static const _kFontFam = 'NeuropathyIcons';
   static const String? _kFontPkg = null;
 
+  static const IconData feather =
+      IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData bandaid_outline =
       IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData cold =
