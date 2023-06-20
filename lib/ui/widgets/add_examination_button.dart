@@ -12,7 +12,7 @@ class AddExaminationButton extends StatelessWidget {
         position: Tween<Offset>(
           begin: const Offset(0, 1),
           end: Offset.zero,
-        ).animate(animation),
+        ).chain(CurveTween(curve: Curves.ease)).animate(animation),
         child: child,
       );
     }

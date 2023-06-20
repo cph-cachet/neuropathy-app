@@ -203,7 +203,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _slideTransition(animation, child) {
     const begin = Offset(1.0, 0);
     const end = Offset.zero;
-    final tween = Tween(begin: begin, end: end);
+    const curve = Curves.ease;
+    final tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
     final offsetAnimation = animation.drive(tween);
     return SlideTransition(
       position: offsetAnimation,
