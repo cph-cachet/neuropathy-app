@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:neuro_planner/ui/widgets/neuropathy_icons.dart';
 
-import 'package:neuro_planner/ui/results/result_page.dart';
 import 'package:neuro_planner/utils/date_formatter.dart';
 import 'package:neuro_planner/utils/generate_csv.dart';
 import 'package:research_package/research_package.dart';

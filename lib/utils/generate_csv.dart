@@ -7,7 +7,7 @@ import '../repositories/settings_repository/patient.dart';
 List<String> csvHeaders = [
   "timestamp",
   "sex",
-  "age",
+  "date of birth",
   "result",
   ...gradingTaskIdentifiers,
   freeTextStep.identifier,
@@ -50,7 +50,7 @@ String _getCellValue(String header, RPTaskResult result, Patient? patient) {
               .exportText
           : "";
       break;
-    case "age":
+    case "date of birth":
       res = patient?.dateOfBirth?.toIso8601String() ?? "";
       break;
     case "result":
@@ -87,7 +87,7 @@ String _getAnswerFromFormat(String header, List<RPStepResult> stepResults) {
       case RPTextAnswerFormat:
         {
           var val = stepResult.results['answer'];
-          res = val != null ? val[0]['value'].toString() : "";
+          res = val ?? "";
           break;
         }
 
