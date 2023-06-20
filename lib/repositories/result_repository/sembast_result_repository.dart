@@ -41,7 +41,10 @@ class SembastResultRepository extends ResultRepository {
 
     return records.map((snapshot) {
       return decodeRecord(snapshot.value);
-    }).toList();
+    })
+  .toList()
+  .reversed
+  .toList();;
   }
 
   @override
