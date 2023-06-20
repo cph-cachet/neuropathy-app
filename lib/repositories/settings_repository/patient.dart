@@ -19,10 +19,11 @@ class Patient {
 }
 
 enum Sex {
-  female('settings.sex.female'),
-  male('settings.sex.male'),
-  other('settings.sex.other');
+  female('settings.sex.female', 'Female'),
+  male('settings.sex.male', 'Male'),
+  other('settings.sex.other', 'Other');
 
-  const Sex(this.value);
+  const Sex(this.value, this.exportText);
   final String value;
+  final String exportText;
 }

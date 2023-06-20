@@ -9,39 +9,47 @@ import 'package:sembast/sembast.dart';
 class SembastResultRepository extends ResultRepository {
   final Database _database = GetIt.I.get();
   final StoreRef _store = intMapStoreFactory.store("result_store");
+  var _latest_id;
+
+  RPTaskResult decodeRecord(record) {
+    Map<String, dynamic> stepResultMap1 =
+        json.decode(record.toString())['results'];
+
+    RPTaskResult taskResult = RPTaskResult.fromJson(
+        json.decode(record.toString()) as Map<String, dynamic>);
+    taskResult.results = stepResultMap1
+        .map((key, value) => MapEntry(key, RPStepResult.fromJson(value)));
+
+    return taskResult;
+  }
 
   @override
   Future<RPTaskResult> getResult(int id) async {
     final record = await _store.record(id).get(_database);
-    return RPTaskResult.fromJson(record as Map<String, dynamic>);
+    return decodeRecord(record);
+  }
+
+  @override
+  Future<RPTaskResult> getLatest() async {
+    return getResult(_latest_id);
   }
 
   @override
   Future<List<RPTaskResult>> getResults() async {
     final finder = Finder(sortOrders: [SortOrder('id')]);
     final records = await _store.find(_database, finder: finder);
-    //print(records);
 
-    return records
-        .map((snapshot) {
-          Map<String, dynamic> stepResultMap1 =
-              json.decode(snapshot.value.toString())['results'];
-
-          RPTaskResult taskResult = RPTaskResult.fromJson(
-              json.decode(snapshot.value.toString()) as Map<String, dynamic>);
-          taskResult.results = stepResultMap1
-              .map((key, value) => MapEntry(key, RPStepResult.fromJson(value)));
-
-          return taskResult;
-        })
-        .toList()
-        .reversed
-        .toList();
+    return records.map((snapshot) {
+      return decodeRecord(snapshot.value);
+    })
+  .toList()
+  .reversed
+  .toList();;
   }
 
   @override
   Future insertResult(RPTaskResult result) async {
-    await _store.add(_database, toJsonString(result));
+    _latest_id = await _store.add(_database, toJsonString(result));
   }
 
   @override
