@@ -20,18 +20,18 @@ class _SurveyResultPageState extends State<SurveyResultPage> {
   // because database changes some fields in the result (and calculateScore
   // accomodates for this). Alternative is to have two calculateScore functions)
   final ResultRepository _resultRepository = GetIt.I.get();
-  List<RPTaskResult> _results = [];
+  late RPTaskResult _result;
   bool _hasLoaded = false;
   @override
   void initState() {
-    _loadResults();
+    _loadResult();
     super.initState();
   }
 
-  _loadResults() async {
-    final results = await Future.delayed(
-        const Duration(seconds: 1), () => _resultRepository.getResults());
-    setState(() => _results = results);
+  _loadResult() async {
+    final result = await Future.delayed(
+        const Duration(seconds: 1), () => _resultRepository.getLatest());
+    setState(() => _result = result);
     setState(() => _hasLoaded = true);
   }
 
@@ -40,7 +40,7 @@ class _SurveyResultPageState extends State<SurveyResultPage> {
     double minScore = 0;
     double maxScore = 44;
     int testScore = 0;
-    if (_hasLoaded) testScore = calculateScore(_results[_results.length - 1]);
+    if (_hasLoaded) testScore = calculateScore(_result);
 
     return Scaffold(
       body: Material(

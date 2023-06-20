@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-import 'package:neuro_planner/repositories/settings_repository/settings_repository.dart';
+import 'package:neuro_planner/ui/widgets/neuropathy_icons.dart';
+
 import 'package:neuro_planner/utils/date_formatter.dart';
 import 'package:neuro_planner/utils/generate_csv.dart';
 import 'package:research_package/research_package.dart';
@@ -34,14 +34,14 @@ class MainPageBodyWithExaminations extends StatelessWidget {
             title: DateFormatter(dateTime: taskResults[index].startDate!),
             subtitle: Text(calculateScore(taskResults[index]).toString()),
             leading: Icon(
-              Icons.thermostat,
-              size: 30,
+              NeuropathyIcons.carbon_result,
+              size: 45,
               color: Theme.of(context).colorScheme.primary,
             ),
             trailing: GestureDetector(
               child: Icon(
-                Icons.download,
-                size: 30,
+                Icons.file_download_outlined,
+                size: 35,
                 color: Theme.of(context).colorScheme.primary,
               ),
               onTap: () {
