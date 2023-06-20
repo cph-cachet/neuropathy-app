@@ -1,4 +1,3 @@
-//import 'package:carp_test_1/RPQuestionStepExt.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:neuro_planner/step/steps/rp_instruction_step.dart';
 import 'package:neuro_planner/survey/pain_questionaire_part.dart';
@@ -23,12 +22,6 @@ RPInstructionStepWithChildren introductionStep = RPInstructionStepWithChildren(
   ],
 );
 
-// Completion
-RPCompletionStep completionStep = RPCompletionStep(
-    identifier: 'completionID',
-    title: 'examination-completed-title',
-    text: 'examination-completed-text');
-
 RPStepJumpRule noPain =
     RPStepJumpRule(answerMap: {0: vibrationInstructionStep.identifier});
 
@@ -45,6 +38,5 @@ RPNavigableOrderedTask linearSurveyTask = RPNavigableOrderedTask(
       ...vibrationStepList,
       ...motorStepList,
       freeTextStep,
-      completionStep
     ])
   ..setNavigationRuleForTriggerStepIdentifier(noPain, skipPainStep.identifier);
