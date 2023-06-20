@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:neuro_planner/step/steps/rp_instruction_step.dart';
-import 'package:neuro_planner/utils/themes/text_styles.dart';
+import 'package:neuropathy_grading_tool/step/steps/rp_instruction_step.dart';
+import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
 
 import '../languages.dart';

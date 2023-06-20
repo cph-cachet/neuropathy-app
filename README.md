@@ -1,10 +1,10 @@
-# neuro_planner
+# Neuropathy Grading Tool
 
-A Flutter project implementing bought neurodivergent planner
+This is a Master's project done at Danish University of Technology (DTU). The main aim is to create an innovative mobile tool for grading findings and symptoms of early neuropathy.
+
+
 
 ## Getting Started
-
-This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 

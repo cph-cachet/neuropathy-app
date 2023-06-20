@@ -1,7 +1,7 @@
 // TODO: Localize
 import 'package:flutter/material.dart';
-import 'package:neuro_planner/step/steps/rp_image_question_step.dart';
-import 'package:neuro_planner/step/steps/rp_instruction_step.dart';
+import 'package:neuropathy_grading_tool/step/steps/rp_image_question_step.dart';
+import 'package:neuropathy_grading_tool/step/steps/rp_instruction_step.dart';
 import 'package:research_package/research_package.dart';
 
 //TODO: fix \n in text

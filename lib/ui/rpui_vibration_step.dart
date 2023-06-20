@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:neuro_planner/ui/QuestionBody/rpui_vibrationi_body_only_toggle.dart';
+import 'package:neuropathy_grading_tool/ui/QuestionBody/rpui_vibrationi_body_only_toggle.dart';
 import 'package:research_package/research_package.dart';
 
-import 'package:neuro_planner/ui/QuestionBody/rpui_vibration_body_with_button.dart';
-import 'package:neuro_planner/ui/widgets/toggle_button.dart';
+import 'package:neuropathy_grading_tool/ui/QuestionBody/rpui_vibration_body_with_button.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/toggle_button.dart';
 
 import '../step/steps/rp_vibration_step.dart';
 

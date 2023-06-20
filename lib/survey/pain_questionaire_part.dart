@@ -1,6 +1,6 @@
 // Pain
 //TODO: identifiers in assets constants
-import 'package:neuro_planner/step/steps/rp_toggle_question_step.dart';
+import 'package:neuropathy_grading_tool/step/steps/rp_toggle_question_step.dart';
 import 'package:research_package/research_package.dart';
 
 import '../step/steps/rp_choice_question_step.dart';

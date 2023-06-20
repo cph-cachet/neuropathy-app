@@ -3,10 +3,10 @@
 //TODO: fix \n in text
 // todo: idea - make a list of text children and apply spacing in the ui
 import 'package:flutter/material.dart';
-import 'package:neuro_planner/step/steps/rp_image_question_step.dart';
-import 'package:neuro_planner/step/steps/rp_instruction_step.dart';
-import 'package:neuro_planner/step/steps/rp_toggle_question_step.dart';
-import 'package:neuro_planner/utils/themes/text_styles.dart';
+import 'package:neuropathy_grading_tool/step/steps/rp_image_question_step.dart';
+import 'package:neuropathy_grading_tool/step/steps/rp_instruction_step.dart';
+import 'package:neuropathy_grading_tool/step/steps/rp_toggle_question_step.dart';
+import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
 
 const String _prickIntroductionTitle = 'prick-info.title';

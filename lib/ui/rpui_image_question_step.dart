@@ -1,7 +1,7 @@
-import 'package:neuro_planner/languages.dart';
-import 'package:neuro_planner/ui/widgets/bottom_sheet_button.dart';
-import 'package:neuro_planner/ui/widgets/semi_bold_text.dart';
-import 'package:neuro_planner/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/bottom_sheet_button.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/semi_bold_text.dart';
+import 'package:neuropathy_grading_tool/utils/spacing.dart';
 
 import '../step/steps/rp_image_question_step.dart';
 import 'package:flutter/material.dart';

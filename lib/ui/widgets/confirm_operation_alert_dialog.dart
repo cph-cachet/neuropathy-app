@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neuro_planner/languages.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
 
 class ConfirmOperationAlertDialog extends StatelessWidget {
   const ConfirmOperationAlertDialog({

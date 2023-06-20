@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:carp_serializable/carp_serializable.dart';
 import 'package:get_it/get_it.dart';
-import 'package:neuro_planner/repositories/result_repository/result_repository.dart';
+import 'package:neuropathy_grading_tool/repositories/result_repository/result_repository.dart';
 import 'package:research_package/model.dart';
 import 'package:sembast/sembast.dart';
 
@@ -39,12 +39,14 @@ class SembastResultRepository extends ResultRepository {
     final finder = Finder(sortOrders: [SortOrder('id')]);
     final records = await _store.find(_database, finder: finder);
 
-    return records.map((snapshot) {
-      return decodeRecord(snapshot.value);
-    })
-  .toList()
-  .reversed
-  .toList();;
+    return records
+        .map((snapshot) {
+          return decodeRecord(snapshot.value);
+        })
+        .toList()
+        .reversed
+        .toList();
+    ;
   }
 
   @override

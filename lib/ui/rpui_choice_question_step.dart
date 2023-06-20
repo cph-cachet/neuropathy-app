@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:neuro_planner/languages.dart';
-import 'package:neuro_planner/step/steps/rp_choice_question_step.dart';
-import 'package:neuro_planner/ui/widgets/choice_selector.dart';
-import 'package:neuro_planner/utils/spacing.dart';
-import 'package:neuro_planner/utils/themes/text_styles.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
+import 'package:neuropathy_grading_tool/step/steps/rp_choice_question_step.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/choice_selector.dart';
+import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/model.dart';
 
 class RPUIChoiceQuestionStep extends StatefulWidget {

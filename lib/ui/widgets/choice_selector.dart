@@ -2,7 +2,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:neuro_planner/languages.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:research_package/model.dart';
 
 import '../../utils/themes/text_styles.dart';

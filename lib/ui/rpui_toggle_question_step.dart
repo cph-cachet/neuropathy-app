@@ -1,6 +1,6 @@
 //import 'RPPrickQuestionStep.dart';
 import 'package:flutter/material.dart';
-import 'package:neuro_planner/ui/widgets/semi_bold_text.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/semi_bold_text.dart';
 import 'package:research_package/research_package.dart';
 
 import '../languages.dart';

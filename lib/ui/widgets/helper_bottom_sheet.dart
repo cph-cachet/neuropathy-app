@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:neuro_planner/utils/spacing.dart';
-import 'package:neuro_planner/utils/themes/text_styles.dart';
+import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 
 class HelperBottomSheet extends StatelessWidget {
   final String title;

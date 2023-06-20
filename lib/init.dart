@@ -1,9 +1,9 @@
 import 'package:carp_serializable/carp_serializable.dart';
 import 'package:get_it/get_it.dart';
-import 'package:neuro_planner/repositories/result_repository/result_repository.dart';
-import 'package:neuro_planner/repositories/result_repository/sembast_result_repository.dart';
-import 'package:neuro_planner/repositories/settings_repository/sembast_settings_repository.dart';
-import 'package:neuro_planner/repositories/settings_repository/settings_repository.dart';
+import 'package:neuropathy_grading_tool/repositories/result_repository/result_repository.dart';
+import 'package:neuropathy_grading_tool/repositories/result_repository/sembast_result_repository.dart';
+import 'package:neuropathy_grading_tool/repositories/settings_repository/sembast_settings_repository.dart';
+import 'package:neuropathy_grading_tool/repositories/settings_repository/settings_repository.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:research_package/model.dart';
 import 'package:sembast/sembast.dart';

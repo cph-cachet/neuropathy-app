@@ -2,7 +2,7 @@ import 'package:basic_utils/basic_utils.dart';
 import 'package:flag/flag.dart';
 
 import 'package:flutter/material.dart';
-import 'package:neuro_planner/utils/languages_local.dart';
+import 'package:neuropathy_grading_tool/utils/languages_local.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 import '../../../languages.dart';

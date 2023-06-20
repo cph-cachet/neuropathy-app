@@ -1,6 +1,6 @@
 {
-    "name": "neuro_planner",
-    "short_name": "neuro_planner",
+    "name": "neuropathy_grading_tool",
+    "short_name": "neuropathy_grading_tool",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

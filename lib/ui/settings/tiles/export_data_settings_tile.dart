@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neuro_planner/languages.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:research_package/research_package.dart';
 import 'package:settings_ui/settings_ui.dart';
 import 'package:to_csv/to_csv.dart' as export_csv;

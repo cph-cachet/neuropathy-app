@@ -1,6 +1,6 @@
 //TODO: Localize
 
-import 'package:neuro_planner/step/steps/rp_free_text_step.dart';
+import 'package:neuropathy_grading_tool/step/steps/rp_free_text_step.dart';
 import 'package:research_package/research_package.dart';
 
 const String _freeTextTitle = 'free-text.title';
