@@ -188,51 +188,51 @@
         "yesterday": "I går"
     },
     "results" : {
-        "title" : "dk Examination Result",
-        "date": "dk Examination date",
-        "score": "dk Total score",
+        "title" : "Resultat af eksamination",
+        "date": "Eksamination dato",
+        "score": "Samlet score",
         "common": {
-        "score": "dk Score",
-        "left": "Højre",
-        "right": "Venstre"
-    },
+            "score": "Score",
+            "left": "Højre",
+            "right": "Venstre"
+        },
         "vibration" : {
-            "title": "dk Vibration",
-            "section-score": "dk Section score",
-            "feeling-vibration": "dk Feeling the vibration",
-            "feeling-toe": "dk Feeling toe extension",
+            "title": "Vibration",
+            "section-score": "Sektion score",
+            "feeling-vibration": "Kan føle vibration",
+            "feeling-toe": "Kan føle tåens bevægelse",
             "left": "Højre",
             "right": "Venstre",
-            "toe": "dk Toe",
-            "ankle": "dk Ankle",
-            "knee": "dk Knee"
+            "toe": "Tå",
+            "ankle": "Ankel",
+            "knee": "Knæ"
         },
         "prick": {
-            "title": "dk Pin prick",
-            "hyper": "dk Pain Sensitivity",
-            "allodynia": "dk Prick Sensitivity"
+            "title": "Nåle-prik",
+            "hyper": "Følsomhed smerte",
+            "allodynia": "Følsomhed prik"
         },
         "other": {
-            "title": "dk Other Findings",
-            "motor": "dk Normal Motor Function",
-            "symptoms": "dk Day-to-day symptoms"
+            "title": "Andre resultater",
+            "motor": "Normal Motor Funktion",
+            "symptoms": "Symptomer i dagligdagen"
         },
         "pain": {
-            "increased": "dk Increased",
-            "normal": "dk Normal",
-            "decreased": "dk Decreased",
-            "title": "dk Pain",
-            "level": "dk Pain level",
-            "score": "dk Pain score",
-            "prick": "dk Prick",
-            "touch": "dk Touch",
-            "stroking": "dk Stroking",
-            "sensitivity": "dk Sensitivity",
-            "characteristics": "dk Characteristics",
-            "other": "dk Other symptoms in feet"
+            "increased": "Forøget",
+            "normal": "Normal",
+            "decreased": "Formindsket",
+            "title": "Smerte",
+            "level": "Størrelse af smerte",
+            "score": "Smerte score",
+            "prick": "Prik",
+            "touch": "Berøring",
+            "stroking": "Strøg",
+            "sensitivity": "Følsomhed",
+            "characteristics": "Kendetegn",
+            "other": "Andre symptomer i fødderne"
         }, 
         "comments": {
-            "title": "dk Comments"
+            "title": "Kommentarer"
         }
     },
     "settings": {
