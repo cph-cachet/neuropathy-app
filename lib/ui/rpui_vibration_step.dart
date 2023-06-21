@@ -7,7 +7,6 @@ import 'package:neuropathy_grading_tool/ui/widgets/toggle_button.dart';
 
 import '../step/steps/rp_vibration_step.dart';
 
-// TODO: Decide if vertical padding is more useful than alignment
 class RPUIVibrationStep extends StatefulWidget {
   final RPVibrationStep vibrationStep;
   const RPUIVibrationStep(this.vibrationStep, {super.key});

@@ -16,8 +16,4 @@ class RPInstructionStepWithChildren extends RPInstructionStep {
 
   @override
   get stepWidget => RPUIInstructionStepWithChildren(step: this);
-
-  @override // TODO: implement fromJsonFunction
-  Function get fromJsonFunction => super.fromJsonFunction;
-  // TODO: factory function and Map
 }

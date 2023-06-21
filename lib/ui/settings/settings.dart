@@ -14,6 +14,7 @@ import 'package:research_package/model.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 import '../../repositories/settings_repository/patient.dart';
+import '../../utils/themes/text_styles.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -92,49 +93,58 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(Languages.of(context)!.translate('settings.title')),
+          title: Text(
+              Languages.of(context)!.translate('settings.title').toUpperCase(),
+              style: ThemeTextStyle.extraLightIBM16sp.copyWith(
+                  color: Theme.of(context).colorScheme.primary,
+                  fontWeight: FontWeight.bold)),
           leading: IconButton(
               onPressed: () => Navigator.pop(context, willReload),
               icon: const Icon(Icons.arrow_back)),
         ),
-        body: SettingsList(sections: [
-          SettingsSection(
-            title: Text(Languages.of(context)!
-                .translate('settings.sections.personal-info')),
-            tiles: [
-              if (kDebugMode)
-                SettingsTile(
-                    title:
-                        const Text('reset patient info w/out deleting results'),
-                    onPressed: (_) => _setPatient(Patient())),
-              SexSettingsTile(
-                  patientSex: _patient?.sex,
-                  onChanged: (newValue, reset) {
-                    _changePatientInfo({'sex': newValue});
+        body: SettingsList(
+            lightTheme: SettingsThemeData(
+                settingsListBackground:
+                    Theme.of(context).colorScheme.background),
+            sections: [
+              SettingsSection(
+                title: Text(Languages.of(context)!
+                    .translate('settings.sections.personal-info')),
+                tiles: [
+                  if (kDebugMode)
+                    SettingsTile(
+                        title: const Text(
+                            'reset patient info w/out deleting results'),
+                        onPressed: (_) => _setPatient(Patient())),
+                  SexSettingsTile(
+                      patientSex: _patient?.sex,
+                      onChanged: (newValue, reset) {
+                        _changePatientInfo({'sex': newValue});
+                        if (reset) _resetDatabase();
+                        shouldReload();
+                      }),
+                  AgeSettingsTile(_patient?.dateOfBirth,
+                      (DateTime newValue, reset) {
+                    _changePatientInfo(
+                        {'dateOfBirth': newValue.toIso8601String()});
                     if (reset) _resetDatabase();
                     shouldReload();
-                  }),
-              AgeSettingsTile(_patient?.dateOfBirth,
-                  (DateTime newValue, reset) {
-                _changePatientInfo({'dateOfBirth': newValue.toIso8601String()});
-                if (reset) _resetDatabase();
-                shouldReload();
-              })
-            ],
-          ),
-          SettingsSection(
-            title:
-                Text(Languages.of(context)!.translate('settings.sections.app')),
-            tiles: [
-              const LanguagesSettingsTile(),
-              ExportDataSettingTile(_results, _patient ?? Patient()),
-              ResetDatabaseSettingsTile(shouldReload()),
-              VibrationDurationSettingsTile(
-                initialVibDuration: vibrationDuration,
-                onConfirm: (val) => _setVibrationDuration(val),
-              )
-            ],
-          ),
-        ]));
+                  })
+                ],
+              ),
+              SettingsSection(
+                title: Text(
+                    Languages.of(context)!.translate('settings.sections.app')),
+                tiles: [
+                  const LanguagesSettingsTile(),
+                  ExportDataSettingTile(_results, _patient ?? Patient()),
+                  ResetDatabaseSettingsTile(shouldReload()),
+                  VibrationDurationSettingsTile(
+                    initialVibDuration: vibrationDuration,
+                    onConfirm: (val) => _setVibrationDuration(val),
+                  )
+                ],
+              ),
+            ]));
   }
 }

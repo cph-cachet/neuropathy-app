@@ -16,8 +16,4 @@ class RPFreeTextStep extends RPStep {
 
   @override
   get stepWidget => RPUIFreeTextStep(this);
-
-  @override // TODO: implement fromJsonFunction
-  Function get fromJsonFunction => super.fromJsonFunction;
-  // TODO: factory function and Map
 }

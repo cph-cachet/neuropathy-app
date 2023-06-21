@@ -175,8 +175,6 @@
         "title": "Afsluttende kommentarer",
         "text": "Har du nogen tanker eller kommentarer, der ikke kom frem under eksaminationen? I så fald, kan du skrive dem herunder."
     },
-    "examination-completed-title": "Eksamination gennemført",
-    "examination-completed-text": "Tryk FÆRDIG for at afslutte og se resultatet",
     "result-screen":
     {
         "title": "Eksamination gennemført",
@@ -186,6 +184,54 @@
         "button-main": "Tilbage til hovedmenuen",
         "today": "I dag",
         "yesterday": "I går"
+    },
+    "results" : {
+        "title" : "Resultat af eksamination",
+        "date": "Eksamination dato",
+        "score": "Samlet score",
+        "common": {
+            "score": "Score",
+            "left": "Højre",
+            "right": "Venstre"
+        },
+        "vibration" : {
+            "title": "Vibration",
+            "section-score": "Sektion score",
+            "feeling-vibration": "Kan føle vibration",
+            "feeling-toe": "Kan føle tåens bevægelse",
+            "left": "Højre",
+            "right": "Venstre",
+            "toe": "Tå",
+            "ankle": "Ankel",
+            "knee": "Knæ"
+        },
+        "prick": {
+            "title": "Nåle-prik",
+            "hyper": "Følsomhed smerte",
+            "allodynia": "Følsomhed prik"
+        },
+        "other": {
+            "title": "Andre resultater",
+            "motor": "Normal Motor Funktion",
+            "symptoms": "Symptomer i dagligdagen"
+        },
+        "pain": {
+            "increased": "Forøget",
+            "normal": "Normal",
+            "decreased": "Formindsket",
+            "title": "Smerte",
+            "level": "Størrelse af smerte",
+            "score": "Smerte score",
+            "prick": "Prik",
+            "touch": "Berøring",
+            "stroking": "Strøg",
+            "sensitivity": "Følsomhed",
+            "characteristics": "Kendetegn",
+            "other": "Andre symptomer i fødderne"
+        }, 
+        "comments": {
+            "title": "Kommentarer"
+        }
     },
     "settings": {
         "title": "Indstillinger",

@@ -1,17 +1,18 @@
 // Pain
-//TODO: identifiers in assets constants
+import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/step/steps/rp_toggle_question_step.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/neuropathy_icons.dart';
 import 'package:research_package/research_package.dart';
 
 import '../step/steps/rp_choice_question_step.dart';
 import '../step/steps/rp_pain_slider_question_step.dart';
 
 List<RPStep> painStepList = [
-  _painSlider,
-  _pain1,
-  _pain2,
-  _pain3,
-  _pain4,
+  painSlider,
+  pain1,
+  pain2,
+  pain3,
+  pain4,
 ];
 
 //------------------------- common -------------------------
@@ -30,7 +31,7 @@ RPToggleQuestionStep skipPainStep = RPToggleQuestionStep(
     answerFormat: painYesNoFormat);
 
 // ------------------------- Pain slider -------------------------
-RPPainSliderQuestionStep _painSlider = RPPainSliderQuestionStep(
+RPPainSliderQuestionStep painSlider = RPPainSliderQuestionStep(
     identifier: 'painSlider',
     title: 'pain-0.title',
     answerFormat:
@@ -43,7 +44,13 @@ List<String> _pain1ChoicesStrings = [
   'pain-1.choice-3',
 ];
 
-RPChoiceQuestionStep _pain1 = RPChoiceQuestionStep(
+Map<String, IconData> pain1Icons = {
+  'pain-1.choice-1': NeuropathyIcons.fire,
+  'pain-1.choice-2': NeuropathyIcons.cold,
+  'pain-1.choice-3': Icons.bolt,
+};
+
+RPChoiceQuestionStep pain1 = RPChoiceQuestionStep(
     identifier: 'pain1',
     title: 'pain-1.title',
     answerFormat: RPChoiceAnswerFormat(
@@ -58,7 +65,15 @@ List<String> _pain2ChoicesStrings = [
   'pain-2.choice-3',
   'pain-2.choice-4',
 ];
-RPChoiceQuestionStep _pain2 = RPChoiceQuestionStep(
+
+Map<String, IconData> pain2Icons = {
+  'pain-2.choice-1': NeuropathyIcons.feather,
+  'pain-2.choice-2': NeuropathyIcons.pin,
+  'pain-2.choice-3': NeuropathyIcons.wave,
+  'pain-2.choice-4': NeuropathyIcons.itching,
+};
+
+RPChoiceQuestionStep pain2 = RPChoiceQuestionStep(
     identifier: 'pain2',
     title: 'pain-2.title',
     answerFormat: RPChoiceAnswerFormat(
@@ -67,21 +82,21 @@ RPChoiceQuestionStep _pain2 = RPChoiceQuestionStep(
             _choiceFactory(text: _pain2ChoicesStrings, addNoneOfAbove: true)));
 
 // ------------------------- PAIN 3 -------------------------
-List<String> _pain3ChoicesStrings = [
+List<String> pain3ChoicesStrings = [
   'pain-3.choice-1',
   'pain-3.choice-2',
 ];
 
-RPChoiceQuestionStep _pain3 = RPChoiceQuestionStep(
+RPChoiceQuestionStep pain3 = RPChoiceQuestionStep(
     identifier: 'pain3',
     title: 'pain-3.title',
     answerFormat: RPChoiceAnswerFormat(
         answerStyle: RPChoiceAnswerStyle.MultipleChoice,
         choices:
-            _choiceFactory(text: _pain3ChoicesStrings, addNoneOfAbove: true)));
+            _choiceFactory(text: pain3ChoicesStrings, addNoneOfAbove: true)));
 
 // ------------------------- PAIN 4 -------------------------
-RPToggleQuestionStep _pain4 = RPToggleQuestionStep(
+RPToggleQuestionStep pain4 = RPToggleQuestionStep(
     identifier: 'pain4',
     title: 'pain-4.title-1',
     text: 'pain-4.title-2',
