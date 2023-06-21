@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:neuro_planner/languages.dart';
-import 'package:neuro_planner/repositories/result_repository/examination_score.dart';
-import 'package:neuro_planner/repositories/settings_repository/patient.dart';
-import 'package:neuro_planner/survey/free_text_part.dart';
-import 'package:neuro_planner/survey/step_identifiers.dart';
-import 'package:neuro_planner/ui/results/tiles/comments_tile.dart';
-import 'package:neuro_planner/ui/results/tiles/other_tile.dart';
-import 'package:neuro_planner/ui/results/tiles/pain_tile.dart';
-import 'package:neuro_planner/ui/results/tiles/pin_prick_tile.dart';
-import 'package:neuro_planner/ui/results/tiles/vibration_tile.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
+import 'package:neuropathy_grading_tool/repositories/result_repository/examination_score.dart';
+import 'package:neuropathy_grading_tool/repositories/settings_repository/patient.dart';
+import 'package:neuropathy_grading_tool/survey/free_text_part.dart';
+import 'package:neuropathy_grading_tool/survey/step_identifiers.dart';
+import 'package:neuropathy_grading_tool/ui/results/tiles/comments_tile.dart';
+import 'package:neuropathy_grading_tool/ui/results/tiles/other_tile.dart';
+import 'package:neuropathy_grading_tool/ui/results/tiles/pain_tile.dart';
+import 'package:neuropathy_grading_tool/ui/results/tiles/pin_prick_tile.dart';
+import 'package:neuropathy_grading_tool/ui/results/tiles/vibration_tile.dart';
 
-import 'package:neuro_planner/ui/widgets/neuropathy_icons.dart';
-import 'package:neuro_planner/utils/date_formatter.dart';
-import 'package:neuro_planner/utils/themes/text_styles.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/neuropathy_icons.dart';
+import 'package:neuropathy_grading_tool/utils/date_formatter.dart';
+import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
 import 'package:to_csv/to_csv.dart' as export_csv;
 

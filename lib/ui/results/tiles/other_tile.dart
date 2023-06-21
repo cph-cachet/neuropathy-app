@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:neuro_planner/survey/motor_part.dart';
-import 'package:neuro_planner/ui/results/tiles/vibration_tile.dart';
+import 'package:neuropathy_grading_tool/survey/motor_part.dart';
+import 'package:neuropathy_grading_tool/ui/results/tiles/vibration_tile.dart';
 
 import 'package:research_package/model.dart';
 
