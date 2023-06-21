@@ -58,4 +58,22 @@ class ThemeTextStyle {
     height: 15 / 15,
     letterSpacing: 0,
   );
+
+  static TextStyle resultSectionLabelStyle = regularIBM14sp.copyWith(
+    letterSpacing: -0.04,
+    fontWeight: FontWeight.w200,
+    color: Colors.black54,
+  );
+
+  static TextStyle resultsSmallLabelStyle = GoogleFonts.ibmPlexSansCondensed(
+    fontSize: 12,
+    letterSpacing: -0.04,
+    fontWeight: FontWeight.w400,
+    color: Colors.black54,
+  );
+
+  static TextStyle resultsLabelsStyle = extraLightIBM16sp.copyWith(
+    letterSpacing: -0.04,
+    fontWeight: FontWeight.w400,
+  );
 }

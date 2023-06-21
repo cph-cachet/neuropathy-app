@@ -14,6 +14,7 @@ import 'package:research_package/model.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 import '../../repositories/settings_repository/patient.dart';
+import '../../utils/themes/text_styles.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -92,7 +93,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(Languages.of(context)!.translate('settings.title')),
+          title: Text(
+              Languages.of(context)!.translate('settings.title').toUpperCase(),
+              style: ThemeTextStyle.extraLightIBM16sp.copyWith(
+                  color: Theme.of(context).colorScheme.primary,
+                  fontWeight: FontWeight.bold)),
           leading: IconButton(
               onPressed: () => Navigator.pop(context, willReload),
               icon: const Icon(Icons.arrow_back)),

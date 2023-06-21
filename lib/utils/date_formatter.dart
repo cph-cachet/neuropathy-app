@@ -5,8 +5,9 @@ import '../languages.dart';
 
 class DateFormatter extends StatelessWidget {
   final DateTime dateTime;
+  final TextStyle? style;
 
-  const DateFormatter({super.key, required this.dateTime});
+  const DateFormatter({super.key, required this.dateTime, this.style});
 
   String getFormattedTime(DateTime dateTime, BuildContext context) {
     DateTime now = DateTime.now();
@@ -36,6 +37,9 @@ class DateFormatter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(getFormattedTime(dateTime, context));
+    return Text(
+      getFormattedTime(dateTime, context),
+      style: style,
+    );
   }
 }

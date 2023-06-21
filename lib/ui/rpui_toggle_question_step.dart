@@ -53,7 +53,6 @@ class RPUIToggleQuestionStepState extends State<RPUIToggleQuestionStep>
 
   @override
   Widget build(BuildContext context) {
-    RPLocalizations? locale = RPLocalizations.of(context);
     return SafeArea(
         child:
             Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [

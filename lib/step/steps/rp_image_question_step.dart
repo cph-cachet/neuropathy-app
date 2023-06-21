@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:research_package/research_package.dart';
 
@@ -26,8 +25,4 @@ class RPImageQuestionStep extends RPStep {
 
   @override
   get stepWidget => RPUIImageQuestionStep(this);
-
-  @override // TODO: implement fromJsonFunction
-  Function get fromJsonFunction => super.fromJsonFunction;
-  // TODO: factory function and Map
 }
