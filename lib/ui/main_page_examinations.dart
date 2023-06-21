@@ -26,6 +26,16 @@ class MainPageBodyWithExaminations extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget slideTransition(animation, child) {
+      return SlideTransition(
+        position: Tween<Offset>(
+          begin: const Offset(0, 1),
+          end: Offset.zero,
+        ).chain(CurveTween(curve: Curves.ease)).animate(animation),
+        child: child,
+      );
+    }
+
     return ListView.builder(
       itemCount: taskResults.length,
       itemBuilder: (context, index) {
@@ -52,15 +62,15 @@ class MainPageBodyWithExaminations extends StatelessWidget {
               },
             ),
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ResultPage(
-                    patient: patient,
-                    result: taskResults[index],
-                  ),
+              Navigator.of(context).push(PageRouteBuilder(
+                pageBuilder: (_, __, ___) => ResultPage(
+                  patient: patient,
+                  result: taskResults[index],
                 ),
-              );
+                transitionDuration: const Duration(milliseconds: 400),
+                transitionsBuilder: (_, animation, __, child) =>
+                    slideTransition(animation, child),
+              ));
             },
           ),
         );
