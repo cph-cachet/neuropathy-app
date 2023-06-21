@@ -7,12 +7,11 @@ import '../../utils/spacing.dart';
 import '../../utils/themes/styles.dart';
 
 class VibrationButton extends StatefulWidget {
-  var vibDuration;
-  var countDown;
+  final int vibDuration;
+  final int countDown;
 
-  VibrationButton({super.key, this.countDown = 15}) {
-    vibDuration = countDown * 1000;
-  }
+  const VibrationButton({super.key, this.countDown = 15})
+      : vibDuration = countDown * 1000;
 
   @override
   VibrationButtonState createState() => VibrationButtonState();

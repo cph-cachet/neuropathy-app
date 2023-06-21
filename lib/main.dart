@@ -13,6 +13,7 @@ import 'package:neuro_planner/ui/main_page_empty.dart';
 import 'package:neuro_planner/ui/main_page_examinations.dart';
 import 'package:neuro_planner/ui/widgets/add_examination_button.dart';
 import 'package:neuro_planner/utils/spacing.dart';
+import 'package:neuro_planner/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
 import 'init.dart';
 
@@ -94,6 +95,20 @@ class _MyAppState extends State<MyApp> {
       },
       title: 'Flutter Demo',
       theme: ThemeData(
+        unselectedWidgetColor: const Color(0xff22577a).withOpacity(0.7),
+        dividerColor: Colors.transparent,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.transparent,
+          iconTheme: IconThemeData(color: Color(0xff22577a)),
+          actionsIconTheme: IconThemeData(color: Color(0xff22577a)),
+          shadowColor: Color(0xff22577a),
+          // titleTextStyle: TextStyle(
+          //   color: Color(0xff22577a),
+          //   fontSize: 20,
+          //   fontWeight: FontWeight.normal,
+          // ),
+          elevation: 0,
+        ),
         buttonTheme: ButtonThemeData(
           //TODO: make this work on all buttons?
           shape: RoundedRectangleBorder(
@@ -104,12 +119,13 @@ class _MyAppState extends State<MyApp> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5),
           ),
-          fillColor: MaterialStateProperty.all(Color(0xff22577a)),
+          fillColor: MaterialStateProperty.all(const Color(0xff22577a)),
           checkColor: MaterialStateProperty.all(Colors.white),
         ),
         radioTheme: RadioThemeData(
-          fillColor: MaterialStateProperty.all(Color(0xff22577a)),
+          fillColor: MaterialStateProperty.all(const Color(0xff22577a)),
         ),
+        iconTheme: const IconThemeData(color: Color(0xff22577a)),
         primarySwatch: Colors.blue,
         colorScheme: const ColorScheme(
           brightness: Brightness.light,
@@ -136,9 +152,9 @@ class _MyAppState extends State<MyApp> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Loading...'),
+                    const Text('Loading...'), // TODO: translate
                     verticalSpacing(16),
-                    CircularProgressIndicator(),
+                    const CircularProgressIndicator(),
                   ],
                 ),
               ),
@@ -185,8 +201,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   _loadResults() async {
-    // await _resultRepository
-    //     .deleteAllResults(); //used for debug delete all results
     final results = await Future.delayed(
         const Duration(seconds: 1), () => _resultRepository.getResults());
     setState(() => _results = results);
@@ -204,12 +218,16 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        backgroundColor: Colors.transparent,
+        title: Text(widget.title.toUpperCase(),
+            style: ThemeTextStyle.extraLightIBM16sp.copyWith(
+                color: Theme.of(context).colorScheme.primary,
+                fontWeight: FontWeight.bold)),
         actions: [
           IconButton(
               onPressed: () => Navigator.of(context)
                       .push(MaterialPageRoute<dynamic>(
-                          builder: (context) => SettingsScreen()))
+                          builder: (context) => const SettingsScreen()))
                       .then((shouldReload) {
                     if (shouldReload == true) {
                       setState(() => _hasLoaded = false);
@@ -217,7 +235,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       _loadPatient();
                     }
                   }),
-              icon: const Icon(Icons.settings))
+              icon: const Icon(Icons.settings_outlined))
         ],
       ),
       floatingActionButton: _hasLoaded && _results.isNotEmpty
