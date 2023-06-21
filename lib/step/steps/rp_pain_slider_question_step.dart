@@ -17,8 +17,4 @@ class RPPainSliderQuestionStep extends RPStep {
 
   @override
   get stepWidget => RPUIPainSliderQuestionStep(this);
-
-  @override // TODO: implement fromJsonFunction
-  Function get fromJsonFunction => super.fromJsonFunction;
-  // TODO: factory function and Map
 }

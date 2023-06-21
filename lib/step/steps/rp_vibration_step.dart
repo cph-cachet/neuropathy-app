@@ -18,7 +18,4 @@ class RPVibrationStep extends RPStep {
 
   @override
   get stepWidget => RPUIVibrationStep(this);
-
-  @override
-  Function get fromJsonFunction => super.fromJsonFunction;
 }

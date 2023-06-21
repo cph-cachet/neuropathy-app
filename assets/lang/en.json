@@ -174,8 +174,6 @@
         "title": "Closing comments",
         "text": "Do you have any thought or comments that weren't addressed in the examination? If so, please write them below."
     },
-    "examination-completed-title": "Examination completed",
-    "examination-completed-text": "Tap DONE to finish and see the result",
     "result-screen":
     {
         "title": "Examination completed",
@@ -186,6 +184,52 @@
         "today": "Today",
         "yesterday": "Yesterday"
 
+    },
+    "results" : {
+        "title" : "Examination Result",
+        "date": "Examination date",
+        "score": "Total score",
+        "common": {
+        "score": "Score", "left": "Left",
+        "right": "Right"},
+        "vibration" : {
+            "title": "Vibration",
+            "section-score": "Section score",
+            "feeling-vibration": "Feeling the vibration",
+            "feeling-toe": "Feeling toe extension",
+            "left": "Left",
+            "right": "Right",
+            "toe": "Toe",
+            "ankle": "Ankle",
+            "knee": "Knee"
+        },
+        "prick": {
+            "title": "Pin prick",
+            "hyper": "Pain Sensitivity",
+            "allodynia": "Prick Sensitivity"
+        },
+        "other": {
+            "title": "Other Findings",
+            "motor": "Normal Motor Function",
+            "symptoms": "Day-to-day symptoms"
+        },
+        "pain": {
+            "increased": "Increased",
+            "normal": "Normal",
+            "decreased": "Decreased",
+            "title": "Pain",
+            "level": "Pain level",
+            "score": "Pain score",
+            "prick": "Prick",
+            "touch": "Touch",
+            "stroking": "Stroking",
+            "sensitivity": "Sensitivity",
+            "characteristics": "Characteristics",
+            "other": "Other symptoms in feet"
+        }, 
+        "comments": {
+            "title": "Comments"
+        }
     },
     "settings": {
         "title": "Settings",

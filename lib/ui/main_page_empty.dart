@@ -1,4 +1,3 @@
-import 'package:circle_flags/circle_flags.dart';
 import 'package:flutter/material.dart';
 
 import '../examination_page.dart';

@@ -24,7 +24,7 @@ class ExaminationPage extends StatelessWidget {
       onSubmit: (result) {
         resultCallback(result);
         Navigator.of(context).push(MaterialPageRoute<dynamic>(
-            builder: (context) => SurveyResultPage()));
+            builder: (context) => const SurveyResultPage()));
       },
     );
   }

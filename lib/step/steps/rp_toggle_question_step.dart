@@ -17,8 +17,4 @@ class RPToggleQuestionStep extends RPStep {
 
   @override
   get stepWidget => RPUIToggleQuestionStep(this);
-
-  @override // TODO: implement fromJsonFunction
-  Function get fromJsonFunction => super.fromJsonFunction;
-  // TODO: factory function and Map
 }

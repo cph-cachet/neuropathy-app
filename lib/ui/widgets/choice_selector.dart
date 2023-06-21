@@ -1,5 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:neuro_planner/languages.dart';
@@ -33,8 +32,7 @@ class ChoiceSelectorState extends State<ChoiceSelector> {
         selectedChoices = [];
         selectedChoices.add(selectedChoice);
       });
-    } //TODO: Localize
-    else {
+    } else {
       if (selectedChoices.contains(selectedChoice)) {
         setState(() {
           selectedChoices.remove(selectedChoice);
