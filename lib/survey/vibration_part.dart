@@ -68,9 +68,7 @@ List<String> leftVibrationSteps = VibrationStrings.values
     .toList();
 
 List<String> rightVibrationSteps = VibrationStrings.values
-    .where((element) {
-      return element.identifier.contains('right');
-    })
+    .where((element) => element.identifier.contains('right'))
     .map((e) => e.identifier)
     .toList();
 List<String> allVibrationIdentifiers = [
