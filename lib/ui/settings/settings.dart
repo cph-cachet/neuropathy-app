@@ -102,44 +102,49 @@ class _SettingsScreenState extends State<SettingsScreen> {
               onPressed: () => Navigator.pop(context, willReload),
               icon: const Icon(Icons.arrow_back)),
         ),
-        body: SettingsList(sections: [
-          SettingsSection(
-            title: Text(Languages.of(context)!
-                .translate('settings.sections.personal-info')),
-            tiles: [
-              if (kDebugMode)
-                SettingsTile(
-                    title:
-                        const Text('reset patient info w/out deleting results'),
-                    onPressed: (_) => _setPatient(Patient())),
-              SexSettingsTile(
-                  patientSex: _patient?.sex,
-                  onChanged: (newValue, reset) {
-                    _changePatientInfo({'sex': newValue});
+        body: SettingsList(
+            lightTheme: SettingsThemeData(
+                settingsListBackground:
+                    Theme.of(context).colorScheme.background),
+            sections: [
+              SettingsSection(
+                title: Text(Languages.of(context)!
+                    .translate('settings.sections.personal-info')),
+                tiles: [
+                  if (kDebugMode)
+                    SettingsTile(
+                        title: const Text(
+                            'reset patient info w/out deleting results'),
+                        onPressed: (_) => _setPatient(Patient())),
+                  SexSettingsTile(
+                      patientSex: _patient?.sex,
+                      onChanged: (newValue, reset) {
+                        _changePatientInfo({'sex': newValue});
+                        if (reset) _resetDatabase();
+                        shouldReload();
+                      }),
+                  AgeSettingsTile(_patient?.dateOfBirth,
+                      (DateTime newValue, reset) {
+                    _changePatientInfo(
+                        {'dateOfBirth': newValue.toIso8601String()});
                     if (reset) _resetDatabase();
                     shouldReload();
-                  }),
-              AgeSettingsTile(_patient?.dateOfBirth,
-                  (DateTime newValue, reset) {
-                _changePatientInfo({'dateOfBirth': newValue.toIso8601String()});
-                if (reset) _resetDatabase();
-                shouldReload();
-              })
-            ],
-          ),
-          SettingsSection(
-            title:
-                Text(Languages.of(context)!.translate('settings.sections.app')),
-            tiles: [
-              const LanguagesSettingsTile(),
-              ExportDataSettingTile(_results, _patient ?? Patient()),
-              ResetDatabaseSettingsTile(shouldReload()),
-              VibrationDurationSettingsTile(
-                initialVibDuration: vibrationDuration,
-                onConfirm: (val) => _setVibrationDuration(val),
-              )
-            ],
-          ),
-        ]));
+                  })
+                ],
+              ),
+              SettingsSection(
+                title: Text(
+                    Languages.of(context)!.translate('settings.sections.app')),
+                tiles: [
+                  const LanguagesSettingsTile(),
+                  ExportDataSettingTile(_results, _patient ?? Patient()),
+                  ResetDatabaseSettingsTile(shouldReload()),
+                  VibrationDurationSettingsTile(
+                    initialVibDuration: vibrationDuration,
+                    onConfirm: (val) => _setVibrationDuration(val),
+                  )
+                ],
+              ),
+            ]));
   }
 }
