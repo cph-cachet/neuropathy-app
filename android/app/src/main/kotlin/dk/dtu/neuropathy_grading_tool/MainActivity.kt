@@ -1,4 +1,4 @@
-package com.jeyjey626.neuro_planner
+package dk.dtu.neuropathy_grading_tool
 
 import io.flutter.embedding.android.FlutterActivity
 

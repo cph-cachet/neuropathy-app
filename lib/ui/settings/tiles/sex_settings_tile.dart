@@ -1,9 +1,9 @@
 import 'package:basic_utils/basic_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:neuro_planner/languages.dart';
-import 'package:neuro_planner/repositories/settings_repository/patient.dart';
-import 'package:neuro_planner/ui/widgets/confirm_operation_alert_dialog.dart';
-import 'package:neuro_planner/utils/themes/text_styles.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
+import 'package:neuropathy_grading_tool/repositories/settings_repository/patient.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/confirm_operation_alert_dialog.dart';
+import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 class SexSettingsTile extends AbstractSettingsTile {

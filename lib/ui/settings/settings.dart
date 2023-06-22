@@ -1,15 +1,15 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:neuro_planner/languages.dart';
-import 'package:neuro_planner/repositories/result_repository/result_repository.dart';
-import 'package:neuro_planner/repositories/settings_repository/settings_repository.dart';
-import 'package:neuro_planner/ui/settings/tiles/age_settings_tile.dart';
-import 'package:neuro_planner/ui/settings/tiles/export_data_settings_tile.dart';
-import 'package:neuro_planner/ui/settings/tiles/language_settings_tile.dart';
-import 'package:neuro_planner/ui/settings/tiles/reset_database_settings_tile.dart';
-import 'package:neuro_planner/ui/settings/tiles/sex_settings_tile.dart';
-import 'package:neuro_planner/ui/settings/tiles/vibration_duration_settings_tile.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
+import 'package:neuropathy_grading_tool/repositories/result_repository/result_repository.dart';
+import 'package:neuropathy_grading_tool/repositories/settings_repository/settings_repository.dart';
+import 'package:neuropathy_grading_tool/ui/settings/tiles/age_settings_tile.dart';
+import 'package:neuropathy_grading_tool/ui/settings/tiles/export_data_settings_tile.dart';
+import 'package:neuropathy_grading_tool/ui/settings/tiles/language_settings_tile.dart';
+import 'package:neuropathy_grading_tool/ui/settings/tiles/reset_database_settings_tile.dart';
+import 'package:neuropathy_grading_tool/ui/settings/tiles/sex_settings_tile.dart';
+import 'package:neuropathy_grading_tool/ui/settings/tiles/vibration_duration_settings_tile.dart';
 import 'package:research_package/model.dart';
 import 'package:settings_ui/settings_ui.dart';
 

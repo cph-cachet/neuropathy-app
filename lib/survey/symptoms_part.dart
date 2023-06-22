@@ -1,4 +1,4 @@
-import 'package:neuro_planner/step/steps/rp_choice_question_step.dart';
+import 'package:neuropathy_grading_tool/step/steps/rp_choice_question_step.dart';
 import 'package:research_package/model.dart';
 
 List<RPChoice> _symptomsChoiceList = [

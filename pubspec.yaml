@@ -1,5 +1,5 @@
-name: neuro_planner
-description: A Flutter project implementing bought neurodivergent planner
+name: neuropathy_grading_tool
+description: A project for neuropathy grading tool
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -68,6 +68,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  change_app_package_name: ^1.1.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

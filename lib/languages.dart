@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flat/flat.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:neuro_planner/main.dart';
+import 'package:neuropathy_grading_tool/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Languages {

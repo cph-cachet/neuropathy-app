@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:neuro_planner/repositories/settings_repository/settings_repository.dart';
-import 'package:neuro_planner/step/steps/rp_vibration_step.dart';
-import 'package:neuro_planner/ui/widgets/semi_bold_text.dart';
-import 'package:neuro_planner/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/repositories/settings_repository/settings_repository.dart';
+import 'package:neuropathy_grading_tool/step/steps/rp_vibration_step.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/semi_bold_text.dart';
+import 'package:neuropathy_grading_tool/utils/spacing.dart';
 
 import '../../languages.dart';
 import '../../utils/themes/text_styles.dart';

@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jeyjey626.neuro_planner">
+    package="dk.dtu.neuropathy_grading_tool">
     <uses-permission android:name="android.permission.VIBRATE"/>
    <application
-        android:label="neuro_planner"
+        android:label="neuropathy_grading_tool"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.jeyjey626" "\0"
-            VALUE "FileDescription", "neuro_planner" "\0"
+            VALUE "FileDescription", "neuropathy_grading_tool" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "neuro_planner" "\0"
+            VALUE "InternalName", "neuropathy_grading_tool" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.jeyjey626. All rights reserved." "\0"
-            VALUE "OriginalFilename", "neuro_planner.exe" "\0"
-            VALUE "ProductName", "neuro_planner" "\0"
+            VALUE "OriginalFilename", "neuropathy_grading_tool.exe" "\0"
+            VALUE "ProductName", "neuropathy_grading_tool" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

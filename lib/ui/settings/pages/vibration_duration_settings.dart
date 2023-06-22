@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:input_quantity/input_quantity.dart';
-import 'package:neuro_planner/utils/spacing.dart';
-import 'package:neuro_planner/utils/themes/styles.dart';
-import 'package:neuro_planner/utils/themes/text_styles.dart';
+import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/utils/themes/styles.dart';
+import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 
 import '../../../languages.dart';
 import '../../widgets/vibration_button.dart';

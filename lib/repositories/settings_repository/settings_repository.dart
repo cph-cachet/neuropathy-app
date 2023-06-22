@@ -1,4 +1,4 @@
-import 'package:neuro_planner/repositories/settings_repository/patient.dart';
+import 'package:neuropathy_grading_tool/repositories/settings_repository/patient.dart';
 
 abstract class SettingsRepository {
   Future<Patient> getPatientInformation();

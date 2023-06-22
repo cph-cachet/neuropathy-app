@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 import 'package:flutter/material.dart';
-import 'package:neuro_planner/languages.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:research_package/model.dart';
 
 import '../../utils/themes/text_styles.dart';
