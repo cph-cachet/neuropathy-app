@@ -1,6 +1,6 @@
 # Neuropathy Grading Tool
 
-This is a Master's project done at Danish University of Technology (DTU). The main aim is to create an innovative mobile tool for grading findings and symptoms of early neuropathy.
+This is a Master's project done at the Technical University of Denmark (DTU). The main aim is to create an innovative mobile tool for grading findings and symptoms of early neuropathy.
 
 
 
