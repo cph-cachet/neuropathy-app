@@ -68,9 +68,6 @@ class OtherFindingsTile extends StatelessWidget {
                     items: [
                       horizontalSpacing(24),
                       StackedResultItem(
-                        translationSection: 'vibration',
-                        skipMiddleLabel: true,
-                        label: MotorStrings.rightGreatToe.identifier,
                         score:
                             motorScores[MotorStrings.rightGreatToe.identifier]!,
                       ),
@@ -84,9 +81,6 @@ class OtherFindingsTile extends StatelessWidget {
                     items: [
                       horizontalSpacing(24),
                       StackedResultItem(
-                        translationSection: 'vibration',
-                        skipMiddleLabel: true,
-                        label: MotorStrings.leftGreatToe.identifier,
                         score:
                             motorScores[MotorStrings.leftGreatToe.identifier]!,
                       )
@@ -107,7 +101,6 @@ class OtherFindingsTile extends StatelessWidget {
               children: [
                 StackedResultItem(
                   score: symptoms.results['answer'][0]['value']!,
-                  skipMiddleLabel: true,
                   scoreZeroLabel: 'common.no',
                   scoreOverZeroLabel: 'common.yes',
                 ),

@@ -139,22 +139,19 @@ class _PainStackedRow extends StatelessWidget {
           StackedResultItem(
             scoreOverZeroLabel: 'results.pain.decreased',
             scoreZeroLabel: 'results.pain.normal',
-            translationSection: 'pain',
-            label: 'touch',
+            label: 'results.pain.touch',
             score: scores[0],
           ),
           StackedResultItem(
             scoreOverZeroLabel: 'results.pain.decreased',
             scoreZeroLabel: 'results.pain.normal',
-            translationSection: 'pain',
-            label: 'prick',
+            label: 'results.pain.prick',
             score: scores[1],
           ),
           StackedResultItem(
             scoreOverZeroLabel: 'results.pain.increased',
             scoreZeroLabel: 'results.pain.normal',
-            translationSection: 'pain',
-            label: 'stroking',
+            label: 'results.pain.stroking',
             score: scores[2],
           ),
         ]);

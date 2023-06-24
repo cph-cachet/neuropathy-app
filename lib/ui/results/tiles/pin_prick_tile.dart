@@ -218,27 +218,24 @@ class _PinPrickResultBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             items: [
               StackedResultItem(
-                label: 'allodynia',
+                label: 'results.prick.allodynia',
                 score: leg == PinPrickLeg.left
                     ? results[PrickStrings.leftLegAllodynia.identifier]!
                     : results[PrickStrings.righLegAllodynia.identifier]!,
-                translationSection: 'prick',
                 scoreZeroLabel: 'common.no',
                 scoreOverZeroLabel: 'common.yes',
               ),
               StackedResultItem(
-                label: 'hyper',
+                label: 'results.prick.hyper',
                 score: leg == PinPrickLeg.left
                     ? results[PrickStrings.leftLegHyperaesthesia.identifier]!
                     : results[PrickStrings.rightLegHyperaesthesia.identifier]!,
-                translationSection: 'prick',
                 scoreZeroLabel: 'common.no',
                 scoreOverZeroLabel: 'common.yes',
               ),
               StackedResultItem(
-                label: 'score',
+                label: 'results.common.score',
                 score: 0, // Irrelevant
-                translationSection: 'common',
                 skipScoreCount: true,
                 overrideScoreResult: Text(
                   results.values
