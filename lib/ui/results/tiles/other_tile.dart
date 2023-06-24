@@ -16,7 +16,8 @@ class OtherFindingsTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final general = taskResult.results[symptomsStep.identifier] as RPStepResult;
+    final symptoms =
+        taskResult.results[symptomsStep.identifier] as RPStepResult;
     final Map<String, int> motorScores = Map.fromEntries(taskResult
         .results.entries
         .where((element) => MotorStrings.values
@@ -26,6 +27,10 @@ class OtherFindingsTile extends StatelessWidget {
         .map((e) => MapEntry(e.key, e.value as RPStepResult))
         .map((e) =>
             MapEntry(e.key, e.value.results['answer'][0]['value'] as int)));
+    // otherScore is symptom score plus both motor scores
+    final otherScore = motorScores.values.fold(
+        symptoms.results['answer'][0]['value'],
+        (previousValue, element) => previousValue + element);
 
     return ExpansionTile(
       title: Text(
@@ -47,10 +52,7 @@ class OtherFindingsTile extends StatelessWidget {
               style: ThemeTextStyle.resultsLabelsStyle,
             ),
             Text(
-              motorScores.values
-                  .fold(general.results['answer'][0]['value'],
-                      (previousValue, element) => previousValue + element)
-                  .toString(),
+              otherScore.toString(),
               style: ThemeTextStyle.headline24sp,
             ),
             verticalSpacing(16),
@@ -98,15 +100,15 @@ class OtherFindingsTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 StackedResultItem(
-                  score: general.results['answer'][0]['value']!,
+                  score: symptoms.results['answer'][0]['value']!,
                   scoreZeroLabel: 'common.no',
                   scoreOverZeroLabel: 'common.yes',
                 ),
                 horizontalSpacing(24),
-                if (general.results['answer'][0]['value']! > 0)
+                if (symptoms.results['answer'][0]['value']! > 0)
                   Text(
                     Languages.of(context)!
-                        .translate(general.results['answer'][0]['text']),
+                        .translate(symptoms.results['answer'][0]['text']),
                     style: ThemeTextStyle.resultsLabelsStyle,
                   )
               ],
