@@ -84,8 +84,8 @@ class VibrationTileBody extends StatelessWidget {
                 StackedLeadingItem(sectionIdentifier: leftScores.keys.first),
             items: leftScores.entries
                 .map((e) => StackedResultItem(
-                      translationSection: 'vibration',
-                      label: StringUtils.removeExp(e.key, '.+_'),
+                      label:
+                          'results.vibration.${StringUtils.removeExp(e.key, '.+_')}',
                       score: e.value,
                     ))
                 .toList(),
@@ -96,8 +96,8 @@ class VibrationTileBody extends StatelessWidget {
                 StackedLeadingItem(sectionIdentifier: rightScores.keys.first),
             items: rightScores.entries
                 .map((e) => StackedResultItem(
-                      translationSection: 'vibration',
-                      label: StringUtils.removeExp(e.key, '.+_'),
+                      label:
+                          'results.vibration.${StringUtils.removeExp(e.key, '.+_')}',
                       score: e.value,
                     ))
                 .toList(),
@@ -117,9 +117,9 @@ class VibrationTileBody extends StatelessWidget {
                   items: [
                     horizontalSpacing(24),
                     StackedResultItem(
-                      translationSection: 'vibration',
                       skipMiddleLabel: true,
-                      label: VibrationStrings.rightToeExtension.identifier,
+                      label:
+                          'results.vibration.${VibrationStrings.rightToeExtension.identifier}',
                       score: vibrationScores[
                           VibrationStrings.rightToeExtension.identifier]!,
                     ),
@@ -132,9 +132,9 @@ class VibrationTileBody extends StatelessWidget {
                   items: [
                     horizontalSpacing(24),
                     StackedResultItem(
-                      translationSection: 'vibration',
                       skipMiddleLabel: true,
-                      label: VibrationStrings.leftToeExtension.identifier,
+                      label:
+                          'results.vibration.${VibrationStrings.leftToeExtension.identifier}',
                       score: vibrationScores[
                           VibrationStrings.leftToeExtension.identifier]!,
                     )
@@ -158,7 +158,6 @@ class StackedResultItem extends StatelessWidget {
   final String? scoreOverZeroLabel;
   final String? scoreZeroLabel;
   final bool skipScoreCount;
-  final String? translationSection;
   final Widget? overrideScoreResult;
 
   const StackedResultItem({
@@ -169,7 +168,6 @@ class StackedResultItem extends StatelessWidget {
     this.scoreOverZeroLabel,
     this.scoreZeroLabel,
     this.skipScoreCount = false,
-    this.translationSection,
     this.overrideScoreResult,
   });
 
@@ -183,9 +181,7 @@ class StackedResultItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         if (!skipMiddleLabel)
-          Text(
-              Languages.of(context)!
-                  .translate('results.$translationSection.$translateLabel'),
+          Text(Languages.of(context)!.translate(translateLabel),
               style: ThemeTextStyle.resultsLabelsStyle),
         overrideScoreResult == null
             ? Text(
