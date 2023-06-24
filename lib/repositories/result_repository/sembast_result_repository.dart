@@ -32,7 +32,7 @@ class SembastResultRepository extends ResultRepository {
 
   @override
   Future<RPTaskResult> getLatest() async {
-    return getResult(_latestId);
+    return getResult(await _latestId);
   }
 
   @override
@@ -51,7 +51,7 @@ class SembastResultRepository extends ResultRepository {
 
   @override
   Future insertResult(RPTaskResult result) async {
-    _latestId = await _store.add(_database, toJsonString(result));
+    _latestId = _store.add(_database, toJsonString(result));
   }
 
   @override
