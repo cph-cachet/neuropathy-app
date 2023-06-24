@@ -4,9 +4,20 @@ import '../examination_page.dart';
 import '../languages.dart';
 import '../utils/spacing.dart';
 import '../utils/themes/text_styles.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/add_examination_button.dart';
 
 class MainPageEmptyResults extends StatelessWidget {
   const MainPageEmptyResults({Key? key}) : super(key: key);
+
+  Widget slideTransition(animation, child) {
+    return SlideTransition(
+      position: Tween<Offset>(
+        begin: const Offset(0, 1),
+        end: Offset.zero,
+      ).chain(CurveTween(curve: Curves.ease)).animate(animation),
+      child: child,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +44,12 @@ class MainPageEmptyResults extends StatelessWidget {
             ),
             verticalSpacing(48),
             GestureDetector(
-              onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute<dynamic>(
-                      builder: (context) => ExaminationPage())),
+              onTap: () => Navigator.of(context).push(PageRouteBuilder(
+                pageBuilder: (_, __, ___) => ExaminationPage(),
+                transitionDuration: const Duration(milliseconds: 350),
+                transitionsBuilder: (_, animation, __, child) =>
+                    slideTransition(animation, child),
+              )),
               child: Text(
                 Languages.of(context)!.translate('welcome-screen.tap-to-start'),
                 style: ThemeTextStyle.headline24sp.copyWith(
@@ -45,12 +59,7 @@ class MainPageEmptyResults extends StatelessWidget {
               ),
             ),
             verticalSpacing(24),
-            FloatingActionButton(
-              child: const Icon(Icons.add_rounded, size: 36),
-              onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute<dynamic>(
-                      builder: (context) => ExaminationPage())),
-            ),
+            const AddExaminationButton()
           ],
         ),
       ),
