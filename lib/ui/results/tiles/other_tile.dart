@@ -66,7 +66,6 @@ class OtherFindingsTile extends StatelessWidget {
                     items: [
                       horizontalSpacing(24),
                       StackedResultItem(
-                        skipMiddleLabel: true,
                         score:
                             motorScores[MotorStrings.rightGreatToe.identifier]!,
                       ),
@@ -80,7 +79,6 @@ class OtherFindingsTile extends StatelessWidget {
                     items: [
                       horizontalSpacing(24),
                       StackedResultItem(
-                        skipMiddleLabel: true,
                         score:
                             motorScores[MotorStrings.leftGreatToe.identifier]!,
                       )
@@ -101,7 +99,6 @@ class OtherFindingsTile extends StatelessWidget {
               children: [
                 StackedResultItem(
                   score: general.results['answer'][0]['value']!,
-                  skipMiddleLabel: true,
                   scoreZeroLabel: 'common.no',
                   scoreOverZeroLabel: 'common.yes',
                 ),
