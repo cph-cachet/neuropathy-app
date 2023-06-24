@@ -118,8 +118,6 @@ class VibrationTileBody extends StatelessWidget {
                     horizontalSpacing(24),
                     StackedResultItem(
                       skipMiddleLabel: true,
-                      label:
-                          'results.vibration.${VibrationStrings.rightToeExtension.identifier}',
                       score: vibrationScores[
                           VibrationStrings.rightToeExtension.identifier]!,
                     ),
@@ -133,8 +131,6 @@ class VibrationTileBody extends StatelessWidget {
                     horizontalSpacing(24),
                     StackedResultItem(
                       skipMiddleLabel: true,
-                      label:
-                          'results.vibration.${VibrationStrings.leftToeExtension.identifier}',
                       score: vibrationScores[
                           VibrationStrings.leftToeExtension.identifier]!,
                     )

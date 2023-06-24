@@ -67,8 +67,6 @@ class OtherFindingsTile extends StatelessWidget {
                       horizontalSpacing(24),
                       StackedResultItem(
                         skipMiddleLabel: true,
-                        label:
-                            'results.vibration.${MotorStrings.rightGreatToe.identifier}',
                         score:
                             motorScores[MotorStrings.rightGreatToe.identifier]!,
                       ),
@@ -83,8 +81,6 @@ class OtherFindingsTile extends StatelessWidget {
                       horizontalSpacing(24),
                       StackedResultItem(
                         skipMiddleLabel: true,
-                        label:
-                            'results.vibration.${MotorStrings.leftGreatToe.identifier}',
                         score:
                             motorScores[MotorStrings.leftGreatToe.identifier]!,
                       )
