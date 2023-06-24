@@ -172,12 +172,11 @@ class StackedResultItem extends StatelessWidget {
     String translateString = score > 0
         ? scoreOverZeroLabel ?? 'common.no'
         : scoreZeroLabel ?? 'common.yes';
-    String translateLabel = label ?? '';
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         if (!skipMiddleLabel)
-          Text(Languages.of(context)!.translate(translateLabel),
+          Text(Languages.of(context)!.translate(label ?? ''),
               style: ThemeTextStyle.resultsLabelsStyle),
         overrideScoreResult == null
             ? Text(
