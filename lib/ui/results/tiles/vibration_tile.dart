@@ -85,7 +85,7 @@ class VibrationTileBody extends StatelessWidget {
             items: leftScores.entries
                 .map((e) => StackedResultItem(
                       translationSection: 'vibration',
-                      label: e.key,
+                      label: StringUtils.removeExp(e.key, '.+_'),
                       score: e.value,
                     ))
                 .toList(),
@@ -97,7 +97,7 @@ class VibrationTileBody extends StatelessWidget {
             items: rightScores.entries
                 .map((e) => StackedResultItem(
                       translationSection: 'vibration',
-                      label: e.key,
+                      label: StringUtils.removeExp(e.key, '.+_'),
                       score: e.value,
                     ))
                 .toList(),
@@ -178,11 +178,7 @@ class StackedResultItem extends StatelessWidget {
     String translateString = score > 0
         ? scoreOverZeroLabel ?? 'common.no'
         : scoreZeroLabel ?? 'common.yes';
-    String translateLabel = label != null
-        ? translationSection == 'vibration'
-            ? StringUtils.removeExp(label!, '.+_')
-            : label!
-        : '';
+    String translateLabel = label ?? '';
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
