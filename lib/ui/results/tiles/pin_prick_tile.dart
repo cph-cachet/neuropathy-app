@@ -99,7 +99,7 @@ class _PinPrickTileState extends State<PinPrickTile> {
                   ? Center(
                       child: Text(
                           Languages.of(context)!
-                              .translate('results.common.left')
+                              .translate('common.left')
                               .toUpperCase(),
                           style: ThemeTextStyle.extraLightIBM16sp.copyWith(
                               fontSize: 14,
@@ -109,7 +109,7 @@ class _PinPrickTileState extends State<PinPrickTile> {
                   : Center(
                       child: Text(
                       Languages.of(context)!
-                          .translate('results.common.right')
+                          .translate('common.right')
                           .toUpperCase(),
                       style: ThemeTextStyle.extraLightIBM16sp.copyWith(
                           fontSize: 14,

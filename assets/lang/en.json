@@ -2,16 +2,21 @@
     "app-title": "Neuropathy App",
     "common":
     {
-        "cancel": "Cancel",
-        "quit": "Quit",
-        "continue": "Continue",
         "start": "Start",
         "stop": "Stop",
+        "continue": "Continue",
+        "cancel": "Cancel",
+        "quit": "Quit",
+        "yes": "Yes",
+        "no": "No",
+        "score": "Score", 
+        "left": "Left",
+        "right": "Right",
+        "today": "Today",
+        "yesterday": "Yesterday",
         "same": "Same",
         "less": "Less",
         "none": "None",
-        "yes": "Yes",
-        "no": "No",
         "calculating": "Calculating score...",
         "more-info": "More information",
         "check-all-that-apply": "Check all that apply",
@@ -181,29 +186,19 @@
         "text-1": "Your score",
         "text-2": "The score reflects the severity of your symptoms and findings during the examination (the lower the score is, the better).",
         "text-3": "You should not conclude on any diagnosis without seeing a health professional.",
-        "button-main": "Back to home",
-        "today": "Today",
-        "yesterday": "Yesterday"
+        "button-main": "Back to home"
     },
     "results" : 
     {
         "title" : "Examination Result",
         "date": "Examination date",
         "score": "Total score",
-        "common": 
-        {
-            "score": "Score", 
-            "left": "Left",
-            "right": "Right"
-        },
         "vibration" : 
         {
             "title": "Vibration",
             "section-score": "Section score",
             "feeling-vibration": "Feeling the vibration",
             "feeling-toe": "Feeling toe extension",
-            "left": "Left",
-            "right": "Right",
             "toe": "Toe",
             "ankle": "Ankle",
             "knee": "Knee"

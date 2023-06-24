@@ -2,16 +2,21 @@
     "app-title": "Neuropati App",
     "common":
     {
-        "cancel": "Fortryd",
-        "quit": "Afbryd",
-        "continue": "Videre",
         "start": "Start",
         "stop": "Stop",
+        "continue": "Videre",
+        "cancel": "Fortryd",
+        "quit": "Afbryd",
+        "yes": "Ja",
+        "no": "Nej",
+        "score": "Score",
+        "left": "Højre",
+        "right": "Venstre",
+        "today": "I dag",
+        "yesterday": "I går",
         "same": "Samme",
         "less": "Mindre",
         "none": "Ingen",
-        "yes": "Ja",
-        "no": "Nej",
         "calculating": "Udregner score...",
         "more-info": "Mere information",
         "check-all-that-apply": "Markér alle der er relevante",
@@ -181,29 +186,19 @@
         "text-1": "Din score",
         "text-2": "Scoren er et udtryk for hvor udbredte symptomer, der blev fundet under eksaminationen (jo lavere score, des bedre).",
         "text-3": "Du bør ikke fastsætte dig på nogen diagnose uden at have snakket med en læge.",
-        "button-main": "Tilbage til hovedmenuen",
-        "today": "I dag",
-        "yesterday": "I går"
+        "button-main": "Tilbage til hovedmenuen"
     },
     "results" : 
     {
         "title" : "Resultat af eksamination",
         "date": "Eksamination dato",
         "score": "Samlet score",
-        "common": 
-        {
-            "score": "Score",
-            "left": "Højre",
-            "right": "Venstre"
-        },
         "vibration" : 
         {
             "title": "Vibration",
             "section-score": "Sektion score",
             "feeling-vibration": "Kan føle vibration",
             "feeling-toe": "Kan føle tåens bevægelse",
-            "left": "Højre",
-            "right": "Venstre",
             "toe": "Tå",
             "ankle": "Ankel",
             "knee": "Knæ"
