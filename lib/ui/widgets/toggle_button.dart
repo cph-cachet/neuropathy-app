@@ -15,13 +15,13 @@ class ToggleButton extends StatefulWidget {
 }
 
 class ToggleButtonState extends State<ToggleButton> {
-  late List<bool> _isSelected;
+  late List<bool> isSelected;
   late List<RPChoice> selectedChoices;
 
   @override
   void initState() {
     super.initState();
-    _isSelected =
+    isSelected =
         List.generate(widget.answerFormat.choices.length, (index) => false);
     selectedChoices = [];
   }
@@ -29,9 +29,9 @@ class ToggleButtonState extends State<ToggleButton> {
   void _onSelected(int index) {
     final selected = widget.answerFormat.choices[index];
     setState(() {
-      for (int i = 0; i < _isSelected.length; i++) {
+      for (int i = 0; i < isSelected.length; i++) {
         setState(() {
-          _isSelected[i] = i == index ? true : false;
+          isSelected[i] = i == index ? true : false;
         });
       }
     });
@@ -61,7 +61,7 @@ class ToggleButtonState extends State<ToggleButton> {
           minHeight: 40.0,
           minWidth: 80.0,
         ),
-        isSelected: _isSelected,
+        isSelected: isSelected,
         children: widget.answerFormat.choices
             .map((e) => Text(
                   Languages.of(context)!.translate(e.text).toUpperCase(),
