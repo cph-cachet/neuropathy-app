@@ -180,7 +180,7 @@ class _PinPrickResultBody extends StatelessWidget {
             //width: 250,
             height: 230,
             child: Image.asset(
-                'assets/leg-results-${leg == PinPrickLeg.left ? 'left' : 'right'}.png'),
+                'assets/images/results/leg-results-${leg == PinPrickLeg.left ? 'left' : 'right'}.png'),
           ),
           Positioned(
             bottom: 0,
