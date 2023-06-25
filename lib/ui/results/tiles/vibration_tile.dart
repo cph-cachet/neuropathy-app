@@ -1,14 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:basic_utils/basic_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:research_package/model.dart';
 
 import 'package:neuropathy_grading_tool/survey/vibration_part.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/neuropathy_icons.dart';
 import 'package:neuropathy_grading_tool/utils/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
-
-import '../../../languages.dart';
 
 class VibrationTile extends StatelessWidget {
   final RPTaskResult result;

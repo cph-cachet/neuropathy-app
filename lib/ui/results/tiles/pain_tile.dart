@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
+import 'package:neuropathy_grading_tool/survey/pain_questionaire_part.dart';
 import 'package:neuropathy_grading_tool/survey/step_identifiers.dart';
 import 'package:neuropathy_grading_tool/ui/results/tiles/vibration_tile.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/neuropathy_icons.dart';
 import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/model.dart';
-
-import '../../../survey/pain_questionaire_part.dart';
-import '../../../utils/themes/text_styles.dart';
-import '../../widgets/neuropathy_icons.dart';
 
 class PainTile extends StatelessWidget {
   final RPTaskResult taskResult;

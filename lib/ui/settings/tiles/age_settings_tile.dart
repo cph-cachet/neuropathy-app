@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jiffy/jiffy.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/confirm_operation_alert_dialog.dart';
 import 'package:settings_ui/settings_ui.dart';
-
-import '../../../languages.dart';
 
 class AgeSettingsTile extends AbstractSettingsTile {
   final DateTime? dateOfBirth;

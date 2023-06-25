@@ -16,7 +16,7 @@ import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
 import 'package:to_csv/to_csv.dart' as export_csv;
 
-import '../../utils/generate_csv.dart';
+import 'package:neuropathy_grading_tool/utils/generate_csv.dart';
 
 class ResultPage extends StatelessWidget {
   const ResultPage({Key? key, required this.result, required this.patient})

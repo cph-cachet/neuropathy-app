@@ -13,8 +13,8 @@ import 'package:neuropathy_grading_tool/ui/settings/tiles/vibration_duration_set
 import 'package:research_package/model.dart';
 import 'package:settings_ui/settings_ui.dart';
 
-import '../../repositories/settings_repository/patient.dart';
-import '../../utils/themes/text_styles.dart';
+import 'package:neuropathy_grading_tool/repositories/settings_repository/patient.dart';
+import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});

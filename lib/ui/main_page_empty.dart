@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../examination_page.dart';
-import '../languages.dart';
-import '../utils/spacing.dart';
-import '../utils/themes/text_styles.dart';
+import 'package:neuropathy_grading_tool/examination_page.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
+import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/add_examination_button.dart';
 
 class MainPageEmptyResults extends StatelessWidget {
