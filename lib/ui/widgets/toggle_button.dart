@@ -30,27 +30,17 @@ class ToggleButtonState extends State<ToggleButton> {
     final selected = widget.answerFormat.choices[index];
     setState(() {
       for (int i = 0; i < _isSelected.length; i++) {
-        if (i == index) {
-          setState(() {
-            _isSelected[i] = !_isSelected[i];
-          });
-        } else {
-          setState(() {
-            _isSelected[i] = false;
-          });
-        }
+        setState(() {
+          _isSelected[i] = i == index ? true : false;
+        });
       }
     });
-    if (selectedChoices.contains(selected)) {
-      setState(() {
-        selectedChoices.remove(selected);
-      });
-    } else {
-      setState(() {
-        selectedChoices = [];
-        selectedChoices.add(selected);
-      });
-    }
+
+    setState(() {
+      selectedChoices = [];
+      selectedChoices.add(selected);
+    });
+
     selectedChoices.isNotEmpty
         ? widget.onPressed(selectedChoices)
         : widget.onPressed(null);
