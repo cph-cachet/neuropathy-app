@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:neuropathy_grading_tool/survey/step_identifiers.dart';
-import 'package:neuropathy_grading_tool/ui/results/tiles/vibration_tile.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/stacked_result_item.dart';
 import 'package:neuropathy_grading_tool/utils/spacing.dart';
 import 'package:research_package/model.dart';
 
