@@ -2,16 +2,21 @@
     "app-title": "Neuropathy App",
     "common":
     {
-        "cancel": "Cancel",
-        "quit": "Quit",
-        "continue": "Continue",
         "start": "Start",
         "stop": "Stop",
+        "continue": "Continue",
+        "cancel": "Cancel",
+        "quit": "Quit",
+        "yes": "Yes",
+        "no": "No",
+        "score": "Score", 
+        "left": "Left",
+        "right": "Right",
+        "today": "Today",
+        "yesterday": "Yesterday",
         "same": "Same",
         "less": "Less",
         "none": "None",
-        "yes": "Yes",
-        "no": "No",
         "calculating": "Calculating score...",
         "more-info": "More information",
         "check-all-that-apply": "Check all that apply",
@@ -68,20 +73,6 @@
         "bottom-sheet-text-1": "Answer <b>SAME</b> if the area on the leg is about as sensitive to pricking as the reference area (or more).",
         "bottom-sheet-text-2": "Answer <b>LESS</b> if the area is less sensitive, but you can still feel the prick.",
         "bottom-sheet-text-3": "Answer <b>NONE</b> if you don't feel the prick in the area."
-    },
-    "right-prick-end":
-    {
-        "completed": "Right leg completed!"
-    },
-    "left-prick-end":
-    {
-        "completed": "Left leg completed!"
-    },
-    "pricking-warning":
-    {
-        "title": "Remember!",
-        "info": "Prick gently, to feel the sharpness, but not to break the skin!",
-        "button-understand": "I understand"
     },
     "allodynia":
     {
@@ -145,7 +136,8 @@
     {
         "text": "Press start to start vibrating, and press the backside of the phone <b>firmly</b> against the bone just below your kneecap."
     },
-    "extension": {
+    "extension": 
+    {
         "text-1": "Put the phone aside.",
         "text-2-left": "Grab your <b>left</b> great toe with your fingers and move it up and down a couple of times.",
         "text-2-right": "Grab your <b>right</b> great toe with your fingers and move it up and down a couple of times.",
@@ -180,40 +172,37 @@
         "text-1": "Your score",
         "text-2": "The score reflects the severity of your symptoms and findings during the examination (the lower the score is, the better).",
         "text-3": "You should not conclude on any diagnosis without seeing a health professional.",
-        "button-main": "Back to home",
-        "today": "Today",
-        "yesterday": "Yesterday"
-
+        "button-main": "Back to home"
     },
-    "results" : {
-        "title" : "Examination Result",
+    "results": 
+    {
+        "title": "Examination Result",
         "date": "Examination date",
         "score": "Total score",
-        "common": {
-        "score": "Score", "left": "Left",
-        "right": "Right"},
-        "vibration" : {
+        "vibration": 
+        {
             "title": "Vibration",
             "section-score": "Section score",
             "feeling-vibration": "Feeling the vibration",
             "feeling-toe": "Feeling toe extension",
-            "left": "Left",
-            "right": "Right",
             "toe": "Toe",
             "ankle": "Ankle",
             "knee": "Knee"
         },
-        "prick": {
+        "prick": 
+        {
             "title": "Pin prick",
             "hyper": "Pain Sensitivity",
             "allodynia": "Prick Sensitivity"
         },
-        "other": {
+        "other": 
+        {
             "title": "Other Findings",
             "motor": "Normal Motor Function",
             "symptoms": "Day-to-day symptoms"
         },
-        "pain": {
+        "pain": 
+        {
             "increased": "Increased",
             "normal": "Normal",
             "decreased": "Decreased",
@@ -227,21 +216,26 @@
             "characteristics": "Characteristics",
             "other": "Other symptoms in feet"
         }, 
-        "comments": {
+        "comments": 
+        {
             "title": "Comments"
         }
     },
-    "settings": {
+    "settings": 
+    {
         "title": "Settings",
-        "sections": {
+        "sections": 
+        {
             "app": "Application",
             "personal-info": "Personal information"
         },
-        "language": {
+        "language": 
+        {
             "title": "Language",
             "select": "Select language"
         },
-        "sex": {
+        "sex": 
+        {
             "title": "Sex",
             "input": "Provide information",
             "bottom-sheet-title": "Select your sex",
@@ -249,13 +243,15 @@
             "female": "Female",
             "other": "Other"
         },
-        "age": {
+        "age": 
+        {
             "title": "Age",
             "input": "Provide information",
             "bottom-sheet-title": "Select your date of birth",
             "years": " years old"
         },
-        "change-info-warning": {
+        "change-info-warning": 
+        {
             "title": "Change personal information",
             "text": "Changing your personal information will reset your examination history. Are you sure you want to continue?",
             "button-change": "Change"
@@ -263,12 +259,14 @@
         "export-data": "Export examinations",	
         "confirm": "Confirm",
         "reset-database": "Reset database",
-        "delete-database": {
+        "delete-database": 
+        {
             "title": "Delete database",
             "text": "Are you sure you want to delete the database? This will delete all your data and cannot be undone.",
             "button-delete": "Delete"
         },
-        "vibration": {
+        "vibration": 
+        {
             "title": "Vibration duration",
             "seconds": " seconds",
             "text": "Vibration is used in the vibration test. On different models of phones, how long the phone can vibrate may differ. Adjust the duration of the vibration to fit your phone, and test that the button below works."
