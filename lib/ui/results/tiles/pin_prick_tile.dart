@@ -23,14 +23,19 @@ class _PinPrickTileState extends State<PinPrickTile> {
   late List<_PinPrickChoice> _choices;
   bool _isLeftSelected = true;
 
-  Map<String, int> _getResultsForLeg(RPTaskResult result, String leg) {
+  Map<String, int> _getResults(RPTaskResult result) {
     return Map.fromEntries(result.results.values
         .cast<RPStepResult>()
         .toList()
         .where((element) => pinPrickIdentifiers.contains(element.identifier))
-        .where((element) => element.identifier.contains(leg))
         .map((e) =>
             MapEntry(e.identifier, e.results['answer'][0]['value'] as int)));
+  }
+
+  Map<String, int> _getResultsForLeg(RPTaskResult result, String leg) {
+    Map<String, int> pinprickScores = _getResults(result);
+    return Map.fromEntries(
+        pinprickScores.entries.where((element) => element.key.contains(leg)));
   }
 
   @override
@@ -73,7 +78,19 @@ class _PinPrickTileState extends State<PinPrickTile> {
         Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            verticalSpacing(8),
+            Text(
+              Languages.of(context)!
+                  .translate('results.vibration.section-score'),
+              style: ThemeTextStyle.resultsLabelsStyle,
+            ),
+            Text(
+              _getResults(widget.result)
+                  .values
+                  .fold(0, (previousValue, element) => previousValue + element)
+                  .toString(),
+              style: ThemeTextStyle.headline24sp,
+            ),
+            verticalSpacing(16),
             AnimatedToggleSwitch.dual(
               iconBuilder: (value) => value
                   ? Icon(
