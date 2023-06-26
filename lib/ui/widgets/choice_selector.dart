@@ -2,9 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
+import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/model.dart';
-
-import '../../utils/themes/text_styles.dart';
 
 class ChoiceSelector extends StatefulWidget {
   final Function(dynamic) onResultChange;

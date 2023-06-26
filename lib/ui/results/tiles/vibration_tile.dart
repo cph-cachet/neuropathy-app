@@ -1,14 +1,13 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:basic_utils/basic_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:research_package/model.dart';
 
 import 'package:neuropathy_grading_tool/survey/vibration_part.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/neuropathy_icons.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/stacked_result_item.dart';
 import 'package:neuropathy_grading_tool/utils/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
-
-import '../../../languages.dart';
 
 class VibrationTile extends StatelessWidget {
   final RPTaskResult result;
@@ -36,13 +35,13 @@ class VibrationTile extends StatelessWidget {
           color: Theme.of(context).colorScheme.primary,
         ),
         children: [
-          VibrationTileBody(vibrationScores: vibrationScores),
+          _VibrationTileBody(vibrationScores: vibrationScores),
         ]);
   }
 }
 
-class VibrationTileBody extends StatelessWidget {
-  const VibrationTileBody({Key? key, required this.vibrationScores})
+class _VibrationTileBody extends StatelessWidget {
+  const _VibrationTileBody({Key? key, required this.vibrationScores})
       : super(key: key);
 
   final Map<String, int> vibrationScores;
@@ -79,29 +78,9 @@ class VibrationTileBody extends StatelessWidget {
                   .translate('results.vibration.feeling-vibration'),
               style: ThemeTextStyle.resultSectionLabelStyle),
           verticalSpacing(8),
-          StackedResultRow(
-            leading:
-                StackedLeadingItem(sectionIdentifier: leftScores.keys.first),
-            items: leftScores.entries
-                .map((e) => StackedResultItem(
-                      label:
-                          'results.vibration.${StringUtils.removeExp(e.key, '.+_')}',
-                      score: e.value,
-                    ))
-                .toList(),
-          ),
+          _VibrationLegResultRow(items: leftScores, isLeft: true),
           verticalSpacing(8),
-          StackedResultRow(
-            leading:
-                StackedLeadingItem(sectionIdentifier: rightScores.keys.first),
-            items: rightScores.entries
-                .map((e) => StackedResultItem(
-                      label:
-                          'results.vibration.${StringUtils.removeExp(e.key, '.+_')}',
-                      score: e.value,
-                    ))
-                .toList(),
-          ),
+          _VibrationLegResultRow(items: rightScores, isLeft: false),
           verticalSpacing(8),
           Text(
               Languages.of(context)!.translate('results.vibration.feeling-toe'),
@@ -111,31 +90,14 @@ class VibrationTileBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              //TODO: move that to separate ez generated widget
-              StackedResultRow(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  items: [
-                    horizontalSpacing(24),
-                    StackedResultItem(
-                      score: vibrationScores[
-                          VibrationStrings.rightToeExtension.identifier]!,
-                    ),
-                  ],
-                  leading: StackedLeadingItem(
-                      sectionIdentifier:
-                          VibrationStrings.rightToeExtension.identifier)),
-              StackedResultRow(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  items: [
-                    horizontalSpacing(24),
-                    StackedResultItem(
-                      score: vibrationScores[
-                          VibrationStrings.leftToeExtension.identifier]!,
-                    )
-                  ],
-                  leading: StackedLeadingItem(
-                      sectionIdentifier:
-                          VibrationStrings.leftToeExtension.identifier))
+              OneItemWLeadingResRow(
+                  score: vibrationScores[
+                      VibrationStrings.rightToeExtension.identifier]!,
+                  isLeft: false),
+              OneItemWLeadingResRow(
+                  score: vibrationScores[
+                      VibrationStrings.leftToeExtension.identifier]!,
+                  isLeft: true),
             ],
           ),
           verticalSpacing(16)
@@ -145,108 +107,26 @@ class VibrationTileBody extends StatelessWidget {
   }
 }
 
-class StackedResultItem extends StatelessWidget {
-  final String? label;
-  final int score;
-  final String? scoreOverZeroLabel;
-  final String? scoreZeroLabel;
-  final bool skipScoreCount;
-  final Widget? overrideScoreResult;
-
-  const StackedResultItem({
-    super.key,
-    this.label,
-    required this.score,
-    this.scoreOverZeroLabel,
-    this.scoreZeroLabel,
-    this.skipScoreCount = false,
-    this.overrideScoreResult,
-  });
+class _VibrationLegResultRow extends StatelessWidget {
+  final Map<String, int> items;
+  final bool isLeft;
+  const _VibrationLegResultRow({
+    Key? key,
+    required this.items,
+    required this.isLeft,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    String translateString = score > 0
-        ? scoreOverZeroLabel ?? 'common.no'
-        : scoreZeroLabel ?? 'common.yes';
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        if (label != null)
-          Text(Languages.of(context)!.translate(label!),
-              style: ThemeTextStyle.resultsLabelsStyle),
-        overrideScoreResult == null
-            ? Text(
-                Languages.of(context)!.translate(translateString),
-                style: ThemeTextStyle.regularIBM18sp.copyWith(
-                    color: score > 0
-                        ? Theme.of(context).colorScheme.error
-                        : Theme.of(context).colorScheme.secondary),
-              )
-            : overrideScoreResult!,
-        if (score > 0 && !skipScoreCount)
-          Text(
-            '+$score',
-            style: ThemeTextStyle.regularIBM14sp
-                .copyWith(color: Theme.of(context).colorScheme.error),
-          ),
-      ],
-    );
-  }
-}
-
-class StackedLeadingItem extends StatelessWidget {
-  final String sectionIdentifier;
-  final bool? isLeftOverride;
-
-  const StackedLeadingItem(
-      {super.key, required this.sectionIdentifier, this.isLeftOverride});
-
-  @override
-  Widget build(BuildContext context) {
-    bool isLeft =
-        isLeftOverride ?? leftVibrationSteps.contains(sectionIdentifier);
-    return Column(
-      children: [
-        isLeft
-            ? const Icon(NeuropathyIcons.icon_park_foot, size: 30)
-            : Transform.flip(
-                flipX: true,
-                child: const Icon(
-                  NeuropathyIcons.icon_park_foot,
-                  size: 30,
-                )),
-        Text(
-          Languages.of(context)!.translate(
-              isLeft ? 'results.vibration.left' : 'results.vibration.right'),
-          style: ThemeTextStyle.resultsSmallLabelStyle,
-        ),
-      ],
-    );
-  }
-}
-
-class StackedResultRow extends StatelessWidget {
-  final List<Widget> items;
-  final Widget? leading;
-  final MainAxisAlignment mainAxisAlignment;
-  final CrossAxisAlignment crossAxisAlignment;
-
-  const StackedResultRow(
-      {super.key,
-      required this.items,
-      this.leading,
-      this.crossAxisAlignment = CrossAxisAlignment.start,
-      this.mainAxisAlignment = MainAxisAlignment.spaceBetween});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: mainAxisAlignment,
-      crossAxisAlignment: crossAxisAlignment,
-      children: [
-        if (leading != null) leading!,
-        ...items,
-      ],
+    return StackedResultRow(
+      items: items.entries
+          .map((e) => StackedResultItem(
+                label:
+                    'results.vibration.${StringUtils.removeExp(e.key, '.+_')}',
+                score: e.value,
+              ))
+          .toList(),
+      leading: StackedLeadingItem(isLeft: isLeft),
     );
   }
 }

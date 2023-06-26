@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:input_quantity/input_quantity.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/vibration_button.dart';
 import 'package:neuropathy_grading_tool/utils/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/styles.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
-
-import '../../../languages.dart';
-import '../../widgets/vibration_button.dart';
 
 class VibrationSettingDialog extends StatefulWidget {
   const VibrationSettingDialog(
