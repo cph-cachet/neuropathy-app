@@ -104,9 +104,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
               icon: const Icon(Icons.arrow_back)),
         ),
         body: SettingsList(
-            lightTheme: SettingsThemeData(
-                settingsListBackground:
-                    Theme.of(context).colorScheme.background),
+            lightTheme: const SettingsThemeData(
+              settingsListBackground: Colors.transparent,
+            ),
             sections: [
               SettingsSection(
                 title: Text(Languages.of(context)!
