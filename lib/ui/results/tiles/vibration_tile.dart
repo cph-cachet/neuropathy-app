@@ -92,12 +92,12 @@ class _VibrationTileBody extends StatelessWidget {
             children: [
               OneItemWLeadingResRow(
                   score: vibrationScores[
-                      VibrationStrings.rightToeExtension.identifier]!,
-                  isLeft: false),
-              OneItemWLeadingResRow(
-                  score: vibrationScores[
                       VibrationStrings.leftToeExtension.identifier]!,
                   isLeft: true),
+              OneItemWLeadingResRow(
+                  score: vibrationScores[
+                      VibrationStrings.rightToeExtension.identifier]!,
+                  isLeft: false),
             ],
           ),
           verticalSpacing(16)
