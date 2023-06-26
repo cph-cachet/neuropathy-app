@@ -74,20 +74,6 @@
         "bottom-sheet-text-2": "Answer <b>LESS</b> if the area is less sensitive, but you can still feel the prick.",
         "bottom-sheet-text-3": "Answer <b>NONE</b> if you don't feel the prick in the area."
     },
-    "right-prick-end":
-    {
-        "completed": "Right leg completed!"
-    },
-    "left-prick-end":
-    {
-        "completed": "Left leg completed!"
-    },
-    "pricking-warning":
-    {
-        "title": "Remember!",
-        "info": "Prick gently, to feel the sharpness, but not to break the skin!",
-        "button-understand": "I understand"
-    },
     "allodynia":
     {
         "text": "During the pin-prick examination, did you feel increased pain from pricking in the foot or toes?"

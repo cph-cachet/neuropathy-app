@@ -74,20 +74,6 @@
         "bottom-sheet-text-2": "Svar <b>MINDRE</b> hvis området er mindre følsomt, men prikket stadigvæk kan mærkes.",
         "bottom-sheet-text-3": "Svar <b>INGEN</b> hvis du ikke mærker prikket på området."
     },
-    "right-prick-end":
-    {
-        "completed": "Højre ben færdiggjort!"
-    },
-    "left-prick-end":
-    {
-        "completed": "Venstre ben færdiggjort!"
-    },
-    "pricking-warning":
-    {
-        "title": "Husk!",
-        "info": "Prik blødt, så du kan føle skarpheden uden at prikke hul i huden!",
-        "button-understand": "Jeg forstår"
-    },
     "allodynia":
     {
         "text": "Oplevede du forøget smerte i foden eller tæerne i løbet af priktesten?"
