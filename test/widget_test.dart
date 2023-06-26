@@ -5,26 +5,56 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:neuropathy_grading_tool/main.dart';
+import 'package:neuropathy_grading_tool/survey/vibration_part.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/toggle_button.dart';
+
+import 'context_inj.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Examination Toggle Button Test', (widgetTester) async {
+    await widgetTester.pumpWidget(LocalizationsInj(
+        child: ToggleButton(
+            onPressed: (_) {}, answerFormat: vibrationAnswerFormat)));
+    await widgetTester.pumpAndSettle();
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(find.byType(ToggleButton), findsOneWidget);
+    expect(find.byType(Text), findsNWidgets(2));
+    final ToggleButtonState state =
+        widgetTester.state(find.byType(ToggleButton));
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    expect(state.selectedChoices, isEmpty);
+    expect(state.isSelected, [false, false]);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Single tap, then change answer
+
+    await widgetTester.tap(find.byType(Text).first);
+    await widgetTester.pumpAndSettle();
+    await widgetTester.tap(find.byType(Text).last);
+
+    await widgetTester.pumpAndSettle();
+    expect(state.selectedChoices, isNotEmpty);
+    expect(state.selectedChoices.length, 1);
+    expect(state.selectedChoices.first.text,
+        vibrationAnswerFormat.choices.last.text);
+    expect(state.isSelected, [false, true]);
+
+    // Untapping not allowed
+
+    await widgetTester.tap(find.byType(Text).first);
+    await widgetTester.pumpAndSettle();
+    await widgetTester.tap(find.byType(Text).first);
+    await widgetTester.pumpAndSettle();
+
+    expect(state.selectedChoices, isNotEmpty);
+    expect(state.isSelected, [true, false]);
+    expect(state.selectedChoices.length, 1);
+    expect(state.selectedChoices.first.text,
+        vibrationAnswerFormat.choices.first.text);
   });
 }

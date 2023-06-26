@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/neuropathy_icons.dart';
 
-import '../../../utils/themes/text_styles.dart';
+import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 
 class CommentsExpansionTile extends StatelessWidget {
   final String text;

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/semi_bold_text.dart';
 import 'package:research_package/research_package.dart';
 
-import '../languages.dart';
-import '../step/steps/rp_toggle_question_step.dart';
-import '../utils/themes/text_styles.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
+import 'package:neuropathy_grading_tool/step/steps/rp_toggle_question_step.dart';
+import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'widgets/toggle_button.dart';
 
 class RPUIToggleQuestionStep extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../languages.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
 
 class DateFormatter extends StatelessWidget {
   final DateTime dateTime;

@@ -2,7 +2,7 @@ import 'package:neuropathy_grading_tool/repositories/result_repository/examinati
 import 'package:neuropathy_grading_tool/survey/free_text_part.dart';
 import 'package:neuropathy_grading_tool/survey/step_identifiers.dart';
 import 'package:research_package/research_package.dart';
-import '../repositories/settings_repository/patient.dart';
+import 'package:neuropathy_grading_tool/repositories/settings_repository/patient.dart';
 
 List<String> csvHeaders = [
   "timestamp",

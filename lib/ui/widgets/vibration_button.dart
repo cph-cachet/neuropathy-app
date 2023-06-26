@@ -2,9 +2,9 @@ import 'package:async/async.dart';
 import 'package:flutter/material.dart';
 import 'package:vibration/vibration.dart';
 
-import '../../languages.dart';
-import '../../utils/spacing.dart';
-import '../../utils/themes/styles.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
+import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/utils/themes/styles.dart';
 
 class VibrationButton extends StatefulWidget {
   final int vibDuration;

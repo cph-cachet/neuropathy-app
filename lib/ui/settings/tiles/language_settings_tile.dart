@@ -2,11 +2,10 @@ import 'package:basic_utils/basic_utils.dart';
 import 'package:flag/flag.dart';
 
 import 'package:flutter/material.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:neuropathy_grading_tool/utils/languages_local.dart';
+import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:settings_ui/settings_ui.dart';
-
-import '../../../languages.dart';
-import '../../../utils/themes/text_styles.dart';
 
 class LanguagesSettingsTile extends AbstractSettingsTile {
   const LanguagesSettingsTile({super.key});

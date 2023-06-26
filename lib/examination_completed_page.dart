@@ -8,14 +8,15 @@ import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
-class SurveyResultPage extends StatefulWidget {
-  const SurveyResultPage({super.key});
+class ExaminationCompletedPage extends StatefulWidget {
+  const ExaminationCompletedPage({super.key});
 
   @override
-  State<SurveyResultPage> createState() => _SurveyResultPageState();
+  State<ExaminationCompletedPage> createState() =>
+      _ExaminationCompletedPageState();
 }
 
-class _SurveyResultPageState extends State<SurveyResultPage> {
+class _ExaminationCompletedPageState extends State<ExaminationCompletedPage> {
   // Result is fetched from database instead of being passed from examination_page
   // because database changes some fields in the result (and calculateScore
   // accomodates for this). Alternative is to have two calculateScore functions)
