@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
+import 'package:neuropathy_grading_tool/repositories/result_repository/result_repository.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/confirm_operation_alert_dialog.dart';
 import 'package:settings_ui/settings_ui.dart';
-
-import '../../../languages.dart';
-import '../../../repositories/result_repository/result_repository.dart';
-import '../../widgets/confirm_operation_alert_dialog.dart';
 
 class ResetDatabaseSettingsTile extends AbstractSettingsTile {
   final void onShouldReload;

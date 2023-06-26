@@ -1,4 +1,3 @@
-
 import 'package:get_it/get_it.dart';
 import 'package:neuropathy_grading_tool/repositories/settings_repository/patient.dart';
 import 'package:neuropathy_grading_tool/repositories/settings_repository/settings_repository.dart';

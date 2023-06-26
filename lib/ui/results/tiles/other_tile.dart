@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:neuropathy_grading_tool/survey/motor_part.dart';
+import 'package:neuropathy_grading_tool/survey/symptoms_part.dart';
+import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/stacked_result_item.dart';
 
 import 'package:research_package/model.dart';
-
-import '../../../languages.dart';
-import '../../../survey/symptoms_part.dart';
-import '../../../utils/spacing.dart';
-import '../../../utils/themes/text_styles.dart';
 
 class OtherFindingsTile extends StatelessWidget {
   final RPTaskResult taskResult;

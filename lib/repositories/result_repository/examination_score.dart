@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:research_package/research_package.dart';
 
-import '../../survey/step_identifiers.dart';
+import 'package:neuropathy_grading_tool/survey/step_identifiers.dart';
 
 part 'examination_score.g.dart';
 

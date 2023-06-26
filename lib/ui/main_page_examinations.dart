@@ -7,11 +7,11 @@ import 'package:neuropathy_grading_tool/utils/date_formatter.dart';
 import 'package:neuropathy_grading_tool/utils/generate_csv.dart';
 import 'package:research_package/research_package.dart';
 
-import '../languages.dart';
-import '../repositories/result_repository/examination_score.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
+import 'package:neuropathy_grading_tool/repositories/result_repository/examination_score.dart';
 import 'package:to_csv/to_csv.dart' as export_csv;
 
-import '../repositories/settings_repository/patient.dart';
+import 'package:neuropathy_grading_tool/repositories/settings_repository/patient.dart';
 
 class MainPageBodyWithExaminations extends StatelessWidget {
   final List<RPTaskResult> taskResults;

@@ -1,5 +1,6 @@
 import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:flutter/material.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:neuropathy_grading_tool/survey/prick_part.dart';
 
 import 'package:neuropathy_grading_tool/ui/widgets/neuropathy_icons.dart';
@@ -8,8 +9,6 @@ import 'package:neuropathy_grading_tool/utils/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
-import '../../../languages.dart';
 
 class PinPrickTile extends StatefulWidget {
   const PinPrickTile({super.key, required this.result});
