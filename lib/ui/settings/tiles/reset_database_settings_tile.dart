@@ -34,7 +34,7 @@ class ResetDatabaseSettingsTile extends AbstractSettingsTile {
                     .translate('settings.delete-database.text'),
                 onConfirm: () {
                   resetDatabase();
-                  onShouldReload;
+                  onShouldReload();
                 },
                 confirmButtonChild: Text(
                     Languages.of(context)!
