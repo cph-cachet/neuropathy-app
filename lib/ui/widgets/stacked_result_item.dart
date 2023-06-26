@@ -71,8 +71,8 @@ class StackedLeadingItem extends StatelessWidget {
                   size: 30,
                 )),
         Text(
-          Languages.of(context)!.translate(
-              isLeft ? 'results.vibration.left' : 'results.vibration.right'),
+          Languages.of(context)!
+              .translate(isLeft ? 'common.left' : 'common.right'),
           style: ThemeTextStyle.resultsSmallLabelStyle,
         ),
       ],

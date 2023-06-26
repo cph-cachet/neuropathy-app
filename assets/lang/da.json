@@ -2,16 +2,21 @@
     "app-title": "Neuropati App",
     "common":
     {
-        "cancel": "Fortryd",
-        "quit": "Afbryd",
-        "continue": "Videre",
         "start": "Start",
         "stop": "Stop",
+        "continue": "Videre",
+        "cancel": "Fortryd",
+        "quit": "Afbryd",
+        "yes": "Ja",
+        "no": "Nej",
+        "score": "Score",
+        "left": "Venstre",
+        "right": "Højre",
+        "today": "I dag",
+        "yesterday": "I går",
         "same": "Samme",
         "less": "Mindre",
         "none": "Ingen",
-        "yes": "Ja",
-        "no": "Nej",
         "calculating": "Udregner score...",
         "more-info": "Mere information",
         "check-all-that-apply": "Markér alle der er relevante",
@@ -181,41 +186,37 @@
         "text-1": "Din score",
         "text-2": "Scoren er et udtryk for hvor udbredte symptomer, der blev fundet under eksaminationen (jo lavere score, des bedre).",
         "text-3": "Du bør ikke fastsætte dig på nogen diagnose uden at have snakket med en læge.",
-        "button-main": "Tilbage til hovedmenuen",
-        "today": "I dag",
-        "yesterday": "I går"
+        "button-main": "Tilbage til hovedmenuen"
     },
-    "results" : {
-        "title" : "Resultat af eksamination",
+    "results": 
+    {
+        "title": "Resultat af eksamination",
         "date": "Eksamination dato",
         "score": "Samlet score",
-        "common": {
-            "score": "Score",
-            "left": "Højre",
-            "right": "Venstre"
-        },
-        "vibration" : {
+        "vibration": 
+        {
             "title": "Vibration",
             "section-score": "Sektion score",
             "feeling-vibration": "Kan føle vibration",
             "feeling-toe": "Kan føle tåens bevægelse",
-            "left": "Højre",
-            "right": "Venstre",
             "toe": "Tå",
             "ankle": "Ankel",
             "knee": "Knæ"
         },
-        "prick": {
+        "prick": 
+        {
             "title": "Nåle-prik",
             "hyper": "Følsomhed smerte",
             "allodynia": "Følsomhed prik"
         },
-        "other": {
+        "other": 
+        {
             "title": "Andre resultater",
             "motor": "Normal Motor Funktion",
             "symptoms": "Symptomer i dagligdagen"
         },
-        "pain": {
+        "pain": 
+        {
             "increased": "Forøget",
             "normal": "Normal",
             "decreased": "Formindsket",
@@ -229,21 +230,26 @@
             "characteristics": "Kendetegn",
             "other": "Andre symptomer i fødderne"
         }, 
-        "comments": {
+        "comments": 
+        {
             "title": "Kommentarer"
         }
     },
-    "settings": {
+    "settings": 
+    {
         "title": "Indstillinger",
-        "sections": {
+        "sections": 
+        {
             "app": "Applikation",
             "personal-info": "Personlige oplysninger"
         },
-        "language": {
+        "language": 
+        {
             "title": "Sprog",
             "select": "Vælg sprog"
         },
-        "sex": {
+        "sex": 
+        {
             "title": "Køn",
             "input": "Angiv køn",
             "bottom-sheet-title": "Vælg dit køn",
@@ -251,13 +257,15 @@
             "female": "Kvinde",
             "other": "Andet"
         },
-        "age": {
+        "age": 
+        {
             "title": "Alder",
             "input": "Angiv alder",
             "bottom-sheet-title": "Vælg din fødselsdato",
-            "years": "år"
+            "years": " år"
         },
-        "change-info-warning": {
+        "change-info-warning": 
+        {
             "title": "Ændr personlige oplysninger",
             "text": "Hvis du ændrer dine personlige oplysninger, slettes dine tidligere eksaminationer. Er du sikker på at du vil ændre dine oplysninger?",
             "button-change": "Ændr oplysninger"
@@ -265,14 +273,16 @@
         "export-data": "Eksporter eksaminationer",	
         "confirm": "Bekræft",
         "reset-database": "Nulstil database",
-        "delete-database": {
+        "delete-database": 
+        {
             "title": "Slet database",
             "text": "Er du sikker på at du vil slette databasen? Alt dit data vil blive slettet og det kan ikke gøres om.",
             "button-delete": "Slet"
         },
-        "vibration": {
+        "vibration": 
+        {
             "title": "Vibration varighed",
-            "seconds": "sekunder",
+            "seconds": " sekunder",
             "text": "Vibration bruges til vibrationstesten. Hvor længe mobilen kan vibrere, kan afhænge af modellen. Juster varigheden af vibrationen så den passer til din mobil, og test at knappen nedenunder virker."
         }
     }
