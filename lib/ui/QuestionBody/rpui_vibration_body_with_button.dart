@@ -5,9 +5,9 @@ import 'package:neuropathy_grading_tool/step/steps/rp_vibration_step.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/semi_bold_text.dart';
 import 'package:neuropathy_grading_tool/utils/spacing.dart';
 
-import '../../languages.dart';
-import '../../utils/themes/text_styles.dart';
-import '../widgets/vibration_button.dart';
+import 'package:neuropathy_grading_tool/languages.dart';
+import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/vibration_button.dart';
 
 class RPUIVibrationBodyWithButton extends StatefulWidget {
   final RPVibrationStep vibrationStep;

@@ -98,8 +98,11 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/
+    - assets/images/
     - assets/images/steps/vibration/
+    - assets/images/steps/
     - assets/images/steps/prick/
+    - assets/images/results/
     - assets/lang/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
