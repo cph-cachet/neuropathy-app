@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:neuropathy_grading_tool/ui/results/result_page.dart';
+import 'package:neuropathy_grading_tool/ui/results/detailed_result_page.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/neuropathy_icons.dart';
 
 import 'package:neuropathy_grading_tool/utils/date_formatter.dart';
@@ -63,7 +63,7 @@ class MainPageBodyWithExaminations extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).push(PageRouteBuilder(
-                pageBuilder: (_, __, ___) => ResultPage(
+                pageBuilder: (_, __, ___) => DetailedResultPage(
                   patient: patient,
                   result: taskResults[index],
                 ),
