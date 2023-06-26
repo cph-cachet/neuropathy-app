@@ -80,16 +80,10 @@ class OtherFindingsTile extends StatelessWidget {
               children: [
                 StackedResultItem(
                   score: symptoms.results['answer'][0]['value']!,
-                  scoreZeroLabel: 'common.no',
-                  scoreOverZeroLabel: 'common.yes',
+                  scoreZeroLabel: 'symptoms.choice-1',
+                  scoreOverZeroLabel:
+                      '${Languages.of(context)!.translate('common.yes')}, ${Languages.of(context)!.translate(symptoms.results['answer'][0]['text']).toLowerCase()}',
                 ),
-                horizontalSpacing(24),
-                if (symptoms.results['answer'][0]['value']! > 0)
-                  Text(
-                    Languages.of(context)!
-                        .translate(symptoms.results['answer'][0]['text']),
-                    style: ThemeTextStyle.resultsLabelsStyle,
-                  )
               ],
             ),
           ],
