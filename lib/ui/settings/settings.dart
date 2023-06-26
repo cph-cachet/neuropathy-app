@@ -68,6 +68,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
     });
   }
 
+  _shouldReload() {
+    setState(() {
+      willReload = true;
+    });
+  }
+
   @override
   void setState(fn) {
     if (mounted) {
@@ -80,17 +86,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
     _getPatient();
     _getVibrationDuration();
     _loadResults();
+    willReload = false;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    shouldReload() {
-      setState(() {
-        willReload = true;
-      });
-    }
-
     return Scaffold(
         appBar: AppBar(
           title: Text(
@@ -121,14 +122,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       onChanged: (newValue, reset) {
                         _changePatientInfo({'sex': newValue});
                         if (reset) _resetDatabase();
-                        shouldReload();
+                        _shouldReload();
                       }),
                   AgeSettingsTile(_patient?.dateOfBirth,
                       (DateTime newValue, reset) {
                     _changePatientInfo(
                         {'dateOfBirth': newValue.toIso8601String()});
                     if (reset) _resetDatabase();
-                    shouldReload();
+                    _shouldReload();
                   })
                 ],
               ),
@@ -138,7 +139,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 tiles: [
                   const LanguagesSettingsTile(),
                   ExportDataSettingTile(_results, _patient ?? Patient()),
-                  ResetDatabaseSettingsTile(shouldReload()),
+                  ResetDatabaseSettingsTile(
+                    onShouldReload: _shouldReload,
+                  ),
                   VibrationDurationSettingsTile(
                     initialVibDuration: vibrationDuration,
                     onConfirm: (val) => _setVibrationDuration(val),

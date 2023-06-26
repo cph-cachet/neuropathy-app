@@ -6,8 +6,8 @@ import 'package:neuropathy_grading_tool/ui/widgets/confirm_operation_alert_dialo
 import 'package:settings_ui/settings_ui.dart';
 
 class ResetDatabaseSettingsTile extends AbstractSettingsTile {
-  final void onShouldReload;
-  const ResetDatabaseSettingsTile(this.onShouldReload, {super.key});
+  final Function onShouldReload;
+  const ResetDatabaseSettingsTile({required this.onShouldReload, super.key});
 
   @override
   Widget build(BuildContext context) {
