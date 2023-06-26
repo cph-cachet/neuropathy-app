@@ -189,6 +189,7 @@
         "title" : "Examination Result",
         "date": "Examination date",
         "score": "Total score",
+        "out-of": "out of",
         "common": {
         "score": "Score", "left": "Left",
         "right": "Right"},
