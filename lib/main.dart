@@ -14,6 +14,7 @@ import 'package:neuropathy_grading_tool/ui/main_page_examinations.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/add_examination_button.dart';
 import 'package:neuropathy_grading_tool/utils/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
+import 'package:neuropathy_grading_tool/utils/themes/themes.dart';
 import 'package:research_package/research_package.dart';
 import 'init.dart';
 
@@ -79,7 +80,6 @@ class _MyAppState extends State<MyApp> {
       localizationsDelegates: [
         Languages.delegate,
         RPLocalizations.delegate,
-        //DefaultMaterialLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -94,53 +94,7 @@ class _MyAppState extends State<MyApp> {
         return supportedLocales.first;
       },
       title: 'Flutter Demo',
-      theme: ThemeData(
-        unselectedWidgetColor: const Color(0xff22577a).withOpacity(0.7),
-        dividerColor: Colors.transparent,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.transparent,
-          iconTheme: IconThemeData(color: Color(0xff22577a)),
-          actionsIconTheme: IconThemeData(color: Color(0xff22577a)),
-          shadowColor: Color(0xff22577a),
-          // titleTextStyle: TextStyle(
-          //   color: Color(0xff22577a),
-          //   fontSize: 20,
-          //   fontWeight: FontWeight.normal,
-          // ),
-          elevation: 0,
-        ),
-        buttonTheme: ButtonThemeData(
-          //TODO: make this work on all buttons?
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(18.0),
-          ),
-        ),
-        checkboxTheme: CheckboxThemeData(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5),
-          ),
-          fillColor: MaterialStateProperty.all(const Color(0xff22577a)),
-          checkColor: MaterialStateProperty.all(Colors.white),
-        ),
-        radioTheme: RadioThemeData(
-          fillColor: MaterialStateProperty.all(const Color(0xff22577a)),
-        ),
-        iconTheme: const IconThemeData(color: Color(0xff22577a)),
-        primarySwatch: Colors.blue,
-        colorScheme: const ColorScheme(
-          brightness: Brightness.light,
-          primary: Color(0xff22577a),
-          onPrimary: Colors.white,
-          secondary: Colors.lightGreen,
-          onSecondary: Colors.white,
-          error: Colors.red,
-          onError: Colors.white,
-          background: Colors.white,
-          onBackground: Colors.blue,
-          surface: Colors.white70,
-          onSurface: Colors.black,
-        ),
-      ),
+      theme: appTheme,
       home: FutureBuilder(
         future: Future.delayed(const Duration(seconds: 1), () => _init),
         builder: (context, snapshot) {
