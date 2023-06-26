@@ -57,10 +57,20 @@ List<RPStep> motorStepList = [
 ];
 
 enum MotorStrings {
-  leftGreatToe('motor_left_toe', _leftLegTitle, _motorTextContent,
-      'assets/LeftGreatToe.png', _bottomSheetTitle, _bottomSheetTextContent),
-  rightGreatToe('motor_right_toe', _rightLegTitle, _motorTextContent,
-      'assets/RightGreatToe.png', _bottomSheetTitle, _bottomSheetTextContent);
+  leftGreatToe(
+      'motor_left_toe',
+      _leftLegTitle,
+      _motorTextContent,
+      'assets/images/steps/left_great_toe.png',
+      _bottomSheetTitle,
+      _bottomSheetTextContent),
+  rightGreatToe(
+      'motor_right_toe',
+      _rightLegTitle,
+      _motorTextContent,
+      'assets/images/steps/right_great_toe.png',
+      _bottomSheetTitle,
+      _bottomSheetTextContent);
 
   const MotorStrings(this.identifier, this.title, this.textContent,
       this.imagePath, this.bottomSheetTitle, this.bottomSheetTextContent);
