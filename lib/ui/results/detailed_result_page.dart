@@ -18,8 +18,9 @@ import 'package:to_csv/to_csv.dart' as export_csv;
 
 import 'package:neuropathy_grading_tool/utils/generate_csv.dart';
 
-class ResultPage extends StatelessWidget {
-  const ResultPage({Key? key, required this.result, required this.patient})
+class DetailedResultPage extends StatelessWidget {
+  const DetailedResultPage(
+      {Key? key, required this.result, required this.patient})
       : super(key: key);
   final RPTaskResult result;
   final Patient patient;

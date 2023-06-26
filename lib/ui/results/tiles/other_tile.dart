@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:neuropathy_grading_tool/survey/motor_part.dart';
 import 'package:neuropathy_grading_tool/survey/symptoms_part.dart';
-import 'package:neuropathy_grading_tool/ui/results/tiles/vibration_tile.dart';
 import 'package:neuropathy_grading_tool/utils/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/stacked_result_item.dart';
 
 import 'package:research_package/model.dart';
 
@@ -62,32 +62,12 @@ class OtherFindingsTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                StackedResultRow(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    items: [
-                      horizontalSpacing(24),
-                      StackedResultItem(
-                        score:
-                            motorScores[MotorStrings.rightGreatToe.identifier]!,
-                      ),
-                    ],
-                    leading: StackedLeadingItem(
-                        isLeftOverride: false,
-                        sectionIdentifier:
-                            MotorStrings.rightGreatToe.identifier)),
-                StackedResultRow(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    items: [
-                      horizontalSpacing(24),
-                      StackedResultItem(
-                        score:
-                            motorScores[MotorStrings.leftGreatToe.identifier]!,
-                      )
-                    ],
-                    leading: StackedLeadingItem(
-                        isLeftOverride: true,
-                        sectionIdentifier:
-                            MotorStrings.leftGreatToe.identifier)),
+                OneItemWLeadingResRow(
+                    score: motorScores[MotorStrings.rightGreatToe.identifier]!,
+                    isLeft: false),
+                OneItemWLeadingResRow(
+                    score: motorScores[MotorStrings.leftGreatToe.identifier]!,
+                    isLeft: true),
               ],
             ),
             verticalSpacing(24),
