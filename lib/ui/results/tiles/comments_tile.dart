@@ -23,9 +23,12 @@ class CommentsExpansionTile extends StatelessWidget {
         ),
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              text,
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: TextField(
+              controller: TextEditingController(text: text),
+              readOnly: true,
+              canRequestFocus: false,
+              decoration: const InputDecoration(border: OutlineInputBorder()),
               style: ThemeTextStyle.regularIBM16sp,
             ),
           )
