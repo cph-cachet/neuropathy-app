@@ -22,8 +22,7 @@ class DateFormatter extends StatelessWidget {
     } else if (now.year == localDateTime.year &&
         now.month == localDateTime.month &&
         now.day == localDateTime.day + 1) {
-      String yesterday =
-          Languages.of(context)!.translate('result-screen.yesterday');
+      String yesterday = Languages.of(context)!.translate('common.yesterday');
       return '$yesterday, $timeString';
     } else if (now.difference(localDateTime).inDays < 7) {
       String weekDay =
