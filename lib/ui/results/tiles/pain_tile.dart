@@ -71,7 +71,8 @@ class PainTile extends StatelessWidget {
               ),
               verticalSpacing(24),
               Text(Languages.of(context)!.translate('results.pain.sensitivity'),
-                  style: ThemeTextStyle.resultsLabelsStyle),
+                  style: ThemeTextStyle.resultsLabelsStyle
+                      .copyWith(fontWeight: FontWeight.bold)),
               verticalSpacing(8),
               _PainStackedRow(scores: stackedRowScores),
               verticalSpacing(16),
