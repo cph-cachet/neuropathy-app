@@ -17,7 +17,7 @@ class DateFormatter extends StatelessWidget {
     if (now.year == localDateTime.year &&
         now.month == localDateTime.month &&
         now.day == localDateTime.day) {
-      String today = Languages.of(context)!.translate('result-screen.today');
+      String today = Languages.of(context)!.translate('common.today');
       return '$today, $timeString';
     } else if (now.year == localDateTime.year &&
         now.month == localDateTime.month &&
