@@ -75,47 +75,35 @@ class _PinPrickTileState extends State<PinPrickTile> {
           children: [
             verticalSpacing(8),
             AnimatedToggleSwitch.dual(
-              iconBuilder: (value) => value
-                  ? Icon(
-                      Icons.arrow_forward_rounded,
-                      color: Theme.of(context).colorScheme.onPrimary,
-                    )
-                  : Icon(
-                      Icons.arrow_back_rounded,
-                      color: Theme.of(context).colorScheme.onPrimary,
-                    ),
-              indicatorSize: const Size(36, 36),
-              height: 38,
-              dif: 50,
-              current: _isLeftSelected,
-              first: true,
-              second: false,
-              borderWidth: 1,
-              onChanged: (_) => _onSelected(_isLeftSelected ? 1 : 0),
-              borderColor: Theme.of(context).colorScheme.primary,
-              colorBuilder: (_) => Theme.of(context).colorScheme.primary,
-              textBuilder: (value) => value
-                  ? Center(
+                iconBuilder: (value) => value
+                    ? Icon(
+                        Icons.arrow_forward_rounded,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      )
+                    : Icon(
+                        Icons.arrow_back_rounded,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
+                indicatorSize: const Size(36, 36),
+                height: 38,
+                dif: 70,
+                current: _isLeftSelected,
+                first: true,
+                second: false,
+                borderWidth: 1,
+                onChanged: (_) => _onSelected(_isLeftSelected ? 1 : 0),
+                borderColor: Theme.of(context).colorScheme.primary,
+                colorBuilder: (_) => Theme.of(context).colorScheme.primary,
+                textBuilder: (_) => Center(
                       child: Text(
                           Languages.of(context)!
-                              .translate('common.left')
+                              .translate('results.prick.switch-leg')
                               .toUpperCase(),
                           style: ThemeTextStyle.extraLightIBM16sp.copyWith(
                               fontSize: 14,
                               color: Theme.of(context).colorScheme.primary,
                               fontWeight: FontWeight.bold)),
-                    )
-                  : Center(
-                      child: Text(
-                      Languages.of(context)!
-                          .translate('common.right')
-                          .toUpperCase(),
-                      style: ThemeTextStyle.extraLightIBM16sp.copyWith(
-                          fontSize: 14,
-                          color: Theme.of(context).colorScheme.primary,
-                          fontWeight: FontWeight.bold),
                     )),
-            ),
             verticalSpacing(24),
             ConstrainedBox(
               //TODO: change to sized box
@@ -174,6 +162,11 @@ class _PinPrickResultBody extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
+        Text(
+          Languages.of(context)!.translate('common.${leg.name}-leg'),
+          style: ThemeTextStyle.resultsLabelsStyle,
+        ),
+        verticalSpacing(16),
         Stack(children: [
           SizedBox(
             //width: 250,
