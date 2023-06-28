@@ -218,7 +218,8 @@
         }, 
         "comments": 
         {
-            "title": "Kommentarer"
+            "title": "Kommentarer",
+            "closing-comments": "Din afsluttende kommentar:"
         }
     },
     "settings": 

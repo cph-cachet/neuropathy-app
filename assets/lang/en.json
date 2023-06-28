@@ -218,7 +218,8 @@
         }, 
         "comments": 
         {
-            "title": "Comments"
+            "title": "Comments",
+            "closing-comments": "Your closing comment:"
         }
     },
     "settings": 
