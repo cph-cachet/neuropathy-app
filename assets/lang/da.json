@@ -180,11 +180,6 @@
         "date": "Eksamination dato",
         "score": "Samlet score",
         "out-of": "ud af",
-        "common": {
-            "score": "Score",
-            "left": "Højre",
-            "right": "Venstre"
-        },
         "vibration": 
         {
             "title": "Vibration",
