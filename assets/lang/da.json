@@ -193,6 +193,7 @@
         "prick": 
         {
             "title": "Nåle-prik",
+            "switch-leg": "Skift ben",
             "hyper": "Følsomhed smerte",
             "allodynia": "Følsomhed prik"
         },

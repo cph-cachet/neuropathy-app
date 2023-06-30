@@ -193,6 +193,7 @@
         "prick": 
         {
             "title": "Pin prick",
+            "switch-leg": "Switch leg",
             "hyper": "Pain Sensitivity",
             "allodynia": "Prick Sensitivity"
         },
