@@ -179,6 +179,7 @@
         "title": "Resultat af eksamination",
         "date": "Eksamination dato",
         "score": "Samlet score",
+        "out-of": "ud af",
         "vibration": 
         {
             "title": "Vibration",

@@ -67,9 +67,16 @@ class DetailedResultPage extends StatelessWidget {
                   color: Theme.of(context).colorScheme.primary,
                 )),
             ListTile(
-                title: Text(
-                  calculateScore(result).toString(),
-                  style: ThemeTextStyle.regularIBM20sp,
+                title: RichText(
+                  text: TextSpan(children: [
+                    TextSpan(
+                        text: calculateScore(result).toString(),
+                        style: ThemeTextStyle.regularIBM20sp),
+                    TextSpan(
+                        text:
+                            ' (${Languages.of(context)!.translate('results.out-of')} 44)',
+                        style: ThemeTextStyle.extraLightIBM16sp)
+                  ]),
                 ),
                 subtitle: Text(
                   Languages.of(context)!.translate('results.score'),

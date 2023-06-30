@@ -179,6 +179,7 @@
         "title": "Examination Result",
         "date": "Examination date",
         "score": "Total score",
+        "out-of": "out of",
         "vibration": 
         {
             "title": "Vibration",
