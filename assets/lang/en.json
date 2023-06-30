@@ -210,7 +210,7 @@
             "decreased": "Decreased",
             "title": "Pain",
             "level": "Pain level",
-            "score": "Pain score",
+            "score": "Pain score (not part of total score)",
             "prick": "Prick",
             "touch": "Touch",
             "stroking": "Stroking",

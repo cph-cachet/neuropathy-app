@@ -210,7 +210,7 @@
             "decreased": "Formindsket",
             "title": "Smerte",
             "level": "Størrelse af smerte",
-            "score": "Smerte score",
+            "score": "Smerte score (ikke del af samlet score)",
             "prick": "Prik",
             "touch": "Berøring",
             "stroking": "Strøg",
