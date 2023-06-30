@@ -12,6 +12,7 @@ import 'package:neuropathy_grading_tool/ui/results/tiles/vibration_tile.dart';
 
 import 'package:neuropathy_grading_tool/ui/widgets/neuropathy_icons.dart';
 import 'package:neuropathy_grading_tool/utils/date_formatter.dart';
+import 'package:neuropathy_grading_tool/utils/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
 import 'package:to_csv/to_csv.dart' as export_csv;
@@ -109,6 +110,7 @@ class DetailedResultPage extends StatelessWidget {
                       .map((e) => e.value as RPStepResult)
                       .first
                       .results['answer']),
+            verticalSpacing(16)
           ],
         ),
       ),
