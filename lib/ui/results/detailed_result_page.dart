@@ -9,15 +9,13 @@ import 'package:neuropathy_grading_tool/ui/results/tiles/other_tile.dart';
 import 'package:neuropathy_grading_tool/ui/results/tiles/pain_tile.dart';
 import 'package:neuropathy_grading_tool/ui/results/tiles/pin_prick_tile.dart';
 import 'package:neuropathy_grading_tool/ui/results/tiles/vibration_tile.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/download_examination_icon.dart';
 
 import 'package:neuropathy_grading_tool/ui/widgets/neuropathy_icons.dart';
 import 'package:neuropathy_grading_tool/utils/date_formatter.dart';
 import 'package:neuropathy_grading_tool/utils/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
-import 'package:to_csv/to_csv.dart' as export_csv;
-
-import 'package:neuropathy_grading_tool/utils/generate_csv.dart';
 
 class DetailedResultPage extends StatelessWidget {
   const DetailedResultPage(
@@ -36,13 +34,7 @@ class DetailedResultPage extends StatelessWidget {
                 color: Theme.of(context).colorScheme.primary,
                 fontWeight: FontWeight.bold)),
         backgroundColor: Colors.transparent,
-        leading: IconButton(
-          icon: const Icon(Icons.file_download_outlined),
-          onPressed: () {
-            CsvData csvData = CsvData.fromResults([result], patient);
-            export_csv.myCSV(csvData.headers, csvData.rows);
-          },
-        ),
+        leading: DownloadExaminationIcon(results: [result], patient: patient),
         actions: [
           IconButton(
             icon: const Icon(Icons.close),
