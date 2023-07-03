@@ -125,7 +125,7 @@ class _PinPrickTileState extends State<PinPrickTile> {
             ConstrainedBox(
               //TODO: change to sized box
               constraints: BoxConstraints(
-                  maxHeight: MediaQuery.of(context).size.height * 0.4,
+                  maxHeight: MediaQuery.of(context).size.height * 0.43,
                   maxWidth: MediaQuery.of(context).size.width * 0.9),
               child: PageView(
                 onPageChanged: (index) => _onSelected(index),
@@ -181,7 +181,7 @@ class _PinPrickResultBody extends StatelessWidget {
       children: [
         Text(
           Languages.of(context)!.translate('common.${leg.name}-leg'),
-          style: ThemeTextStyle.resultsLabelsStyle,
+          style: ThemeTextStyle.resultSectionLabelStyle,
         ),
         verticalSpacing(16),
         Stack(children: [

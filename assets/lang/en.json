@@ -172,7 +172,8 @@
         "text-1": "Your score",
         "text-2": "The score reflects the severity of your symptoms and findings during the examination (the lower the score is, the better).",
         "text-3": "You should not conclude on any diagnosis without seeing a health professional.",
-        "button-main": "Back to home"
+        "button-home": "Return Home",
+        "button-details": "Result Details"
     },
     "results": 
     {
@@ -210,7 +211,8 @@
             "decreased": "Decreased",
             "title": "Pain",
             "level": "Pain level",
-            "score": "Pain score (not part of total score)",
+            "score": "Pain score",
+            "score-grading": "not part of total score",
             "prick": "Prick",
             "touch": "Touch",
             "stroking": "Stroking",

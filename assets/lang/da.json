@@ -172,7 +172,8 @@
         "text-1": "Din score",
         "text-2": "Scoren er et udtryk for hvor udbredte symptomer, der blev fundet under eksaminationen (jo lavere score, des bedre).",
         "text-3": "Du bør ikke fastsætte dig på nogen diagnose uden at have snakket med en læge.",
-        "button-main": "Tilbage til hovedmenuen"
+        "button-home": "Til hovedmenuen",
+        "button-details": "Detaljeret resultat"
     },
     "results": 
     {
@@ -210,7 +211,8 @@
             "decreased": "Formindsket",
             "title": "Smerte",
             "level": "Størrelse af smerte",
-            "score": "Smerte score (ikke del af samlet score)",
+            "score": "Smerte score",
+            "score-grading": "ikke del af samlet score",
             "prick": "Prik",
             "touch": "Berøring",
             "stroking": "Strøg",

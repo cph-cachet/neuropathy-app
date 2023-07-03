@@ -3,6 +3,10 @@ import 'package:get_it/get_it.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:neuropathy_grading_tool/repositories/result_repository/examination_score.dart';
 import 'package:neuropathy_grading_tool/repositories/result_repository/result_repository.dart';
+import 'package:neuropathy_grading_tool/repositories/settings_repository/patient.dart';
+import 'package:neuropathy_grading_tool/repositories/settings_repository/settings_repository.dart';
+import 'package:neuropathy_grading_tool/ui/results/detailed_result_page.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/download_examination_icon.dart';
 import 'package:neuropathy_grading_tool/utils/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
@@ -21,23 +25,50 @@ class _ExaminationCompletedPageState extends State<ExaminationCompletedPage> {
   // because database changes some fields in the result (and calculateScore
   // accomodates for this). Alternative is to have two calculateScore functions)
   final ResultRepository _resultRepository = GetIt.I.get();
+  final SettingsRepository _settingsRepository = GetIt.I.get();
   late RPTaskResult _result;
+  late Patient _patient;
   bool _hasLoaded = false;
   @override
   void initState() {
-    _loadResult();
+    _load();
     super.initState();
   }
 
-  _loadResult() async {
-    final result = await Future.delayed(
-        const Duration(seconds: 1), () => _resultRepository.getLatest());
+  Future<bool> _loadPatient() async {
+    final patient = await _settingsRepository.getPatientInformation();
+    setState(() => _patient = patient);
+    return Future(() => true);
+  }
+
+  Future<bool> _loadResult() async {
+    final result = await _resultRepository.getLatest();
     setState(() => _result = result);
-    setState(() => _hasLoaded = true);
+    return Future(() => true);
+  }
+
+  _load() {
+    Future.wait([
+      _loadPatient(),
+      _loadResult(),
+      Future.delayed(const Duration(seconds: 1))
+    ]).then((_) {
+      setState(() => _hasLoaded = true);
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    Widget slideTransition(animation, child) {
+      return SlideTransition(
+        position: Tween<Offset>(
+          begin: const Offset(0, 1),
+          end: Offset.zero,
+        ).chain(CurveTween(curve: Curves.ease)).animate(animation),
+        child: child,
+      );
+    }
+
     double minScore = 0;
     double maxScore = 44;
     int testScore = 0;
@@ -55,8 +86,17 @@ class _ExaminationCompletedPageState extends State<ExaminationCompletedPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
                       verticalSpacing(72),
-                      Text(
-                        Languages.of(context)!.translate('result-screen.title'),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            Languages.of(context)!
+                                .translate('result-screen.title'),
+                          ),
+                          horizontalSpacing(12),
+                          DownloadExaminationIcon(
+                              results: [_result], patient: _patient)
+                        ],
                       ),
                       Column(
                         children: [
@@ -86,7 +126,9 @@ class _ExaminationCompletedPageState extends State<ExaminationCompletedPage> {
                                           RangePointer(
                                             value: testScore.toDouble(),
                                             width: 30,
-                                            color: Colors.blue,
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .primary,
                                             enableAnimation: true,
                                           ),
                                           MarkerPointer(
@@ -145,13 +187,36 @@ class _ExaminationCompletedPageState extends State<ExaminationCompletedPage> {
                           )
                         ],
                       ),
-                      ElevatedButton(
-                          onPressed: (() {
-                            Navigator.of(context).pushNamedAndRemoveUntil(
-                                '/', (Route<dynamic> route) => false);
-                          }),
-                          child: Text(Languages.of(context)!
-                              .translate('result-screen.button-main'))),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                              onPressed: () {
+                                Navigator.of(context).push(PageRouteBuilder(
+                                  pageBuilder: (_, __, ___) =>
+                                      DetailedResultPage(
+                                    patient: _patient,
+                                    result: _result,
+                                  ),
+                                  transitionDuration:
+                                      const Duration(milliseconds: 400),
+                                  transitionsBuilder:
+                                      (_, animation, __, child) =>
+                                          slideTransition(animation, child),
+                                ));
+                              },
+                              child: Text(Languages.of(context)!
+                                  .translate('result-screen.button-details'))),
+                          horizontalSpacing(16),
+                          OutlinedButton(
+                              onPressed: (() {
+                                Navigator.of(context).pushNamedAndRemoveUntil(
+                                    '/', (Route<dynamic> route) => false);
+                              }),
+                              child: Text(Languages.of(context)!
+                                  .translate('result-screen.button-home'))),
+                        ],
+                      ),
                     ],
                   ),
                 ),

@@ -66,17 +66,21 @@ class PainTile extends StatelessWidget {
                 style: ThemeTextStyle.resultsLabelsStyle,
               ),
               Text(
+                Languages.of(context)!.translate('results.pain.score-grading'),
+                style: ThemeTextStyle.resultsLabelsStyle.copyWith(fontSize: 14),
+              ),
+              Text(
                 painScore.toString(),
                 style: ThemeTextStyle.headline24sp,
               ),
               verticalSpacing(24),
               Text(Languages.of(context)!.translate('results.pain.sensitivity'),
-                  style: ThemeTextStyle.resultsLabelsStyle),
+                  style: ThemeTextStyle.resultSectionLabelStyle),
               verticalSpacing(8),
               _PainStackedRow(scores: stackedRowScores),
               verticalSpacing(16),
               Text(Languages.of(context)!.translate('results.pain.level'),
-                  style: ThemeTextStyle.resultsLabelsStyle),
+                  style: ThemeTextStyle.resultSectionLabelStyle),
               AbsorbPointer(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -171,7 +175,7 @@ class _PainMultipleChoiceResultWidget extends StatelessWidget {
       children: [
         verticalSpacing(24),
         Text(Languages.of(context)!.translate(title),
-            style: ThemeTextStyle.resultsLabelsStyle),
+            style: ThemeTextStyle.resultSectionLabelStyle),
         verticalSpacing(8),
         ...result.results['answer'].map((e) => _ResultItemRow(
             iconData: icons[e['text']] ?? Icons.error, label: e['text']))
@@ -201,7 +205,7 @@ class _ResultItemRow extends StatelessWidget {
           horizontalSpacing(4),
           Text(
             Languages.of(context)!.translate(label),
-            style: ThemeTextStyle.resultSectionLabelStyle,
+            style: ThemeTextStyle.resultsLabelsStyle,
           ),
           horizontalSpacing(4),
           Text(
