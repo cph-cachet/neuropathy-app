@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
-import 'package:neuropathy_grading_tool/repositories/result_repository/examination_score.dart';
+import 'package:neuropathy_grading_tool/utils/calculate_score.dart';
 import 'package:neuropathy_grading_tool/repositories/result_repository/result_repository.dart';
 import 'package:neuropathy_grading_tool/repositories/settings_repository/patient.dart';
 import 'package:neuropathy_grading_tool/repositories/settings_repository/settings_repository.dart';

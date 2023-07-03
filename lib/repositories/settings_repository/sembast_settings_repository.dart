@@ -4,7 +4,10 @@ import 'package:neuropathy_grading_tool/repositories/settings_repository/setting
 import 'package:sembast/sembast.dart';
 
 class SembastSettingsRepository extends SettingsRepository {
+  /// Get or create a singleton instance of [Database].
   final Database _database = GetIt.I.get();
+
+  /// Get a pointer to the main store, as we are storing single records for settings.
   final StoreRef _store = StoreRef.main();
 
   @override

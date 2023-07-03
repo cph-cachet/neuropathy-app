@@ -1,4 +1,4 @@
-import 'package:neuropathy_grading_tool/repositories/result_repository/examination_score.dart';
+import 'package:neuropathy_grading_tool/utils/calculate_score.dart';
 import 'package:neuropathy_grading_tool/survey/free_text_part.dart';
 import 'package:neuropathy_grading_tool/survey/step_identifiers.dart';
 import 'package:research_package/research_package.dart';
