@@ -10,7 +10,7 @@ class SembastResultRepository extends ResultRepository {
   /// Get or create a singleton instance of [Database].
   final Database _database = GetIt.I.get();
 
-  /// Get a pointer to the resuly store.
+  /// Get a pointer to the result store.
   final StoreRef _store = intMapStoreFactory.store("result_store");
 
   /// The in-store id of the latest [RPTaskResult] stored in the database.
