@@ -6,6 +6,11 @@ const String _freeTextText = 'free-text.text';
 
 RPTextAnswerFormat freeTextAnswerFormat = RPTextAnswerFormat();
 
+/// A final step for the user to enter any additional information.
+///
+/// It is not required to fill out this step.
+/// The [freeTextAnswerFormat] accepts any text input from the user.
+/// It is part of the examination export.
 RPFreeTextStep freeTextStep = RPFreeTextStep(
     identifier: 'free_text_step',
     title: _freeTextTitle,

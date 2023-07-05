@@ -3,7 +3,6 @@ import 'package:neuropathy_grading_tool/step/steps/rp_image_question_step.dart';
 import 'package:neuropathy_grading_tool/step/steps/rp_instruction_step.dart';
 import 'package:research_package/research_package.dart';
 
-// todo move text to rpinstruction with children, just provide widget type
 const String _motorIntroductionTitle = 'motor-info.title';
 const List<Widget> _motorIntroContent = [
   Text(
@@ -28,6 +27,7 @@ const List<String> _bottomSheetTextContent = [
   'motor-test.bottom-sheet-text-2'
 ];
 
+/// An instruction step for the motor part of the examination.
 RPInstructionStepWithChildren motorInstructionStep =
     RPInstructionStepWithChildren(
   identifier: 'motorInstructionID',
@@ -35,6 +35,8 @@ RPInstructionStepWithChildren motorInstructionStep =
   instructionContent: _motorIntroContent,
 );
 
+/// An answer format for all motor steps.
+/// [value] decides how many points each option add to the total score
 List<RPChoice> motorYesNo = [
   RPChoice(text: 'common.yes', value: 2),
   RPChoice(text: 'common.no', value: 0),
@@ -42,6 +44,11 @@ List<RPChoice> motorYesNo = [
 RPChoiceAnswerFormat motorYesNoFormat = RPChoiceAnswerFormat(
     answerStyle: RPChoiceAnswerStyle.SingleChoice, choices: motorYesNo);
 
+/// A list of all motor steps.
+///
+/// The [motorInstructionStep] is the first step of the motor part of the examination.
+/// The [motorYesNoFormat] is the answer format for all non-instruction motor steps.
+/// Both members of the [MotorStrings] enum are mapped to [RPImageQuestionStep]s.
 List<RPStep> motorStepList = [
   motorInstructionStep,
   ...MotorStrings.values
@@ -56,6 +63,13 @@ List<RPStep> motorStepList = [
       .toList()
 ];
 
+/// All strings used in the motor part of the examination.
+///
+/// The [identifier] is the step identifier.
+/// The [title] is the step title, filling the step UI  along with [textContent].
+/// The [imagePath] is the image path to display in the step.
+/// The [bottomSheetTitle] and [bottomSheetTextContent] are used to create the bottom sheet
+/// that gives the user more information about the step.
 enum MotorStrings {
   leftGreatToe(
       'motor_left_toe',

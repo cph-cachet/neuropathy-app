@@ -1,26 +1,15 @@
-import 'package:json_annotation/json_annotation.dart';
 import 'package:research_package/research_package.dart';
-
 import 'package:neuropathy_grading_tool/survey/step_identifiers.dart';
 
-part 'examination_score.g.dart';
-
-@JsonSerializable()
-class ExaminationScore {
-  final int taskHashCode;
-  final int score;
-
-  ExaminationScore(this.taskHashCode, this.score);
-
-  factory ExaminationScore.fromJson(Map<String, dynamic> json) =>
-      _$ExaminationScoreFromJson(json);
-
-  Map<String, dynamic> toJson() => _$ExaminationScoreToJson(this);
-}
-
+/// Calculates the score of a given [RPTaskResult] based on the answers to the questionnaire.
+///
+/// Only takes into account the [RPStepResult]s with identifiers in [gradingTaskIdentifiers].
+/// The list of results is filtered to only contain graded results, then folded.
+/// As each of the graded results has only one answer, a single fold is enough.
 int calculateScore(RPTaskResult result) {
   List<RPStepResult> stepResults = result.results.values
       .where((element) => gradingTaskIdentifiers.contains(element.identifier))
+      // map as RPStepResult, as the json deserialization returns them as RPResult
       .map((e) => e as RPStepResult)
       .toList();
   return stepResults.fold(

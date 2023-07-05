@@ -3,7 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:neuropathy_grading_tool/repositories/result_repository/result_repository.dart';
 import 'package:neuropathy_grading_tool/examination_completed_page.dart';
 import 'package:research_package/research_package.dart';
-import 'linear_survey.dart';
+import 'examination_survey.dart';
 
 class ExaminationPage extends StatelessWidget {
   final ResultRepository _resultRepository = GetIt.I.get();
@@ -20,7 +20,7 @@ class ExaminationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RPUITask(
-      task: linearSurveyTask,
+      task: examinationTask,
       onSubmit: (result) {
         resultCallback(result);
         Navigator.of(context).push(MaterialPageRoute<dynamic>(

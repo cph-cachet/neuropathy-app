@@ -7,11 +7,21 @@ import 'package:research_package/model.dart';
 import 'package:sembast/sembast.dart';
 
 class SembastResultRepository extends ResultRepository {
+  /// Get or create a singleton instance of [Database].
   final Database _database = GetIt.I.get();
+
+  /// Get a pointer to the result store.
   final StoreRef _store = intMapStoreFactory.store("result_store");
+
+  /// The in-store id of the latest [RPTaskResult] stored in the database.
   // ignore: prefer_typing_uninitialized_variables
   var _latestId;
 
+  /// Decodes a JSON string record to a [RPTaskResult].
+  ///
+  /// Step result map is decoded separately and added to the task result.
+  /// This is necessary because the step result map is not deserialized into [RPStepResult] objects,
+  ///  but into [RPResult] instead, resulting in data loss.
   RPTaskResult decodeRecord(record) {
     Map<String, dynamic> stepResultMap1 =
         json.decode(record.toString())['results'];
@@ -25,8 +35,8 @@ class SembastResultRepository extends ResultRepository {
   }
 
   @override
-  Future<RPTaskResult> getResult(int id) async {
-    final record = await _store.record(id).get(_database);
+  Future<RPTaskResult> getResult(int key) async {
+    final record = await _store.record(key).get(_database);
     return decodeRecord(record);
   }
 
@@ -37,14 +47,13 @@ class SembastResultRepository extends ResultRepository {
 
   @override
   Future<List<RPTaskResult>> getResults() async {
-    final finder = Finder(sortOrders: [SortOrder('id')]);
-    final records = await _store.find(_database, finder: finder);
-
+    final records = await _store.find(_database);
     return records
         .map((snapshot) {
           return decodeRecord(snapshot.value);
         })
         .toList()
+        // sort by the most recently added
         .reversed
         .toList();
   }
@@ -55,8 +64,8 @@ class SembastResultRepository extends ResultRepository {
   }
 
   @override
-  Future<void> deleteResult(int id) async {
-    await _store.record(id).delete(_database);
+  Future<void> deleteResult(int key) async {
+    await _store.record(key).delete(_database);
   }
 
   @override
