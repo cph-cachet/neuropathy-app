@@ -36,6 +36,7 @@ RPInstructionStepWithChildren motorInstructionStep =
 );
 
 /// An answer format for all motor steps.
+/// [value] decides how many points each option add to the total score
 List<RPChoice> motorYesNo = [
   RPChoice(text: 'common.yes', value: 2),
   RPChoice(text: 'common.no', value: 0),
