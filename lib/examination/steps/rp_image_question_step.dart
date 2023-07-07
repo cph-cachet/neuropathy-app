@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:research_package/research_package.dart';
 
-import 'package:neuropathy_grading_tool/ui/rpui_image_question_step.dart';
+import 'package:neuropathy_grading_tool/ui/examination/steps/rpui_image_question_step.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake, includeIfNull: false)
 class RPImageQuestionStep extends RPStep {
