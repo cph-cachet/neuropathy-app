@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
-import 'package:neuropathy_grading_tool/ui/settings/pages/vibration_duration_settings.dart';
+import 'package:neuropathy_grading_tool/ui/settings/dialogs/vibration_duration_settings.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 class VibrationDurationSettingsTile extends AbstractSettingsTile {

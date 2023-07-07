@@ -11,7 +11,7 @@ import 'package:neuropathy_grading_tool/ui/results/tiles/pin_prick_tile.dart';
 import 'package:neuropathy_grading_tool/ui/results/tiles/vibration_tile.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/download_examination_icon.dart';
 
-import 'package:neuropathy_grading_tool/ui/widgets/neuropathy_icons.dart';
+import 'package:neuropathy_grading_tool/utils/neuropathy_icons.dart';
 import 'package:neuropathy_grading_tool/utils/date_formatter.dart';
 import 'package:neuropathy_grading_tool/utils/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';

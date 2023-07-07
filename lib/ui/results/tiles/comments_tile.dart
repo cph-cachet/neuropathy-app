@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
-import 'package:neuropathy_grading_tool/ui/widgets/neuropathy_icons.dart';
+import 'package:neuropathy_grading_tool/utils/neuropathy_icons.dart';
 
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 

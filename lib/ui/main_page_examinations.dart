@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/ui/results/detailed_result_page.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/download_examination_icon.dart';
-import 'package:neuropathy_grading_tool/ui/widgets/neuropathy_icons.dart';
+import 'package:neuropathy_grading_tool/utils/neuropathy_icons.dart';
 
 import 'package:neuropathy_grading_tool/utils/date_formatter.dart';
 import 'package:research_package/research_package.dart';
