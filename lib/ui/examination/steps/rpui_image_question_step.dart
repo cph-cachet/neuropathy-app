@@ -129,7 +129,7 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: ToggleButton(
-              answerFormat: widget.step.answerFormat as RPChoiceAnswerFormat,
+              answerFormat: widget.step.answerFormat,
               onPressed: (result) {
                 currentQuestionBodyResult = result;
               }),

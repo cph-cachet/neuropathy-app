@@ -1,7 +1,7 @@
 import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
-import 'package:neuropathy_grading_tool/examination/prick_part.dart';
+import 'package:neuropathy_grading_tool/examination/sections/prick_part.dart';
 
 import 'package:neuropathy_grading_tool/ui/widgets/neuropathy_icons.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/stacked_result_item.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
-import 'package:neuropathy_grading_tool/examination/motor_part.dart';
-import 'package:neuropathy_grading_tool/examination/symptoms_part.dart';
+import 'package:neuropathy_grading_tool/examination/sections/motor_part.dart';
+import 'package:neuropathy_grading_tool/examination/sections/symptoms_part.dart';
 import 'package:neuropathy_grading_tool/utils/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/stacked_result_item.dart';

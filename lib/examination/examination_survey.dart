@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:neuropathy_grading_tool/examination/steps/rp_instruction_step.dart';
-import 'package:neuropathy_grading_tool/examination/pain_questionaire_part.dart';
-import 'package:neuropathy_grading_tool/examination/symptoms_part.dart';
-import 'package:neuropathy_grading_tool/examination/prick_part.dart';
-import 'package:neuropathy_grading_tool/examination/motor_part.dart';
-import 'package:neuropathy_grading_tool/examination/vibration_part.dart';
+import 'package:neuropathy_grading_tool/examination/sections/pain_questionaire_part.dart';
+import 'package:neuropathy_grading_tool/examination/sections/symptoms_part.dart';
+import 'package:neuropathy_grading_tool/examination/sections/prick_part.dart';
+import 'package:neuropathy_grading_tool/examination/sections/motor_part.dart';
+import 'package:neuropathy_grading_tool/examination/sections/vibration_part.dart';
 import 'package:neuropathy_grading_tool/examination/sections/free_text_part.dart';
 
 import 'package:research_package/research_package.dart';

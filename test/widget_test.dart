@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:neuropathy_grading_tool/main.dart';
-import 'package:neuropathy_grading_tool/examination/vibration_part.dart';
+import 'package:neuropathy_grading_tool/examination/sections/vibration_part.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/toggle_button.dart';
 
 import 'context_inj.dart';
