@@ -1,6 +1,6 @@
 import 'package:neuropathy_grading_tool/utils/calculate_score.dart';
-import 'package:neuropathy_grading_tool/survey/free_text_part.dart';
-import 'package:neuropathy_grading_tool/survey/step_identifiers.dart';
+import 'package:neuropathy_grading_tool/examination/sections/free_text_part.dart';
+import 'package:neuropathy_grading_tool/examination/step_identifiers.dart';
 import 'package:research_package/research_package.dart';
 import 'package:neuropathy_grading_tool/repositories/settings_repository/patient.dart';
 

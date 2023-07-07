@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
-import 'package:neuropathy_grading_tool/step/steps/rp_choice_question_step.dart';
+import 'package:neuropathy_grading_tool/examination/steps/rp_choice_question_step.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/choice_selector.dart';
 import 'package:neuropathy_grading_tool/utils/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';

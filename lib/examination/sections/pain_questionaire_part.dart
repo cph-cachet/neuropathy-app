@@ -1,11 +1,11 @@
 // Pain
 import 'package:flutter/material.dart';
-import 'package:neuropathy_grading_tool/step/steps/rp_toggle_question_step.dart';
+import 'package:neuropathy_grading_tool/examination/steps/rp_toggle_question_step.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/neuropathy_icons.dart';
 import 'package:research_package/research_package.dart';
 
-import 'package:neuropathy_grading_tool/step/steps/rp_choice_question_step.dart';
-import 'package:neuropathy_grading_tool/step/steps/rp_pain_slider_question_step.dart';
+import 'package:neuropathy_grading_tool/examination/steps/rp_choice_question_step.dart';
+import 'package:neuropathy_grading_tool/examination/steps/rp_pain_slider_question_step.dart';
 
 List<RPStep> painStepList = [
   painSlider,

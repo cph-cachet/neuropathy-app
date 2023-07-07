@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:neuropathy_grading_tool/repositories/settings_repository/settings_repository.dart';
-import 'package:neuropathy_grading_tool/step/steps/rp_vibration_step.dart';
+import 'package:neuropathy_grading_tool/examination/steps/rp_vibration_step.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/semi_bold_text.dart';
 import 'package:neuropathy_grading_tool/utils/spacing.dart';
 

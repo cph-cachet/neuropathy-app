@@ -5,7 +5,7 @@ import 'package:research_package/research_package.dart';
 import 'package:neuropathy_grading_tool/ui/QuestionBody/rpui_vibration_body_with_button.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/toggle_button.dart';
 
-import 'package:neuropathy_grading_tool/step/steps/rp_vibration_step.dart';
+import 'package:neuropathy_grading_tool/examination/steps/rp_vibration_step.dart';
 
 class RPUIVibrationStep extends StatefulWidget {
   final RPVibrationStep vibrationStep;

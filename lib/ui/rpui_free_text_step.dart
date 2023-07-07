@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
-import 'package:neuropathy_grading_tool/step/steps/rp_free_text_step.dart';
+import 'package:neuropathy_grading_tool/examination/steps/rp_free_text_step.dart';
 import 'package:research_package/research_package.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:neuropathy_grading_tool/step/steps/rp_instruction_step.dart';
-import 'package:neuropathy_grading_tool/step/steps/rp_vibration_step.dart';
+import 'package:neuropathy_grading_tool/examination/steps/rp_instruction_step.dart';
+import 'package:neuropathy_grading_tool/examination/steps/rp_vibration_step.dart';
 import 'package:research_package/research_package.dart';
 
 const String _leftLegTitle = 'common.left-leg';

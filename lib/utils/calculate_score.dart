@@ -1,5 +1,5 @@
 import 'package:research_package/research_package.dart';
-import 'package:neuropathy_grading_tool/survey/step_identifiers.dart';
+import 'package:neuropathy_grading_tool/examination/step_identifiers.dart';
 
 /// Calculates the score of a given [RPTaskResult] based on the answers to the questionnaire.
 ///
