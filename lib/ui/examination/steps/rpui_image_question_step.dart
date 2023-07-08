@@ -2,7 +2,7 @@ import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/bottom_sheet_button.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/semi_bold_text.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/toggle_button.dart';
-import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 
 import 'package:neuropathy_grading_tool/examination/steps/rp_image_question_step.dart';
 import 'package:flutter/material.dart';
@@ -68,8 +68,8 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
 
   List<Widget> makeTextContent() {
     TextStyle textStyle = widget.step.identifier.contains('prick')
-        ? ThemeTextStyle.regularIBM18sp
-        : ThemeTextStyle.headline24sp;
+        ? AppTextStyle.regularIBM18sp
+        : AppTextStyle.headline24sp;
 
     return widget.step.textContent
         .map((s) => Text(Languages.of(context)!.translate(s),
@@ -83,7 +83,7 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
     for (String s in widget.step.bottomSheetTextContent) {
       content.add(semiBoldText(
         Languages.of(context)!.translate(s),
-        ThemeTextStyle.regularIBM20sp,
+        AppTextStyle.regularIBM20sp,
         TextAlign.justify,
       ));
       content.add(verticalSpacing(24));
@@ -109,7 +109,7 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
             verticalSpacing(16),
             Text(
               Languages.of(context)!.translate(widget.step.title),
-              style: ThemeTextStyle.headline24sp,
+              style: AppTextStyle.headline24sp,
               textAlign: TextAlign.center,
             ),
           ],

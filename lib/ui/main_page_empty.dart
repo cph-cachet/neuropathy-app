@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:neuropathy_grading_tool/ui/examination/examination_page.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
-import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/add_examination_button.dart';
 
@@ -29,7 +29,7 @@ class MainPageEmptyResults extends StatelessWidget {
           children: <Widget>[
             Text(
               Languages.of(context)!.translate('welcome-screen.welcome'),
-              style: ThemeTextStyle.headline24sp.copyWith(
+              style: AppTextStyle.headline24sp.copyWith(
                 height: 1.25,
               ),
               textAlign: TextAlign.center,
@@ -37,7 +37,7 @@ class MainPageEmptyResults extends StatelessWidget {
             verticalSpacing(48),
             Text(
               Languages.of(context)!.translate('welcome-screen.no-completed'),
-              style: ThemeTextStyle.headline24sp.copyWith(
+              style: AppTextStyle.headline24sp.copyWith(
                 height: 1.25,
               ),
               textAlign: TextAlign.center,
@@ -52,7 +52,7 @@ class MainPageEmptyResults extends StatelessWidget {
               )),
               child: Text(
                 Languages.of(context)!.translate('welcome-screen.tap-to-start'),
-                style: ThemeTextStyle.headline24sp.copyWith(
+                style: AppTextStyle.headline24sp.copyWith(
                   height: 1.25,
                 ),
                 textAlign: TextAlign.center,

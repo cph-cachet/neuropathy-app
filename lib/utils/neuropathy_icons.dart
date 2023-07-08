@@ -25,6 +25,7 @@
 
 import 'package:flutter/widgets.dart';
 
+/// Custom icons for the Neuropathy Grading Tool app. Obtained with the help of fluttericon.com
 class NeuropathyIcons {
   NeuropathyIcons._();
 

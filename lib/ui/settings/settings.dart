@@ -96,7 +96,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         appBar: AppBar(
           title: Text(
               Languages.of(context)!.translate('settings.title').toUpperCase(),
-              style: ThemeTextStyle.extraLightIBM16sp.copyWith(
+              style: AppTextStyle.extraLightIBM16sp.copyWith(
                   color: Theme.of(context).colorScheme.primary,
                   fontWeight: FontWeight.bold)),
           leading: IconButton(

@@ -14,7 +14,7 @@ class CommentsExpansionTile extends StatelessWidget {
     return ExpansionTile(
         title: Text(
           Languages.of(context)!.translate('results.comments.title'),
-          style: ThemeTextStyle.regularIBM20sp,
+          style: AppTextStyle.regularIBM20sp,
         ),
         leading: Icon(
           NeuropathyIcons.ant_design_comment_outlined,
@@ -26,7 +26,7 @@ class CommentsExpansionTile extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               text,
-              style: ThemeTextStyle.regularIBM16sp,
+              style: AppTextStyle.regularIBM16sp,
             ),
           )
         ]);

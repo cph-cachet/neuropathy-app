@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 
 /// A bottom sheet that displays a [title] and [content].
@@ -33,7 +33,7 @@ class HelperBottomSheet extends StatelessWidget {
                 horizontalSpacing(8),
                 Text(
                   title,
-                  style: ThemeTextStyle.regularIBM20sp.copyWith(
+                  style: AppTextStyle.regularIBM20sp.copyWith(
                     color: Colors.black54,
                   ),
                 ),

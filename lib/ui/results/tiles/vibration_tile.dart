@@ -6,7 +6,7 @@ import 'package:research_package/model.dart';
 import 'package:neuropathy_grading_tool/examination/sections/vibration_part.dart';
 import 'package:neuropathy_grading_tool/utils/neuropathy_icons.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/stacked_result_item.dart';
-import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 
 class VibrationTile extends StatelessWidget {
@@ -28,7 +28,7 @@ class VibrationTile extends StatelessWidget {
 
     return ExpansionTile(
         title: Text(Languages.of(context)!.translate('results.vibration.title'),
-            style: ThemeTextStyle.regularIBM20sp),
+            style: AppTextStyle.regularIBM20sp),
         leading: Icon(
           NeuropathyIcons.bxs_mobile_vibration,
           size: 40,
@@ -64,19 +64,19 @@ class _VibrationTileBody extends StatelessWidget {
         children: <Widget>[
           Text(
             Languages.of(context)!.translate('results.vibration.section-score'),
-            style: ThemeTextStyle.resultsLabelsStyle,
+            style: AppTextStyle.resultsLabelsStyle,
           ),
           Text(
             vibrationScores.values
                 .fold(0, (previousValue, element) => previousValue + element)
                 .toString(),
-            style: ThemeTextStyle.headline24sp,
+            style: AppTextStyle.headline24sp,
           ),
           verticalSpacing(16),
           Text(
               Languages.of(context)!
                   .translate('results.vibration.feeling-vibration'),
-              style: ThemeTextStyle.resultSectionLabelStyle),
+              style: AppTextStyle.resultSectionLabelStyle),
           verticalSpacing(8),
           _VibrationLegResultRow(items: leftScores, isLeft: true),
           verticalSpacing(8),
@@ -84,7 +84,7 @@ class _VibrationTileBody extends StatelessWidget {
           verticalSpacing(8),
           Text(
               Languages.of(context)!.translate('results.vibration.feeling-toe'),
-              style: ThemeTextStyle.resultSectionLabelStyle),
+              style: AppTextStyle.resultSectionLabelStyle),
           verticalSpacing(8),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

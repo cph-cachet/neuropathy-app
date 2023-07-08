@@ -3,11 +3,19 @@ import 'package:intl/intl.dart';
 
 import 'package:neuropathy_grading_tool/languages.dart';
 
-class DateFormatter extends StatelessWidget {
+/// A class that formats a [dateTime] object to a localized display Text. Returns a [Text] widget,
+/// with optional [style] parameter.
+///
+/// It renders the date in the following format:
+/// - if the date is today, it returns 'Today, HH:mm'
+/// - if the date is yesterday, it returns 'Yesterday, HH:mm'
+/// - if the date is within the last week, it returns 'Weekday, HH:mm'
+/// - otherwise it returns 'dd/MM/yyyy, HH:mm'
+class FormattedDateText extends StatelessWidget {
   final DateTime dateTime;
   final TextStyle? style;
 
-  const DateFormatter({super.key, required this.dateTime, this.style});
+  const FormattedDateText({super.key, required this.dateTime, this.style});
 
   String getFormattedTime(DateTime dateTime, BuildContext context) {
     DateTime now = DateTime.now();

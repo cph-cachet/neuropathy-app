@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:neuropathy_grading_tool/utils/neuropathy_icons.dart';
-import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 
 /// A widget that displays a single result from examination, i.e left toe vibration score.
@@ -41,11 +41,11 @@ class StackedResultItem extends StatelessWidget {
       children: [
         if (label != null)
           Text(Languages.of(context)!.translate(label!),
-              style: ThemeTextStyle.resultsLabelsStyle),
+              style: AppTextStyle.resultsLabelsStyle),
         overrideScoreResult == null
             ? Text(
                 Languages.of(context)!.translate(translateString),
-                style: ThemeTextStyle.regularIBM18sp.copyWith(
+                style: AppTextStyle.regularIBM18sp.copyWith(
                     color: score > 0
                         ? Theme.of(context).colorScheme.error
                         : Theme.of(context).colorScheme.secondary),
@@ -54,7 +54,7 @@ class StackedResultItem extends StatelessWidget {
         if (score > 0 && !skipScoreCount)
           Text(
             '+$score',
-            style: ThemeTextStyle.regularIBM14sp
+            style: AppTextStyle.regularIBM14sp
                 .copyWith(color: Theme.of(context).colorScheme.error),
           ),
       ],
@@ -85,7 +85,7 @@ class ResultFootWithLabelItem extends StatelessWidget {
         Text(
           Languages.of(context)!
               .translate(isLeft ? 'common.left' : 'common.right'),
-          style: ThemeTextStyle.resultsSmallLabelStyle,
+          style: AppTextStyle.resultsSmallLabelStyle,
         ),
       ],
     );

@@ -4,7 +4,7 @@ import 'package:neuropathy_grading_tool/ui/results/detailed_result_page.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/download_examination_icon.dart';
 import 'package:neuropathy_grading_tool/utils/neuropathy_icons.dart';
 
-import 'package:neuropathy_grading_tool/utils/date_formatter.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/date_formatter.dart';
 import 'package:research_package/research_package.dart';
 
 import 'package:neuropathy_grading_tool/languages.dart';
@@ -41,7 +41,7 @@ class MainPageBodyWithExaminations extends StatelessWidget {
         return Card(
           child: ListTile(
             isThreeLine: false,
-            title: DateFormatter(dateTime: taskResults[index].startDate!),
+            title: FormattedDateText(dateTime: taskResults[index].startDate!),
             subtitle: Text(calculateScore(taskResults[index]).toString()),
             leading: Icon(
               NeuropathyIcons.carbon_result,

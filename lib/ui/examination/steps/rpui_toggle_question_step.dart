@@ -61,7 +61,7 @@ class RPUIToggleQuestionStepState extends State<RPUIToggleQuestionStep>
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: semiBoldText(
             Languages.of(context)!.translate(widget.step.title),
-            ThemeTextStyle.headline24sp,
+            AppTextStyle.headline24sp,
             TextAlign.center,
           )),
       // Text
@@ -71,7 +71,7 @@ class RPUIToggleQuestionStepState extends State<RPUIToggleQuestionStep>
               padding: const EdgeInsets.symmetric(horizontal: 36.0),
               child: Text(
                 Languages.of(context)!.translate(widget.step.text!),
-                style: ThemeTextStyle.headline24sp,
+                style: AppTextStyle.headline24sp,
                 textAlign: TextAlign.center,
               ),
             ),

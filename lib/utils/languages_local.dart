@@ -1,3 +1,4 @@
+/// This class contains the list of languages in ISO 639-1 format and their names in English and native language.
 class LanguageLocal {
   final isoLangs = {
     "ab": {"name": "Abkhaz", "nativeName": "аҧсуа"},

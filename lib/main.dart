@@ -12,7 +12,7 @@ import 'package:neuropathy_grading_tool/ui/settings/settings.dart';
 import 'package:neuropathy_grading_tool/ui/main_page_empty.dart';
 import 'package:neuropathy_grading_tool/ui/main_page_examinations.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/add_examination_button.dart';
-import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:neuropathy_grading_tool/utils/themes/themes.dart';
 import 'package:research_package/research_package.dart';
@@ -186,7 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Text(widget.title.toUpperCase(),
-            style: ThemeTextStyle.extraLightIBM16sp.copyWith(
+            style: AppTextStyle.extraLightIBM16sp.copyWith(
                 color: Theme.of(context).colorScheme.primary,
                 fontWeight: FontWeight.bold)),
         actions: [

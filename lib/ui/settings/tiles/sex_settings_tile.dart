@@ -43,7 +43,7 @@ class SexSettingsTile extends AbstractSettingsTile {
                       Text(
                         Languages.of(context)!
                             .translate('settings.sex.bottom-sheet-title'),
-                        style: ThemeTextStyle.regularIBM18sp
+                        style: AppTextStyle.regularIBM18sp
                             .copyWith(color: Colors.black54),
                       ),
                       ListView.builder(

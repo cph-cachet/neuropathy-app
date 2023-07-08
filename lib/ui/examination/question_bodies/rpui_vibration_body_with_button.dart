@@ -3,7 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:neuropathy_grading_tool/repositories/settings_repository/settings_repository.dart';
 import 'package:neuropathy_grading_tool/examination/steps/rp_vibration_step.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/semi_bold_text.dart';
-import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 
 import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
@@ -60,7 +60,7 @@ class _RPUIVibrationBodyWithButtonState
                     : const Icon(Icons.error),
               ),
               Text(Languages.of(context)!.translate(widget.vibrationStep.title),
-                  style: ThemeTextStyle.headline24sp),
+                  style: AppTextStyle.headline24sp),
             ],
           ),
           //verticalSpacing(8),
@@ -71,7 +71,7 @@ class _RPUIVibrationBodyWithButtonState
               widget.vibrationStep.text != null
                   ? Languages.of(context)!.translate(widget.vibrationStep.text!)
                   : '',
-              ThemeTextStyle.regularIBM18sp,
+              AppTextStyle.regularIBM18sp,
               TextAlign.center,
             ),
           ),
@@ -80,7 +80,7 @@ class _RPUIVibrationBodyWithButtonState
           //verticalSpacing(24),
           Text(
             Languages.of(context)!.translate('common.feel-vibration'),
-            style: ThemeTextStyle.regularIBM18sp,
+            style: AppTextStyle.regularIBM18sp,
             textAlign: TextAlign.center,
           ),
           widget.toggleButton,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:neuropathy_grading_tool/examination/steps/rp_choice_question_step.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/choice_selector.dart';
-import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/model.dart';
 
@@ -57,8 +57,8 @@ class RPUIChoiceQuestionStepState extends State<RPUIChoiceQuestionStep>
                   Text(
                     Languages.of(context)!.translate(widget.step.title),
                     style: widget.step.text != null
-                        ? ThemeTextStyle.regularIBM22sp
-                        : ThemeTextStyle.headline24sp,
+                        ? AppTextStyle.regularIBM22sp
+                        : AppTextStyle.headline24sp,
                     textAlign: TextAlign.center,
                   ),
                   if (widget.step.text != null) verticalSpacing(24),
@@ -66,8 +66,8 @@ class RPUIChoiceQuestionStepState extends State<RPUIChoiceQuestionStep>
                     Text(
                       Languages.of(context)!.translate(widget.step.text!),
                       style: widget.step.text != null
-                          ? ThemeTextStyle.regularIBM22sp
-                          : ThemeTextStyle.headline24sp,
+                          ? AppTextStyle.regularIBM22sp
+                          : AppTextStyle.headline24sp,
                       textAlign: TextAlign.center,
                     ),
                 ],
@@ -80,7 +80,7 @@ class RPUIChoiceQuestionStepState extends State<RPUIChoiceQuestionStep>
                   Text(
                     Languages.of(context)!
                         .translate('common.check-all-that-apply'),
-                    style: ThemeTextStyle.regularIBM14sp,
+                    style: AppTextStyle.regularIBM14sp,
                     textAlign: TextAlign.center,
                   ),
                   verticalSpacing(16)

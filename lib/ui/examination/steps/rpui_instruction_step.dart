@@ -20,14 +20,14 @@ class RPUIInstructionStepWithChildren extends StatelessWidget {
             : e)
         .toList();
     return Material(
-      textStyle: ThemeTextStyle.headline24sp,
+      textStyle: AppTextStyle.headline24sp,
       child: Padding(
         padding: const EdgeInsets.all(48),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Text(Languages.of(context)!.translate(step.title),
-                style: ThemeTextStyle.header1, textAlign: TextAlign.center),
+                style: AppTextStyle.header1, textAlign: TextAlign.center),
             ...children
           ],
         ),

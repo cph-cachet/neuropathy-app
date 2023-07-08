@@ -5,7 +5,7 @@ import 'package:neuropathy_grading_tool/examination/sections/prick_part.dart';
 
 import 'package:neuropathy_grading_tool/utils/neuropathy_icons.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/stacked_result_item.dart';
-import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -70,7 +70,7 @@ class _PinPrickTileState extends State<PinPrickTile> {
     return ExpansionTile(
       title: Text(
         Languages.of(context)!.translate('results.prick.title'),
-        style: ThemeTextStyle.regularIBM20sp,
+        style: AppTextStyle.regularIBM20sp,
       ),
       leading: Icon(NeuropathyIcons.ph_needle_fillprick_needle,
           size: 40, color: Theme.of(context).colorScheme.primary),
@@ -81,14 +81,14 @@ class _PinPrickTileState extends State<PinPrickTile> {
             Text(
               Languages.of(context)!
                   .translate('results.vibration.section-score'),
-              style: ThemeTextStyle.resultsLabelsStyle,
+              style: AppTextStyle.resultsLabelsStyle,
             ),
             Text(
               _getResults(widget.result)
                   .values
                   .fold(0, (previousValue, element) => previousValue + element)
                   .toString(),
-              style: ThemeTextStyle.headline24sp,
+              style: AppTextStyle.headline24sp,
             ),
             verticalSpacing(16),
             AnimatedToggleSwitch.dual(
@@ -116,7 +116,7 @@ class _PinPrickTileState extends State<PinPrickTile> {
                           Languages.of(context)!
                               .translate('results.prick.switch-leg')
                               .toUpperCase(),
-                          style: ThemeTextStyle.extraLightIBM16sp.copyWith(
+                          style: AppTextStyle.extraLightIBM16sp.copyWith(
                               fontSize: 14,
                               color: Theme.of(context).colorScheme.primary,
                               fontWeight: FontWeight.bold)),
@@ -181,7 +181,7 @@ class _PinPrickResultBody extends StatelessWidget {
       children: [
         Text(
           Languages.of(context)!.translate('common.${leg.name}-leg'),
-          style: ThemeTextStyle.resultSectionLabelStyle,
+          style: AppTextStyle.resultSectionLabelStyle,
         ),
         verticalSpacing(16),
         Stack(children: [
@@ -251,7 +251,7 @@ class _PinPrickResultBody extends StatelessWidget {
                       .fold(0,
                           (previousValue, element) => previousValue + element)
                       .toString(),
-                  style: ThemeTextStyle.regularIBM18sp,
+                  style: AppTextStyle.regularIBM18sp,
                 ),
               ),
             ]),
@@ -274,7 +274,7 @@ class _PinPrickLabelText extends StatelessWidget {
             ? Colors.orange
             : Theme.of(context).colorScheme.error; //TODO add orange to theme
       }
-      return ThemeTextStyle.regularIBM16sp.copyWith(
+      return AppTextStyle.regularIBM16sp.copyWith(
         fontWeight: FontWeight.bold,
         color: color,
       );

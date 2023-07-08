@@ -74,7 +74,7 @@ class RPUIPainSliderQuestionStepState extends State<RPUIPainSliderQuestionStep>
             children: [
               const SizedBox.square(dimension: 16),
               Text(Languages.of(context)!.translate(widget.step.title),
-                  style: ThemeTextStyle.headline24sp,
+                  style: AppTextStyle.headline24sp,
                   textAlign: TextAlign.center),
             ],
           )),

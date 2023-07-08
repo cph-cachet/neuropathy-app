@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:input_quantity/input_quantity.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/vibration_button.dart';
-import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/styles.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 
@@ -53,7 +53,7 @@ class _VibrationSettingDialogState extends State<VibrationSettingDialog> {
               initVal: widget.initialVibDuration,
               onQtyChanged: (val) => _changeVibration(val as int)),
           Text(Languages.of(context)!.translate('settings.vibration.seconds'),
-              style: ThemeTextStyle.regularIBM14sp.copyWith(
+              style: AppTextStyle.regularIBM14sp.copyWith(
                   fontStyle: FontStyle.italic, color: Colors.black54)),
           verticalSpacing(16),
           VibrationButton(

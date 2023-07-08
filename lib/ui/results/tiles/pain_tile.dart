@@ -4,7 +4,7 @@ import 'package:neuropathy_grading_tool/examination/sections/pain_questionaire_p
 import 'package:neuropathy_grading_tool/examination/step_identifiers.dart';
 import 'package:neuropathy_grading_tool/utils/neuropathy_icons.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/stacked_result_item.dart';
-import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/model.dart';
 
@@ -49,7 +49,7 @@ class PainTile extends StatelessWidget {
     return ExpansionTile(
       title: Text(
         Languages.of(context)!.translate('results.pain.title'),
-        style: ThemeTextStyle.regularIBM20sp,
+        style: AppTextStyle.regularIBM20sp,
       ),
       leading: Icon(
         NeuropathyIcons.bi_bandaid_fill,
@@ -63,30 +63,30 @@ class PainTile extends StatelessWidget {
             children: [
               Text(
                 Languages.of(context)!.translate('results.pain.score'),
-                style: ThemeTextStyle.resultsLabelsStyle,
+                style: AppTextStyle.resultsLabelsStyle,
               ),
               Text(
                 Languages.of(context)!.translate('results.pain.score-grading'),
-                style: ThemeTextStyle.resultsLabelsStyle.copyWith(fontSize: 14),
+                style: AppTextStyle.resultsLabelsStyle.copyWith(fontSize: 14),
               ),
               Text(
                 painScore.toString(),
-                style: ThemeTextStyle.headline24sp,
+                style: AppTextStyle.headline24sp,
               ),
               verticalSpacing(24),
               Text(Languages.of(context)!.translate('results.pain.sensitivity'),
-                  style: ThemeTextStyle.resultSectionLabelStyle),
+                  style: AppTextStyle.resultSectionLabelStyle),
               verticalSpacing(8),
               _PainStackedRow(scores: stackedRowScores),
               verticalSpacing(16),
               Text(Languages.of(context)!.translate('results.pain.level'),
-                  style: ThemeTextStyle.resultSectionLabelStyle),
+                  style: AppTextStyle.resultSectionLabelStyle),
               AbsorbPointer(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Row(
                     children: [
-                      Text('0', style: ThemeTextStyle.regularIBM16sp),
+                      Text('0', style: AppTextStyle.regularIBM16sp),
                       Expanded(
                         child: Slider(
                           activeColor:
@@ -102,7 +102,7 @@ class PainTile extends StatelessWidget {
                           divisions: 100,
                         ),
                       ),
-                      Text('100', style: ThemeTextStyle.regularIBM16sp)
+                      Text('100', style: AppTextStyle.regularIBM16sp)
                     ],
                   ),
                 ),
@@ -175,7 +175,7 @@ class _PainMultipleChoiceResultWidget extends StatelessWidget {
       children: [
         verticalSpacing(24),
         Text(Languages.of(context)!.translate(title),
-            style: ThemeTextStyle.resultSectionLabelStyle),
+            style: AppTextStyle.resultSectionLabelStyle),
         verticalSpacing(8),
         ...result.results['answer'].map((e) => _ResultItemRow(
             iconData: icons[e['text']] ?? Icons.error, label: e['text']))
@@ -205,12 +205,12 @@ class _ResultItemRow extends StatelessWidget {
           horizontalSpacing(4),
           Text(
             Languages.of(context)!.translate(label),
-            style: ThemeTextStyle.resultsLabelsStyle,
+            style: AppTextStyle.resultsLabelsStyle,
           ),
           horizontalSpacing(4),
           Text(
             '+1',
-            style: ThemeTextStyle.regularIBM14sp
+            style: AppTextStyle.regularIBM14sp
                 .copyWith(color: Theme.of(context).colorScheme.error),
           )
         ],

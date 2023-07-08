@@ -135,7 +135,7 @@ class _Choice extends StatelessWidget {
                 ),
           Expanded(
             child: Text(Languages.of(context)!.translate(choice.text),
-                style: ThemeTextStyle.regularIBM16sp),
+                style: AppTextStyle.regularIBM16sp),
           ),
         ],
       ),

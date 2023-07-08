@@ -12,8 +12,8 @@ import 'package:neuropathy_grading_tool/ui/results/tiles/vibration_tile.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/download_examination_icon.dart';
 
 import 'package:neuropathy_grading_tool/utils/neuropathy_icons.dart';
-import 'package:neuropathy_grading_tool/utils/date_formatter.dart';
-import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/date_formatter.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
 
@@ -30,7 +30,7 @@ class DetailedResultPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
             Languages.of(context)!.translate('results.title').toUpperCase(),
-            style: ThemeTextStyle.extraLightIBM16sp.copyWith(
+            style: AppTextStyle.extraLightIBM16sp.copyWith(
                 color: Theme.of(context).colorScheme.primary,
                 fontWeight: FontWeight.bold)),
         backgroundColor: Colors.transparent,
@@ -47,12 +47,12 @@ class DetailedResultPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             ListTile(
-                title: DateFormatter(
+                title: FormattedDateText(
                     dateTime: result.startDate!,
-                    style: ThemeTextStyle.regularIBM20sp),
+                    style: AppTextStyle.regularIBM20sp),
                 subtitle: Text(
                   Languages.of(context)!.translate('results.date'),
-                  style: ThemeTextStyle.extraLightIBM16sp,
+                  style: AppTextStyle.extraLightIBM16sp,
                 ),
                 leading: Icon(
                   NeuropathyIcons.carbon_result,
@@ -64,16 +64,16 @@ class DetailedResultPage extends StatelessWidget {
                   text: TextSpan(children: [
                     TextSpan(
                         text: calculateScore(result).toString(),
-                        style: ThemeTextStyle.regularIBM20sp),
+                        style: AppTextStyle.regularIBM20sp),
                     TextSpan(
                         text:
                             ' (${Languages.of(context)!.translate('results.out-of')} 44)',
-                        style: ThemeTextStyle.extraLightIBM16sp)
+                        style: AppTextStyle.extraLightIBM16sp)
                   ]),
                 ),
                 subtitle: Text(
                   Languages.of(context)!.translate('results.score'),
-                  style: ThemeTextStyle.extraLightIBM16sp,
+                  style: AppTextStyle.extraLightIBM16sp,
                 ),
                 leading: Icon(
                   NeuropathyIcons.maki_doctor,

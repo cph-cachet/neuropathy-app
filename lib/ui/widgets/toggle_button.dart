@@ -77,7 +77,7 @@ class ToggleButtonState extends State<ToggleButton> {
         children: widget.answerFormat.choices
             .map((e) => Text(
                   Languages.of(context)!.translate(e.text).toUpperCase(),
-                  style: ThemeTextStyle.toggleButtonStyle,
+                  style: AppTextStyle.toggleButtonStyle,
                 ))
             .toList());
   }

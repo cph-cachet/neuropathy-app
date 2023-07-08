@@ -3,7 +3,7 @@ import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:neuropathy_grading_tool/examination/steps/rp_vibration_step.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/bottom_sheet_button.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/semi_bold_text.dart';
-import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 
 class RPUIVibrationBodyOnlyToggle extends StatelessWidget {
@@ -16,7 +16,7 @@ class RPUIVibrationBodyOnlyToggle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      textStyle: ThemeTextStyle.headline24sp,
+      textStyle: AppTextStyle.headline24sp,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Center(
@@ -28,7 +28,7 @@ class RPUIVibrationBodyOnlyToggle extends StatelessWidget {
               semiBoldText(
                   Languages.of(context)!
                       .translate('extension.text-2-${vibrationStep.text}'),
-                  ThemeTextStyle.headline24sp,
+                  AppTextStyle.headline24sp,
                   TextAlign.center),
               Column(
                 children: [
@@ -48,18 +48,18 @@ class RPUIVibrationBodyOnlyToggle extends StatelessWidget {
                         Text(
                           Languages.of(context)!
                               .translate('extension.bottom-sheet-text-1'),
-                          style: ThemeTextStyle.regularIBM20sp,
+                          style: AppTextStyle.regularIBM20sp,
                           textAlign: TextAlign.justify,
                         ),
                         verticalSpacing(24),
                         semiBoldText(
                             Languages.of(context)!
                                 .translate('extension.bottom-sheet-text-2'),
-                            ThemeTextStyle.regularIBM20sp,
+                            AppTextStyle.regularIBM20sp,
                             TextAlign.justify),
                         verticalSpacing(24),
                         Text(
-                          style: ThemeTextStyle.regularIBM20sp,
+                          style: AppTextStyle.regularIBM20sp,
                           textAlign: TextAlign.justify,
                           Languages.of(context)!
                               .translate('extension.bottom-sheet-text-3'),

@@ -7,7 +7,7 @@ import 'package:neuropathy_grading_tool/repositories/settings_repository/patient
 import 'package:neuropathy_grading_tool/repositories/settings_repository/settings_repository.dart';
 import 'package:neuropathy_grading_tool/ui/results/detailed_result_page.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/download_examination_icon.dart';
-import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
@@ -76,7 +76,7 @@ class _ExaminationCompletedPageState extends State<ExaminationCompletedPage> {
 
     return Scaffold(
       body: Material(
-        textStyle: ThemeTextStyle.headline24sp,
+        textStyle: AppTextStyle.headline24sp,
         child: Center(
           child: !_hasLoaded
               ? Text(Languages.of(context)!.translate('common.calculating'))
@@ -167,7 +167,7 @@ class _ExaminationCompletedPageState extends State<ExaminationCompletedPage> {
                                   ),
                                   Text(
                                     '${testScore.toInt()}',
-                                    style: ThemeTextStyle.header1
+                                    style: AppTextStyle.header1
                                         .copyWith(fontSize: 60),
                                   ),
                                 ],

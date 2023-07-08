@@ -76,14 +76,14 @@ class RPUIFreeTextStepState extends State<RPUIFreeTextStep> with CanSaveResult {
               children: [
                 const SizedBox.square(dimension: 16),
                 Text(Languages.of(context)!.translate(widget.step.title),
-                    style: ThemeTextStyle.headline24sp,
+                    style: AppTextStyle.headline24sp,
                     textAlign: TextAlign.center),
               ],
             )),
         if (widget.step.text != null)
           Text(
             Languages.of(context)!.translate(widget.step.text!),
-            style: ThemeTextStyle.regularIBM18sp,
+            style: AppTextStyle.regularIBM18sp,
             textAlign: TextAlign.center,
           ),
         // Step body

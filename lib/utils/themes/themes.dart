@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/utils/themes/colors.dart';
 
+/// A class that holds the theme data for the app.
 ThemeData appTheme = ThemeData(
   unselectedWidgetColor: AppColors.primaryBlue70,
   dividerColor: Colors.transparent,

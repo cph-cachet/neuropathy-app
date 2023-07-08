@@ -47,7 +47,7 @@ class LanguagesSettingsTile extends AbstractSettingsTile {
                       Text(
                           Languages.of(context)!
                               .translate('settings.language.title'),
-                          style: ThemeTextStyle.regularIBM18sp.copyWith(
+                          style: AppTextStyle.regularIBM18sp.copyWith(
                             color: Colors.black54,
                           )),
                       ListView.builder(
