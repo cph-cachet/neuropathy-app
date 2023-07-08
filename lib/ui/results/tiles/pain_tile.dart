@@ -8,6 +8,9 @@ import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/model.dart';
 
+/// An [ExpansionTile] widget that displays the pain part of the examination results.
+///
+/// The section score is the sum of the scores of the pain questions, except the slider (pain level).
 class PainTile extends StatelessWidget {
   final RPTaskResult taskResult;
 
@@ -15,11 +18,14 @@ class PainTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// Map of the results of the pain questions. The key is the identifier of the question.
+    /// The value is the [RPStepResult] of the question.
     Map<String, RPStepResult> painResults = Map.fromEntries(taskResult
             .results.entries
             .where((element) => painStepIdentifiers.contains(element.key)))
         .cast<String, RPStepResult>();
 
+    /// Total result of the pain section. It is the sum of the scores of the pain questions, except the slider (pain level).
     int painScore = painResults.values
         .where((element) => element.identifier != painSlider.identifier)
         .fold(
@@ -28,6 +34,10 @@ class PainTile extends StatelessWidget {
                 previousValue +
                 (element.results['answer'].fold(0, (p, e2) => p + e2['value'])
                     as int));
+
+    /// Scores to display in the [_PainStackedRow].
+    /// Since the ```pain3``` question is multiple choice, both option strings are checked in the selected choices.
+    /// Otherwise it would be unclear what was selected if simply an answer value was used.
     List<int> stackedRowScores = [
       painResults[pain3.identifier]
               ?.results['answer']
@@ -129,6 +139,7 @@ class PainTile extends StatelessWidget {
   }
 }
 
+/// A [StackedResultRow] widget for the pain sensitivity part of the examination results.
 class _PainStackedRow extends StatelessWidget {
   final List<int> scores;
 
@@ -161,6 +172,10 @@ class _PainStackedRow extends StatelessWidget {
   }
 }
 
+/// A widget to present the results of multiple choice pain questions.
+///
+/// It displays all selected choices in a column with corresponding [icons].
+/// The icons are retrieved based on identifiers in the [result].
 class _PainMultipleChoiceResultWidget extends StatelessWidget {
   final RPStepResult result;
   final Map<String, IconData> icons;
@@ -177,18 +192,22 @@ class _PainMultipleChoiceResultWidget extends StatelessWidget {
         Text(Languages.of(context)!.translate(title),
             style: AppTextStyle.resultSectionLabelStyle),
         verticalSpacing(8),
-        ...result.results['answer'].map((e) => _ResultItemRow(
+        ...result.results['answer'].map((e) => _PainChoiceItemRow(
             iconData: icons[e['text']] ?? Icons.error, label: e['text']))
       ],
     );
   }
 }
 
-class _ResultItemRow extends StatelessWidget {
+/// A widget to display a single choice selected in a pain multiple choice question.
+///
+/// It displays the [iconData] and [label] of the choice, and a ```+1``` sign
+/// as all choices contribute 1 to the pain score.
+class _PainChoiceItemRow extends StatelessWidget {
   final IconData iconData;
   final String label;
 
-  const _ResultItemRow({required this.iconData, required this.label});
+  const _PainChoiceItemRow({required this.iconData, required this.label});
 
   @override
   Widget build(BuildContext context) {

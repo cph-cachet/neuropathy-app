@@ -10,6 +10,12 @@ import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+/// An [ExpansionTile] to display pin-prick result part of the examination.
+///
+/// It displays the section score, which is the combined results from all pin-prick questions.
+/// Then in displays two pages to switch between by swiping or clicking the Switch leg toggle.
+/// The results for each leg are presented on the leg image, with sensitivity scores below.
+/// Score for each leg is also provided.
 class PinPrickTile extends StatefulWidget {
   const PinPrickTile({super.key, required this.result});
   final RPTaskResult result;
@@ -19,10 +25,17 @@ class PinPrickTile extends StatefulWidget {
 }
 
 class _PinPrickTileState extends State<PinPrickTile> {
+  /// [PageController] for changing the displayed leg
   final _controller = PageController();
-  late List<_PinPrickChoice> _choices;
+
+  /// List of leg results, contains two elements, one for each leg
+  late List<Map<String, int>> _legsResults;
+
+  /// boolean to control the [AnimatedToggleSwitch]
   bool _isLeftSelected = true;
 
+  /// Map the pin-prick results. The key is the identifier, and the value is
+  /// the result of the question as [int].
   Map<String, int> _getResults(RPTaskResult result) {
     return Map.fromEntries(result.results.values
         .cast<RPStepResult>()
@@ -32,6 +45,7 @@ class _PinPrickTileState extends State<PinPrickTile> {
             MapEntry(e.identifier, e.results['answer'][0]['value'] as int)));
   }
 
+  /// filters the results for left or right leg
   Map<String, int> _getResultsForLeg(RPTaskResult result, String leg) {
     Map<String, int> pinprickScores = _getResults(result);
     return Map.fromEntries(
@@ -42,26 +56,20 @@ class _PinPrickTileState extends State<PinPrickTile> {
   void initState() {
     super.initState();
     setState(() {
-      _choices = [
-        _PinPrickChoice(
-            text: 'left',
-            isSelected: true,
-            result: _getResultsForLeg(widget.result, 'left')),
-        _PinPrickChoice(
-            text: 'right',
-            isSelected: false,
-            result: _getResultsForLeg(widget.result, 'right'))
+      _legsResults = [
+        _getResultsForLeg(widget.result, 'left'),
+        _getResultsForLeg(widget.result, 'right'),
       ];
     });
   }
 
+  /// Animates the [PageView] to the selected page.
+  /// Also updates the [_isLeftSelected] to reflect the change.
   void _onSelected(int index) {
     _controller.animateToPage(index,
         duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
     setState(() {
-      _isLeftSelected = index == 0;
-      _choices[index].isSelected = true;
-      _choices[index == 0 ? 1 : 0].isSelected = false;
+      _isLeftSelected = index == PinPrickLeg.left.index;
     });
   }
 
@@ -108,7 +116,9 @@ class _PinPrickTileState extends State<PinPrickTile> {
                 first: true,
                 second: false,
                 borderWidth: 1,
-                onChanged: (_) => _onSelected(_isLeftSelected ? 1 : 0),
+                onChanged: (_) => _onSelected(_isLeftSelected
+                    ? PinPrickLeg.right.index
+                    : PinPrickLeg.left.index),
                 borderColor: Theme.of(context).colorScheme.primary,
                 colorBuilder: (_) => Theme.of(context).colorScheme.primary,
                 textBuilder: (_) => Center(
@@ -122,19 +132,19 @@ class _PinPrickTileState extends State<PinPrickTile> {
                               fontWeight: FontWeight.bold)),
                     )),
             verticalSpacing(24),
-            ConstrainedBox(
-              //TODO: change to sized box
-              constraints: BoxConstraints(
-                  maxHeight: MediaQuery.of(context).size.height * 0.43,
-                  maxWidth: MediaQuery.of(context).size.width * 0.9),
+
+            /// Page View to display the legs and switch between them
+            SizedBox(
+              height: 345,
+              width: MediaQuery.of(context).size.width * 0.9,
               child: PageView(
                 onPageChanged: (index) => _onSelected(index),
                 controller: _controller,
                 children: [
                   _PinPrickResultBody(
-                      leg: PinPrickLeg.left, results: _choices[0].result),
+                      leg: PinPrickLeg.left, results: _legsResults[0]),
                   _PinPrickResultBody(
-                      leg: PinPrickLeg.right, results: _choices[1].result)
+                      leg: PinPrickLeg.right, results: _legsResults[1])
                 ],
               ),
             ),
@@ -156,6 +166,9 @@ class _PinPrickTileState extends State<PinPrickTile> {
   }
 }
 
+/// The body of the [PageView] that displays specific leg results.
+/// It contains the leg image with results, as well as hyperaesthesia and allodynia scores.
+/// It also displays the total score for the leg.
 class _PinPrickResultBody extends StatelessWidget {
   const _PinPrickResultBody({required this.leg, required this.results});
   final PinPrickLeg leg;
@@ -184,44 +197,7 @@ class _PinPrickResultBody extends StatelessWidget {
           style: AppTextStyle.resultSectionLabelStyle,
         ),
         verticalSpacing(16),
-        Stack(children: [
-          SizedBox(
-            //width: 250,
-            height: 230,
-            child: Image.asset(
-                'assets/images/results/leg-results-${leg == PinPrickLeg.left ? 'left' : 'right'}.png'),
-          ),
-          Positioned(
-            bottom: 0,
-            left: leg == PinPrickLeg.left ? 48 : 90,
-            child: _PinPrickLabelText(score: onlyPinPrickResults[0]),
-          ),
-          Positioned(
-            bottom: 30,
-            left: leg == PinPrickLeg.left ? 108 : 40,
-            child: _PinPrickLabelText(score: onlyPinPrickResults[1]),
-          ),
-          Positioned(
-            bottom: 72,
-            left: leg == PinPrickLeg.left ? 106 : 40,
-            child: _PinPrickLabelText(score: onlyPinPrickResults[2]),
-          ),
-          Positioned(
-            bottom: 105,
-            left: leg == PinPrickLeg.left ? 84 : 58,
-            child: _PinPrickLabelText(score: onlyPinPrickResults[3]),
-          ),
-          Positioned(
-            bottom: 140,
-            left: leg == PinPrickLeg.left ? 60 : 85,
-            child: _PinPrickLabelText(score: onlyPinPrickResults[4]),
-          ),
-          Positioned(
-            bottom: 190,
-            left: 70,
-            child: _PinPrickLabelText(score: onlyPinPrickResults[5]),
-          ),
-        ]),
+        _getLegResultImage(leg, onlyPinPrickResults),
         verticalSpacing(16),
         StackedResultRow(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -271,8 +247,8 @@ class _PinPrickLabelText extends StatelessWidget {
       Color color = Theme.of(context).colorScheme.secondary;
       if (score != 0) {
         color = score == 1
-            ? Colors.orange
-            : Theme.of(context).colorScheme.error; //TODO add orange to theme
+            ? Theme.of(context).colorScheme.tertiary
+            : Theme.of(context).colorScheme.error;
       }
       return AppTextStyle.regularIBM16sp.copyWith(
         fontWeight: FontWeight.bold,
@@ -287,12 +263,47 @@ class _PinPrickLabelText extends StatelessWidget {
   }
 }
 
-class _PinPrickChoice {
-  _PinPrickChoice(
-      {required this.text, this.isSelected = false, this.result = const {}});
-  final String text;
-  bool isSelected;
-  Map<String, int> result;
-}
-
+/// Enum to represent the left and right leg.
+/// It is used both to retreive name as well as mark indexes of each leg in [PageView].
 enum PinPrickLeg { left, right }
+
+/// Returns the image of the leg with the results displayed on it.
+/// It requires the [PinPrickLeg] and the results for that leg.
+Stack _getLegResultImage(PinPrickLeg leg, List<int> results) {
+  return Stack(children: [
+    SizedBox(
+      height: 230,
+      child: Image.asset('assets/images/results/leg-results-${leg.name}.png'),
+    ),
+    Positioned(
+      bottom: 0,
+      left: leg == PinPrickLeg.left ? 48 : 90,
+      child: _PinPrickLabelText(score: results[0]),
+    ),
+    Positioned(
+      bottom: 30,
+      left: leg == PinPrickLeg.left ? 108 : 40,
+      child: _PinPrickLabelText(score: results[1]),
+    ),
+    Positioned(
+      bottom: 72,
+      left: leg == PinPrickLeg.left ? 106 : 40,
+      child: _PinPrickLabelText(score: results[2]),
+    ),
+    Positioned(
+      bottom: 105,
+      left: leg == PinPrickLeg.left ? 84 : 58,
+      child: _PinPrickLabelText(score: results[3]),
+    ),
+    Positioned(
+      bottom: 140,
+      left: leg == PinPrickLeg.left ? 60 : 85,
+      child: _PinPrickLabelText(score: results[4]),
+    ),
+    Positioned(
+      bottom: 190,
+      left: 70,
+      child: _PinPrickLabelText(score: results[5]),
+    ),
+  ]);
+}

@@ -4,6 +4,7 @@ import 'package:neuropathy_grading_tool/utils/neuropathy_icons.dart';
 
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 
+/// An [ExpansionTile] widget that displays the users comments of the results.
 class CommentsExpansionTile extends StatelessWidget {
   final String text;
 

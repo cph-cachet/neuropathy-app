@@ -9,6 +9,11 @@ import 'package:neuropathy_grading_tool/ui/widgets/stacked_result_item.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 
+/// An [ExpansionTile] widget that displays the vibration part of the examination results.
+///
+/// The section score is the sum of the scores of the vibration questions.
+/// All of the results in this section are presented with either a [_VibrationLegResultRow] which uses
+/// [StackedResultRow] or [OneItemWLeadingResRow].
 class VibrationTile extends StatelessWidget {
   final RPTaskResult result;
   const VibrationTile({
@@ -18,6 +23,8 @@ class VibrationTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// Map of the results of the vibration questions. The key is the identifier of the question.
+    /// The value is the score of the question.
     Map<String, int> vibrationScores = Map.fromEntries(result.results.values
         .cast<RPStepResult>()
         .toList()
@@ -40,6 +47,7 @@ class VibrationTile extends StatelessWidget {
   }
 }
 
+/// The body of the [VibrationTile].
 class _VibrationTileBody extends StatelessWidget {
   const _VibrationTileBody({Key? key, required this.vibrationScores})
       : super(key: key);
@@ -107,6 +115,15 @@ class _VibrationTileBody extends StatelessWidget {
   }
 }
 
+/// A [StackedResultRow] widget that displays the results of the vibration questions.
+///
+/// The leading widget is a [ResultFootWithLabelItem], to which the [isLeft] parameter is passed.
+///
+/// The results are displayed with [StackedResultItem]s.
+/// Since the key is the identifier of the question, we remove the prefix
+/// which for vibration questions is ```vibration_leg_section```.
+/// Then instead of 6 translation strings we only need 3.
+/// For example: ```vibration_left_toe``` becomes ```results.vibration.toe```
 class _VibrationLegResultRow extends StatelessWidget {
   final Map<String, int> items;
   final bool isLeft;

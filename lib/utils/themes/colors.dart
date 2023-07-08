@@ -31,5 +31,6 @@ class AppColors {
     onBackground: Colors.blue,
     surface: Colors.white70,
     onSurface: Colors.black,
+    tertiary: Colors.orange,
   );
 }

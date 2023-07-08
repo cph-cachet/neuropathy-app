@@ -8,6 +8,13 @@ import 'package:neuropathy_grading_tool/ui/widgets/stacked_result_item.dart';
 
 import 'package:research_package/model.dart';
 
+/// An [ExpansionTile] widget that displays part of the examination results.
+/// It shows the result of the symptoms and motor parts of the examination.
+///
+/// The result of the symptoms part is the score of the selected answer,
+/// combined with the text of the selected option.
+/// The motor symptoms are presenten with two [OneItemWLeadingResRow] widgets.
+/// The section score is the sum of the symptoms score and the motor scores.
 class OtherFindingsTile extends StatelessWidget {
   final RPTaskResult taskResult;
 

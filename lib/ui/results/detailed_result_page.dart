@@ -17,6 +17,13 @@ import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
 
+/// Detailed results display page for a single [task] at a time.
+///
+/// The [AppBar] contains a download and close actions.
+/// Date and examination score are displayed as tiles.
+/// Every section has an [ExpansionTile] that contains its results.
+/// Multiple tiles can be open at the same time.
+/// All of the elements are displayed as a ```Column``` wrapped in ```SingleChildScrollView```
 class DetailedResultPage extends StatelessWidget {
   const DetailedResultPage(
       {Key? key, required this.result, required this.patient})
