@@ -53,9 +53,9 @@ class _RPUIVibrationBodyWithButtonState
               ConstrainedBox(
                 constraints: BoxConstraints(
                     maxHeight: MediaQuery.of(context).size.height * 0.35),
-                child: widget.vibrationStep.vibrationSection != null &&
-                        widget.vibrationStep.vibrationSection!.isNotEmpty
-                    ? Image.asset(widget.vibrationStep.vibrationSection!,
+                child: widget.vibrationStep.vibrationSectionImage != null &&
+                        widget.vibrationStep.vibrationSectionImage!.isNotEmpty
+                    ? Image.asset(widget.vibrationStep.vibrationSectionImage!,
                         fit: BoxFit.cover)
                     : const Icon(Icons.error),
               ),

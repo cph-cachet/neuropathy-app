@@ -3,12 +3,14 @@ import 'package:neuropathy_grading_tool/examination/steps/rp_instruction_step.da
 import 'package:neuropathy_grading_tool/examination/steps/rp_vibration_step.dart';
 import 'package:research_package/research_package.dart';
 
+// common strings
 const String _leftLegTitle = 'common.left-leg';
 const String _rightLegTitle = 'common.right-leg';
 const String _kneeInstruction = 'vibration-knee.text';
 const String _ankleInstruction = 'vibration-ankle.text';
 const String _toeInstruction = 'vibration-toe.text';
 
+/// The first step in the vibration section. This is an instruction step.
 RPInstructionStepWithChildren vibrationInstructionStep =
     RPInstructionStepWithChildren(
         identifier: 'vibrationInstructionID',
@@ -32,41 +34,55 @@ RPInstructionStepWithChildren vibrationInstructionStep =
       ),
     ]);
 
+/// List of [RPStep] objects that represent the vibration section.
+/// The steps are generated using the [_stepGenerator] function.
+/// The [_stepGenerator] function takes the [identifier], [title], [text] and [vibrationSection],
+/// all of which are defined in [VibrationStrings].
 List<RPStep> vibrationStepList = VibrationStrings.values
-    .map((step) => stepGenerator(
+    .map((step) => _stepGenerator(
         identifier: step.identifier,
         title: step.title,
         text: step.instruction,
-        vibrationSection: step.imagePath))
+        vibrationSectionImage: step.imagePath))
     .toList();
 
+/// List of [RPChoice] objects that represent the yes/no choices in the vibration section.
+/// The value of the choice is 0 for yes and 1 for no.
 List<RPChoice> vibrationYesNoChoiceList = [
   RPChoice(text: 'common.yes', value: 0),
   RPChoice(text: 'common.no', value: 1)
 ];
 
+/// The answer format for the yes/no choices in the vibration section.
 RPChoiceAnswerFormat vibrationAnswerFormat = RPChoiceAnswerFormat(
     answerStyle: RPChoiceAnswerStyle.SingleChoice,
     choices: vibrationYesNoChoiceList);
 
-RPVibrationStep stepGenerator(
+/// A helper function that generates a vibration step.
+/// The function takes the [identifier], [title], [text] and [vibrationSectionImage],
+/// and returns an [RPVibrationStep] object.
+RPVibrationStep _stepGenerator(
     {required String identifier,
     required String title,
     required String text,
-    required String vibrationSection}) {
+    required String vibrationSectionImage}) {
   return RPVibrationStep(
       identifier: identifier,
       title: title,
       text: text,
-      vibrationSection: vibrationSection,
+      vibrationSectionImage: vibrationSectionImage,
       answerFormat: vibrationAnswerFormat);
 }
 
+/// List of [String] objects that represent the identifiers of the vibration steps
+/// for the left leg.
 List<String> leftVibrationSteps = VibrationStrings.values
     .where((element) => element.identifier.contains('left'))
     .map((e) => e.identifier)
     .toList();
 
+/// List of [String] objects that represent the identifiers of the vibration steps
+/// for the right leg.
 List<String> rightVibrationSteps = VibrationStrings.values
     .where((element) => element.identifier.contains('right'))
     .map((e) => e.identifier)
@@ -76,6 +92,13 @@ List<String> allVibrationIdentifiers = [
   ...rightVibrationSteps
 ];
 
+/// An enum with all ```Strings``` used in the vibration section.
+/// It contains the [identifier], [title], [instruction] and [imagePath] for each step.
+///
+/// The [identifier] is used to identify the step.
+/// The [title] is the title of the step.
+/// The [instruction] is the instruction of the step.
+/// The [imagePath] is the path to the image that is displayed in the step. It can be null, which is the case for the toe extension steps.
 enum VibrationStrings {
   leftToe('viration_left_toe', _leftLegTitle, _toeInstruction,
       'assets/images/steps/vibration/left_toe.png'),

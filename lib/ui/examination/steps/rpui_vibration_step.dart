@@ -42,8 +42,8 @@ class RPUIVibrationStepState extends State<RPUIVibrationStep>
 
   Widget stepBody(
       {required RPVibrationStep vibrationStep, required Widget button}) {
-    return vibrationStep.vibrationSection != null &&
-            vibrationStep.vibrationSection!.isNotEmpty
+    return vibrationStep.vibrationSectionImage != null &&
+            vibrationStep.vibrationSectionImage!.isNotEmpty
         ? RPUIVibrationBodyWithButton(
             vibrationStep: vibrationStep, toggleButton: button)
         : RPUIVibrationBodyOnlyToggle(
