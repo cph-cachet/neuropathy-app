@@ -6,6 +6,11 @@ import 'package:to_csv/to_csv.dart' as export_csv;
 import 'package:neuropathy_grading_tool/repositories/settings_repository/patient.dart';
 import 'package:neuropathy_grading_tool/utils/generate_csv.dart';
 
+/// A widget that triggers examination(s) download.
+///
+/// It exports the results of the examinations to a CSV file that is downloaded to the device.
+/// It's a [GestureDetector] with an [Icon] child, size of which can be determined with [iconSize] parameter.
+/// [patient] and [results] are required parameters, necessary fot the [CsvData] export.
 class DownloadExaminationIcon extends StatelessWidget {
   final List<RPTaskResult> results;
   final Patient patient;

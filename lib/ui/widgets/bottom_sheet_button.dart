@@ -6,7 +6,7 @@ import 'helper_bottom_sheet.dart';
 ///
 /// Used thoroughout the examination to show more infomration about a step or explain instructions.
 /// The [icon] and [label] specify properties of the button part in the widget,
-/// and the [content] and [bottomSheetTitle] specifies parts of the bottom sheet.
+/// and the [content] and [bottomSheetTitle] specifies parts of [HelperBottomSheet].
 class BottomSheetButton extends StatelessWidget {
   final Icon icon;
   final String label;

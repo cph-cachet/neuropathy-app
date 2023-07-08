@@ -126,7 +126,7 @@ class _VibrationLegResultRow extends StatelessWidget {
                 score: e.value,
               ))
           .toList(),
-      leading: StackedLeadingItem(isLeft: isLeft),
+      leading: ResultFootWithLabelItem(isLeft: isLeft),
     );
   }
 }

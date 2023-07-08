@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/utils/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 
+/// A bottom sheet that displays a [title] and [content].
+///
+/// It is used to display more information about a step or explain instructions.
+/// The [title] is displayed in the top left corner, and the [content] is displayed below it.
 class HelperBottomSheet extends StatelessWidget {
   final String title;
   final Widget content;

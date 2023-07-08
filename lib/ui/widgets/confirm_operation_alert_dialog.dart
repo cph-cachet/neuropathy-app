@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
 
+/// An alert dialog that asks the user to confirm an operation.
+///
+/// It has a cancel and a confirm button. The confirm [TextButton] can be customized with the [confirmButtonChild] parameter,
+/// otherwise it will display the 'Confirm' text (localized).
+/// The cancel button will always be the 'Cancel' text (localized).
+/// [onConfirm] and [onCancel] are the callbacks for the buttons.
+/// If [onCancel] is null, when user clicks the button, the dialog will be dismissed.
 class ConfirmOperationAlertDialog extends StatelessWidget {
   const ConfirmOperationAlertDialog({
     Key? key,
