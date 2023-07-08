@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:vibration/vibration.dart';
 
 import 'package:neuropathy_grading_tool/languages.dart';
-import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/styles.dart';
 
 /// A button that vibrates the device for a specified duration.
