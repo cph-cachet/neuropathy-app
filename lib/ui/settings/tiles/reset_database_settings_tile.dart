@@ -5,6 +5,11 @@ import 'package:neuropathy_grading_tool/repositories/result_repository/result_re
 import 'package:neuropathy_grading_tool/ui/widgets/confirm_operation_alert_dialog.dart';
 import 'package:settings_ui/settings_ui.dart';
 
+/// A settings tile for resetting the database. Allows to clear all the examination data.
+///
+/// When pressed, show a [ConfirmOperationAlertDialog] to confirm the operation.
+/// It requires a callback [onShouldReload] to be passed as a parameter. It is called when the database is reset
+/// and signals the parent widget to reload the data on pages that retrieve it.
 class ResetDatabaseSettingsTile extends AbstractSettingsTile {
   final Function onShouldReload;
   const ResetDatabaseSettingsTile({required this.onShouldReload, super.key});

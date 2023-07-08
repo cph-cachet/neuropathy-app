@@ -6,6 +6,19 @@ import 'package:neuropathy_grading_tool/ui/widgets/confirm_operation_alert_dialo
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:settings_ui/settings_ui.dart';
 
+/// A settings tile for changing the patient's sex.
+///
+/// /// The tile displays the user's sex, and allows the user to change it.
+/// As the application is meant to be used by one patient, modifying the sex
+/// will clear the previous examination data. If the sex was not previously set, the data will not be cleared.
+/// Before a modification that would clear the examinations,
+/// the user is asked to confirm the operation with a [ConfirmOperationAlertDialog].
+///
+/// The tile is shown in the [SettingsPage]. It shows a bottom sheet modal with a picker when pressed.
+/// It's parameters are the user's sex [patientSex] displayed on the tile
+/// and a function [onChanged] that is called when the sex is changed.
+/// [onChanged] callback passes two parameters to the parent: the new sex and a boolean indicating
+/// whether the previous examination data should be cleared.
 class SexSettingsTile extends AbstractSettingsTile {
   final String? patientSex;
   final Function onChanged;

@@ -3,6 +3,11 @@ import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:neuropathy_grading_tool/ui/settings/dialogs/vibration_duration_settings.dart';
 import 'package:settings_ui/settings_ui.dart';
 
+/// A settings tile for changing the vibration duration.
+///
+/// When pressed, shows a [VibrationSettingDialog] to allow the user to change the vibration duration.
+/// It takes the initial vibration duration [initialVibDuration] and a callback [onConfirm] to be called when the user confirms the change.
+/// [onConfirm] passes the new vibration duration to the parent.
 class VibrationDurationSettingsTile extends AbstractSettingsTile {
   const VibrationDurationSettingsTile(
       {required this.onConfirm, required this.initialVibDuration, super.key});

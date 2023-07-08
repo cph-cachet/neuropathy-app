@@ -6,6 +6,14 @@ import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/styles.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 
+/// A dialog that allows the user to change the vibration duration. Since different devices
+/// have different allowed vibration duration, the user can test the vibration duration on their device.
+///
+/// The dialog is shown when the user presses the vibration duration setting
+/// tile in the settings page.
+/// The dialog contains a picker where the user can enter a number between 5 and 30 seconds or use the
+/// plus and minus buttons to change the value.
+/// The dialog also contains a button that allows the user to test the vibration.
 class VibrationSettingDialog extends StatefulWidget {
   const VibrationSettingDialog(
       {super.key, required this.initialVibDuration, required this.onConfirm});
@@ -49,7 +57,7 @@ class _VibrationSettingDialogState extends State<VibrationSettingDialog> {
               showMessageLimit: false,
               boxDecoration: const BoxDecoration(),
               borderShape: BorderShapeBtn.circle,
-              minVal: 1,
+              minVal: 5,
               initVal: widget.initialVibDuration,
               onQtyChanged: (val) => _changeVibration(val as int)),
           Text(Languages.of(context)!.translate('settings.vibration.seconds'),

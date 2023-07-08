@@ -7,6 +7,13 @@ import 'package:neuropathy_grading_tool/utils/languages_local.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:settings_ui/settings_ui.dart';
 
+/// A settings tile for changing the application language.
+/// When pressed, show a modal bottom sheet with a list of languages to choose from.
+///
+/// It displays all the languages supported by the application, taking the ```supportedLocales``` list from the [MaterialApp].
+/// Along the language name in native form, it displays the flag of the country the language is spoken in.
+///
+/// When a language is tapped, the new locale is set in [Languages], and the bottom sheet is dismissed.
 class LanguagesSettingsTile extends AbstractSettingsTile {
   const LanguagesSettingsTile({super.key});
 
@@ -32,12 +39,13 @@ class LanguagesSettingsTile extends AbstractSettingsTile {
                         .findAncestorWidgetOfExactType<MaterialApp>()
                         ?.supportedLocales
                         .toList() ??
-                    [];
-                List<String> languages =
-                    supLocales.map((e) => e.languageCode).toList();
+                    []; // get the supported locales from the MaterialApp
+                List<String> languages = supLocales
+                    .map((e) => e.languageCode)
+                    .toList(); // get the language codes
                 List<String> countryCodes = supLocales
                     .map((e) => e.countryCode?.toUpperCase() ?? "")
-                    .toList();
+                    .toList(); // get the country codes
                 return Padding(
                   padding: const EdgeInsets.only(
                       left: 8, right: 8, top: 16, bottom: 8),
