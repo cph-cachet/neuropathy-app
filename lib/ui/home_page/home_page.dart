@@ -108,6 +108,7 @@ class _HomePageState extends State<HomePage> {
               ],
             )
           : null,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: _hasLoaded && _results.isNotEmpty
           ? const AddExaminationButton()
           : null,
