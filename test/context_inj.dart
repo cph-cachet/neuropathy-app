@@ -13,14 +13,14 @@ class LocalizationsInj extends StatelessWidget {
           Locale.fromSubtags(languageCode: 'en', countryCode: 'US'),
           Locale.fromSubtags(languageCode: 'da', countryCode: 'DK'),
         ],
-        localizationsDelegates: [
+        localizationsDelegates: const [
           Languages.delegate,
           //DefaultMaterialLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        locale: Locale.fromSubtags(languageCode: 'en', countryCode: 'US'),
+        locale: const Locale.fromSubtags(languageCode: 'en', countryCode: 'US'),
         localeResolutionCallback: (locale, supportedLocales) {
           for (var supportedLocale in supportedLocales) {
             if (supportedLocale.languageCode == locale?.languageCode) {

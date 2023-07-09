@@ -6,8 +6,10 @@ import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/add_examination_button.dart';
 
-class MainPageEmptyResults extends StatelessWidget {
-  const MainPageEmptyResults({Key? key}) : super(key: key);
+/// The body of the [HomePage] when there are no completed examinations.
+/// Displays a welcome message and a button to add a new examination.
+class HomePageEmptyResults extends StatelessWidget {
+  const HomePageEmptyResults({Key? key}) : super(key: key);
 
   Widget slideTransition(animation, child) {
     return SlideTransition(

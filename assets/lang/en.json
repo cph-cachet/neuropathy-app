@@ -1,5 +1,5 @@
 {
-    "app-title": "Neuropathy App",
+    "app-title": "Neuropathy Grading Tool",
     "common":
     {
         "start": "Start",
@@ -26,6 +26,11 @@
         "right-leg": "Right leg",
         "left-great-toe": "Left great toe",
         "right-great-toe": "Right great toe"
+    },
+    "home-page" :
+    {
+        "score": "Score",
+        "message": "These are your completed examinations, tap one for detailed results."
     },
     "welcome-screen":
     {

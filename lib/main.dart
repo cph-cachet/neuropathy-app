@@ -1,19 +1,9 @@
-import 'package:avatar_glow/avatar_glow.dart';
-import 'package:country_codes/country_codes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:get_it/get_it.dart';
+import 'package:neuropathy_grading_tool/ui/home_page/home_page.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
-import 'package:neuropathy_grading_tool/repositories/result_repository/result_repository.dart';
-import 'package:neuropathy_grading_tool/repositories/settings_repository/patient.dart';
-import 'package:neuropathy_grading_tool/repositories/settings_repository/settings_repository.dart';
-import 'package:neuropathy_grading_tool/ui/settings/settings.dart';
-import 'package:neuropathy_grading_tool/ui/main_page_empty.dart';
-import 'package:neuropathy_grading_tool/ui/main_page_examinations.dart';
-import 'package:neuropathy_grading_tool/ui/widgets/add_examination_button.dart';
-import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
-import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/app_loading_indicator.dart';
 import 'package:neuropathy_grading_tool/utils/themes/themes.dart';
 import 'package:research_package/research_package.dart';
 import 'init.dart';
@@ -25,6 +15,12 @@ void main() {
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  /// Set new locale.
+  /// The method is static so that it can be accessed from [Languages] class.
+  ///
+  /// While most translations are done with [Languages], some are performed with other delegates.
+  /// For example, the [ResearchPackage] library uses its own localization delegate.
+  /// It is based on the
   static void setLocale(BuildContext context, Locale locale) {
     _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
     state?.setLocale(locale);
@@ -35,23 +31,28 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  /// Initialize the app resources.
   final Future _init = Init.initialize();
 
-  //todo maybe move to Init?
+  /// The default locale is English.
   Locale _locale =
       const Locale.fromSubtags(languageCode: 'en', countryCode: 'US');
 
+  /// Set new locale.
   void setLocale(Locale locale) {
     setState(() {
       _locale = locale;
     });
   }
 
+// Triggered when dependencies change, i.e. when the [_locale] is changed.
   @override
   void didChangeDependencies() async {
     super.didChangeDependencies();
     final languages = Languages();
     final localeKey = await languages.readLocaleKey();
+
+    /// Set the locale based on the saved locale key.
     if (localeKey == 'en') {
       setState(() {
         _locale =
@@ -70,9 +71,11 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // Prevent the app from rotating.
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     return MaterialApp(
+      // Supported languages.
       supportedLocales: const [
         Locale.fromSubtags(languageCode: 'en', countryCode: 'US'),
         Locale.fromSubtags(languageCode: 'da', countryCode: 'DK'),
@@ -93,146 +96,24 @@ class _MyAppState extends State<MyApp> {
         }
         return supportedLocales.first;
       },
-      title: 'Flutter Demo',
+      title: 'Neuropathy Assessment Tool',
       theme: appTheme,
       home: FutureBuilder(
-        future: Future.delayed(const Duration(seconds: 1), () => _init),
+        // Build the app after the resources are loaded.
+        // Minimum delay is 2 second to show the splash screen and prevent too quick change
+        // That looks like glitching.
+        future: Future.delayed(const Duration(seconds: 2), () => _init),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            return const MyHomePage(title: 'Neuropathy assesment');
+            return const HomePage(title: 'app-title');
           } else {
-            return Scaffold(
-              body: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text('Loading...'), // TODO: translate
-                    verticalSpacing(16),
-                    const CircularProgressIndicator(),
-                  ],
-                ),
-              ),
+            // Splash screen.
+            return const Scaffold(
+              body: Center(child: AppLoadingIndicator(label: 'app-title')),
             );
           }
         },
       ),
     );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  final ResultRepository _resultRepository = GetIt.I.get();
-  final SettingsRepository _settingsRepository = GetIt.I.get();
-  Languages languages = Languages();
-  List<RPTaskResult> _results = [];
-  Patient? _patient;
-
-  bool _hasLoaded = false;
-  @override
-  void initState() {
-    _initCountryCodes(context);
-    _loadResults();
-    _loadPatient();
-    super.initState();
-  }
-
-  _loadPatient() async {
-    Patient patient = await _settingsRepository.getPatientInformation();
-    setState(() => _patient = patient);
-  }
-
-  _initCountryCodes(BuildContext context) async {
-    await CountryCodes.init();
-  }
-
-  _loadResults() async {
-    final results = await Future.delayed(
-        const Duration(seconds: 1), () => _resultRepository.getResults());
-    setState(() => _results = results);
-    setState(() => _hasLoaded = true);
-  }
-
-  @override
-  setState(fn) {
-    if (mounted) {
-      super.setState(fn);
-    }
-  }
-
-  Widget _slideTransition(animation, child) {
-    const begin = Offset(1.0, 0);
-    const end = Offset.zero;
-    const curve = Curves.ease;
-    final tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-    final offsetAnimation = animation.drive(tween);
-    return SlideTransition(
-      position: offsetAnimation,
-      child: child,
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        title: Text(widget.title.toUpperCase(),
-            style: AppTextStyle.extraLightIBM16sp.copyWith(
-                color: Theme.of(context).colorScheme.primary,
-                fontWeight: FontWeight.bold)),
-        actions: [
-          IconButton(
-              onPressed: () => Navigator.of(context)
-                      .push(PageRouteBuilder(
-                    pageBuilder: (_, __, ___) => SettingsScreen(),
-                    transitionsBuilder: (_, animation, __, child) =>
-                        _slideTransition(animation, child),
-                  ))
-                      .then((shouldReload) {
-                    if (shouldReload == true) {
-                      setState(() => _hasLoaded = false);
-                      _loadResults();
-                      _loadPatient();
-                    }
-                  }),
-              icon: const Icon(Icons.settings_outlined))
-        ],
-      ),
-      floatingActionButton: _hasLoaded && _results.isNotEmpty
-          ? const AddExaminationButton()
-          : null,
-      body: _hasLoaded
-          ? _results.isNotEmpty
-              ? MainPageBodyWithExaminations(
-                  taskResults: _results,
-                  languages: languages,
-                  patient: _patient ?? Patient(),
-                )
-              : const MainPageEmptyResults()
-          : Center(
-              child: AvatarGlow(
-                  glowColor: Theme.of(context).colorScheme.primary,
-                  endRadius: 50,
-                  child: Icon(
-                    Icons.book,
-                    size: 50,
-                    color: Theme.of(context).colorScheme.primary,
-                  )),
-            ),
-    );
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
   }
 }
