@@ -60,41 +60,43 @@ class HomePageBodyWithExaminations extends StatelessWidget {
               ],
             ),
           ),
-          ListView.builder(
-            shrinkWrap: true,
-            itemCount: taskResults.length,
-            itemBuilder: (context, index) {
-              return Card(
-                child: ListTile(
-                  isThreeLine: false,
-                  title: FormattedDateText(
-                      dateTime: taskResults[index].startDate!),
-                  subtitle: Text(
-                      '${Languages.of(context)!.translate('home-page.score')}: ${calculateScore(taskResults[index])}'),
-                  leading: Icon(
-                    NeuropathyIcons.carbon_result,
-                    size: 45,
-                    color: Theme.of(context).colorScheme.primary,
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: taskResults.length,
+              itemBuilder: (context, index) {
+                return Card(
+                  child: ListTile(
+                    isThreeLine: false,
+                    title: FormattedDateText(
+                        dateTime: taskResults[index].startDate!),
+                    subtitle: Text(
+                        '${Languages.of(context)!.translate('home-page.score')}: ${calculateScore(taskResults[index])}'),
+                    leading: Icon(
+                      NeuropathyIcons.carbon_result,
+                      size: 45,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                    trailing: DownloadExaminationIcon(
+                      results: [taskResults[index]],
+                      patient: patient,
+                      iconSize: 30,
+                    ),
+                    onTap: () {
+                      Navigator.of(context).push(PageRouteBuilder(
+                        pageBuilder: (_, __, ___) => DetailedResultPage(
+                          patient: patient,
+                          result: taskResults[index],
+                        ),
+                        transitionDuration: const Duration(milliseconds: 400),
+                        transitionsBuilder: (_, animation, __, child) =>
+                            slideTransition(animation, child),
+                      ));
+                    },
                   ),
-                  trailing: DownloadExaminationIcon(
-                    results: [taskResults[index]],
-                    patient: patient,
-                    iconSize: 30,
-                  ),
-                  onTap: () {
-                    Navigator.of(context).push(PageRouteBuilder(
-                      pageBuilder: (_, __, ___) => DetailedResultPage(
-                        patient: patient,
-                        result: taskResults[index],
-                      ),
-                      transitionDuration: const Duration(milliseconds: 400),
-                      transitionsBuilder: (_, animation, __, child) =>
-                          slideTransition(animation, child),
-                    ));
-                  },
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
         ],
       ),
