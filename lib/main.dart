@@ -20,7 +20,6 @@ class MyApp extends StatefulWidget {
   ///
   /// While most translations are done with [Languages], some are performed with other delegates.
   /// For example, the [ResearchPackage] library uses its own localization delegate.
-  /// It is based on the
   static void setLocale(BuildContext context, Locale locale) {
     _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
     state?.setLocale(locale);

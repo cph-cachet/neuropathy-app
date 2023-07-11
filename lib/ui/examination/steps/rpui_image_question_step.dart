@@ -95,49 +95,47 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        child:
-            Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-          Column(
-            children: [
-              ConstrainedBox(
-                  constraints: BoxConstraints(
-                      maxHeight: MediaQuery.of(context).size.height * 0.35),
-                  child: Image.asset(widget.step.imagePath)),
-              verticalSpacing(16),
-              Text(
-                Languages.of(context)!.translate(widget.step.title),
-                style: AppTextStyle.headline24sp,
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
-          // Text
-          ...makeTextContent(),
-          BottomSheetButton(
-              icon: const Icon(
-                Icons.help_outline_rounded,
-                size: 20,
-              ),
-              label: Languages.of(context)!.translate('common.more-info'),
-              bottomSheetTitle: Languages.of(context)!
-                  .translate(widget.step.bottomSheetTitle),
-              content: Column(children: makeBottomSheetTextContent())),
-          // Step body
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ToggleButton(
-                answerFormat: widget.step.answerFormat,
-                onPressed: (result) {
-                  currentQuestionBodyResult = result;
-                }),
-          ),
-        ]),
-      )),
-    );
+    return SafeArea(
+        child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24.0),
+      child:
+          Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+        Column(
+          children: [
+            ConstrainedBox(
+                constraints: BoxConstraints(
+                    maxHeight: MediaQuery.of(context).size.height * 0.35),
+                child: Image.asset(widget.step.imagePath)),
+            verticalSpacing(16),
+            Text(
+              Languages.of(context)!.translate(widget.step.title),
+              style: AppTextStyle.headline24sp,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+        // Text
+        ...makeTextContent(),
+        BottomSheetButton(
+            icon: const Icon(
+              Icons.help_outline_rounded,
+              size: 20,
+            ),
+            label: Languages.of(context)!.translate('common.more-info'),
+            bottomSheetTitle:
+                Languages.of(context)!.translate(widget.step.bottomSheetTitle),
+            content: Column(children: makeBottomSheetTextContent())),
+        // Step body
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ToggleButton(
+              answerFormat: widget.step.answerFormat,
+              onPressed: (result) {
+                currentQuestionBodyResult = result;
+              }),
+        ),
+      ]),
+    ));
   }
 
   @override
