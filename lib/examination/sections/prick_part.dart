@@ -80,7 +80,7 @@ List<RPChoice> pinPrickYesNo = [
 ];
 
 /// List of [RPChoice] objects that represent the Same/Less/None choices in the pin-prick section.
-/// The value of the choice is 0 for Same, 1 for Less and 2 for None.
+/// [value] decides how many points each option add to the total score.
 List<RPChoice> sameLessNone = [
   RPChoice(text: 'common.same', value: 0),
   RPChoice(text: 'common.less', value: 1),
