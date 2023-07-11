@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
-import 'package:neuropathy_grading_tool/survey/motor_part.dart';
-import 'package:neuropathy_grading_tool/survey/symptoms_part.dart';
-import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/examination/sections/motor_part.dart';
+import 'package:neuropathy_grading_tool/examination/sections/symptoms_part.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/stacked_result_item.dart';
 
 import 'package:research_package/model.dart';
 
+/// An [ExpansionTile] widget that displays part of the examination results.
+/// It shows the result of the symptoms and motor parts of the examination.
+///
+/// The result of the symptoms part is the score of the selected answer,
+/// combined with the text of the selected option.
+/// The motor symptoms are presenten with two [OneItemWLeadingResRow] widgets.
+/// The section score is the sum of the symptoms score and the motor scores.
 class OtherFindingsTile extends StatelessWidget {
   final RPTaskResult taskResult;
 
@@ -34,7 +41,7 @@ class OtherFindingsTile extends StatelessWidget {
     return ExpansionTile(
       title: Text(
         Languages.of(context)!.translate('results.other.title'),
-        style: ThemeTextStyle.regularIBM20sp,
+        style: AppTextStyle.regularIBM20sp,
       ),
       leading: Icon(
         Icons.thermostat_outlined,
@@ -48,15 +55,15 @@ class OtherFindingsTile extends StatelessWidget {
             Text(
               Languages.of(context)!
                   .translate('results.vibration.section-score'),
-              style: ThemeTextStyle.resultsLabelsStyle,
+              style: AppTextStyle.resultsLabelsStyle,
             ),
             Text(
               otherScore.toString(),
-              style: ThemeTextStyle.headline24sp,
+              style: AppTextStyle.headline24sp,
             ),
             verticalSpacing(16),
             Text(Languages.of(context)!.translate('results.other.motor'),
-                style: ThemeTextStyle.resultSectionLabelStyle),
+                style: AppTextStyle.resultSectionLabelStyle),
             verticalSpacing(16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -72,7 +79,7 @@ class OtherFindingsTile extends StatelessWidget {
             ),
             verticalSpacing(24),
             Text(Languages.of(context)!.translate('results.other.symptoms'),
-                style: ThemeTextStyle.resultSectionLabelStyle),
+                style: AppTextStyle.resultSectionLabelStyle),
             verticalSpacing(16),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

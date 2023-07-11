@@ -1,5 +1,5 @@
 {
-    "app-title": "Neuropati App",
+    "app-title": "Neuropati Evaluering",
     "common":
     {
         "start": "Start",
@@ -32,6 +32,11 @@
         "welcome": "Velkommen!",
         "no-completed": "Du har ingen færdiggjorte eksaminationer endnu.",
         "tap-to-start": "Tryk her for at begynde"
+    },
+    "home-page" :
+    {
+        "score": "Score",
+        "message": "Her ses dine gennemførte eksaminationer. Tryk på en for at se detaljerede resultater."
     },
     "begin-examination":
     {

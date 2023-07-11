@@ -5,13 +5,10 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:neuropathy_grading_tool/main.dart';
-import 'package:neuropathy_grading_tool/survey/vibration_part.dart';
+import 'package:neuropathy_grading_tool/examination/sections/vibration_part.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/toggle_button.dart';
 
 import 'context_inj.dart';

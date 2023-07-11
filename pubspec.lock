@@ -73,14 +73,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
-  avatar_glow:
-    dependency: "direct main"
-    description:
-      name: avatar_glow
-      sha256: "3627f6f97d1f10d3c1996ae108d3488eabaf68c0cf0c3eac7e7c746a3812881d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.2"
   basic_utils:
     dependency: "direct main"
     description:
@@ -241,14 +233,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.1"
-  country_codes:
-    dependency: "direct main"
-    description:
-      name: country_codes
-      sha256: d6d1a9c3c12577b24eb7f6160768b06a9d8fd3f73ad6b24dcc5b7e0ac4910056
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.2.0"
   crypto:
     dependency: transitive
     description:
@@ -565,6 +549,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  loading_indicator:
+    dependency: "direct main"
+    description:
+      name: loading_indicator
+      sha256: a101ffb2aa3e646137d7810bfa90b50525dd3f72c01235b6df7491cf6af6f284
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.1"
   logging:
     dependency: transitive
     description:

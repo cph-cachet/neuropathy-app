@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ThemeTextStyle {
+/// A class that holds the text styles for the app.
+class AppTextStyle {
   static TextStyle header1 = GoogleFonts.workSans(
       fontSize: 34,
       fontWeight: FontWeight.bold,

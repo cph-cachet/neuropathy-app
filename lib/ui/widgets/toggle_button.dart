@@ -3,6 +3,13 @@ import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
 
+/// A [ToggleButtons] widget that allows user to select an answer in a form of a split vertical button.
+///
+/// It sends the selected choice back to the parent widget with the [onPressed] callback.
+/// Even though [ToggleButton] allows only one selection, the callback returns a list of [RPChoice]s,
+/// so it can be immiediately passed as step result, following the research package convention.
+/// The [RPChoiceAnswerFormat] is used to display the options.
+/// Inital state is no selection, and after selecting one option, it cannot be brought back to no selection.
 class ToggleButton extends StatefulWidget {
   final Function onPressed;
   final RPChoiceAnswerFormat answerFormat;
@@ -15,12 +22,16 @@ class ToggleButton extends StatefulWidget {
 }
 
 class ToggleButtonState extends State<ToggleButton> {
+  /// List of booleans that represent the selected state of each button, required for [ToggleButtons] widget.
   late List<bool> isSelected;
+
+  /// List of selected choices, for the [onPressed] callback.
   late List<RPChoice> selectedChoices;
 
   @override
   void initState() {
     super.initState();
+    // Initialize the list of booleans with false values, no option selected.
     isSelected =
         List.generate(widget.answerFormat.choices.length, (index) => false);
     selectedChoices = [];
@@ -36,6 +47,7 @@ class ToggleButtonState extends State<ToggleButton> {
       }
     });
 
+    // Only one choice allowed, no unchecking
     setState(() {
       selectedChoices = [];
       selectedChoices.add(selected);
@@ -65,7 +77,7 @@ class ToggleButtonState extends State<ToggleButton> {
         children: widget.answerFormat.choices
             .map((e) => Text(
                   Languages.of(context)!.translate(e.text).toUpperCase(),
-                  style: ThemeTextStyle.toggleButtonStyle,
+                  style: AppTextStyle.toggleButtonStyle,
                 ))
             .toList());
   }

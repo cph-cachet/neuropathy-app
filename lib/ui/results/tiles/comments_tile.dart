@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
-import 'package:neuropathy_grading_tool/ui/widgets/neuropathy_icons.dart';
+import 'package:neuropathy_grading_tool/utils/neuropathy_icons.dart';
 
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 
+/// An [ExpansionTile] widget that displays the users comments of the results.
 class CommentsExpansionTile extends StatelessWidget {
   final String text;
 
@@ -14,7 +15,7 @@ class CommentsExpansionTile extends StatelessWidget {
     return ExpansionTile(
         title: Text(
           Languages.of(context)!.translate('results.comments.title'),
-          style: ThemeTextStyle.regularIBM20sp,
+          style: AppTextStyle.regularIBM20sp,
         ),
         leading: Icon(
           NeuropathyIcons.ant_design_comment_outlined,
@@ -26,7 +27,7 @@ class CommentsExpansionTile extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               text,
-              style: ThemeTextStyle.regularIBM16sp,
+              style: AppTextStyle.regularIBM16sp,
             ),
           )
         ]);

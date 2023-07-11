@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:neuropathy_grading_tool/examination_page.dart';
+import 'package:neuropathy_grading_tool/ui/examination/examination_page.dart';
 
+/// A floating action button that navigates to the [ExaminationPage], with a slide transition.
 class AddExaminationButton extends StatelessWidget {
   const AddExaminationButton({super.key});
 

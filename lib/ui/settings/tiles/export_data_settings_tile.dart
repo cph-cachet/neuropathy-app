@@ -6,6 +6,8 @@ import 'package:research_package/research_package.dart';
 import 'package:settings_ui/settings_ui.dart';
 import 'package:to_csv/to_csv.dart' as export_csv;
 
+/// A settings tile for exporting the examination data to a CSV file.
+/// Exports all examinations to user's device.
 class ExportDataSettingTile extends AbstractSettingsTile {
   const ExportDataSettingTile(this._results, this._patient, {super.key});
   final List<RPTaskResult> _results;

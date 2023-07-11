@@ -3,9 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:vibration/vibration.dart';
 
 import 'package:neuropathy_grading_tool/languages.dart';
-import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/styles.dart';
 
+/// A button that vibrates the device for a specified duration.
+/// It can be stopped by pressing the button again or navigating away from the page.
+///
+/// Some devices have different limits on how long the vibration can be, so the duration can be specified in the constructor.
+/// The default duration is 15 seconds, and it can be changed with the [countDown] parameter.
+/// In the application the user can change the duration in the settings.
 class VibrationButton extends StatefulWidget {
   final int vibDuration;
   final int countDown;
@@ -18,6 +24,8 @@ class VibrationButton extends StatefulWidget {
 }
 
 class VibrationButtonState extends State<VibrationButton> {
+  // Prevent changing state after widget is disposed
+  // This would happen if future is not completed before navigating away from the page.
   @override
   void setState(fn) {
     if (mounted) {
@@ -25,6 +33,7 @@ class VibrationButtonState extends State<VibrationButton> {
     }
   }
 
+  // Cancel vibration on dispose
   @override
   void dispose() {
     Vibration.cancel();
@@ -32,6 +41,10 @@ class VibrationButtonState extends State<VibrationButton> {
   }
 
   bool _isVibrating = false;
+
+  // Operation that changes the [_isVibrating] state after the vibration completes.
+  // Since the device vibration can be cancelled before it completes, this operation should be cancelable
+  // before the countdown reaches 0, because it would trigger when i.e. next vibration is going.
   CancelableOperation? _futureStopVibrating;
 
   Future<bool?> _fullTimeVibrated() async {
@@ -41,6 +54,9 @@ class VibrationButtonState extends State<VibrationButton> {
     return true;
   }
 
+  /// Start the vibration and set the [_isVibrating] state to true.
+  /// The vibration will last for the specified duration.
+  /// After vibration completes, the [_isVibrating] state will be set to false.
   void _vibrate() async {
     setState(() {
       _isVibrating = true;
@@ -48,6 +64,7 @@ class VibrationButtonState extends State<VibrationButton> {
     _futureStopVibrating = CancelableOperation.fromFuture(_fullTimeVibrated(),
         onCancel: () => false);
     Vibration.vibrate(duration: widget.vibDuration, amplitude: 255);
+    // Wait for the vibration to complete and set the [_isVibrating] state to false only if the vibration was not cancelled.
     final vibratedMaxTime = await _futureStopVibrating?.value;
     if (vibratedMaxTime == true) {
       setState(() {
@@ -56,6 +73,7 @@ class VibrationButtonState extends State<VibrationButton> {
     }
   }
 
+  /// Cancel the vibration and set the [_isVibrating] state to false.
   void _vibrateStop() {
     _futureStopVibrating?.cancel();
     Vibration.cancel();

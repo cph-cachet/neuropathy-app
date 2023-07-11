@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/languages.dart';
 import 'package:neuropathy_grading_tool/utils/calculate_score.dart';
 import 'package:neuropathy_grading_tool/repositories/settings_repository/patient.dart';
-import 'package:neuropathy_grading_tool/survey/free_text_part.dart';
-import 'package:neuropathy_grading_tool/survey/step_identifiers.dart';
+import 'package:neuropathy_grading_tool/examination/sections/free_text_part.dart';
+import 'package:neuropathy_grading_tool/examination/step_identifiers.dart';
 import 'package:neuropathy_grading_tool/ui/results/tiles/comments_tile.dart';
 import 'package:neuropathy_grading_tool/ui/results/tiles/other_tile.dart';
 import 'package:neuropathy_grading_tool/ui/results/tiles/pain_tile.dart';
@@ -11,12 +11,19 @@ import 'package:neuropathy_grading_tool/ui/results/tiles/pin_prick_tile.dart';
 import 'package:neuropathy_grading_tool/ui/results/tiles/vibration_tile.dart';
 import 'package:neuropathy_grading_tool/ui/widgets/download_examination_icon.dart';
 
-import 'package:neuropathy_grading_tool/ui/widgets/neuropathy_icons.dart';
-import 'package:neuropathy_grading_tool/utils/date_formatter.dart';
-import 'package:neuropathy_grading_tool/utils/spacing.dart';
+import 'package:neuropathy_grading_tool/utils/neuropathy_icons.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/date_formatter.dart';
+import 'package:neuropathy_grading_tool/ui/widgets/spacing.dart';
 import 'package:neuropathy_grading_tool/utils/themes/text_styles.dart';
 import 'package:research_package/research_package.dart';
 
+/// Detailed results display page for a single [task] at a time.
+///
+/// The [AppBar] contains a download and close actions.
+/// Date and examination score are displayed as tiles.
+/// Every section has an [ExpansionTile] that contains its results.
+/// Multiple tiles can be open at the same time.
+/// All of the elements are displayed as a ```Column``` wrapped in ```SingleChildScrollView```
 class DetailedResultPage extends StatelessWidget {
   const DetailedResultPage(
       {Key? key, required this.result, required this.patient})
@@ -30,7 +37,7 @@ class DetailedResultPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
             Languages.of(context)!.translate('results.title').toUpperCase(),
-            style: ThemeTextStyle.extraLightIBM16sp.copyWith(
+            style: AppTextStyle.extraLightIBM16sp.copyWith(
                 color: Theme.of(context).colorScheme.primary,
                 fontWeight: FontWeight.bold)),
         backgroundColor: Colors.transparent,
@@ -47,12 +54,12 @@ class DetailedResultPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             ListTile(
-                title: DateFormatter(
+                title: FormattedDateText(
                     dateTime: result.startDate!,
-                    style: ThemeTextStyle.regularIBM20sp),
+                    style: AppTextStyle.regularIBM20sp),
                 subtitle: Text(
                   Languages.of(context)!.translate('results.date'),
-                  style: ThemeTextStyle.extraLightIBM16sp,
+                  style: AppTextStyle.extraLightIBM16sp,
                 ),
                 leading: Icon(
                   NeuropathyIcons.carbon_result,
@@ -64,16 +71,16 @@ class DetailedResultPage extends StatelessWidget {
                   text: TextSpan(children: [
                     TextSpan(
                         text: calculateScore(result).toString(),
-                        style: ThemeTextStyle.regularIBM20sp),
+                        style: AppTextStyle.regularIBM20sp),
                     TextSpan(
                         text:
                             ' (${Languages.of(context)!.translate('results.out-of')} 44)',
-                        style: ThemeTextStyle.extraLightIBM16sp)
+                        style: AppTextStyle.extraLightIBM16sp)
                   ]),
                 ),
                 subtitle: Text(
                   Languages.of(context)!.translate('results.score'),
-                  style: ThemeTextStyle.extraLightIBM16sp,
+                  style: AppTextStyle.extraLightIBM16sp,
                 ),
                 leading: Icon(
                   NeuropathyIcons.maki_doctor,

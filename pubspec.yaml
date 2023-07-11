@@ -54,9 +54,7 @@ dependencies:
   path_provider: ^2.0.15
   build_runner: ^2.4.4
   json_serializable: ^6.7.0
-  avatar_glow: ^2.0.2
   settings_ui: ^2.0.2
-  country_codes: ^2.2.0
   to_csv: ^1.1.2
   basic_utils: ^5.5.4
   flag: ^6.0.0
@@ -64,6 +62,7 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   animated_toggle_switch: ^0.6.2
   input_quantity: ^1.2.1
+  loading_indicator: ^3.1.1
 
 dev_dependencies:
   flutter_test:
