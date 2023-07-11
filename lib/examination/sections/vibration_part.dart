@@ -47,7 +47,7 @@ List<RPStep> vibrationStepList = VibrationStrings.values
     .toList();
 
 /// List of [RPChoice] objects that represent the yes/no choices in the vibration section.
-/// The value of the choice is 0 for yes and 1 for no.
+/// [value] decides how many points each option adds to the total score.
 List<RPChoice> vibrationYesNoChoiceList = [
   RPChoice(text: 'common.yes', value: 0),
   RPChoice(text: 'common.no', value: 1)

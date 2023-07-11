@@ -1,5 +1,5 @@
 {
-    "app-title": "dk Neuropathy Grading Tool",
+    "app-title": "Neuropati Evaluering",
     "common":
     {
         "start": "Start",
@@ -35,8 +35,8 @@
     },
     "home-page" :
     {
-        "score": "dk Score",
-        "message": "dk These are your completed examinations, tap one for detailed results."
+        "score": "Score",
+        "message": "Her ses dine gennemførte eksaminationer. Tryk på en for at se detaljerede resultater."
     },
     "begin-examination":
     {

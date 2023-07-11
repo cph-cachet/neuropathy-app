@@ -17,7 +17,7 @@ List<RPStep> painStepList = [
 
 //------------------------- common -------------------------
 /// List of [RPChoice] objects that represent the yes/no choices in the pain section.
-/// The value of the choice is 1 for yes and 0 for no.
+/// [value] decides how many points each option adds to the pain score (not total score).
 List<RPChoice> painYesNo = [
   RPChoice(text: 'common.yes', value: 1),
   RPChoice(text: 'common.no', value: 0)
@@ -125,8 +125,8 @@ RPToggleQuestionStep pain4 = RPToggleQuestionStep(
 
 // ------------------------- Helper functions -------------------------
 /// Helper function that creates a list of [RPChoice] objects from a list of strings for the purpose of multiple choice questions.
-/// The value of the choice is 1 if it is selected.
-/// If [addNoneOfAbove] is true, a choice with the text 'common.none-of-the-above' and value 0 is added to the list.
+/// Each selected choice adds [value] points to the pain score (not total score).
+/// If [addNoneOfAbove] is true, a choice with the text 'common.none-of-the-above' and [value] 0 is added to the list.
 List<RPChoice> _choiceFactory(
     {required List<String> text, bool addNoneOfAbove = false}) {
   List<RPChoice> res = text.map((e) => RPChoice(text: e, value: 1)).toList();

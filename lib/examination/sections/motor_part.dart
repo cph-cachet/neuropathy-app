@@ -35,7 +35,7 @@ RPInstructionStepWithChildren motorInstructionStep =
   instructionContent: _motorIntroContent,
 );
 
-/// An answer format for all motor steps.
+/// List of [RPChoice] objects that represent the yes/no choices in the motor section.
 /// [value] decides how many points each option add to the total score
 List<RPChoice> motorYesNo = [
   RPChoice(text: 'common.yes', value: 2),

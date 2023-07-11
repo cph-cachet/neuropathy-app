@@ -2,6 +2,7 @@ import 'package:neuropathy_grading_tool/examination/steps/rp_choice_question_ste
 import 'package:research_package/model.dart';
 
 /// List of [RPChoice] objects that represent the symptoms choices.
+/// [value] decides how many points each option adds to the total score.
 List<RPChoice> _symptomsChoiceList = [
   RPChoice(text: 'symptoms.choice-1', value: 0),
   RPChoice(text: 'symptoms.choice-2', value: 1),
