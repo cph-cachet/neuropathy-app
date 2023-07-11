@@ -73,7 +73,7 @@ RPInstructionStepWithChildren prickInstructionStep =
 );
 
 /// List of [RPChoice] objects that represent the yes/no choices in the pin-prick section.
-/// The value of the choice is 1 for yes and 0 for no.
+/// [value] decides how many points each option add to the total score.
 List<RPChoice> pinPrickYesNo = [
   RPChoice(text: "common.yes", value: 1),
   RPChoice(text: 'common.no', value: 0)
