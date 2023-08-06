@@ -50,17 +50,12 @@ class ChoiceSelectorState extends State<ChoiceSelector> {
         setState(() {
           selectedChoices.remove(selectedChoice);
         });
-      } else if (selectedChoice.text == 'common.none-of-the-above') {
-        if (selectedChoices.contains(selectedChoice)) {
-          setState(() {
-            selectedChoices.remove(selectedChoice);
-          });
-        } else {
-          setState(() {
-            selectedChoices = [];
-            selectedChoices.add(selectedChoice);
-          });
-        }
+      } else if (selectedChoice.text == 'common.none-of-the-above' &&
+          !selectedChoices.contains(selectedChoice)) {
+        setState(() {
+          selectedChoices = [];
+          selectedChoices.add(selectedChoice);
+        });
       } else {
         setState(() {
           selectedChoices.removeWhere(
