@@ -67,13 +67,9 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
   }
 
   List<Widget> makeTextContent() {
-    TextStyle textStyle = widget.step.identifier.contains('prick')
-        ? AppTextStyle.regularIBM18sp
-        : AppTextStyle.headline24sp;
-
     return widget.step.textContent
         .map((s) => Text(Languages.of(context)!.translate(s),
-            style: textStyle, textAlign: TextAlign.center))
+            style: AppTextStyle.regularIBM18sp, textAlign: TextAlign.center))
         .toList();
   }
 
