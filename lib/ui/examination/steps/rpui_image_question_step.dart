@@ -66,13 +66,6 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
     }
   }
 
-  List<Widget> makeTextContent() {
-    return widget.step.textContent
-        .map((s) => Text(Languages.of(context)!.translate(s),
-            style: AppTextStyle.regularIBM18sp, textAlign: TextAlign.center))
-        .toList();
-  }
-
   List<Widget> makeBottomSheetTextContent() {
     List<Widget> content = [];
 
@@ -91,6 +84,11 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
 
   @override
   Widget build(BuildContext context) {
+    List<Text> textContent = widget.step.textContent
+        .map((s) => Text(Languages.of(context)!.translate(s),
+            style: AppTextStyle.regularIBM18sp, textAlign: TextAlign.center))
+        .toList();
+
     return SafeArea(
         child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -111,7 +109,7 @@ class RPUIImageQuestionStepState extends State<RPUIImageQuestionStep>
           ],
         ),
         // Text
-        ...makeTextContent(),
+        ...textContent,
         BottomSheetButton(
             icon: const Icon(
               Icons.help_outline_rounded,
