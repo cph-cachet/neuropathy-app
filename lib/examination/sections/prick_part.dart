@@ -1,27 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/examination/steps/rp_image_question_step.dart';
 import 'package:neuropathy_grading_tool/examination/steps/rp_instruction_step.dart';
 import 'package:neuropathy_grading_tool/examination/steps/rp_toggle_question_step.dart';
 import 'package:research_package/research_package.dart';
-
-/// Title of the prick instruction step
-const String _prickInstructionTitle = 'prick-info.title';
-
-/// List of Text widgets making up the content of prick instruction step.
-const List<Widget> _prickInstructionContent = [
-  Text(
-    'prick-info.text-1',
-    textAlign: TextAlign.center,
-  ),
-  Text(
-    'prick-info.text-2',
-    textAlign: TextAlign.center,
-  ),
-  Text(
-    'prick-info.text-3',
-    textAlign: TextAlign.center,
-  ),
-];
 
 // Strings common across the pin prick section.
 const String _leftLegTitle = 'common.left-leg';
@@ -68,8 +48,12 @@ const List<String> _hyperaesthesiaQuestion = ['hypersensitivity.text'];
 RPInstructionStepWithChildren prickInstructionStep =
     RPInstructionStepWithChildren(
   identifier: 'prickInstructionID',
-  title: _prickInstructionTitle,
-  instructionContent: _prickInstructionContent,
+  title: 'prick-info.title',
+  textContent: [
+    'prick-info.text-1',
+    'prick-info.text-2',
+    'prick-info.text-3',
+  ],
 );
 
 /// List of [RPChoice] objects that represent the yes/no choices in the pin-prick section.

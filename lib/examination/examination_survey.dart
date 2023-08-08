@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:neuropathy_grading_tool/examination/steps/rp_instruction_step.dart';
 import 'package:neuropathy_grading_tool/examination/sections/pain_questionaire_part.dart';
 import 'package:neuropathy_grading_tool/examination/sections/symptoms_part.dart';
@@ -14,11 +13,11 @@ import 'package:research_package/model.dart';
 RPInstructionStepWithChildren introductionStep = RPInstructionStepWithChildren(
   identifier: 'InstructionID',
   title: 'begin-examination.title',
-  instructionContent: [
-    const Text('begin-examination.text-1', textAlign: TextAlign.center),
-    const Text('begin-examination.text-2', textAlign: TextAlign.center),
-    const Text('begin-examination.text-3', textAlign: TextAlign.center),
-    const Text('begin-examination.text-4', textAlign: TextAlign.center)
+  textContent: [
+    'begin-examination.text-1',
+    'begin-examination.text-2',
+    'begin-examination.text-3',
+    'begin-examination.text-4',
   ],
 );
 
