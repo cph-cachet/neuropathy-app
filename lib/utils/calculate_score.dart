@@ -6,6 +6,7 @@ import 'package:neuropathy_grading_tool/examination/step_identifiers.dart';
 /// Only takes into account the [RPStepResult]s with identifiers in [gradingTaskIdentifiers].
 /// The list of results is filtered to only contain graded results, then folded.
 /// As each of the graded results has only one answer, a single fold is enough.
+/// However, if there were any results with multiple answers, the calculation still supports it.
 int calculateScore(RPTaskResult result) {
   List<RPStepResult> stepResults = result.results.values
       .where((element) => gradingTaskIdentifiers.contains(element.identifier))
