@@ -8,10 +8,10 @@ import 'package:research_package/research_package.dart';
 /// It is represented by [RPUIInstructionStepWithChildren], displaying a column of title and children, where children are passed as a list of [Widget]s.
 @JsonSerializable(fieldRename: FieldRename.snake, includeIfNull: false)
 class RPInstructionStepWithChildren extends RPInstructionStep {
-  late final List<Widget> instructionContent;
+  late final List<String> textContent;
 
   RPInstructionStepWithChildren({
-    required this.instructionContent,
+    required this.textContent,
     required super.identifier,
     super.title = '',
     super.text = '',

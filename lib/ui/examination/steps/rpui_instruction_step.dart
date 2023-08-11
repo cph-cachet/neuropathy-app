@@ -13,12 +13,12 @@ class RPUIInstructionStepWithChildren extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     blocQuestion.sendReadyToProceed(true);
-    List<Widget> children = step.instructionContent
-        .map((e) => e is Text
-            ? Text(Languages.of(context)!.translate(e.data.toString()),
-                style: e.style, textAlign: e.textAlign)
-            : e)
+
+    List<Text> children = step.textContent
+        .map((s) => Text(Languages.of(context)!.translate(s),
+            textAlign: TextAlign.center))
         .toList();
+
     return Material(
       textStyle: AppTextStyle.headline24sp,
       child: Padding(

@@ -1,19 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/examination/steps/rp_image_question_step.dart';
 import 'package:neuropathy_grading_tool/examination/steps/rp_instruction_step.dart';
 import 'package:research_package/research_package.dart';
-
-const String _motorIntroductionTitle = 'motor-info.title';
-const List<Widget> _motorIntroContent = [
-  Text(
-    'motor-info.text-1',
-    textAlign: TextAlign.center,
-  ),
-  Text(
-    'motor-info.text-2',
-    textAlign: TextAlign.center,
-  ),
-];
 
 const String _leftLegTitle = 'common.left-leg';
 const String _rightLegTitle = 'common.right-leg';
@@ -31,8 +18,11 @@ const List<String> _bottomSheetTextContent = [
 RPInstructionStepWithChildren motorInstructionStep =
     RPInstructionStepWithChildren(
   identifier: 'motorInstructionID',
-  title: _motorIntroductionTitle,
-  instructionContent: _motorIntroContent,
+  title: 'motor-info.title',
+  textContent: [
+    'motor-info.text-1',
+    'motor-info.text-2',
+  ],
 );
 
 /// List of [RPChoice] objects that represent the yes/no choices in the motor section.

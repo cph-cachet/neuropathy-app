@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:neuropathy_grading_tool/examination/steps/rp_instruction_step.dart';
 import 'package:neuropathy_grading_tool/examination/steps/rp_vibration_step.dart';
 import 'package:research_package/research_package.dart';
@@ -15,23 +14,11 @@ RPInstructionStepWithChildren vibrationInstructionStep =
     RPInstructionStepWithChildren(
         identifier: 'vibrationInstructionID',
         title: 'vibration-info.title',
-        instructionContent: [
-      const Text(
-        'vibration-info.text-1',
-        textAlign: TextAlign.center,
-      ),
-      const Text(
-        'vibration-info.text-2',
-        textAlign: TextAlign.center,
-      ),
-      const Text(
-        'vibration-info.text-3',
-        textAlign: TextAlign.center,
-      ),
-      const Text(
-        'vibration-info.text-4',
-        textAlign: TextAlign.center,
-      ),
+        textContent: [
+      'vibration-info.text-1',
+      'vibration-info.text-2',
+      'vibration-info.text-3',
+      'vibration-info.text-4',
     ]);
 
 /// List of [RPStep] objects that represent the vibration section.
