@@ -160,7 +160,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   const LanguagesSettingsTile(),
                   ExportDataSettingTile(_results, _patient ?? Patient()),
                   ResetDatabaseSettingsTile(
-                    onShouldReload: _shouldReload,
+                    onShouldReload: () {
+                      _shouldReload();
+                      _setPatient(Patient());
+                      _loadResults();
+                    },
                   ),
                   VibrationDurationSettingsTile(
                     initialVibDuration: vibrationDuration,
